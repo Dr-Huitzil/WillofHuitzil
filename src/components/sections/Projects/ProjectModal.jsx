@@ -37,7 +37,7 @@ const ProjectModal = ({ project, onClose }) => {
         {project.date && <p className={`mono-accent ${styles.projectDate}`}>{project.date}</p>}
       </div>
 
-      <div className={styles.projectDescription}>
+      <div className={`${styles.projectDescription} ${styles.mobileHideDescription}`}>
         <p>{project.description}</p>
       </div>
 
