@@ -5,6 +5,7 @@ import Navbar from './components/layout/Navbar/Navbar';
 import Hero from './components/sections/Hero/Hero';
 import Projects from './components/sections/Projects/Projects';
 import Timeline from './components/sections/Timeline/Timeline';
+import Contact from './components/sections/Contact/Contact';
 import Footer from './components/layout/Footer/Footer';
 
 // Import the centralized data
@@ -26,6 +27,7 @@ function App() {
             proficiencies={portfolioData.proficiencies} 
             publications={portfolioData.publications}
           />
+          <Contact links={portfolioData.profile.links} />
         </main>
       </div>
       <Footer />

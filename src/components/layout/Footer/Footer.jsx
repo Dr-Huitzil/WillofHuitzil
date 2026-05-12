@@ -1,5 +1,5 @@
 import React from 'react';
-import { Leaf, GitBranch, Briefcase, FileText, Mail } from 'lucide-react';
+import { Leaf } from 'lucide-react';
 import styles from './Footer.module.css';
 
 const Footer = () => {
@@ -15,22 +15,8 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className={`${styles.footerCenter} mono-accent`}>
-        <a href="https://github.com/ivan-alier-reyes" target="_blank" rel="noreferrer">
-          <GitBranch size={14} /> GITHUB
-        </a>
-        <a href="https://linkedin.com" target="_blank" rel="noreferrer">
-          <Briefcase size={14} /> LINKEDIN
-        </a>
-        <a href="#resume">
-          <FileText size={14} /> RESUME
-        </a>
-        <a href="mailto:ialierreyes@gmail.com">
-          <Mail size={14} /> MESSAGE
-        </a>
-      </div>
-
       <div className={`${styles.footerRight} mono-accent`}>
+        {/* Placeholder for legal or versioning text if needed */}
       </div>
     </footer>
   );
