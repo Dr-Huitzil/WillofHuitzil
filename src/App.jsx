@@ -24,6 +24,7 @@ function App() {
             certifications={portfolioData.certifications}
             education={portfolioData.education}
             proficiencies={portfolioData.proficiencies} 
+            publications={portfolioData.publications}
           />
         </main>
       </div>

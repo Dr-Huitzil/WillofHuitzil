@@ -5,7 +5,7 @@ import ProficiencyPill from '../../ui/ProficiencyPill/ProficiencyPill';
 import ImageModal from '../../ui/ImageModal/ImageModal';
 import styles from './Timeline.module.css';
 
-const Timeline = ({ experience = [], certifications = [], education = [], proficiencies = [] }) => {
+const Timeline = ({ experience = [], certifications = [], education = [], proficiencies = [], publications = [] }) => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   const openImageModal = (item) => {
@@ -64,6 +64,21 @@ const Timeline = ({ experience = [], certifications = [], education = [], profic
                   subtitle={cert.subtitle}
                   iconName={cert.icon}
                   onClick={() => openImageModal(cert)}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className={styles.glassCard}>
+            <h4 className={`mono-accent ${styles.cardTitle}`}>PUBLICATIONS</h4>
+            <div className={styles.qualList}>
+              {publications.map((pub) => (
+                <QualificationItem 
+                  key={pub.id}
+                  title={pub.title}
+                  subtitle={pub.journal}
+                  iconName={pub.icon}
+                  onClick={() => pub.url && window.open(pub.url, '_blank')}
                 />
               ))}
             </div>

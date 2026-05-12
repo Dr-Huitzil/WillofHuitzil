@@ -100,5 +100,15 @@ export const portfolioData = {
     "Kubernetes",
     "Go",
     "Python"
+  ],
+  publications: [
+    {
+      id: 1,
+      title: "Resilient Microgrid Infrastructure in Mesoamerican Ecosystems",
+      journal: "Tech-Bio Journal of Sustainable Systems",
+      date: "2024",
+      url: "https://example.com/publication",
+      icon: "FileText"
+    }
   ]
 };
