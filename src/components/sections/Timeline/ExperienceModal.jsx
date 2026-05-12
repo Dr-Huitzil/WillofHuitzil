@@ -25,54 +25,27 @@ const ExperienceModal = ({ experience, onClose }) => {
     });
   };
 
-  const experienceSummary = (
-    <div className={styles.experienceSummary}>
-      <div className={styles.modalHeader}>
-        <div className={styles.iconBox}>
-          <Briefcase size={30} color="var(--accent-teal-bright)" />
-        </div>
-        <div className={styles.headerInfo}>
-          <h2 className={`serif-header ${styles.role}`}>{experience.role}</h2>
-          <div className={`mono-accent ${styles.company}`}>{experience.company}</div>
-        </div>
-      </div>
+const ExperienceModal = ({ experience, onClose }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
 
-      <div className={styles.metaRow}>
-        <div className={`mono-accent ${styles.metaItem}`}>
-          <Calendar size={14} /> {experience.period}
-        </div>
-        <div className={`mono-accent ${styles.metaItem}`}>
-          <MapPin size={14} /> REMOTE // ON-SITE
-        </div>
-      </div>
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, []);
 
-      <div className={styles.modalContent}>
-        <h4 className={`mono-accent ${styles.contentTitle}`}>MISSION_OBJECTIVES</h4>
-        <ul className={styles.detailsList}>
-          {experience.details?.map((detail, index) => (
-            <li key={index} className={styles.detailItem}>
-              <span className={styles.bullet}>&gt;</span>
-              {detail}
-            </li>
-          ))}
-        </ul>
-      </div>
+  if (!experience) return null;
 
-      {experience.longDescription && (
-        <button 
-          className={`${styles.expandBtn} mono-accent`} 
-          onClick={() => setIsExpanded(!isExpanded)}
-        >
-          {isExpanded ? 'LESS INFO' : 'MORE INFO'} 
-          {isExpanded ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
-        </button>
-      )}
-
-      <div className={`${styles.modalFooter} mono-accent`}>
-        EXP_LOG_ID: {experience.id * 1234} // ACCESS_LEVEL: SENIOR
-      </div>
-    </div>
-  );
+  const renderLongDescription = (text) => {
+    if (!text) return null;
+    return text.split('\n').map((line, i) => {
+      if (line.startsWith('### ')) {
+        return <h3 key={i}>{line.replace('### ', '')}</h3>;
+      }
+      return <p key={i}>{line}</p>;
+    });
+  };
 
   return createPortal(
     <div className={styles.modalBackdrop} onClick={onClose}>
@@ -85,15 +58,61 @@ const ExperienceModal = ({ experience, onClose }) => {
         </button>
 
         <div className={styles.modalContentWrapper}>
+          {/* LEFT SIDEBAR: Metadata */}
           <div className={styles.modalLeft}>
-            <div className={styles.modalImage}></div>
-            {isExpanded && experienceSummary}
+            <div className={styles.sidebarMeta}>
+              <div className={styles.iconBox}>
+                <Briefcase size={28} color="var(--accent-teal-bright)" />
+              </div>
+              
+              <div className={styles.mainMeta}>
+                <h2 className={`serif-header ${styles.role}`}>{experience.role}</h2>
+                <div className={`mono-accent ${styles.company}`}>{experience.company}</div>
+              </div>
+
+              <div className={styles.subMeta}>
+                <div className={`mono-accent ${styles.metaItem}`}>
+                  <Calendar size={14} /> {experience.period}
+                </div>
+                <div className={`mono-accent ${styles.metaItem}`}>
+                  <MapPin size={14} /> REMOTE // ON-SITE
+                </div>
+              </div>
+
+              {experience.longDescription && (
+                <button 
+                  className={`${styles.expandBtn} mono-accent`} 
+                  onClick={() => setIsExpanded(!isExpanded)}
+                >
+                  {isExpanded ? 'LESS_INFO' : 'DEEP_ANALYSIS'} 
+                  {isExpanded ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
+                </button>
+              )}
+            </div>
+
+            <div className={`${styles.modalFooter} mono-accent`}>
+              EXP_LOG_ID: {experience.id * 1234} <br/>
+              ACCESS_LEVEL: SENIOR
+            </div>
           </div>
 
+          {/* RIGHT PANEL: Content */}
           <div className={styles.modalRight}>
-            {!isExpanded ? experienceSummary : (
+            <div className={styles.contentSection}>
+              <h4 className={`mono-accent ${styles.contentTitle}`}>MISSION_OBJECTIVES</h4>
+              <ul className={styles.detailsList}>
+                {experience.details?.map((detail, index) => (
+                  <li key={index} className={styles.detailItem}>
+                    <span className={styles.bullet}>&gt;</span>
+                    {detail}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {isExpanded && experience.longDescription && (
               <div className={styles.expandedInfoSection}>
-                <h3 className={`serif-header ${styles.expandedTitle}`}>Technical<br/>Brief</h3>
+                <h4 className={`mono-accent ${styles.contentTitle}`}>TECHNICAL_BRIEF</h4>
                 <div className={styles.longDescription}>
                   {renderLongDescription(experience.longDescription)}
                 </div>
