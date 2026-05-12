@@ -23,7 +23,7 @@ export const portfolioData = {
   projects: [
     {
       id: 1,
-      title: "Este Cosmos",
+      title: "Este Cosmos (Web)",
       tags: ["React", "Vite", "Edge Impulse", "Machine Learning"],
       description: "A financial and diagnostic application designed to automate vehicle telemetry tracking and calculate net fiscal position utilizing machine learning models.",
       longDescription: esteCosmosDetails,
