@@ -1,111 +1,109 @@
+/* src/index.css */
+
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  /* --- Core Palette --- */
+  --bg-deep: #0e160f;          /* Dense forest floor background */
+  --bg-deep-gradient: radial-gradient(circle at 50% 50%, #152217 0%, #0e160f 100%);
+  --bg-card: rgba(10, 22, 15, 0.45); /* Translucent dark greenhouse glass */
+  --text-serif-cream: #f4ebd0; /* Vintage Serif font color (Name, Section Headers) */
+  --text-sans-slate: #d1d5db; /* Readable Sans-Serif font color (Body, descriptions) */
+  --accent-teal-bright: #40e0d0; /* Holographic cyan/teal accent (Tags, Nodes, Links) */
+  --accent-teal-dim: rgba(64, 224, 208, 0.2); /* Muted teal for borders and backgrounds */
+  --accent-cream-dim: rgba(244, 235, 208, 0.3); /* Muted cream for borders */
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+  /* --- Advanced Effects --- */
+  --glow-teal-soft: 0 12px 30px rgba(64, 224, 208, 0.1), inset 0 0 15px rgba(64, 224, 208, 0.05);
+  --glow-text-cream: 0 0 15px rgba(244, 235, 208, 0.4), 0 0 30px rgba(244, 235, 208, 0.2);
+  --border-glass: 1px solid var(--accent-cream-dim);
+  --transition-smooth: all 0.3s ease;
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+  /* --- Geometry (The Chamfer) --- */
+  --clip-chamfer: polygon(
+    20px 0%, 100% 0%, 
+    100% calc(100% - 20px), calc(100% - 20px) 100%, 
+    0% 100%, 0% 20px
+  );
+  --clip-chamfer-small: polygon(
+    10px 0%, 100% 0%, 
+    100% calc(100% - 10px), calc(100% - 10px) 100%, 
+    0% 100%, 0% 10px
+  );
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-}
-
+/* Base Styles */
 body {
   margin: 0;
+  padding: 0;
+  background-color: var(--bg-deep);
+  background-image: 
+    var(--bg-deep-gradient),
+    /* Subtle texture / noise via a faint data URI or CSS pattern */
+    radial-gradient(rgba(255,255,255,0.01) 1px, transparent 1px);
+  background-size: 100% 100%, 20px 20px;
+  background-position: 0 0, 0 0;
+  color: var(--text-sans-slate);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif; 
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
+/* Master Typographic Rules */
+.serif-header {
+  font-family: 'Playfair Display', serif;
+  color: var(--text-serif-cream);
+  letter-spacing: -1px;
+}
+
+.serif-glow {
+  text-shadow: var(--glow-text-cream);
+}
+
+.mono-accent {
+  font-family: 'Fira Code', monospace;
+  color: var(--accent-teal-bright);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Common Components */
+.portfolio-app-root {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 5vw;
   box-sizing: border-box;
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+section {
+  margin-bottom: 120px;
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
-}
-
-code,
-.counter {
-  font-family: var(--mono);
+/* Pills */
+.pill {
   display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+  align-items: center;
+  gap: 8px;
+  padding: 4px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--accent-teal-dim);
+  clip-path: var(--clip-chamfer-small);
+  color: var(--accent-teal-bright);
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+/* Reset Links */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+a:hover {
+  color: var(--accent-teal-bright);
 }

@@ -1,0 +1,141 @@
+/* src/components/Timeline.css */
+
+.section-pill {
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 5rem;
+  line-height: 0.9;
+  margin: 0 0 80px 0;
+}
+
+.timeline-grid {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 80px;
+}
+
+/* Timeline Left Side */
+.timeline-path {
+  position: relative;
+  border-left: 1px solid var(--accent-teal-dim);
+  padding-left: 40px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 60px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -44px; /* Align to the border */
+  top: 6px;
+  width: 8px;
+  height: 8px;
+  background: var(--bg-deep);
+  border: 1px solid var(--accent-teal-bright);
+}
+
+.timeline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.timeline-header h3 {
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.date-pill {
+  font-size: 0.7rem;
+  padding: 4px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-sans-slate);
+}
+
+.company-name {
+  color: var(--accent-teal-bright);
+  margin-bottom: 16px;
+}
+
+.timeline-content p {
+  color: var(--text-sans-slate);
+  line-height: 1.6;
+}
+
+/* Right Side Cards */
+.timeline-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.glass-card {
+  background: var(--bg-card);
+  border: var(--border-glass);
+  clip-path: var(--clip-chamfer);
+  padding: 40px;
+}
+
+.card-title {
+  margin: 0 0 30px 0;
+  letter-spacing: 4px;
+}
+
+.qual-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.qual-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.qual-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--accent-teal-bright);
+}
+
+.qual-text .serif-header {
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+}
+
+.qual-sub {
+  font-size: 0.65rem;
+  color: var(--text-sans-slate);
+}
+
+/* Proficiencies Grid */
+.proficiency-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.prof-pill {
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.7rem;
+  color: var(--text-sans-slate);
+}

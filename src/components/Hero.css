@@ -1,0 +1,58 @@
+/* src/components/Hero.css */
+
+.hero {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-top: 60px;
+}
+
+.hero-content {
+  max-width: 800px;
+}
+
+
+
+.hero-title {
+  font-size: 7rem;
+  line-height: 0.9;
+  margin: 0 0 20px 0;
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  letter-spacing: 0.3em;
+  margin-bottom: 60px;
+}
+
+.hero-descend {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+
+
+.descend-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.descend-links a {
+  color: var(--text-sans-slate);
+  background: var(--bg-card);
+  border: 1px solid var(--accent-teal-dim);
+  padding: 12px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.descend-links a:hover {
+  color: var(--accent-teal-bright);
+  border-color: var(--accent-teal-bright);
+  box-shadow: var(--glow-teal-soft);
+}

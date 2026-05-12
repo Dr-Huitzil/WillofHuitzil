@@ -1,0 +1,37 @@
+/* src/components/ProjectModal.css */
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(14, 22, 15, 0.8);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.project-modal {
+  background: var(--bg-card);
+  border: var(--border-glass);
+  clip-path: var(--clip-chamfer);
+  padding: 40px;
+  max-width: 600px;
+  width: 90%;
+  position: relative;
+  box-shadow: var(--glow-teal-soft);
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  color: var(--accent-teal-bright);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
