@@ -1,10 +1,10 @@
 // src/data/portfolioData.js
 import { esteCosmosDetails } from './projectDetails/esteCosmos';
 import { mindMeltDetails } from './projectDetails/mindMelt';
-import { clinicaDeSaludDetails } from './experienceDetails/clinicaDeSalud';
+import { clinicaDeSaludDetails } from './experienceDetails/clinicaDeSaludDetails';
 import { proActDetails } from './experienceDetails/proActDetails';
-import { mannsFreshDetails } from './experienceDetails/mannsFresh';
-import { starphyreDetails } from './experienceDetails/starphyre';
+import { mannsFreshDetails } from './experienceDetails/mannsFreshDetails';
+import { starphyreDetails } from './experienceDetails/starphyreDetails';
 import { resumePDF } from './resume/IvanAlierReyes_Resume.pdf';
 
 export const portfolioData = {
