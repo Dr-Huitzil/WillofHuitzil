@@ -27,6 +27,27 @@
 .timelineItem {
   position: relative;
   margin-bottom: 60px;
+  cursor: pointer;
+  padding: 10px;
+  transition: var(--transition-smooth);
+}
+
+.timelineItem:hover {
+  background: rgba(64, 224, 208, 0.03);
+  transform: translateX(5px);
+}
+
+.clickHint {
+  font-size: 0.6rem;
+  color: var(--accent-teal-dim);
+  letter-spacing: 2px;
+  margin-top: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.timelineItem:hover .clickHint {
+  opacity: 1;
 }
 
 .timelineItem:last-child {

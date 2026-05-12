@@ -1,0 +1,155 @@
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(14, 22, 15, 0.85);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.experienceModal {
+  background: var(--bg-card);
+  border: var(--border-glass);
+  clip-path: var(--clip-chamfer);
+  width: 90%;
+  max-width: 650px;
+  max-height: 85vh;
+  position: relative;
+  box-shadow: var(--glow-teal-soft);
+  padding: 40px;
+  overflow-y: auto;
+  animation: scaleIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: var(--text-sans-slate);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.closeBtn:hover {
+  color: var(--accent-teal-bright);
+}
+
+.modalHeader {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 25px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 20px;
+}
+
+.iconBox {
+  width: 60px;
+  height: 60px;
+  background: rgba(64, 224, 208, 0.05);
+  border: 1px solid rgba(64, 224, 208, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.role {
+  font-size: 2rem;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.company {
+  color: var(--accent-teal-bright);
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  margin-top: 5px;
+}
+
+.metaRow {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 35px;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  color: var(--text-sans-slate);
+  opacity: 0.8;
+}
+
+.contentTitle {
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  color: var(--accent-teal-dim);
+  margin-bottom: 20px;
+}
+
+.detailsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.detailItem {
+  color: var(--text-sans-slate);
+  line-height: 1.6;
+  font-size: 1rem;
+  display: flex;
+  gap: 15px;
+}
+
+.bullet {
+  color: var(--accent-teal-bright);
+  font-weight: bold;
+}
+
+.modalFooter {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 2px;
+}
+
+@media (max-width: 768px) {
+  .experienceModal {
+    padding: 30px 20px;
+    width: 95%;
+  }
+
+  .role {
+    font-size: 1.5rem;
+  }
+
+  .metaRow {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

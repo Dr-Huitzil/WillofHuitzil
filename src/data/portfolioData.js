@@ -1,6 +1,9 @@
 // src/data/portfolioData.js
 import { esteCosmosDetails } from './projectDetails/esteCosmos';
 import { mindMeltDetails } from './projectDetails/mindMelt';
+import { clinicaDeSaludDetails } from './experienceDetails/clinicaDeSalud';
+import { proActDetails } from './experienceDetails/proAct';
+import { freshDelMonteDetails } from './experienceDetails/freshDelMonte';
 
 export const portfolioData = {
   profile: {
@@ -42,21 +45,24 @@ export const portfolioData = {
       role: "IT Technician",
       company: "Clinica De Salud (CSVS)",
       period: "May 2025 - PRESENT",
-      description: "Installed and configured hardware, software, and network resources for clinical staff, ensuring seamless daily operations."
+      description: "Installed and configured hardware, software, and network resources for clinical staff, ensuring seamless daily operations.",
+      details: clinicaDeSaludDetails
     },
     {
       id: 2,
       role: "IT & Office Support Specialist",
       company: "PRO*ACT",
       period: "Dec 2024 - May 2025",
-      description: "Supported the functionality of an end-to-end fresh produce supply chain management platform, coordinating hardware, software, and network resources to ensure operational continuity."
+      description: "Supported the functionality of an end-to-end fresh produce supply chain management platform, coordinating hardware, software, and network resources to ensure operational continuity.",
+      details: proActDetails
     },
     {
       id: 3,
       role: "IT Desktop Support",
       company: "Fresh Del Monte",
       period: "Aug 2024 - Dec 2024",
-      description: "Provided on-site and remote technical support to end-users, resolving hardware, software, and connectivity issues."
+      description: "Provided on-site and remote technical support to end-users, resolving hardware, software, and connectivity issues.",
+      details: freshDelMonteDetails
     }
   ],
   education: [

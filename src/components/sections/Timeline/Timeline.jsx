@@ -3,10 +3,12 @@ import TimelineItem from './TimelineItem';
 import QualificationItem from './QualificationItem';
 import ProficiencyPill from '../../ui/ProficiencyPill/ProficiencyPill';
 import ImageModal from '../../ui/ImageModal/ImageModal';
+import ExperienceModal from './ExperienceModal';
 import styles from './Timeline.module.css';
 
 const Timeline = ({ experience = [], certifications = [], education = [], proficiencies = [], publications = [] }) => {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedExperience, setSelectedExperience] = useState(null);
 
   const openImageModal = (item) => {
     setSelectedImage({
@@ -32,6 +34,7 @@ const Timeline = ({ experience = [], certifications = [], education = [], profic
               company={item.company}
               period={item.period}
               description={item.description}
+              onClick={() => setSelectedExperience(item)}
             />
           ))}
         </div>
@@ -101,6 +104,13 @@ const Timeline = ({ experience = [], certifications = [], education = [], profic
           imageUrl={selectedImage.url} 
           title={selectedImage.title} 
           onClose={() => setSelectedImage(null)} 
+        />
+      )}
+
+      {selectedExperience && (
+        <ExperienceModal 
+          experience={selectedExperience} 
+          onClose={() => setSelectedExperience(null)} 
         />
       )}
     </section>

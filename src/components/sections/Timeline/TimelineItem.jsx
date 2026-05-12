@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './Timeline.module.css';
 
-const TimelineItem = ({ role, company, period, description }) => {
+const TimelineItem = ({ role, company, period, description, onClick }) => {
   return (
-    <div className={styles.timelineItem}>
+    <div className={styles.timelineItem} onClick={onClick}>
       <div className={styles.timelineMarker}></div>
       <div className={styles.timelineContent}>
         <div className={styles.timelineHeader}>
@@ -12,6 +12,7 @@ const TimelineItem = ({ role, company, period, description }) => {
         </div>
         <div className={`mono-accent ${styles.companyName}`}>{company}</div>
         <p>{description}</p>
+        <div className={`mono-accent ${styles.clickHint}`}>[ CLICK_TO_EXPAND ]</div>
       </div>
     </div>
   );
