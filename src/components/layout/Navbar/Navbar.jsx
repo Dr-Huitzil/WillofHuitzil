@@ -1,17 +1,17 @@
 import React from 'react';
 import { Leaf } from 'lucide-react';
-import './Navbar.css';
+import styles from './Navbar.module.css';
 
 const Navbar = () => {
   return (
-    <nav className="navbar">
-      <div className="navbar-left">
-        <div className="logo-icon">
+    <nav className={styles.navbar}>
+      <div className={styles.navbarLeft}>
+        <div className={styles.logoIcon}>
           <Leaf size={18} color="var(--accent-teal-bright)" />
         </div>
       </div>
       
-      <div className="navbar-right mono-accent">
+      <div className={`${styles.navbarRight} mono-accent`}>
         <a href="#home">HOME</a>
         <a href="#projects">PROJECTS</a>
         <a href="#timeline">TIMELINE</a>

@@ -1,39 +1,39 @@
-/* src/components/Timeline.css */
+/* src/components/sections/Timeline/Timeline.module.css */
 
-.section-pill {
+.sectionPill {
   margin-bottom: 20px;
   clip-path: var(--clip-pill-hex);
 }
 
-.section-title {
+.sectionTitle {
   font-size: 5rem;
   line-height: 0.9;
   margin: 0 0 80px 0;
 }
 
-.timeline-grid {
+.timelineGrid {
   display: grid;
   grid-template-columns: 1fr 400px;
   gap: 80px;
 }
 
 /* Timeline Left Side */
-.timeline-path {
+.timelinePath {
   position: relative;
   border-left: 1px solid var(--accent-teal-dim);
   padding-left: 40px;
 }
 
-.timeline-item {
+.timelineItem {
   position: relative;
   margin-bottom: 60px;
 }
 
-.timeline-item:last-child {
+.timelineItem:last-child {
   margin-bottom: 0;
 }
 
-.timeline-marker {
+.timelineMarker {
   position: absolute;
   left: -48px; /* Align to the border */
   top: 4px;
@@ -47,7 +47,7 @@
   transition: var(--transition-smooth);
 }
 
-.timeline-marker::before {
+.timelineMarker::before {
   content: '';
   width: 14px;
   height: 14px;
@@ -56,71 +56,71 @@
   transition: var(--transition-smooth);
 }
 
-.timeline-item:hover .timeline-marker::before {
+.timelineItem:hover .timelineMarker::before {
   background: transparent;
 }
 
-.timeline-header {
+.timelineHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 8px;
 }
 
-.timeline-header h3 {
+.timelineHeader h3 {
   font-size: 1.8rem;
   margin: 0;
 }
 
-.date-pill {
+.datePill {
   font-size: 0.65rem;
   padding: 8px 16px;
   background: rgba(255, 255, 255, 0.03);
   color: var(--text-sans-slate);
 }
 
-.company-name {
+.companyName {
   color: var(--accent-teal-bright);
   margin-bottom: 16px;
 }
 
-.timeline-content p {
+.timelineContent p {
   color: var(--text-sans-slate);
   line-height: 1.6;
 }
 
 /* Right Side Cards */
-.timeline-cards {
+.timelineCards {
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
 
-.glass-card {
+.glassCard {
   background: var(--bg-card);
   border: var(--border-glass);
   clip-path: var(--clip-chamfer);
   padding: 40px;
 }
 
-.card-title {
+.cardTitle {
   margin: 0 0 30px 0;
   letter-spacing: 4px;
 }
 
-.qual-list {
+.qualList {
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
 
-.qual-item {
+.qualItem {
   display: flex;
   align-items: center;
   gap: 20px;
 }
 
-.qual-icon {
+.qualIcon {
   width: 48px;
   height: 48px;
   clip-path: var(--clip-chamfer-small);
@@ -132,45 +132,37 @@
   color: var(--accent-teal-bright);
 }
 
-.qual-text .serif-header {
+.serifHeader {
   font-size: 1.2rem;
   margin-bottom: 4px;
 }
 
-.qual-sub {
+.qualSub {
   font-size: 0.65rem;
   color: var(--text-sans-slate);
 }
 
 /* Proficiencies Grid */
-.proficiency-grid {
+.proficiencyGrid {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
 }
 
-.prof-pill {
-  padding: 8px 16px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  font-size: 0.7rem;
-  color: var(--text-sans-slate);
-  clip-path: var(--clip-chamfer-small);
-}
 
 @media (max-width: 1024px) {
-  .timeline-grid {
+  .timelineGrid {
     grid-template-columns: 1fr;
     gap: 40px;
   }
-  .section-title {
+  .sectionTitle {
     font-size: 3rem;
     margin-bottom: 40px;
   }
-  .timeline-path {
+  .timelinePath {
     padding-left: 20px;
   }
-  .timeline-marker {
+  .timelineMarker {
     left: -24px;
   }
 }

@@ -1,20 +1,20 @@
 import React from 'react';
 import TimelineItem from './TimelineItem';
 import QualificationItem from './QualificationItem';
-import ProficiencyPill from './ProficiencyPill';
-import './Timeline.css';
+import ProficiencyPill from '../../ui/ProficiencyPill/ProficiencyPill';
+import styles from './Timeline.module.css';
 
 const Timeline = ({ experience = [], qualifications = [], proficiencies = [] }) => {
   return (
-    <section className="timeline-section" id="timeline">
-      <div className="pill section-pill">
+    <section className={styles.timelineSection} id="timeline">
+      <div className={`pill ${styles.sectionPill}`}>
         TIMELINE
       </div>
-      <h2 className="serif-header serif-glow section-title">Professional<br/>Path</h2>
+      <h2 className={`serif-header serif-glow ${styles.sectionTitle}`}>Professional<br/>Path</h2>
 
-      <div className="timeline-grid">
+      <div className={styles.timelineGrid}>
         {/* Left Side: Timeline */}
-        <div className="timeline-path">
+        <div className={styles.timelinePath}>
           {experience.map((item) => (
             <TimelineItem 
               key={item.id}
@@ -27,11 +27,11 @@ const Timeline = ({ experience = [], qualifications = [], proficiencies = [] }) 
         </div>
 
         {/* Right Side: Cards */}
-        <div className="timeline-cards">
+        <div className={styles.timelineCards}>
           
-          <div className="glass-card">
-            <h4 className="mono-accent card-title">QUALIFICATIONS</h4>
-            <div className="qual-list">
+          <div className={styles.glassCard}>
+            <h4 className={`mono-accent ${styles.cardTitle}`}>QUALIFICATIONS</h4>
+            <div className={styles.qualList}>
               {qualifications.map((qual) => (
                 <QualificationItem 
                   key={qual.id}
@@ -43,9 +43,9 @@ const Timeline = ({ experience = [], qualifications = [], proficiencies = [] }) 
             </div>
           </div>
 
-          <div className="glass-card">
-            <h4 className="mono-accent card-title">PROFICIENCIES</h4>
-            <div className="proficiency-grid">
+          <div className={styles.glassCard}>
+            <h4 className={`mono-accent ${styles.cardTitle}`}>PROFICIENCIES</h4>
+            <div className={styles.proficiencyGrid}>
               {proficiencies.map((skill, index) => (
                 <ProficiencyPill key={index} name={skill} />
               ))}

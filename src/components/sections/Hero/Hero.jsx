@@ -1,6 +1,6 @@
 import React from 'react';
 import { GitBranch, Briefcase, FileText } from 'lucide-react';
-import './Hero.css';
+import styles from './Hero.module.css';
 
 const Hero = ({ profile }) => {
   const { name, title, links } = profile;
@@ -11,19 +11,19 @@ const Hero = ({ profile }) => {
   const lastName = nameParts.slice(1).join(' ');
 
   return (
-    <section className="hero" id="home">
-      <div className="hero-content">
+    <section className={styles.hero} id="home">
+      <div className={styles.heroContent}>
 
-        <h1 className="serif-header serif-glow hero-title">
+        <h1 className={`serif-header serif-glow ${styles.heroTitle}`}>
           {firstName}<br/>{lastName}
         </h1>
         
-        <p className="mono-accent hero-subtitle">
+        <p className={`mono-accent ${styles.heroSubtitle}`}>
           {title}
         </p>
 
-        <div className="hero-descend">
-          <div className="descend-links">
+        <div className={styles.heroDescend}>
+          <div className={styles.descendLinks}>
             {links.github && (
               <a href={links.github} target="_blank" rel="noreferrer">
                 <GitBranch size={20} />

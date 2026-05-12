@@ -1,8 +1,9 @@
 import React from 'react';
+import styles from './ProficiencyPill.module.css';
 
 const ProficiencyPill = ({ name }) => {
   return (
-    <span className="prof-pill mono-accent">{name}</span>
+    <span className={`${styles.profPill} mono-accent`}>{name}</span>
   );
 };
 

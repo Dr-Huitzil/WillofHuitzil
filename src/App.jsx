@@ -1,12 +1,12 @@
 // src/App.jsx (Core Structure)
 
 import { useState } from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Projects from './components/Projects';
-import Timeline from './components/Timeline';
-import ProjectModal from './components/ProjectModal';
-import Footer from './components/Footer';
+import Navbar from './components/layout/Navbar/Navbar';
+import Hero from './components/sections/Hero/Hero';
+import Projects from './components/sections/Projects/Projects';
+import Timeline from './components/sections/Timeline/Timeline';
+import ProjectModal from './components/sections/Projects/ProjectModal';
+import Footer from './components/layout/Footer/Footer';
 
 // Import the centralized data
 import { portfolioData } from './data/portfolioData';

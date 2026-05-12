@@ -1,4 +1,4 @@
-/* src/components/Footer.css */
+/* src/components/layout/Footer/Footer.module.css */
 
 .footer {
   display: flex;
@@ -12,13 +12,13 @@
   font-size: 0.75rem;
 }
 
-.footer-left {
+.footerLeft {
   display: flex;
   align-items: center;
   gap: 16px;
 }
 
-.logo-icon-small {
+.logoIconSmall {
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -29,39 +29,39 @@
   align-items: center;
 }
 
-.footer-brand {
+.footerBrand {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
-.footer-title {
+.footerTitle {
   font-size: 1.1rem;
   letter-spacing: 1px;
 }
 
-.footer-sub {
+.footerSub {
   font-size: 0.65rem;
   color: var(--text-sans-slate);
 }
 
-.footer-center {
+.footerCenter {
   display: flex;
   gap: 30px;
 }
 
-.footer-center a {
+.footerCenter a {
   display: flex;
   align-items: center;
   gap: 8px;
   color: var(--text-sans-slate);
 }
 
-.footer-center a:hover {
+.footerCenter a:hover {
   color: var(--accent-teal-bright);
 }
 
-.footer-right {
+.footerRight {
   color: var(--text-sans-slate);
   letter-spacing: 2px;
 }
@@ -73,7 +73,7 @@
     padding: 40px 20px;
     align-items: flex-start;
   }
-  .footer-center {
+  .footerCenter {
     flex-direction: column;
     gap: 15px;
   }

@@ -1,26 +1,26 @@
 import React from 'react';
 import { GitBranch, ExternalLink } from 'lucide-react';
-import './ProjectCard.css';
+import styles from './ProjectCard.module.css';
 
 const ProjectCard = ({ project, onClick }) => {
   return (
-    <div className="project-card" onClick={onClick}>
-      <div className="project-image-container">
+    <div className={styles.projectCard} onClick={onClick}>
+      <div className={styles.projectImageContainer}>
         {/* We use a placeholder div with a background color/image. 
             In a real app, use an actual img tag or background-image. */}
-        <div className="project-image-placeholder"></div>
+        <div className={styles.projectImagePlaceholder}></div>
       </div>
       
-      <div className="project-content">
-        <div className="project-tags">
+      <div className={styles.projectContent}>
+        <div className={styles.projectTags}>
           {project.tags?.map((tag, index) => (
-            <span key={index} className="mono-accent project-tag">{tag.toUpperCase()}</span>
+            <span key={index} className={`mono-accent ${styles.projectTag}`}>{tag.toUpperCase()}</span>
           ))}
         </div>
-        <h3 className="serif-header card-title">{project.title}</h3>
-        <p className="project-desc">{project.description}</p>
+        <h3 className={`serif-header ${styles.cardTitle}`}>{project.title}</h3>
+        <p className={styles.projectDesc}>{project.description}</p>
         
-        <div className="project-links mono-accent">
+        <div className={`${styles.projectLinks} mono-accent`}>
           <a href="#" onClick={(e) => e.stopPropagation()}>
             <GitBranch size={14} /> SOURCE
           </a>
