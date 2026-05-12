@@ -12,7 +12,7 @@ export const portfolioData = {
     name: "Ivan Alier-Reyes",
     title: "IT SPECIALIST // CYBERSECURITY SPECIALIST",
     links: {
-      github: "https://github.com/ivan-alier-reyes",
+      github: "https://github.com/Dr-Huitzil",
       linkedin: "https://www.linkedin.com/in/ivan-alier-reyes",
       website: "https://WillofHuitzil.com",
       resume: resumePDF
@@ -27,7 +27,7 @@ export const portfolioData = {
       longDescription: esteCosmosDetails,
       date: "April 2026 - May 2026",
       imagePlaceholder: "/path/to/este-cosmos.jpg",
-      github: "https://github.com/ivan-alier-reyes",
+      github: "https://github.com/Dr-Huitzil/este-cosmos-sandbox",
       demo: "https://estecosmos.netlify.app"
     },
     {
@@ -38,7 +38,7 @@ export const portfolioData = {
       longDescription: mindMeltDetails,
       date: "August 2022 - Present",
       imagePlaceholder: "/path/to/mind-melt.jpg",
-      github: "https://github.com/ivan-alier-reyes",
+      github: "https://github.com/Dr-Huitzil/mind_melt_me",
       demo: "https://mindmelt.org"
     }
   ],
@@ -140,8 +140,8 @@ export const portfolioData = {
       id: 1,
       title: "The complete mitochondrial genome of the strawberry aphid Chaetosiphon fragaefolii Cockerell, 1901 (Hemiptera: Aphididae) from California, USA",
       journal: "Published Research",
-      date: "N/A",
-      url: "https://www.linkedin.com/in/ivan-alier-reyes",
+      date: "2021 Jul 19",
+      url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8291070/",
       icon: "FileText"
     }
   ]
