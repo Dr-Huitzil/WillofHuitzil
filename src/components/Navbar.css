@@ -56,3 +56,17 @@
 .navbar-right a:hover::after {
   width: 100%;
 }
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  .navbar-right {
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

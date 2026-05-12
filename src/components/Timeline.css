@@ -139,3 +139,20 @@
   font-size: 0.7rem;
   color: var(--text-sans-slate);
 }
+
+@media (max-width: 900px) {
+  .timeline-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .section-title {
+    font-size: 3rem;
+    margin-bottom: 40px;
+  }
+  .timeline-path {
+    padding-left: 20px;
+  }
+  .timeline-marker {
+    left: -24px;
+  }
+}

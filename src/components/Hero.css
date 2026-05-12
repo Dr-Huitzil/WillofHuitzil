@@ -56,3 +56,22 @@
   border-color: var(--accent-teal-bright);
   box-shadow: var(--glow-teal-soft);
 }
+
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 20px;
+    min-height: auto;
+  }
+  .hero-title {
+    font-size: 3.5rem;
+  }
+  .hero-subtitle {
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 30px;
+  }
+  .descend-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

@@ -65,3 +65,16 @@
   color: var(--text-sans-slate);
   letter-spacing: 2px;
 }
+
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    gap: 30px;
+    padding: 40px 20px;
+    align-items: flex-start;
+  }
+  .footer-center {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
