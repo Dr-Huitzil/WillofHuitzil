@@ -2,7 +2,7 @@
 import { esteCosmosDetails } from './projectDetails/esteCosmos';
 import { mindMeltDetails } from './projectDetails/mindMelt';
 import { clinicaDeSaludDetails } from './experienceDetails/clinicaDeSalud';
-import { proActDetails } from './experienceDetails/proAct';
+import { proActDetails } from './experienceDetails/proActDetails';
 import { mannsFreshDetails } from './experienceDetails/mannsFresh';
 import { starphyreDetails } from './experienceDetails/starphyre';
 import { resumePDF } from './resume/IvanAlierReyes_Resume.pdf';
