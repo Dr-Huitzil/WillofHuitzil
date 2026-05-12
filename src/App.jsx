@@ -34,7 +34,8 @@ function App() {
         <Projects projects={portfolioData.projects} onProjectClick={openModal} />
         <Timeline 
           experience={portfolioData.experience} 
-          qualifications={portfolioData.qualifications} 
+          certifications={portfolioData.certifications}
+          education={portfolioData.education}
           proficiencies={portfolioData.proficiencies} 
         />
       </main>

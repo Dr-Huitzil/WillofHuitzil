@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TimelineItem from './TimelineItem';
 import QualificationItem from './QualificationItem';
 import ProficiencyPill from '../../ui/ProficiencyPill/ProficiencyPill';
+import ImageModal from '../../ui/ImageModal/ImageModal';
 import styles from './Timeline.module.css';
 
-const Timeline = ({ experience = [], qualifications = [], proficiencies = [] }) => {
+const Timeline = ({ experience = [], certifications = [], education = [], proficiencies = [] }) => {
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const openImageModal = (item) => {
+    setSelectedImage({
+      url: item.image,
+      title: item.title || item.degree
+    });
+  };
+
   return (
     <section className={styles.timelineSection} id="timeline">
       <div className={`pill ${styles.sectionPill}`}>
@@ -30,14 +40,30 @@ const Timeline = ({ experience = [], qualifications = [], proficiencies = [] }) 
         <div className={styles.timelineCards}>
           
           <div className={styles.glassCard}>
-            <h4 className={`mono-accent ${styles.cardTitle}`}>QUALIFICATIONS</h4>
+            <h4 className={`mono-accent ${styles.cardTitle}`}>EDUCATION</h4>
             <div className={styles.qualList}>
-              {qualifications.map((qual) => (
+              {education.map((edu) => (
                 <QualificationItem 
-                  key={qual.id}
-                  title={qual.title}
-                  subtitle={qual.subtitle}
-                  iconName={qual.icon}
+                  key={edu.id}
+                  title={edu.degree}
+                  subtitle={edu.school}
+                  iconName={edu.icon}
+                  onClick={() => openImageModal(edu)}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className={styles.glassCard}>
+            <h4 className={`mono-accent ${styles.cardTitle}`}>CERTIFICATIONS</h4>
+            <div className={styles.qualList}>
+              {certifications.map((cert) => (
+                <QualificationItem 
+                  key={cert.id}
+                  title={cert.title}
+                  subtitle={cert.subtitle}
+                  iconName={cert.icon}
+                  onClick={() => openImageModal(cert)}
                 />
               ))}
             </div>
@@ -54,6 +80,14 @@ const Timeline = ({ experience = [], qualifications = [], proficiencies = [] }) 
 
         </div>
       </div>
+
+      {selectedImage && (
+        <ImageModal 
+          imageUrl={selectedImage.url} 
+          title={selectedImage.title} 
+          onClose={() => setSelectedImage(null)} 
+        />
+      )}
     </section>
   );
 };

@@ -47,33 +47,39 @@ export const portfolioData = {
       company: "VIBRANT_NETWORKS",
       period: "2019 - 2022",
       description: "Built resilient, high-humidity tolerant network interfaces for edge computing clusters."
-    },
-    {
-      id: 3,
-      role: "Computer Science Scholar",
-      company: "MAYA_TECH_INSTITUTE",
-      period: "2015 - 2019",
-      description: "Specializing in biomimetic systems and distributed ledger synchronization in extreme environments."
     }
   ],
-  qualifications: [
+  education: [
+    {
+      id: 1,
+      degree: "B.S. Computer Science",
+      school: "MAYA_TECH_INSTITUTE",
+      period: "2015 - 2019",
+      image: "/path/to/degree.jpg",
+      icon: "BookOpen"
+    }
+  ],
+  certifications: [
     {
       id: 1,
       title: "AWS Architect",
       subtitle: "CLOUD ECOLOGY",
-      icon: "Network"
+      icon: "Network",
+      image: "/path/to/aws-cert.jpg"
     },
     {
       id: 2,
       title: "Certified Ethical Hacker",
       subtitle: "EC-COUNCIL",
-      icon: "Shield"
+      icon: "Shield",
+      image: "/path/to/ceh-cert.jpg"
     },
     {
       id: 3,
       title: "K8s Administrator",
       subtitle: "CNCF",
-      icon: "Cpu"
+      icon: "Cpu",
+      image: "/path/to/k8s-cert.jpg"
     }
   ],
   proficiencies: [
