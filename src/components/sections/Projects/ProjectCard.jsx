@@ -6,15 +6,22 @@ const ProjectCard = ({ project, onClick }) => {
   return (
     <div className={styles.projectCard} onClick={onClick}>
       <div className={styles.projectImageContainer}>
-        {/* We use a placeholder div with a background color/image. 
-            In a real app, use an actual img tag or background-image. */}
-        <div className={styles.projectImagePlaceholder}></div>
+        {project.imagePlaceholder ? (
+          <img 
+            src={project.imagePlaceholder} 
+            alt={`${project.title} screenshot`} 
+            className={styles.projectImg} 
+            loading="lazy" 
+          />
+        ) : (
+          <div className={styles.projectImagePlaceholder}></div>
+        )}
       </div>
       
       <div className={styles.projectContent}>
         <div className={styles.projectTags}>
-          {project.tags?.map((tag, index) => (
-            <span key={index} className={`mono-accent ${styles.projectTag}`}>{tag.toUpperCase()}</span>
+          {project.tags?.map((tag) => (
+            <span key={tag} className={`mono-accent ${styles.projectTag}`}>{tag.toUpperCase()}</span>
           ))}
         </div>
         <h3 className={`serif-header ${styles.cardTitle}`}>{project.title}</h3>

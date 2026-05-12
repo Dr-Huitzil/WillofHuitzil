@@ -59,22 +59,11 @@
   overflow: hidden;
 }
 
-.imagePlaceholder {
+.modalImg {
   width: 100%;
   height: 100%;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: repeating-linear-gradient(
-    45deg,
-    rgba(255, 255, 255, 0.02),
-    rgba(255, 255, 255, 0.02) 10px,
-    transparent 10px,
-    transparent 20px
-  );
+  object-fit: contain;
+  display: block;
 }
 
 .modalFooter {

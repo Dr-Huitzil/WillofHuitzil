@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ProjectCard from './ProjectCard';
+import ProjectModal from './ProjectModal';
 import styles from './Projects.module.css';
 
-const Projects = ({ projects, onProjectClick }) => {
+const Projects = ({ projects }) => {
+  const [selectedProject, setSelectedProject] = useState(null);
+
   return (
     <section className={styles.projectsSection} id="projects">
       <div className="pill section-pill">
@@ -15,10 +18,14 @@ const Projects = ({ projects, onProjectClick }) => {
           <ProjectCard 
             key={project.id} 
             project={project} 
-            onClick={() => onProjectClick(project)} 
+            onClick={() => setSelectedProject(project)} 
           />
         ))}
       </div>
+
+      {selectedProject && (
+        <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+      )}
     </section>
   );
 };

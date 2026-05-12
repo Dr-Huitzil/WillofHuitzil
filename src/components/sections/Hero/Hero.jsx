@@ -2,8 +2,10 @@ import React from 'react';
 import { GitBranch, Briefcase, FileText } from 'lucide-react';
 import styles from './Hero.module.css';
 
-const Hero = ({ profile }) => {
-  const { name, title, links } = profile;
+const Hero = ({ profile = {} }) => {
+  if (!profile.name) return null;
+
+  const { name, title, links = {} } = profile;
 
   // Split name for the line break if it contains a space
   const nameParts = name.split(' ');
@@ -25,17 +27,17 @@ const Hero = ({ profile }) => {
         <div className={styles.heroDescend}>
           <div className={styles.descendLinks}>
             {links.github && (
-              <a href={links.github} target="_blank" rel="noreferrer">
+              <a href={links.github} target="_blank" rel="noreferrer" aria-label="GitHub Profile">
                 <GitBranch size={20} />
               </a>
             )}
             {links.linkedin && (
-              <a href={links.linkedin} target="_blank" rel="noreferrer">
+              <a href={links.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn Profile">
                 <Briefcase size={20} />
               </a>
             )}
             {links.resume && (
-              <a href={links.resume}>
+              <a href={links.resume} aria-label="Resume">
                 <FileText size={20} />
               </a>
             )}
