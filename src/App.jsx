@@ -27,9 +27,13 @@ function App() {
             proficiencies={portfolioData.proficiencies} 
             publications={portfolioData.publications}
           />
-          <Contact links={portfolioData.profile.links} />
         </main>
       </div>
+
+      <div className="contact-hud-wrapper">
+        <Contact links={portfolioData.profile.links} />
+      </div>
+
       <Footer />
     </div>
   );

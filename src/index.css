@@ -105,6 +105,20 @@ body {
   margin: 2vw;
 }
 
+.contact-hud-wrapper {
+  border: 1px solid var(--accent-teal-bright);
+  border-radius: 30px; 
+  background: rgba(14, 22, 15, 0.4); 
+  backdrop-filter: blur(12px);
+  box-shadow: 
+    0 0 40px rgba(64, 224, 208, 0.15), 
+    inset 0 0 60px rgba(64, 224, 208, 0.05);
+  margin: 0 2vw 2vw 2vw;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+}
+
 main {
   flex: 1;
   width: 100%;

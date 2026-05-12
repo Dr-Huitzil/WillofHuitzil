@@ -7,18 +7,9 @@ const Contact = ({ links }) => {
 
   return (
     <section className={styles.contactSection} id="contact">
-      <div className="pill section-pill">
-        CONTACT
-      </div>
-      <h2 className="serif-header serif-glow section-title">Initialize<br />Connection</h2>
-
       <div className={styles.contactContainer}>
         <div className={styles.contactCard}>
           <div className={styles.cardHeader}>
-            <div className={styles.statusIndicator}>
-              <div className={styles.pulse}></div>
-              <span className="mono-accent">SYSTEM_ONLINE</span>
-            </div>
             <h3 className="serif-header">Direct Channels</h3>
           </div>
 
