@@ -247,14 +247,20 @@
   .modalContentWrapper {
     flex-direction: column;
     overflow-y: auto;
+    display: block; /* Force block to ensure stacking and full width */
   }
 
   .modalLeft {
-    width: 100%;
+    width: 100% !important;
     height: auto;
-    border-right: none;
-    border-bottom: none;
+    border-right: none !important;
+    border-bottom: none !important;
     padding: 0;
+    overflow: visible;
+  }
+
+  .expanded .modalLeft {
+    width: 100% !important;
   }
 
   /* When expanded on mobile, we hide the image and description to prioritize analysis */
@@ -267,13 +273,16 @@
   }
 
   .modalImage {
+    width: 100%;
     min-height: 180px;
     background-color: rgba(14, 22, 15, 0.4);
   }
 
   .modalRight {
+    width: 100% !important;
     padding: 0;
     min-height: 0;
+    border-left: none !important;
   }
 
   .projectSummary {
@@ -282,16 +291,22 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .expanded .projectSummary {
     padding: 40px 25px 20px 25px;
     background: rgba(0, 0, 0, 0.4);
+    width: 100%;
   }
 
   .modalTitle {
     font-size: 2.2rem;
     width: 100%;
+    line-height: 1.1;
+    margin: 0;
+    text-align: left;
   }
 
   .expanded .modalTitle {
@@ -301,6 +316,8 @@
   .expandedInfoSection {
     padding: 20px 25px 50px 25px;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .expandedTitle {
