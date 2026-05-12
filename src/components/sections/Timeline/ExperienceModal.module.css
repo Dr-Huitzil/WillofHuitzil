@@ -23,13 +23,19 @@
   border: var(--border-glass);
   clip-path: var(--clip-chamfer);
   width: 90%;
-  max-width: 650px;
-  max-height: 85vh;
+  max-width: 900px;
+  max-height: 90vh;
   position: relative;
   box-shadow: var(--glow-teal-soft);
-  padding: 40px;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: max-width 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s ease;
   animation: scaleIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.experienceModal.expanded {
+  max-width: 1400px;
 }
 
 @keyframes scaleIn {
@@ -46,24 +52,84 @@
   color: var(--text-sans-slate);
   cursor: pointer;
   transition: color 0.2s;
+  z-index: 10;
 }
 
 .closeBtn:hover {
   color: var(--accent-teal-bright);
 }
 
+.modalContentWrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+}
+
+.modalLeft {
+  width: 40%;
+  background: rgba(0,0,0,0.3);
+  border-right: var(--border-glass);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  transition: width 0.5s ease;
+}
+
+.expanded .modalLeft {
+  width: 35%;
+  background: rgba(0,0,0,0.5);
+}
+
+.modalImage {
+  width: 100%;
+  min-height: 300px;
+  flex-shrink: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0.02) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+}
+
+.modalRight {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.experienceSummary {
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.expanded .experienceSummary {
+  padding: 30px;
+  gap: 15px;
+}
+
 .modalHeader {
   display: flex;
   gap: 20px;
   align-items: center;
-  margin-bottom: 25px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  padding-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 .iconBox {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   background: rgba(64, 224, 208, 0.05);
   border: 1px solid rgba(64, 224, 208, 0.2);
   display: flex;
@@ -78,6 +144,10 @@
   line-height: 1.1;
 }
 
+.expanded .role {
+  font-size: 1.4rem;
+}
+
 .company {
   color: var(--accent-teal-bright);
   font-size: 0.9rem;
@@ -87,8 +157,9 @@
 
 .metaRow {
   display: flex;
-  gap: 30px;
-  margin-bottom: 35px;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
 }
 
 .metaItem {
@@ -104,7 +175,7 @@
   font-size: 0.8rem;
   letter-spacing: 3px;
   color: var(--accent-teal-dim);
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .detailsList {
@@ -113,15 +184,15 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 12px;
 }
 
 .detailItem {
   color: var(--text-sans-slate);
   line-height: 1.6;
-  font-size: 1rem;
+  font-size: 0.95rem;
   display: flex;
-  gap: 15px;
+  gap: 12px;
 }
 
 .bullet {
@@ -129,19 +200,95 @@
   font-weight: bold;
 }
 
+.expandBtn {
+  background: rgba(64, 224, 208, 0.1);
+  border: 1px solid var(--accent-teal-dim);
+  color: var(--accent-teal-bright);
+  padding: 10px 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  transition: var(--transition-smooth);
+  width: fit-content;
+  margin-top: 10px;
+}
+
+.expandBtn:hover {
+  background: rgba(64, 224, 208, 0.2);
+  transform: translateY(-2px);
+}
+
+.expandedInfoSection {
+  padding: 60px 50px;
+  animation: slideIn 0.5s ease forwards;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.expandedTitle {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  line-height: 1;
+}
+
+.longDescription {
+  color: var(--text-sans-slate);
+  line-height: 1.8;
+  font-size: 1rem;
+  white-space: pre-wrap;
+}
+
+.longDescription h3 {
+  color: var(--accent-teal-bright);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9rem;
+  margin: 30px 0 15px 0;
+  letter-spacing: 2px;
+  border-bottom: 1px solid var(--accent-teal-dim);
+  padding-bottom: 5px;
+  width: fit-content;
+}
+
+.longDescription h3:first-child {
+  margin-top: 0;
+}
+
 .modalFooter {
-  margin-top: 40px;
+  margin-top: auto;
   padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 20px;
   font-size: 0.65rem;
   color: rgba(255, 255, 255, 0.3);
   letter-spacing: 2px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .experienceModal {
-    padding: 30px 20px;
     width: 95%;
+    max-height: 85vh;
+  }
+
+  .modalContentWrapper {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  .modalLeft {
+    width: 100%;
+    height: 200px;
+    border-right: none;
+    border-bottom: var(--border-glass);
+  }
+
+  .modalRight {
+    padding: 30px 20px;
   }
 
   .role {
@@ -151,5 +298,16 @@
   .metaRow {
     flex-direction: column;
     gap: 10px;
+  }
+
+  .expandedInfoSection {
+    padding: 40px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    animation: slideInMobile 0.5s ease forwards;
+  }
+
+  @keyframes slideInMobile {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 }

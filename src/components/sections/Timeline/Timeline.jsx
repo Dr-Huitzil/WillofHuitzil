@@ -59,13 +59,14 @@ const Timeline = ({ experience = [], certifications = [], education = [], profic
 
           <div className={styles.glassCard}>
             <h4 className={`mono-accent ${styles.cardTitle}`}>CERTIFICATIONS</h4>
-            <div className={styles.qualList}>
+            <div className={styles.certGrid}>
               {certifications.map((cert) => (
                 <QualificationItem 
                   key={cert.id}
                   title={cert.title}
                   subtitle={cert.subtitle}
                   iconName={cert.icon}
+                  variant="square"
                   onClick={() => openImageModal(cert)}
                 />
               ))}

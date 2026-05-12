@@ -2,9 +2,11 @@
 import { esteCosmosDetails } from './projectDetails/esteCosmos';
 import { mindMeltDetails } from './projectDetails/mindMelt';
 import { clinicaDeSaludDetails } from './experienceDetails/clinicaDeSalud';
+import { clinicaDeSaludLong } from './experienceDetails/clinicaDeSaludLong';
 import { proActDetails } from './experienceDetails/proActDetails';
 import { mannsFreshDetails } from './experienceDetails/mannsFreshDetails';
 import { starphyreDetails } from './experienceDetails/starphyreDetails';
+import { starphyreLong } from './experienceDetails/starphyreLong';
 import resumePDF from './resume/IvanAlier-Reyes(Resume).pdf';
 
 export const portfolioData = {
@@ -49,7 +51,9 @@ export const portfolioData = {
       company: "Clinica De Salud del Valle de Salinas (CSVS)",
       period: "May 2025 - Present",
       description: "Orchestrated large-scale computer deployments via SmartDeploy and NinjaOne, automated provisioning with PowerShell, and provided critical on-site support across distributed clinical environments.",
-      details: clinicaDeSaludDetails
+      details: clinicaDeSaludDetails,
+      longDescription: clinicaDeSaludLong,
+      image: "/path/to/csvs-hq.jpg"
     },
     {
       id: 2,
@@ -57,7 +61,9 @@ export const portfolioData = {
       company: "PRO*ACT",
       period: "Jan 2025 - May 2025",
       description: "Administered AD user lifecycles and O365 tenant services while mitigating database disruptions and optimizing inventory tracking for enterprise supply chain operations.",
-      details: proActDetails
+      details: proActDetails,
+      longDescription: "", // Add later
+      image: "/path/to/proact-hq.jpg"
     },
     {
       id: 3,
@@ -65,7 +71,9 @@ export const portfolioData = {
       company: "Mann's Fresh Vegetables (Mann Packing Co.)",
       period: "Aug 2024 - Nov 2024",
       description: "Deployed workstations, managed Active Directory/GPOs, and secured mobile devices via MDM while driving rapid incident resolution within organizational SLAs.",
-      details: mannsFreshDetails
+      details: mannsFreshDetails,
+      longDescription: "", // Add later
+      image: "/path/to/mann-hq.jpg"
     },
     {
       id: 4,
@@ -73,7 +81,9 @@ export const portfolioData = {
       company: "Starphyre Digital Security Services",
       period: "Mar 2022 - Aug 2024",
       description: "Engineered robust network defenses, managed SIEM tools (Splunk), executed penetration testing, and authored disaster recovery initiatives to minimize organizational risk.",
-      details: starphyreDetails
+      details: starphyreDetails,
+      longDescription: starphyreLong,
+      image: "/path/to/starphyre-sec.jpg"
     }
   ],
   education: [

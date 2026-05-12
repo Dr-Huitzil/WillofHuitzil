@@ -135,6 +135,12 @@
   gap: 30px;
 }
 
+.certGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
 .qualItem {
   display: flex;
   align-items: center;
@@ -170,6 +176,30 @@
 .qualSub {
   font-size: 0.65rem;
   color: var(--text-sans-slate);
+}
+
+.squareItem {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px 10px;
+  justify-content: center;
+  min-height: 150px;
+}
+
+.squareItem .qualIcon {
+  margin-bottom: 12px;
+}
+
+.squareItem .serifHeader {
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.squareItem .qualSub {
+  font-size: 0.55rem;
+  letter-spacing: 1px;
 }
 
 /* Proficiencies Grid */
