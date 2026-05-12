@@ -7,6 +7,15 @@ const Navbar = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
+  const handleNavClick = (e, targetId) => {
+    e.preventDefault();
+    setIsOpen(false);
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <nav className={styles.navbar}>
       <div className={styles.navbarLeft}>
@@ -20,10 +29,10 @@ const Navbar = () => {
       </button>
 
       <div className={`${styles.navbarRight} ${isOpen ? styles.open : ''} mono-accent`}>
-        <a href="#home" onClick={() => setIsOpen(false)}>HOME</a>
-        <a href="#projects" onClick={() => setIsOpen(false)}>PROJECTS</a>
-        <a href="#timeline" onClick={() => setIsOpen(false)}>TIMELINE</a>
-        <a href="#contact" onClick={() => setIsOpen(false)}>CONTACT</a>
+        <a href="#home" onClick={(e) => handleNavClick(e, 'home')}>HOME</a>
+        <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')}>PROJECTS</a>
+        <a href="#timeline" onClick={(e) => handleNavClick(e, 'timeline')}>TIMELINE</a>
+        <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')}>CONTACT</a>
       </div>
     </nav>
   );
