@@ -76,16 +76,18 @@ const ExperienceModal = ({ experience, onClose }) => {
 
           {/* RIGHT PANEL: Content */}
           <div className={styles.modalRight}>
-            <div className={styles.contentSection}>
-              <h4 className={`mono-accent ${styles.contentTitle}`}>MISSION_OBJECTIVES</h4>
-              <ul className={styles.detailsList}>
-                {experience.details?.map((detail, index) => (
-                  <li key={index} className={styles.detailItem}>
-                    <span className={styles.bullet}>&gt;</span>
-                    {detail}
-                  </li>
-                ))}
-              </ul>
+            <div className={styles.mobileHideContent}>
+              <div className={styles.contentSection}>
+                <h4 className={`mono-accent ${styles.contentTitle}`}>MISSION_OBJECTIVES</h4>
+                <ul className={styles.detailsList}>
+                  {experience.details?.map((detail, index) => (
+                    <li key={index} className={styles.detailItem}>
+                      <span className={styles.bullet}>&gt;</span>
+                      {detail}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
             {isExpanded && experience.longDescription && (

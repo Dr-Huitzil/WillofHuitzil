@@ -48,40 +48,42 @@
 }
 
 .linksGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 20px;
+  width: 100%;
 }
 
 .contactLink {
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  gap: 25px;
+  padding: 25px;
+  background: var(--bg-card);
+  border: var(--border-glass);
+  clip-path: var(--clip-chamfer);
   transition: var(--transition-smooth);
   text-decoration: none;
   color: inherit;
   position: relative;
-  overflow: hidden;
 }
 
 .contactLink:hover {
   background: rgba(64, 224, 208, 0.05);
   border-color: var(--accent-teal-bright);
-  transform: translateY(-2px);
+  transform: translateX(5px);
 }
 
 .iconBox {
-  width: 50px;
-  height: 50px;
+  width: 54px;
+  height: 54px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(64, 224, 208, 0.05);
-  border: 1px solid var(--accent-teal-dim);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   color: var(--accent-teal-bright);
+  clip-path: var(--clip-chamfer-small);
 }
 
 .linkInfo {
@@ -93,49 +95,52 @@
 
 .linkInfo span:first-child {
   font-size: 0.65rem;
-  opacity: 0.6;
+  letter-spacing: 2px;
+  color: var(--accent-teal-bright);
+  opacity: 0.8;
 }
 
 .linkText {
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: var(--text-serif-cream);
+  font-family: 'Playfair Display', serif;
 }
 
 .arrow {
-  opacity: 0;
-  transform: translateX(-10px);
+  opacity: 0.2;
   transition: var(--transition-smooth);
   color: var(--accent-teal-bright);
 }
 
 .contactLink:hover .arrow {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateX(5px);
 }
 
 .cardFooter {
   margin-top: 40px;
   padding-top: 20px;
-  border-top: 1px solid var(--accent-teal-dim);
   text-align: center;
+  opacity: 0.3;
 }
 
 .cardFooter p {
-  font-size: 0.7rem;
-  opacity: 0.4;
-  letter-spacing: 2px;
+  font-size: 0.6rem;
+  letter-spacing: 3px;
 }
 
 @media (max-width: 768px) {
-  .linksGrid {
-    grid-template-columns: 1fr;
+  .contactLink {
+    padding: 20px;
+    gap: 15px;
   }
   
-  .contactCard {
-    padding: 30px 20px;
+  .linkText {
+    font-size: 1rem;
   }
   
-  .cardHeader h3 {
-    font-size: 1.5rem;
+  .iconBox {
+    width: 44px;
+    height: 44px;
   }
 }
