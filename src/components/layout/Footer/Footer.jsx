@@ -10,7 +10,7 @@ const Footer = () => {
           <Leaf size={14} color="var(--accent-teal-bright)" />
         </div>
         <div className={styles.footerBrand}>
-          <span className={`serif-header ${styles.footerTitle}`}>VIBRANT GROVE</span>
+          <span className={`serif-header ${styles.footerTitle}`}>Will of Huitzil</span>
           <span className={`mono-accent ${styles.footerSub}`}>ARCHITECTURAL_ECO_LOGIC &copy; 2024</span>
         </div>
       </div>

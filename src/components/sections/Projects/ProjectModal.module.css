@@ -30,10 +30,6 @@
   overflow: hidden;
 }
 
-.projectModal.expanded {
-  max-width: 1400px;
-}
-
 .closeBtn {
   position: absolute;
   top: 30px;
@@ -65,22 +61,6 @@
   min-height: 500px;
 }
 
-.mainInfoSection {
-  flex: 1;
-  display: flex;
-  flex-direction: row;
-  min-width: 450px;
-}
-
-.expandedInfoSection {
-  flex: 1.2;
-  padding: 60px 50px;
-  background: rgba(255, 255, 255, 0.02);
-  border-left: 1px solid rgba(255, 255, 255, 0.05);
-  overflow-y: auto;
-  animation: slideIn 0.5s ease forwards;
-}
-
 @keyframes slideIn {
   from { opacity: 0; transform: translateX(20px); }
   to { opacity: 1; transform: translateX(0); }
@@ -88,14 +68,23 @@
 
 .modalLeft {
   width: 40%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.3);
   border-right: var(--border-glass);
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  transition: width 0.5s ease;
+}
+
+.expanded .modalLeft {
+  width: 35%;
+  background: rgba(0,0,0,0.5);
 }
 
 .modalImage {
   width: 100%;
-  height: 100%;
+  min-height: 300px;
+  flex-shrink: 0;
   background-image: repeating-linear-gradient(
     45deg,
     rgba(255, 255, 255, 0.02),
@@ -107,10 +96,27 @@
 
 .modalRight {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.projectSummary {
   padding: 60px 40px;
   display: flex;
   flex-direction: column;
   gap: 25px;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.expanded .projectSummary {
+  padding: 30px;
+  gap: 15px;
 }
 
 .projectIdentity {
@@ -121,6 +127,10 @@
   font-size: 2.8rem;
   margin: 0 0 15px 0;
   line-height: 1.1;
+}
+
+.expanded .modalTitle {
+  font-size: 1.8rem;
 }
 
 .modalTags {
@@ -148,9 +158,14 @@
   font-size: 0.95rem;
 }
 
+.expanded .projectDescription {
+  font-size: 0.85rem;
+}
+
 .modalLinks {
   display: flex;
-  gap: 25px;
+  flex-wrap: wrap;
+  gap: 20px;
   margin-top: auto;
   padding-top: 25px;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -179,11 +194,17 @@
   letter-spacing: 2px;
   transition: var(--transition-smooth);
   width: fit-content;
+  margin-top: 10px;
 }
 
 .expandBtn:hover {
   background: rgba(64, 224, 208, 0.2);
   transform: translateY(-2px);
+}
+
+.expandedInfoSection {
+  padding: 60px 50px;
+  animation: slideIn 0.5s ease forwards;
 }
 
 .expandedTitle {
@@ -196,7 +217,7 @@
   color: var(--text-sans-slate);
   line-height: 1.8;
   font-size: 1rem;
-  white-space: pre-wrap; /* Preserves line breaks from the detail files */
+  white-space: pre-wrap;
 }
 
 .longDescription h3 {
@@ -220,9 +241,7 @@
   line-height: 1.5;
   letter-spacing: 2px;
   margin-top: 20px;
-}
-
-@media (max-width: 1024px) {
+}@media (max-width: 1024px) {
   .projectModal {
     width: 95%;
     max-height: 85vh;
