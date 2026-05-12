@@ -5,7 +5,7 @@ import { clinicaDeSaludDetails } from './experienceDetails/clinicaDeSalud';
 import { proActDetails } from './experienceDetails/proActDetails';
 import { mannsFreshDetails } from './experienceDetails/mannsFreshDetails';
 import { starphyreDetails } from './experienceDetails/starphyreDetails';
-import { resumePDF } from './resume/IvanAlierReyes_Resume.pdf';
+import { resumePDF } from './resume/IvanAlier-Reyes(Resume).pdf';
 
 export const portfolioData = {
   profile: {
