@@ -11,7 +11,7 @@ const Footer = () => {
         </div>
         <div className={styles.footerBrand}>
           <span className={`serif-header ${styles.footerTitle}`}>Will of Huitzil</span>
-          <span className={`mono-accent ${styles.footerSub}`}>ARCHITECTURAL_ECO_LOGIC &copy; 2024</span>
+          <span className={`mono-accent ${styles.footerSub}`}>MESOAMERICAN_SOLARPUNK &copy; 2024</span>
         </div>
       </div>
 
