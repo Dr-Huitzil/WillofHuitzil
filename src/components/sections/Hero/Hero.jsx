@@ -37,7 +37,7 @@ const Hero = ({ profile = {} }) => {
               </a>
             )}
             {links.resume && (
-              <a href={links.resume} aria-label="Resume">
+              <a href={links.resume} target="_blank" rel="noreferrer" aria-label="Resume">
                 <FileText size={20} />
               </a>
             )}
