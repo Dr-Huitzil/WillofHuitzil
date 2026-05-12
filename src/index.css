@@ -4,9 +4,9 @@
   /* --- Core Palette --- */
   --bg-deep: #0e160f;          /* Dense forest floor background */
   --bg-deep-gradient: radial-gradient(circle at 50% 50%, #152217 0%, #0e160f 100%);
-  --bg-card: rgba(10, 22, 15, 0.45); /* Translucent dark greenhouse glass */
+  --bg-card: rgba(29, 43, 35, 0.95); /* More opaque dark green glass */
   --text-serif-cream: #f4ebd0; /* Vintage Serif font color (Name, Section Headers) */
-  --text-sans-slate: #d1d5db; /* Readable Sans-Serif font color (Body, descriptions) */
+  --text-sans-slate: #a3b8b0; /* More greenish grey for descriptions */
   --accent-teal-bright: #40e0d0; /* Holographic cyan/teal accent (Tags, Nodes, Links) */
   --accent-teal-dim: rgba(64, 224, 208, 0.2); /* Muted teal for borders and backgrounds */
   --accent-cream-dim: rgba(244, 235, 208, 0.3); /* Muted cream for borders */
@@ -19,14 +19,26 @@
 
   /* --- Geometry (The Chamfer) --- */
   --clip-chamfer: polygon(
-    20px 0%, 100% 0%, 
-    100% calc(100% - 20px), calc(100% - 20px) 100%, 
-    0% 100%, 0% 20px
+    30px 0%, calc(100% - 30px) 0%, 
+    100% 30px, 100% calc(100% - 30px), 
+    calc(100% - 30px) 100%, 30px 100%, 
+    0% calc(100% - 30px), 0% 30px
   );
   --clip-chamfer-small: polygon(
-    10px 0%, 100% 0%, 
-    100% calc(100% - 10px), calc(100% - 10px) 100%, 
-    0% 100%, 0% 10px
+    10px 0%, calc(100% - 10px) 0%, 
+    100% 10px, 100% calc(100% - 10px), 
+    calc(100% - 10px) 100%, 10px 100%, 
+    0% calc(100% - 10px), 0% 10px
+  );
+  --clip-pill-hex: polygon(
+    15px 0%, calc(100% - 15px) 0%, 
+    100% 50%, calc(100% - 15px) 100%, 
+    15px 100%, 0% 50%
+  );
+  --clip-marker: polygon(
+    0% 25%, 25% 0%, 
+    100% 0%, 100% 75%, 
+    75% 100%, 0% 100%
   );
 }
 
@@ -86,7 +98,7 @@ section {
   margin-bottom: 120px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   main {
     padding: 0 20px;
   }

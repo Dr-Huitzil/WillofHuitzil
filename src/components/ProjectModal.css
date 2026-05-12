@@ -36,7 +36,7 @@
   cursor: pointer;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .project-modal {
     padding: 20px;
     width: 95%;

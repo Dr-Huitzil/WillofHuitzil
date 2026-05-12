@@ -2,6 +2,7 @@
 
 .section-pill {
   margin-bottom: 20px;
+  clip-path: var(--clip-pill-hex);
 }
 
 .section-title {
@@ -34,12 +35,29 @@
 
 .timeline-marker {
   position: absolute;
-  left: -44px; /* Align to the border */
-  top: 6px;
-  width: 8px;
-  height: 8px;
+  left: -48px; /* Align to the border */
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  background: var(--accent-teal-bright);
+  clip-path: var(--clip-marker);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: var(--transition-smooth);
+}
+
+.timeline-marker::before {
+  content: '';
+  width: 14px;
+  height: 14px;
   background: var(--bg-deep);
-  border: 1px solid var(--accent-teal-bright);
+  clip-path: var(--clip-marker);
+  transition: var(--transition-smooth);
+}
+
+.timeline-item:hover .timeline-marker::before {
+  background: transparent;
 }
 
 .timeline-header {
@@ -55,11 +73,12 @@
 }
 
 .date-pill {
-  font-size: 0.7rem;
-  padding: 4px 12px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.65rem;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.03);
   color: var(--text-sans-slate);
+  display: block;
+  margin-bottom: 20px;
 }
 
 .company-name {
@@ -106,7 +125,7 @@
 .qual-icon {
   width: 48px;
   height: 48px;
-  border-radius: 8px;
+  clip-path: var(--clip-chamfer-small);
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.05);
   display: flex;
@@ -138,9 +157,10 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 0.7rem;
   color: var(--text-sans-slate);
+  clip-path: var(--clip-chamfer-small);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .timeline-grid {
     grid-template-columns: 1fr;
     gap: 40px;
