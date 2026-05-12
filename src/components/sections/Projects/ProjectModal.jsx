@@ -1,10 +1,11 @@
 import React from 'react';
+import { createPortal } from 'react-dom';
 import styles from './ProjectModal.module.css';
 
 const ProjectModal = ({ project, onClose }) => {
   if (!project) return null;
 
-  return (
+  return createPortal(
     <div className={styles.modalBackdrop} onClick={onClose}>
       <div className={styles.projectModal} onClick={e => e.stopPropagation()}>
         <button className={styles.closeBtn} onClick={onClose}>
@@ -44,7 +45,8 @@ const ProjectModal = ({ project, onClose }) => {
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 

@@ -13,51 +13,51 @@ export const portfolioData = {
   projects: [
     {
       id: 1,
-      title: "Verdant Odo",
+      title: "Este Cosmos",
       tags: ["React", "Vite", "Firebase"],
       description: "A full-stack mobile fuel tracking application utilizing Firebase for backend synchronization and a React frontend.",
       imagePlaceholder: "/path/to/verdant-odo.jpg"
     },
     {
       id: 2,
-      title: "RMM Automation",
-      tags: ["NinjaOne", "PowerShell"],
-      description: "Developed and deployed automated PowerShell scripts through NinjaOne RMM for endpoint management and system debloating.",
+      title: "Mind Melt",
+      tags: ["React", "Firebase"],
+      description: "Website for multi media project co created by my friends and I called Mind Melt.",
       imagePlaceholder: "/path/to/rmm-automation.jpg"
-    },
-    {
-      id: 3,
-      title: "Hardware Refresh Initiative",
-      tags: ["Infrastructure", "Cisco"],
-      description: "Managed the imaging and deployment of 224 replacement devices, alongside the bulk liquidation logistics for decommissioned Cisco Catalyst 2960 switches.",
-      imagePlaceholder: "/path/to/hardware-refresh.jpg"
     }
   ],
   experience: [
     {
       id: 1,
-      role: "Lead Infrastructure Architect",
-      company: "EMERALD_GROVE",
-      period: "2022 - PRESENT",
-      description: "Optimizing high-density infrastructure within Central American forest regions using solar-first protocols."
+      role: "IT Technician",
+      company: "Clinica De Salud (CSVS)",
+      period: "May 2025 - PRESENT",
+      description: "Installed and configured hardware, software, and network resources for clinical staff, ensuring seamless daily operations."
     },
     {
       id: 2,
-      role: "Full Stack Engineer",
-      company: "VIBRANT_NETWORKS",
-      period: "2019 - 2022",
-      description: "Built resilient, high-humidity tolerant network interfaces for edge computing clusters."
+      role: "IT & Office Support Specialist",
+      company: "PRO*ACT",
+      period: "Dec 2024 - May 2025",
+      description: "Supported the functionality of an end-to-end fresh produce supply chain management platform, coordinating hardware, software, and network resources to ensure operational continuity."
+    },
+    {
+      id: 3,
+      role: "IT Desktop Support",
+      company: "Fresh Del Monte",
+      period: "Aug 2024 - Dec 2024",
+      description: "Provided on-site and remote technical support to end-users, resolving hardware, software, and connectivity issues."
     }
   ],
   education: [
     {
       id: 1,
       degree: "B.S. Computer Science",
-      school: "MAYA_TECH_INSTITUTE",
-      period: "2015 - 2019",
+      school: "CSU Monterey Bay",
+      period: "2026 - 2027",
       image: "/path/to/degree.jpg",
       icon: "BookOpen"
-    }
+    },
   ],
   certifications: [
     {

@@ -1,10 +1,11 @@
 import React from 'react';
+import { createPortal } from 'react-dom';
 import styles from './ImageModal.module.css';
 
 const ImageModal = ({ imageUrl, title, onClose }) => {
   if (!imageUrl) return null;
 
-  return (
+  return createPortal(
     <div className={styles.modalBackdrop} onClick={onClose}>
       <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
         <button className={styles.closeBtn} onClick={onClose}>
@@ -23,7 +24,8 @@ const ImageModal = ({ imageUrl, title, onClose }) => {
           <p className="mono-accent">VERIFIED_CREDENTIAL</p>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 

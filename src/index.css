@@ -45,7 +45,8 @@
 /* Base Styles */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px; /* Prevents the sticky navbar from covering section titles */
+  scroll-padding-top: 100px;
+  overflow-x: hidden;
 }
 
 body {
@@ -118,6 +119,12 @@ section {
 }
 
 @media (max-width: 1024px) {
+  .hud-container {
+    backdrop-filter: blur(4px);
+    box-shadow: none;
+    margin: 15px;
+  }
+
   main {
     padding: 0 20px;
   }

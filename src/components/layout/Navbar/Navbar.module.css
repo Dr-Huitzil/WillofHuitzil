@@ -70,7 +70,8 @@
   .navbarRight {
     position: fixed;
     top: 0;
-    right: -100%;
+    right: 0;
+    transform: translateX(100%);
     width: 250px;
     height: 100vh;
     background: var(--bg-card);
@@ -81,11 +82,12 @@
     padding-top: 100px;
     gap: 40px;
     align-items: center;
-    transition: right 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+    will-change: transform;
     z-index: 150;
   }
 
   .navbarRight.open {
-    right: 0;
+    transform: translateX(0);
   }
 }
