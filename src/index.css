@@ -55,8 +55,8 @@ body {
   background-position: 0 0, 0 0;
   color: var(--text-sans-slate);
   font-family: 'Inter', system-ui, -apple-system, sans-serif; 
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 /* Master Typographic Rules */
@@ -82,10 +82,7 @@ body {
 .portfolio-app-root {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  width: 100vw;
-  padding: 2vw;
-  box-sizing: border-box;
+  min-height: 100vh;
 }
 
 .hud-container {
@@ -99,21 +96,7 @@ body {
   box-shadow: 
     0 0 40px rgba(64, 224, 208, 0.15), 
     inset 0 0 60px rgba(64, 224, 208, 0.05);
-  position: relative;
-  overflow-y: auto; 
-  overflow-x: hidden;
-}
-
-/* Custom Scrollbar for HUD */
-.hud-container::-webkit-scrollbar {
-  width: 8px;
-}
-.hud-container::-webkit-scrollbar-track {
-  background: transparent;
-}
-.hud-container::-webkit-scrollbar-thumb {
-  background: var(--accent-teal-dim);
-  border-radius: 4px;
+  margin: 2vw;
 }
 
 main {
