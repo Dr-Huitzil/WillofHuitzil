@@ -43,6 +43,11 @@
 }
 
 /* Base Styles */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* Prevents the sticky navbar from covering section titles */
+}
+
 body {
   margin: 0;
   padding: 0;
