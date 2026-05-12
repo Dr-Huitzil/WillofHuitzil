@@ -5,6 +5,7 @@ import { clinicaDeSaludDetails } from './experienceDetails/clinicaDeSalud';
 import { proActDetails } from './experienceDetails/proAct';
 import { mannsFreshDetails } from './experienceDetails/mannsFresh';
 import { starphyreDetails } from './experienceDetails/starphyre';
+import { resumePDF } from './resume/IvanAlierReyes_Resume.pdf';
 
 export const portfolioData = {
   profile: {
@@ -14,7 +15,7 @@ export const portfolioData = {
       github: "https://github.com/ivan-alier-reyes",
       linkedin: "https://www.linkedin.com/in/ivan-alier-reyes",
       website: "https://WillofHuitzil.com",
-      resume: "#resume"
+      resume: resumePDF
     }
   },
   projects: [
