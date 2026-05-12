@@ -16,14 +16,18 @@ export const portfolioData = {
       title: "Este Cosmos",
       tags: ["React", "Vite", "Firebase"],
       description: "A full-stack mobile fuel tracking application utilizing Firebase for backend synchronization and a React frontend.",
-      imagePlaceholder: "/path/to/verdant-odo.jpg"
+      imagePlaceholder: "/path/to/verdant-odo.jpg",
+      github: "https://github.com/ivan-alier-reyes",
+      demo: "https://estecosmos.netlify.app"
     },
     {
       id: 2,
       title: "Mind Melt",
       tags: ["React", "Firebase"],
       description: "Website for multi media project co created by my friends and I called Mind Melt.",
-      imagePlaceholder: "/path/to/rmm-automation.jpg"
+      imagePlaceholder: "/path/to/rmm-automation.jpg",
+      github: "https://github.com/ivan-alier-reyes",
+      demo: "https://mindmelt.org"
     }
   ],
   experience: [
