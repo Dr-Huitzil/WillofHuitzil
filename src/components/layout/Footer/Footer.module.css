@@ -2,13 +2,12 @@
 
 .footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
-  padding: 40px 5vw;
+  padding: 60px 5vw;
   box-sizing: border-box;
-  border-top: var(--border-glass);
-  background: var(--bg-deep);
-  margin-top: 100px;
+  background: transparent;
+  margin-top: 40px;
   font-size: 0.75rem;
 }
 
@@ -59,12 +58,19 @@
 @media (max-width: 1024px) {
   .footer {
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
     padding: 40px 20px;
-    align-items: flex-start;
+    align-items: flex-end;
+    justify-content: flex-end;
+    text-align: right;
   }
-  .footerCenter {
-    flex-direction: column;
-    gap: 15px;
+
+  .footerBrand {
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  .footerRight {
+    justify-content: flex-end;
   }
 }

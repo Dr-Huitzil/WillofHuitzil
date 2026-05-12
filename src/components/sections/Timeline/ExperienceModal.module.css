@@ -253,7 +253,7 @@
 @media (max-width: 1024px) {
   .experienceModal {
     width: 95%;
-    max-height: 90vh;
+    max-height: 95vh;
   }
 
   .modalContentWrapper {
@@ -266,21 +266,31 @@
     height: auto;
     border-right: none;
     border-bottom: var(--border-glass);
-    padding: 40px 25px;
+    padding: 30px 20px;
     background: rgba(0,0,0,0.6);
   }
 
+  /* Hide icon on mobile when expanded to save space */
+  .expanded .iconBox {
+    display: none;
+  }
+
   .sidebarMeta {
-    gap: 25px;
+    gap: 20px;
   }
 
   .modalRight {
-    padding: 40px 25px;
+    padding: 0;
     background: transparent;
   }
 
+  .contentSection {
+    padding: 30px 20px;
+    margin-bottom: 0;
+  }
+
   .role {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
   .expandBtn {
@@ -289,7 +299,7 @@
   }
 
   .expandedInfoSection {
-    padding: 40px 20px;
+    padding: 30px 20px;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     animation: slideInMobile 0.5s ease forwards;
   }
