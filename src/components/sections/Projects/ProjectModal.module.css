@@ -196,6 +196,22 @@
   color: var(--text-sans-slate);
   line-height: 1.8;
   font-size: 1rem;
+  white-space: pre-wrap; /* Preserves line breaks from the detail files */
+}
+
+.longDescription h3 {
+  color: var(--accent-teal-bright);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9rem;
+  margin: 30px 0 15px 0;
+  letter-spacing: 2px;
+  border-bottom: 1px solid var(--accent-teal-dim);
+  padding-bottom: 5px;
+  width: fit-content;
+}
+
+.longDescription h3:first-child {
+  margin-top: 0;
 }
 
 .modalFooterText {

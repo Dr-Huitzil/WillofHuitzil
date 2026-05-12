@@ -1,4 +1,6 @@
 // src/data/portfolioData.js
+import { esteCosmosDetails } from './projectDetails/esteCosmos';
+import { mindMeltDetails } from './projectDetails/mindMelt';
 
 export const portfolioData = {
   profile: {
@@ -16,7 +18,7 @@ export const portfolioData = {
       title: "Este Cosmos",
       tags: ["React", "Vite", "Firebase"],
       description: "A full-stack mobile fuel tracking application utilizing Firebase for backend synchronization and a React frontend.",
-      longDescription: "A comprehensive solution for remote field operators to track fuel consumption and logistics in areas with limited connectivity. The system uses a local-first synchronization strategy with Firebase, ensuring data integrity even in offline scenarios. Key features include automated reporting, real-time sync when back online, and a highly optimized UI for mobile devices.",
+      longDescription: esteCosmosDetails,
       date: "August 2023",
       imagePlaceholder: "/path/to/verdant-odo.jpg",
       github: "https://github.com/ivan-alier-reyes",
@@ -27,7 +29,7 @@ export const portfolioData = {
       title: "Mind Melt",
       tags: ["React", "Firebase"],
       description: "Website for multi media project co created by my friends and I called Mind Melt.",
-      longDescription: "Mind Melt is a collaborative multimedia platform designed to showcase experimental art, music, and digital interactive experiences. The website serves as a central hub for the project, featuring high-fidelity media galleries, interactive project timelines, and a community-driven blog. Built with React and Firebase for high-speed content delivery and seamless updates.",
+      longDescription: mindMeltDetails,
       date: "June 2024",
       imagePlaceholder: "/path/to/rmm-automation.jpg",
       github: "https://github.com/ivan-alier-reyes",
