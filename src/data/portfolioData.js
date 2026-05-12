@@ -3,15 +3,17 @@ import { esteCosmosDetails } from './projectDetails/esteCosmos';
 import { mindMeltDetails } from './projectDetails/mindMelt';
 import { clinicaDeSaludDetails } from './experienceDetails/clinicaDeSalud';
 import { proActDetails } from './experienceDetails/proAct';
-import { freshDelMonteDetails } from './experienceDetails/freshDelMonte';
+import { mannsFreshDetails } from './experienceDetails/mannsFresh';
+import { starphyreDetails } from './experienceDetails/starphyre';
 
 export const portfolioData = {
   profile: {
     name: "Ivan Alier-Reyes",
-    title: "FULL STACK ARCHITECT // IT PROFESSIONAL",
+    title: "IT SPECIALIST // CYBERSECURITY SPECIALIST",
     links: {
       github: "https://github.com/ivan-alier-reyes",
-      linkedin: "https://linkedin.com",
+      linkedin: "https://www.linkedin.com/in/ivan-alier-reyes",
+      website: "https://WillofHuitzil.com",
       resume: "#resume"
     }
   },
@@ -19,22 +21,22 @@ export const portfolioData = {
     {
       id: 1,
       title: "Este Cosmos",
-      tags: ["React", "Vite", "Firebase"],
-      description: "A full-stack mobile fuel tracking application utilizing Firebase for backend synchronization and a React frontend.",
+      tags: ["React", "Vite", "Edge Impulse", "Machine Learning"],
+      description: "A financial and diagnostic application designed to automate vehicle telemetry tracking and calculate net fiscal position utilizing machine learning models.",
       longDescription: esteCosmosDetails,
-      date: "August 2023",
-      imagePlaceholder: "/path/to/verdant-odo.jpg",
+      date: "April 2026 - May 2026",
+      imagePlaceholder: "/path/to/este-cosmos.jpg",
       github: "https://github.com/ivan-alier-reyes",
       demo: "https://estecosmos.netlify.app"
     },
     {
       id: 2,
       title: "Mind Melt",
-      tags: ["React", "Firebase"],
-      description: "Website for multi media project co created by my friends and I called Mind Melt.",
+      tags: ["React", "Vite", "Firebase", "GCP"],
+      description: "A comprehensive multimedia production platform engineered with a modern web stack for content delivery and management.",
       longDescription: mindMeltDetails,
-      date: "June 2024",
-      imagePlaceholder: "/path/to/rmm-automation.jpg",
+      date: "August 2022 - Present",
+      imagePlaceholder: "/path/to/mind-melt.jpg",
       github: "https://github.com/ivan-alier-reyes",
       demo: "https://mindmelt.org"
     }
@@ -43,77 +45,102 @@ export const portfolioData = {
     {
       id: 1,
       role: "IT Technician",
-      company: "Clinica De Salud (CSVS)",
-      period: "May 2025 - PRESENT",
-      description: "Installed and configured hardware, software, and network resources for clinical staff, ensuring seamless daily operations.",
+      company: "Clinica De Salud del Valle de Salinas (CSVS)",
+      period: "May 2025 - Present",
+      description: "Orchestrated large-scale computer deployments via SmartDeploy and NinjaOne, automated provisioning with PowerShell, and provided critical on-site support across distributed clinical environments.",
       details: clinicaDeSaludDetails
     },
     {
       id: 2,
       role: "IT & Office Support Specialist",
       company: "PRO*ACT",
-      period: "Dec 2024 - May 2025",
-      description: "Supported the functionality of an end-to-end fresh produce supply chain management platform, coordinating hardware, software, and network resources to ensure operational continuity.",
+      period: "Jan 2025 - May 2025",
+      description: "Administered AD user lifecycles and O365 tenant services while mitigating database disruptions and optimizing inventory tracking for enterprise supply chain operations.",
       details: proActDetails
     },
     {
       id: 3,
       role: "IT Desktop Support",
-      company: "Fresh Del Monte",
-      period: "Aug 2024 - Dec 2024",
-      description: "Provided on-site and remote technical support to end-users, resolving hardware, software, and connectivity issues.",
-      details: freshDelMonteDetails
+      company: "Mann's Fresh Vegetables (Mann Packing Co.)",
+      period: "Aug 2024 - Nov 2024",
+      description: "Deployed workstations, managed Active Directory/GPOs, and secured mobile devices via MDM while driving rapid incident resolution within organizational SLAs.",
+      details: mannsFreshDetails
+    },
+    {
+      id: 4,
+      role: "Cyber Security Specialist",
+      company: "Starphyre Digital Security Services",
+      period: "Mar 2022 - Aug 2024",
+      description: "Engineered robust network defenses, managed SIEM tools (Splunk), executed penetration testing, and authored disaster recovery initiatives to minimize organizational risk.",
+      details: starphyreDetails
     }
   ],
   education: [
     {
       id: 1,
       degree: "B.S. Computer Science",
-      school: "CSU Monterey Bay",
-      period: "2026 - 2027",
-      image: "/path/to/degree.jpg",
-      icon: "BookOpen"
+      school: "California State University, Monterey Bay",
+      period: "Aug 2022 - Dec 2025",
+      image: "/path/to/csumb-logo.jpg",
+      icon: "Code"
     },
+    {
+      id: 2,
+      degree: "A.S. Computer Science | A.S. Biology | A.S. Physics",
+      school: "Hartnell College",
+      period: "2019 - 2025",
+      image: "/path/to/hartnell-logo.jpg",
+      icon: "BookOpen"
+    }
   ],
   certifications: [
     {
       id: 1,
-      title: "AWS Architect",
-      subtitle: "CLOUD ECOLOGY",
+      title: "Cisco CCNA",
+      subtitle: "CISCO SYSTEMS",
       icon: "Network",
-      image: "/path/to/aws-cert.jpg"
+      image: "/path/to/ccna-cert.jpg"
     },
     {
       id: 2,
-      title: "Certified Ethical Hacker",
-      subtitle: "EC-COUNCIL",
-      icon: "Shield",
-      image: "/path/to/ceh-cert.jpg"
+      title: "CompTIA Security+",
+      subtitle: "COMPTIA",
+      icon: "ShieldCheck",
+      image: "/path/to/secplus-cert.jpg"
     },
     {
       id: 3,
-      title: "K8s Administrator",
-      subtitle: "CNCF",
-      icon: "Cpu",
-      image: "/path/to/k8s-cert.jpg"
+      title: "CompTIA CySA+",
+      subtitle: "COMPTIA",
+      icon: "ShieldAlert",
+      image: "/path/to/cysa-cert.jpg"
+    },
+    {
+      id: 4,
+      title: "CompTIA Network+",
+      subtitle: "COMPTIA",
+      icon: "Globe",
+      image: "/path/to/netplus-cert.jpg"
     }
   ],
   proficiencies: [
-    "Infrastructure",
-    "Cloud Arch",
-    "React/NextJS",
-    "Network Sec",
-    "Kubernetes",
-    "Go",
-    "Python"
+    "PowerShell Automation",
+    "Bash Scripting",
+    "Active Directory / GPO",
+    "OS Deployment (WIM/Answer Files)",
+    "Endpoint Management (MDM/RMM)",
+    "JavaScript / React / Vite",
+    "Java & Python",
+    "SQL Database Mgmt",
+    "Network Routing / Cisco Configuration"
   ],
   publications: [
     {
       id: 1,
-      title: "Resilient Microgrid Infrastructure in Mesoamerican Ecosystems",
-      journal: "Tech-Bio Journal of Sustainable Systems",
-      date: "2024",
-      url: "https://example.com/publication",
+      title: "The complete mitochondrial genome of the strawberry aphid Chaetosiphon fragaefolii Cockerell, 1901 (Hemiptera: Aphididae) from California, USA",
+      journal: "Published Research",
+      date: "N/A",
+      url: "https://www.linkedin.com/in/ivan-alier-reyes",
       icon: "FileText"
     }
   ]
