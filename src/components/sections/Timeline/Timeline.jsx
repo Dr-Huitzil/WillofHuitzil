@@ -22,13 +22,13 @@ const Timeline = ({ experience = [], certifications = [], education = [], profic
       <div className={`pill ${styles.sectionPill}`}>
         TIMELINE
       </div>
-      <h2 className={`serif-header serif-glow ${styles.sectionTitle}`}>Professional<br/>Path</h2>
+      <h2 className={`serif-header serif-glow ${styles.sectionTitle}`}>Professional<br />Path</h2>
 
       <div className={styles.timelineGrid}>
         {/* Left Side: Timeline */}
         <div className={styles.timelinePath}>
           {experience.map((item) => (
-            <TimelineItem 
+            <TimelineItem
               key={item.id}
               role={item.role}
               company={item.company}
@@ -41,12 +41,12 @@ const Timeline = ({ experience = [], certifications = [], education = [], profic
 
         {/* Right Side: Cards */}
         <div className={styles.timelineCards}>
-          
+
           <div className={styles.glassCard}>
             <h4 className={`mono-accent ${styles.cardTitle}`}>EDUCATION</h4>
             <div className={styles.qualList}>
               {education.map((edu) => (
-                <QualificationItem 
+                <QualificationItem
                   key={edu.id}
                   title={edu.degree}
                   subtitle={edu.school}
@@ -61,7 +61,7 @@ const Timeline = ({ experience = [], certifications = [], education = [], profic
             <h4 className={`mono-accent ${styles.cardTitle}`}>CERTIFICATIONS</h4>
             <div className={styles.certGrid}>
               {certifications.map((cert) => (
-                <QualificationItem 
+                <QualificationItem
                   key={cert.id}
                   title={cert.title}
                   subtitle={cert.subtitle}
@@ -77,7 +77,7 @@ const Timeline = ({ experience = [], certifications = [], education = [], profic
             <h4 className={`mono-accent ${styles.cardTitle}`}>PUBLICATIONS</h4>
             <div className={styles.qualList}>
               {publications.map((pub) => (
-                <QualificationItem 
+                <QualificationItem
                   key={pub.id}
                   title={pub.title}
                   subtitle={pub.journal}
@@ -101,17 +101,17 @@ const Timeline = ({ experience = [], certifications = [], education = [], profic
       </div>
 
       {selectedImage && (
-        <ImageModal 
-          imageUrl={selectedImage.url} 
-          title={selectedImage.title} 
-          onClose={() => setSelectedImage(null)} 
+        <ImageModal
+          imageUrl={selectedImage.url}
+          title={selectedImage.title}
+          onClose={() => setSelectedImage(null)}
         />
       )}
 
       {selectedExperience && (
-        <ExperienceModal 
-          experience={selectedExperience} 
-          onClose={() => setSelectedExperience(null)} 
+        <ExperienceModal
+          experience={selectedExperience}
+          onClose={() => setSelectedExperience(null)}
         />
       )}
     </section>

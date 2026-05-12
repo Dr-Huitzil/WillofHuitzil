@@ -31,13 +31,13 @@ const Navbar = () => {
           <Leaf size={18} color="var(--accent-teal-bright)" />
         </div>
       </div>
-      
+
       <button className={styles.mobileMenuBtn} onClick={toggleMenu} aria-label="Toggle menu">
         {isOpen ? <X size={24} color="var(--accent-teal-bright)" /> : <Menu size={24} color="var(--accent-teal-bright)" />}
       </button>
 
       <div className={`${styles.navbarRight} ${isOpen ? styles.open : ''} mono-accent`}>
-        <a href="#home" onClick={(e) => handleNavClick(e, 'home')}>HOME</a>
+        <a href="#home" onClick={(e) => handleNavClick(e, 'home')}>MAIN</a>
         <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')}>PROJECTS</a>
         <a href="#timeline" onClick={(e) => handleNavClick(e, 'timeline')}>TIMELINE</a>
         <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')}>CONTACT</a>
