@@ -19,9 +19,9 @@ const Timeline = () => {
             <div className="timeline-content">
               <div className="timeline-header">
                 <h3 className="serif-header">Lead Infrastructure Architect</h3>
+                <span className="mono-accent date-pill">2022 - PRESENT</span>
               </div>
               <div className="mono-accent company-name">EMERALD_GROVE</div>
-              <div className="mono-accent date-pill">2022 - PRESENT</div>
               <p>Optimizing high-density infrastructure within Central American forest regions using solar-first protocols.</p>
             </div>
           </div>
@@ -31,9 +31,9 @@ const Timeline = () => {
             <div className="timeline-content">
               <div className="timeline-header">
                 <h3 className="serif-header">Full Stack Engineer</h3>
+                <span className="mono-accent date-pill">2019 - 2022</span>
               </div>
               <div className="mono-accent company-name">VIBRANT_NETWORKS</div>
-              <div className="mono-accent date-pill">2019 - 2022</div>
               <p>Built resilient, high-humidity tolerant network interfaces for edge computing clusters.</p>
             </div>
           </div>
@@ -43,9 +43,9 @@ const Timeline = () => {
             <div className="timeline-content">
               <div className="timeline-header">
                 <h3 className="serif-header">Computer Science Scholar</h3>
+                <span className="mono-accent date-pill">2015 - 2019</span>
               </div>
               <div className="mono-accent company-name">MAYA_TECH_INSTITUTE</div>
-              <div className="mono-accent date-pill">2015 - 2019</div>
               <p>Specializing in biomimetic systems and distributed ledger synchronization in extreme environments.</p>
             </div>
           </div>

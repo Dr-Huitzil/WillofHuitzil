@@ -77,8 +77,6 @@
   padding: 8px 16px;
   background: rgba(255, 255, 255, 0.03);
   color: var(--text-sans-slate);
-  display: block;
-  margin-bottom: 20px;
 }
 
 .company-name {
