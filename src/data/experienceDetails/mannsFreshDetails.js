@@ -1,4 +1,4 @@
-export const freshDelMonteDetails = [
+export const mannsFreshDetails = [
   "Resolved 500+ technical support tickets with a 95% satisfaction rate.",
   "Configured and deployed ruggedized mobile devices for field operations.",
   "Maintained secure VPN tunnels for remote employees in low-bandwidth areas.",
