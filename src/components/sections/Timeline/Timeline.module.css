@@ -5,11 +5,6 @@
   clip-path: var(--clip-pill-hex);
 }
 
-.sectionTitle {
-  font-size: 5rem;
-  line-height: 0.9;
-  margin: 0 0 80px 0;
-}
 
 .timelineGrid {
   display: grid;

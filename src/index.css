@@ -73,7 +73,14 @@ body {
 }
 
 .serif-glow {
-  text-shadow: var(--glow-text-cream);
+  text-shadow: 0 0 20px rgba(244, 235, 208, 0.15);
+}
+
+.section-title {
+  font-size: 3.5rem;
+  line-height: 0.95;
+  margin: 10px 0 60px 0;
+  letter-spacing: -2px;
 }
 
 .mono-accent {
