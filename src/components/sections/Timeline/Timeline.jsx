@@ -22,7 +22,7 @@ const Timeline = ({ experience = [], certifications = [], education = [], profic
       <div className={`pill ${styles.sectionPill}`}>
         TIMELINE
       </div>
-      <h2 className="serif-header serif-glow section-title">Professional<br />Path</h2>
+      <h2 className="serif-header serif-glow section-title">Professional Path</h2>
 
       <div className={styles.timelineGrid}>
         {/* Left Side: Timeline */}

@@ -11,7 +11,7 @@ const Projects = ({ projects }) => {
       <div className="pill section-pill">
         ARTIFACTS
       </div>
-      <h2 className="serif-header serif-glow section-title">Selected<br />Works</h2>
+      <h2 className="serif-header serif-glow section-title">Selected Works</h2>
 
       <div className={styles.projectsGrid}>
         {projects.map(project => (
