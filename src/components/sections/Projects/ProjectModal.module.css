@@ -102,6 +102,12 @@
   display: flex;
 }
 
+.expanded .modalImage {
+  flex: none;
+  aspect-ratio: 1 / 1;
+  min-height: unset;
+}
+
 .modalImg {
   width: 100%;
   height: 100%;
