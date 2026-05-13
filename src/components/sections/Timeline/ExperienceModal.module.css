@@ -51,9 +51,9 @@
 }
 
 .closeBtn:hover {
-  background: rgba(64, 224, 208, 0.1);
-  color: var(--accent-teal-bright);
-  border-color: var(--accent-teal-dim);
+  background: rgba(160, 82, 45, 0.1);
+  color: var(--accent-rust);
+  border-color: rgba(160, 82, 45, 0.3);
   transform: rotate(90deg) scale(1.1);
 }
 
@@ -92,12 +92,13 @@
 .iconBox {
   width: 54px;
   height: 54px;
-  background: rgba(64, 224, 208, 0.05);
-  border: 1px solid rgba(64, 224, 208, 0.2);
+  background: rgba(160, 82, 45, 0.05);
+  border: 1px solid rgba(160, 82, 45, 0.2);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
+  color: var(--accent-rust);
 }
 
 .mainMeta {
@@ -110,6 +111,7 @@
   font-size: 1.8rem;
   margin: 0;
   line-height: 1.1;
+  color: var(--text-serif-cream);
 }
 
 .company {
@@ -165,10 +167,11 @@
 .contentTitle {
   font-size: 0.75rem;
   letter-spacing: 3px;
-  color: var(--accent-teal-dim);
+  color: var(--accent-rust);
   margin-bottom: 25px;
-  border-left: 2px solid var(--accent-teal-dim);
+  border-left: 2px solid var(--accent-rust);
   padding-left: 15px;
+  opacity: 0.8;
 }
 
 .detailsList {
@@ -189,15 +192,15 @@
 }
 
 .bullet {
-  color: var(--accent-teal-bright);
+  color: var(--accent-rust);
   font-weight: bold;
   font-family: 'Fira Code', monospace;
 }
 
 .expandBtn {
-  background: rgba(64, 224, 208, 0.1);
-  border: 1px solid var(--accent-teal-dim);
-  color: var(--accent-teal-bright);
+  background: rgba(160, 82, 45, 0.1);
+  border: 1px solid rgba(160, 82, 45, 0.2);
+  color: var(--accent-rust);
   padding: 10px 20px;
   cursor: pointer;
   display: flex;
@@ -212,7 +215,8 @@
 }
 
 .expandBtn:hover {
-  background: rgba(64, 224, 208, 0.2);
+  background: rgba(160, 82, 45, 0.2);
+  border-color: var(--accent-rust);
   transform: translateY(-2px);
 }
 
@@ -236,12 +240,12 @@
 }
 
 .longDescription h3 {
-  color: var(--accent-teal-bright);
+  color: var(--accent-rust);
   font-family: 'Fira Code', monospace;
   font-size: 0.85rem;
   margin: 35px 0 15px 0;
   letter-spacing: 2px;
-  border-bottom: 1px solid var(--accent-teal-dim);
+  border-bottom: 1px solid rgba(160, 82, 45, 0.2);
   padding-bottom: 5px;
   width: fit-content;
 }

@@ -10,7 +10,7 @@ const Contact = ({ links }) => {
       <div className={styles.contactContainer}>
         <div className={styles.contactCard}>
           <div className={styles.cardHeader}>
-            <h3 className="serif-header">Direct Channels</h3>
+            <h3 className="serif-header">Contact Me</h3>
           </div>
 
           <div className={styles.linksGrid}>

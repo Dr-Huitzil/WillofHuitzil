@@ -10,6 +10,11 @@
   --accent-teal-bright: #52b788; 
   --accent-teal-dim: rgba(82, 183, 136, 0.15); 
   --accent-gold: #d4a373; 
+  --accent-yellow: #f4d35e;
+  --accent-clay: #bc6c25;
+  --accent-rust: #a0522d;
+  --accent-orchid: #7209b7;
+  --accent-citron: #d9ed92;
   --accent-cream-dim: rgba(249, 241, 215, 0.15);
 
   /* --- Design Tokens: Glass & Surfaces --- */
@@ -114,7 +119,7 @@ body {
 
 .serif-glow {
   text-shadow: 
-    0 0 15px rgba(249, 241, 215, 0.4),
+    0 0 15px rgba(114, 9, 183, 0.4),
     0 0 30px rgba(249, 241, 215, 0.2);
 }
 

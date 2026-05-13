@@ -45,7 +45,7 @@ const LoadingScreen = ({ onComplete }) => {
             style={{ width: `${progress}%` }} 
           >
             <div className={styles.leafHead}>
-              <Leaf size={16} color="var(--accent-teal-bright)" strokeWidth={1.5} />
+              <Leaf size={16} color="var(--accent-citron)" strokeWidth={1.5} />
             </div>
           </div>
         </div>
