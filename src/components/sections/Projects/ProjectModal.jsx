@@ -110,7 +110,15 @@ const ProjectModal = ({ project, onClose }) => {
 
         <div className={styles.modalContentWrapper}>
           <div className={styles.modalLeft}>
-            <div className={styles.modalImage} />
+            <div className={styles.modalImage}>
+              {project.imagePlaceholder && (
+                <img 
+                  src={project.imagePlaceholder} 
+                  alt={project.title} 
+                  className={styles.modalImg}
+                />
+              )}
+            </div>
             {isExpanded && projectSummary}
           </div>
 
