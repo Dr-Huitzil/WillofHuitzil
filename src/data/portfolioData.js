@@ -62,7 +62,7 @@ export const portfolioData = {
       period: "Jan 2025 - May 2025",
       description: "Administered AD user lifecycles and O365 tenant services while mitigating database disruptions and optimizing inventory tracking for enterprise supply chain operations.",
       details: proActDetails,
-      longDescription: "", // Add later
+      longDescription: null, // Add later
       image: "/path/to/proact-hq.jpg"
     },
     {
@@ -72,7 +72,7 @@ export const portfolioData = {
       period: "Aug 2024 - Nov 2024",
       description: "Deployed workstations, managed Active Directory/GPOs, and secured mobile devices via MDM while driving rapid incident resolution within organizational SLAs.",
       details: mannsFreshDetails,
-      longDescription: "", // Add later
+      longDescription: null, // Add later
       image: "/path/to/mann-hq.jpg"
     },
     {

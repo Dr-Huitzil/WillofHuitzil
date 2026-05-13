@@ -82,7 +82,7 @@ const Timeline = ({ experience = [], certifications = [], education = [], profic
                   title={pub.title}
                   subtitle={pub.journal}
                   iconName={pub.icon}
-                  onClick={() => pub.url && window.open(pub.url, '_blank')}
+                  onClick={() => pub.url && window.open(pub.url, '_blank', 'noopener,noreferrer')}
                 />
               ))}
             </div>

@@ -1,43 +1,46 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useCallback, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { X, Briefcase, Calendar, MapPin, ChevronRight, ChevronDown } from 'lucide-react';
+import { useBodyScrollLock } from '../../../hooks/useBodyScrollLock';
+import { renderMarkdown } from '../../../utils/renderMarkdown';
 import styles from './ExperienceModal.module.css';
 
 const ExperienceModal = ({ experience, onClose }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
+  // iOS-safe scroll lock — centralized, no duplication
+  useBodyScrollLock();
+
+  // Close on Escape key
   useEffect(() => {
-    const scrollY = window.scrollY;
-    document.body.style.overflow = 'hidden';
-    document.body.style.position = 'fixed';
-    document.body.style.top = `-${scrollY}px`;
-    document.body.style.width = '100%';
-    return () => {
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
-      window.scrollTo(0, scrollY);
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
     };
-  }, []);
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [onClose]);
 
   if (!experience) return null;
 
-  const renderLongDescription = (text) => {
-    if (!text) return null;
-    return text.split('\n').map((line, i) => {
-      if (line.trim().startsWith('### ')) {
-        return <h3 key={i} className="mono-accent">{line.replace('### ', '').trim()}</h3>;
-      }
-      return <p key={i}>{line}</p>;
-    });
-  };
+  const handleToggleExpand = useCallback(
+    () => setIsExpanded((prev) => !prev),
+    []
+  );
+
+  // Boolean() explicitly handles null, undefined, and empty string ""
+  const hasLongDescription = Boolean(experience.longDescription);
 
   return createPortal(
-    <div className={styles.modalBackdrop} onClick={onClose}>
-      <div 
-        className={`${styles.experienceModal} ${isExpanded ? styles.expanded : ''}`} 
-        onClick={e => e.stopPropagation()}
+    <div
+      className={styles.modalBackdrop}
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label={`${experience.role} at ${experience.company}`}
+    >
+      <div
+        className={`${styles.experienceModal} ${isExpanded ? styles.expanded : ''}`}
+        onClick={(e) => e.stopPropagation()}
       >
         <button className={styles.closeBtn} onClick={onClose} aria-label="Close modal">
           <X size={24} />
@@ -50,7 +53,7 @@ const ExperienceModal = ({ experience, onClose }) => {
               <div className={styles.iconBox}>
                 <Briefcase size={28} color="var(--accent-teal-bright)" />
               </div>
-              
+
               <div className={styles.mainMeta}>
                 <h2 className={`serif-header ${styles.role}`}>{experience.role}</h2>
                 <div className={`mono-accent ${styles.company}`}>{experience.company}</div>
@@ -65,19 +68,24 @@ const ExperienceModal = ({ experience, onClose }) => {
                 </div>
               </div>
 
-              {experience.longDescription && (
-                <button 
-                  className={`${styles.expandBtn} mono-accent`} 
-                  onClick={() => setIsExpanded(!isExpanded)}
+              {hasLongDescription && (
+                <button
+                  className={`${styles.expandBtn} mono-accent`}
+                  onClick={handleToggleExpand}
+                  aria-expanded={isExpanded}
+                  aria-controls="exp-technical-brief"
                 >
-                  {isExpanded ? 'LESS_INFO' : 'DEEP_ANALYSIS'} 
-                  {isExpanded ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
+                  {isExpanded ? 'LESS_INFO' : 'DEEP_ANALYSIS'}
+                  {isExpanded
+                    ? <ChevronDown size={14} />
+                    : <ChevronRight size={14} />}
                 </button>
               )}
             </div>
 
+            {/* Zero-padded display ID — no arithmetic on the id field */}
             <div className={`${styles.modalFooter} mono-accent`}>
-              EXP_LOG_ID: {experience.id * 1234} <br/>
+              EXP_LOG_ID: {String(experience.id).padStart(4, '0')}<br />
               ACCESS_LEVEL: SENIOR
             </div>
           </div>
@@ -86,10 +94,13 @@ const ExperienceModal = ({ experience, onClose }) => {
           <div className={styles.modalRight}>
             <div className={styles.mobileHideContent}>
               <div className={styles.contentSection}>
-                <h4 className={`mono-accent ${styles.contentTitle}`}>MISSION_OBJECTIVES</h4>
+                <h4 className={`mono-accent ${styles.contentTitle}`}>
+                  MISSION_OBJECTIVES
+                </h4>
                 <ul className={styles.detailsList}>
-                  {experience.details?.map((detail, index) => (
-                    <li key={index} className={styles.detailItem}>
+                  {experience.details?.map((detail) => (
+                    // Use content string as key — more stable than array index
+                    <li key={detail} className={styles.detailItem}>
                       <span className={styles.bullet}>&gt;</span>
                       {detail}
                     </li>
@@ -98,11 +109,13 @@ const ExperienceModal = ({ experience, onClose }) => {
               </div>
             </div>
 
-            {isExpanded && experience.longDescription && (
-              <div className={styles.expandedInfoSection}>
-                <h4 className={`mono-accent ${styles.contentTitle}`}>TECHNICAL_BRIEF</h4>
+            {isExpanded && hasLongDescription && (
+              <div id="exp-technical-brief" className={styles.expandedInfoSection}>
+                <h4 className={`mono-accent ${styles.contentTitle}`}>
+                  TECHNICAL_BRIEF
+                </h4>
                 <div className={styles.longDescription}>
-                  {renderLongDescription(experience.longDescription)}
+                  {renderMarkdown(experience.longDescription)}
                 </div>
               </div>
             )}
