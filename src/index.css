@@ -97,6 +97,7 @@ body {
   color: var(--text-serif-cream); 
   font-family: 'Inter', system-ui, -apple-system, sans-serif; 
   min-height: 100vh;
+  min-height: 100dvh;
   overflow-x: hidden;
   line-height: 1.6;
 }
@@ -105,7 +106,10 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding-top: 140px; /* Increased to prevent header clipping */
+  min-height: 100dvh;
+  padding-top: 140px; 
+  padding-top: calc(140px + env(safe-area-inset-top));
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 /* Master Typographic Rules */

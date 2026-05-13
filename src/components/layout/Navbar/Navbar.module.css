@@ -5,6 +5,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px 5vw;
+  padding-top: calc(20px + env(safe-area-inset-top));
   box-sizing: border-box;
   width: 100%;
   position: fixed;

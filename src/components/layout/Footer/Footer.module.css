@@ -5,6 +5,7 @@
   justify-content: flex-end;
   align-items: center;
   padding: 60px 5vw;
+  padding-bottom: calc(60px + env(safe-area-inset-bottom));
   box-sizing: border-box;
   background: transparent;
   margin-top: 40px;
