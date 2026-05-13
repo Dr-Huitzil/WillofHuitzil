@@ -9,6 +9,11 @@ import { starphyreDetails } from './experienceDetails/starphyreDetails';
 import { starphyreLong } from './experienceDetails/starphyreLong';
 import resumePDF from './resume/IvanAlier-Reyes(Resume).pdf';
 
+//images
+//projects
+import mindmeltHomePage from './images/projects/mindmeltHomePage.png'
+
+
 export const portfolioData = {
   profile: {
     name: "Ivan Alier-Reyes",
@@ -39,7 +44,7 @@ export const portfolioData = {
       description: "A comprehensive multimedia production platform engineered with a modern web stack for content delivery and management.",
       longDescription: mindMeltDetails,
       date: "August 2022 - Present",
-      imagePlaceholder: "/path/to/mind-melt.jpg",
+      imagePlaceholder: mindmeltHomePage,
       github: "https://github.com/Dr-Huitzil/mind_melt_me",
       demo: "https://mindmelt.org"
     }
