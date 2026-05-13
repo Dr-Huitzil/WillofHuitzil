@@ -95,8 +95,8 @@
 
 .modalImage {
   width: 100%;
+  flex: 1;
   min-height: 300px;
-  flex-shrink: 0;
   background-color: rgba(14, 22, 15, 0.4);
   overflow: hidden;
   display: flex;
