@@ -123,7 +123,7 @@ const ProjectModal = ({ project, onClose }) => {
                 className={styles.expandedInfoSection}
               >
                 <h3 className={`serif-header ${styles.expandedTitle}`}>
-                  The<br />Chronicle
+                  Deep Dive
                 </h3>
                 <div className={styles.longDescription}>
                   {renderMarkdown(project.longDescription)}
