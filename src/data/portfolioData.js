@@ -11,7 +11,7 @@ import resumePDF from './resume/IvanAlier-Reyes(Resume).pdf';
 
 //images
 //projects
-import mindmeltHomePage from './images/projects/mindmeltHomePage.png'
+import mindmeltHomePage from '../assets/images/mindMelt/MindMeltHomePage.png'
 
 
 export const portfolioData = {
