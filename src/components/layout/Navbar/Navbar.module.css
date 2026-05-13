@@ -48,7 +48,7 @@
 
 .navbarRight a {
   transition: color 0.3s ease, text-shadow 0.3s ease;
-  color: var(--text-sans-slate);
+  color: var(--text-serif-cream);
   letter-spacing: 2px;
   position: relative;
   font-size: 0.85rem;
