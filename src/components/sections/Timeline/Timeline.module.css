@@ -5,7 +5,6 @@
   clip-path: var(--clip-pill-hex);
 }
 
-
 .timelineGrid {
   display: grid;
   grid-template-columns: 1fr 400px;
@@ -24,21 +23,25 @@
   margin-bottom: 60px;
   cursor: pointer;
   padding: 10px;
-  transition: var(--transition-smooth);
+  transition: var(--transition-premium);
+  border: 1px solid transparent;
+  border-radius: 8px;
 }
 
 .timelineItem:hover {
-  background: rgba(64, 224, 208, 0.03);
-  transform: translateX(5px);
+  background: rgba(82, 183, 136, 0.05);
+  transform: translateX(10px);
+  border-color: var(--accent-teal-dim);
+  box-shadow: var(--glow-soft);
 }
 
 .clickHint {
   font-size: 0.6rem;
-  color: var(--accent-teal-dim);
+  color: var(--accent-teal-bright);
   letter-spacing: 2px;
   margin-top: 10px;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.4s ease;
 }
 
 .timelineItem:hover .clickHint {
@@ -51,7 +54,7 @@
 
 .timelineMarker {
   position: absolute;
-  left: -48px; /* Align to the border */
+  left: -48px;
   top: 4px;
   width: 16px;
   height: 16px;
@@ -60,7 +63,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: var(--transition-smooth);
+  transition: var(--transition-premium);
 }
 
 .timelineMarker::before {
@@ -69,7 +72,7 @@
   height: 14px;
   background: var(--bg-deep);
   clip-path: var(--clip-marker);
-  transition: var(--transition-smooth);
+  transition: var(--transition-premium);
 }
 
 .timelineItem:hover .timelineMarker::before {
@@ -92,7 +95,8 @@
   font-size: 0.65rem;
   padding: 8px 16px;
   background: rgba(255, 255, 255, 0.03);
-  color: var(--text-sans-slate);
+  color: var(--text-serif-cream);
+  opacity: 0.8;
 }
 
 .companyName {
@@ -101,7 +105,8 @@
 }
 
 .timelineContent p {
-  color: var(--text-sans-slate);
+  color: var(--text-serif-cream);
+  opacity: 0.7;
   line-height: 1.6;
 }
 
@@ -117,6 +122,12 @@
   border: var(--border-glass);
   clip-path: var(--clip-chamfer);
   padding: 40px;
+  transition: var(--transition-premium);
+}
+
+.glassCard:hover {
+  border-color: var(--accent-teal-bright);
+  box-shadow: var(--glow-soft);
 }
 
 .cardTitle {
@@ -142,13 +153,14 @@
   gap: 20px;
   padding: 10px;
   border-radius: 4px;
-  transition: var(--transition-smooth);
+  transition: var(--transition-premium);
   border: 1px solid transparent;
 }
 
 .qualItem:hover {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(82, 183, 136, 0.05);
   border-color: var(--accent-teal-dim);
+  transform: scale(1.02);
 }
 
 .qualIcon {
@@ -170,7 +182,8 @@
 
 .qualSub {
   font-size: 0.65rem;
-  color: var(--text-sans-slate);
+  color: var(--text-serif-cream);
+  opacity: 0.6;
 }
 
 .squareItem {
@@ -197,22 +210,17 @@
   letter-spacing: 1px;
 }
 
-/* Proficiencies Grid */
 .proficiencyGrid {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  margin-top: 10px;
 }
-
 
 @media (max-width: 1024px) {
   .timelineGrid {
     grid-template-columns: 1fr;
     gap: 40px;
-  }
-  .sectionTitle {
-    font-size: 3rem;
-    margin-bottom: 40px;
   }
   .timelinePath {
     padding-left: 20px;

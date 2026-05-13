@@ -5,15 +5,16 @@
   border: var(--border-glass);
   clip-path: var(--clip-chamfer);
   cursor: pointer;
-  transition: var(--transition-smooth);
+  transition: var(--transition-premium);
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
 .projectCard:hover {
-  box-shadow: var(--glow-teal-soft);
+  box-shadow: var(--glow-soft);
   border-color: var(--accent-teal-bright);
+  transform: translateY(-8px);
 }
 
 .projectImageContainer {

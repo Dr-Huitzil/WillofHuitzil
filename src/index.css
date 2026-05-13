@@ -1,23 +1,42 @@
 /* src/index.css */
 
 :root {
-  /* --- Core Palette --- */
-  --bg-deep: #080d08;          /* Darker, mossier forest floor */
+  /* --- Core Palette (Solarpunk / Ruin) --- */
+  --bg-deep: #080d08;
   --bg-deep-gradient: radial-gradient(circle at 50% 50%, #0e160f 0%, #080d08 100%);
-  --bg-card: rgba(22, 32, 25, 0.9); /* Deep mossy glass */
-  --text-serif-cream: #f9f1d7; /* Warmer, yellowish parchment cream */
+  --bg-card: rgba(22, 32, 25, 0.9); 
+  --text-serif-cream: #f9f1d7; 
   --text-sans-slate: #8fa19a; 
   --accent-teal-bright: #52b788; 
   --accent-teal-dim: rgba(82, 183, 136, 0.15); 
   --accent-gold: #d4a373; 
   --accent-cream-dim: rgba(249, 241, 215, 0.15);
 
-  /* --- Advanced Effects --- */
+  /* --- Design Tokens: Glass & Surfaces --- */
+  --glass-bg-soft: rgba(14, 22, 15, 0.4);
+  --glass-bg-deep: rgba(14, 22, 15, 0.85);
+  --glass-blur: blur(12px);
+  --glass-border: 1px solid rgba(249, 241, 215, 0.1);
+  --hud-radius: 30px;
+  
+  /* --- Stacking Hierarchy --- */
+  --layer-base: 1;
+  --layer-nav: 1000;
+  --layer-modal-backdrop: 2000;
+  --layer-modal-content: 2001;
+  --layer-loading: 9999;
+
+  /* --- Advanced Effects & Transitions --- */
   --glow-organic: 0 10px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(82, 183, 136, 0.05);
-  --glow-gold: 0 0 15px rgba(212, 163, 115, 0.3);
-  --border-glass: 1px solid rgba(244, 235, 208, 0.1);
-  --texture-grain: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  --glow-soft: 0 0 25px rgba(82, 183, 136, 0.2);
+  --glow-teal-soft: var(--glow-soft); /* Legacy Alias */
+  
+  /* The "Softer" Premium Transition */
+  --transition-premium: all 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  --transition-smooth: var(--transition-premium); /* Legacy Alias */
+  --transition-fast: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  --border-glass: var(--glass-border); /* Legacy Alias */
 
   /* --- Geometry (Softer/Irregular Stone) --- */
   --clip-chamfer: polygon(
@@ -44,6 +63,17 @@
   );
 }
 
+/* Global Entrance Animations */
+@keyframes ui-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes ui-scale-lift {
+  from { opacity: 0; transform: scale(0.96) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
 /* Base Styles */
 html {
   scroll-padding-top: 100px;
@@ -56,11 +86,10 @@ body {
   background-color: var(--bg-deep);
   background-image: 
     var(--bg-deep-gradient),
-    /* Subtle texture / noise via a faint data URI or CSS pattern */
     radial-gradient(rgba(255,255,255,0.01) 1px, transparent 1px);
   background-size: 100% 100%, 20px 20px;
   background-position: 0 0, 0 0;
-  color: var(--text-serif-cream); /* Shifted from slate to warm cream */
+  color: var(--text-serif-cream); 
   font-family: 'Inter', system-ui, -apple-system, sans-serif; 
   min-height: 100vh;
   overflow-x: hidden;
@@ -73,10 +102,13 @@ body {
   color: var(--text-serif-cream);
   letter-spacing: -0.02em;
   font-weight: 700;
+  text-shadow: 0 0 15px rgba(249, 241, 215, 0.2); /* Added glow */
 }
 
 .serif-glow {
-  text-shadow: 0 0 30px rgba(249, 241, 215, 0.1);
+  text-shadow: 
+    0 0 15px rgba(249, 241, 215, 0.4),
+    0 0 30px rgba(249, 241, 215, 0.2);
 }
 
 .section-title {
@@ -94,25 +126,23 @@ body {
   text-transform: uppercase;
 }
 
-/* Common Components */
-.portfolio-app-root {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  padding-top: 80px;
+/* HUD Surface Utility */
+.hud-surface {
+  background: var(--glass-bg-soft);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--accent-teal-bright);
+  border-radius: var(--hud-radius);
+  box-shadow: 
+    0 0 60px rgba(82, 183, 136, 0.2), 
+    inset 0 0 40px rgba(82, 183, 136, 0.05);
+  transition: var(--transition-premium);
 }
 
+/* Responsive HUD constraints */
 .hud-container {
   flex: 1;
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--accent-teal-bright);
-  border-radius: 30px; 
-  background: rgba(14, 22, 15, 0.4); 
-  backdrop-filter: blur(12px);
-  box-shadow: 
-    0 0 40px rgba(82, 183, 136, 0.1), 
-    inset 0 0 60px rgba(82, 183, 136, 0.05);
   margin: 15px 2vw;
 }
 
@@ -125,13 +155,6 @@ body {
 }
 
 .contact-hud-wrapper {
-  border: 1px solid var(--accent-teal-bright);
-  border-radius: 30px; 
-  background: rgba(14, 22, 15, 0.4); 
-  backdrop-filter: blur(12px);
-  box-shadow: 
-    0 0 40px rgba(82, 183, 136, 0.1), 
-    inset 0 0 60px rgba(82, 183, 136, 0.05);
   margin: 0 2vw 40px 2vw;
   padding: 60px 5vw;
   box-sizing: border-box;
@@ -197,7 +220,7 @@ section {
 a {
   color: inherit;
   text-decoration: none;
-  transition: var(--transition-smooth);
+  transition: var(--transition-premium);
 }
 a:hover {
   color: var(--accent-teal-bright);

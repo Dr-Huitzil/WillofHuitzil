@@ -19,7 +19,7 @@ function App() {
       {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
       
       <Navbar />
-      <div className="hud-container">
+      <div className="hud-container hud-surface">
         <main>
           <Hero profile={portfolioData.profile} />
           {/* Pass data and trigger function down as props */}
@@ -34,7 +34,7 @@ function App() {
         </main>
       </div>
 
-      <div className="contact-hud-wrapper">
+      <div className="contact-hud-wrapper hud-surface">
         <Contact links={portfolioData.profile.links} />
       </div>
 

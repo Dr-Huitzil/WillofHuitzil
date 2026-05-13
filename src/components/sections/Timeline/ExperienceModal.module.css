@@ -1,32 +1,18 @@
 .modalBackdrop {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(14, 22, 15, 0.85);
-  backdrop-filter: blur(10px);
+  inset: 0;
+  background: var(--glass-bg-deep);
+  backdrop-filter: var(--glass-blur);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2000;
-  animation: backdropIn 0.4s ease forwards;
-}
-
-@keyframes backdropIn {
-  from {
-    opacity: 0;
-    backdrop-filter: blur(0px);
-  }
-  to {
-    opacity: 1;
-    backdrop-filter: blur(10px);
-  }
+  z-index: var(--layer-modal-backdrop);
+  animation: ui-fade-in 0.8s ease forwards;
 }
 
 .experienceModal {
   background: var(--bg-card);
-  border: var(--border-glass);
+  border: var(--glass-border);
   clip-path: var(--clip-chamfer);
   width: 90%;
   max-width: 900px;
@@ -37,23 +23,13 @@
   flex-direction: column;
   overflow: hidden;
   overflow-x: hidden;
-  transition: max-width 0.8s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
-  animation: modalIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  transition: var(--transition-premium);
+  z-index: var(--layer-modal-content);
+  animation: ui-scale-lift 1s var(--transition-premium) forwards;
 }
 
 .experienceModal.expanded {
   max-width: 1400px;
-}
-
-@keyframes modalIn {
-  from {
-    opacity: 0;
-    transform: scale(0.92) translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
 }
 
 .closeBtn {
