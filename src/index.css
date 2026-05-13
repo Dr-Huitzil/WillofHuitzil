@@ -96,6 +96,13 @@ body {
   line-height: 1.6;
 }
 
+.portfolio-app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: 140px; /* Increased to prevent header clipping */
+}
+
 /* Master Typographic Rules */
 .serif-header {
   font-family: 'Playfair Display', serif;
@@ -185,9 +192,8 @@ section {
 
 @media (max-width: 1024px) {
   .hud-container {
-    backdrop-filter: blur(4px);
-    box-shadow: none;
-    margin: 15px;
+    backdrop-filter: blur(8px);
+    margin: 15px 5vw;
   }
 
   main {
@@ -196,7 +202,7 @@ section {
 
   .contact-hud-wrapper {
     padding: 40px 20px;
-    margin: 0 15px 40px 15px;
+    margin: 0 5vw 40px 5vw;
   }
 
   section {
