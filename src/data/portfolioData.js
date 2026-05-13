@@ -12,6 +12,7 @@ import resumePDF from './resume/IvanAlier-Reyes(Resume).pdf';
 //images
 //projects
 import mindmeltHomePage from '../assets/images/mindMelt/mindMeltHomePage.png'
+import esteCosmosHomePage from '../assets/images/esteCosmos/esteCosmosHomePage.png'
 
 
 export const portfolioData = {
@@ -33,7 +34,7 @@ export const portfolioData = {
       description: "A financial and diagnostic application designed to automate vehicle telemetry tracking and calculate net fiscal position utilizing machine learning models.",
       longDescription: esteCosmosDetails,
       date: "April 2026 - May 2026",
-      imagePlaceholder: "/path/to/este-cosmos.jpg",
+      imagePlaceholder: esteCosmosHomePage,
       github: "https://github.com/Dr-Huitzil/este-cosmos-sandbox",
       demo: "https://estecosmos.netlify.app"
     },
