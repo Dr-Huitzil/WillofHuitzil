@@ -9,7 +9,7 @@ const Projects = ({ projects }) => {
   return (
     <section className={styles.projectsSection} id="projects">
       <div className="pill section-pill">
-        ARTIFACTS
+        PROJECTS
       </div>
       <h2 className="serif-header serif-glow section-title">Selected Works</h2>
 

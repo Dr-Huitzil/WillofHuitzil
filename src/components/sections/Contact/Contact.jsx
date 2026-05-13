@@ -10,7 +10,7 @@ const Contact = ({ links }) => {
       <div className={styles.contactContainer}>
         <div className={styles.contactCard}>
           <div className={styles.cardHeader}>
-            <h3 className="serif-header">Contact Me</h3>
+            <h3 className="serif-header section-title">Contact Me</h3>
           </div>
 
           <div className={styles.linksGrid}>
@@ -31,7 +31,7 @@ const Contact = ({ links }) => {
               </div>
               <div className={styles.linkInfo}>
                 <span className="mono-accent">LINKEDIN</span>
-                <span className={styles.linkText}>Professional Network</span>
+                <span className={styles.linkText}>LinkedIn Network</span>
               </div>
               <ExternalLink size={14} className={styles.arrow} />
             </a>
@@ -42,7 +42,7 @@ const Contact = ({ links }) => {
               </div>
               <div className={styles.linkInfo}>
                 <span className="mono-accent">GITHUB</span>
-                <span className={styles.linkText}>Source Archives</span>
+                <span className={styles.linkText}>Source Repositories</span>
               </div>
               <ExternalLink size={14} className={styles.arrow} />
             </a>
@@ -53,7 +53,7 @@ const Contact = ({ links }) => {
               </div>
               <div className={styles.linkInfo}>
                 <span className="mono-accent">RESUME</span>
-                <span className={styles.linkText}>Technical Brief PDF</span>
+                <span className={styles.linkText}>Resume PDF</span>
               </div>
               <ExternalLink size={14} className={styles.arrow} />
             </a>
