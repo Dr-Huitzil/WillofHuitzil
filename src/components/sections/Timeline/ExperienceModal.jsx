@@ -85,8 +85,8 @@ const ExperienceModal = ({ experience, onClose }) => {
 
             {/* Zero-padded display ID — no arithmetic on the id field */}
             <div className={`${styles.modalFooter} mono-accent`}>
-              EXP_LOG_ID: {String(experience.id).padStart(4, '0')}<br />
-              ACCESS_LEVEL: SENIOR
+              RECORD_KEY: {String(experience.id).padStart(4, '0')} <br/>
+              CLEARANCE: SCHOLAR
             </div>
           </div>
 
@@ -95,7 +95,7 @@ const ExperienceModal = ({ experience, onClose }) => {
             <div className={styles.mobileHideContent}>
               <div className={styles.contentSection}>
                 <h4 className={`mono-accent ${styles.contentTitle}`}>
-                  MISSION_OBJECTIVES
+                  CORE_ENDEAVORS
                 </h4>
                 <ul className={styles.detailsList}>
                   {experience.details?.map((detail) => (
@@ -112,7 +112,7 @@ const ExperienceModal = ({ experience, onClose }) => {
             {isExpanded && hasLongDescription && (
               <div id="exp-technical-brief" className={styles.expandedInfoSection}>
                 <h4 className={`mono-accent ${styles.contentTitle}`}>
-                  TECHNICAL_BRIEF
+                  KNOWLEDGE_TRANSFER
                 </h4>
                 <div className={styles.longDescription}>
                   {renderMarkdown(experience.longDescription)}

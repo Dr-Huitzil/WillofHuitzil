@@ -2,33 +2,35 @@
 
 :root {
   /* --- Core Palette --- */
-  --bg-deep: #0e160f;          /* Dense forest floor background */
-  --bg-deep-gradient: radial-gradient(circle at 50% 50%, #152217 0%, #0e160f 100%);
-  --bg-card: rgba(29, 43, 35, 0.95); /* More opaque dark green glass */
-  --text-serif-cream: #f4ebd0; /* Vintage Serif font color (Name, Section Headers) */
-  --text-sans-slate: #a3b8b0; /* More greenish grey for descriptions */
-  --accent-teal-bright: #40e0d0; /* Holographic cyan/teal accent (Tags, Nodes, Links) */
-  --accent-teal-dim: rgba(64, 224, 208, 0.2); /* Muted teal for borders and backgrounds */
-  --accent-cream-dim: rgba(244, 235, 208, 0.3); /* Muted cream for borders */
+  --bg-deep: #080d08;          /* Darker, mossier forest floor */
+  --bg-deep-gradient: radial-gradient(circle at 50% 50%, #0e160f 0%, #080d08 100%);
+  --bg-card: rgba(22, 32, 25, 0.9); /* Deep mossy glass */
+  --text-serif-cream: #f4ebd0; 
+  --text-sans-slate: #8fa19a; /* Softer, leaf-vein grey */
+  --accent-teal-bright: #52b788; /* Mossy, organic green/teal */
+  --accent-teal-dim: rgba(82, 183, 136, 0.15); 
+  --accent-gold: #d4a373; /* Sunlight/Ancient Gold */
+  --accent-cream-dim: rgba(244, 235, 208, 0.15);
 
   /* --- Advanced Effects --- */
-  --glow-teal-soft: 0 12px 30px rgba(64, 224, 208, 0.1), inset 0 0 15px rgba(64, 224, 208, 0.05);
-  --glow-text-cream: 0 0 15px rgba(244, 235, 208, 0.4), 0 0 30px rgba(244, 235, 208, 0.2);
-  --border-glass: 1px solid var(--accent-cream-dim);
-  --transition-smooth: all 0.3s ease;
+  --glow-organic: 0 10px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(82, 183, 136, 0.05);
+  --glow-gold: 0 0 15px rgba(212, 163, 115, 0.3);
+  --border-glass: 1px solid rgba(244, 235, 208, 0.1);
+  --texture-grain: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* --- Geometry (The Chamfer) --- */
+  /* --- Geometry (Softer/Irregular Stone) --- */
   --clip-chamfer: polygon(
-    30px 0%, calc(100% - 30px) 0%, 
-    100% 30px, 100% calc(100% - 30px), 
-    calc(100% - 30px) 100%, 30px 100%, 
-    0% calc(100% - 30px), 0% 30px
+    20px 0%, calc(100% - 20px) 0%, 
+    100% 20px, 100% calc(100% - 20px), 
+    calc(100% - 20px) 100%, 20px 100%, 
+    0% calc(100% - 20px), 0% 20px
   );
   --clip-chamfer-small: polygon(
-    10px 0%, calc(100% - 10px) 0%, 
-    100% 10px, 100% calc(100% - 10px), 
-    calc(100% - 10px) 100%, 10px 100%, 
-    0% calc(100% - 10px), 0% 10px
+    8px 0%, calc(100% - 8px) 0%, 
+    100% 8px, 100% calc(100% - 8px), 
+    calc(100% - 8px) 100%, 8px 100%, 
+    0% calc(100% - 8px), 0% 8px
   );
   --clip-pill-hex: polygon(
     15px 0%, calc(100% - 15px) 0%, 
@@ -107,9 +109,17 @@ body {
   background: rgba(14, 22, 15, 0.4); 
   backdrop-filter: blur(12px);
   box-shadow: 
-    0 0 40px rgba(64, 224, 208, 0.15), 
-    inset 0 0 60px rgba(64, 224, 208, 0.05);
-  margin: 2vw;
+    0 0 40px rgba(82, 183, 136, 0.1), 
+    inset 0 0 60px rgba(82, 183, 136, 0.05);
+  margin: 15px 2vw;
+}
+
+@media (min-width: 1025px) {
+  .hud-container {
+    margin: 2vw auto;
+    width: 90%;
+    max-width: 1300px;
+  }
 }
 
 .contact-hud-wrapper {
@@ -118,13 +128,21 @@ body {
   background: rgba(14, 22, 15, 0.4); 
   backdrop-filter: blur(12px);
   box-shadow: 
-    0 0 40px rgba(64, 224, 208, 0.15), 
-    inset 0 0 60px rgba(64, 224, 208, 0.05);
+    0 0 40px rgba(82, 183, 136, 0.1), 
+    inset 0 0 60px rgba(82, 183, 136, 0.05);
   margin: 0 2vw 40px 2vw;
   padding: 60px 5vw;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
+}
+
+@media (min-width: 1025px) {
+  .contact-hud-wrapper {
+    margin: 0 auto 40px auto;
+    width: 90%;
+    max-width: 1300px;
+  }
 }
 
 main {

@@ -88,7 +88,7 @@ const ProjectModal = ({ project, onClose }) => {
       </button>
 
       <div className={`${styles.modalFooterText} mono-accent`}>
-        PROJECT_ARTIFACT_V1.0 //<br />ACCESS_GRANTED
+        CULTURAL_RECORD_V1.0 //<br />ACCESS_GRANTED
       </div>
     </div>
   );
@@ -127,10 +127,14 @@ const ProjectModal = ({ project, onClose }) => {
                 className={styles.expandedInfoSection}
               >
                 <h3 className={`serif-header ${styles.expandedTitle}`}>
-                  Deep<br />Analysis
+                  The<br />Chronicle
                 </h3>
                 <div className={styles.longDescription}>
                   {renderMarkdown(project.longDescription)}
+                </div>
+                <div className={`${styles.modalFooter} mono-accent`}>
+                  RECORD_KEY: {String(project.id).padStart(4, '0')}<br />
+                  CLEARANCE: SCHOLAR
                 </div>
               </div>
             )}

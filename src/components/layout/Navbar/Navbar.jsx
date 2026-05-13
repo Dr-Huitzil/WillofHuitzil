@@ -28,20 +28,20 @@ const Navbar = () => {
     <nav className={styles.navbar}>
       <div className={styles.navbarLeft}>
         <div className={styles.logoIcon}>
-          <Leaf size={18} color="var(--accent-teal-bright)" />
+          <Leaf size={24} color="var(--accent-teal-bright)" strokeWidth={1.5} />
         </div>
       </div>
 
-      <button className={styles.mobileMenuBtn} onClick={toggleMenu} aria-label="Toggle menu">
-        {isOpen ? <X size={24} color="var(--accent-teal-bright)" /> : <Menu size={24} color="var(--accent-teal-bright)" />}
-      </button>
-
       <div className={`${styles.navbarRight} ${isOpen ? styles.open : ''} mono-accent`}>
-        <a href="#home" onClick={(e) => handleNavClick(e, 'home')}>MAIN</a>
+        <a href="#main" onClick={(e) => handleNavClick(e, 'main')}>MAIN</a>
         <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')}>PROJECTS</a>
         <a href="#timeline" onClick={(e) => handleNavClick(e, 'timeline')}>TIMELINE</a>
         <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')}>CONTACT</a>
       </div>
+
+      <button className={styles.mobileMenuBtn} onClick={toggleMenu} aria-label="Toggle menu">
+        {isOpen ? <X color="var(--accent-teal-bright)" /> : <Menu color="var(--accent-teal-bright)" />}
+      </button>
     </nav>
   );
 };
