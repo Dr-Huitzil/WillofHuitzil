@@ -303,7 +303,8 @@
 
   .modalImage {
     width: 100%;
-    min-height: 180px;
+    aspect-ratio: 16 / 9;
+    min-height: unset;
     background-color: rgba(14, 22, 15, 0.4);
   }
 
