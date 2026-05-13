@@ -11,7 +11,7 @@ const Footer = () => {
       <div className={`${styles.footerRight} mono-accent`}>
         <div className={styles.footerBrand}>
           <span className={`serif-header ${styles.footerTitle}`}>Will of Huitzil</span>
-          <span className={`mono-accent ${styles.footerSub}`}>MESOAMERICAN_SOLARPUNK &copy; 2024</span>
+          <span className={`mono-accent ${styles.footerSub}`}>Ivan Alier-Reyes &copy; 2001</span>
         </div>
         <div className={styles.logoIconSmall}>
           <Leaf size={14} color="var(--accent-teal-bright)" />

@@ -58,10 +58,6 @@ const Contact = ({ links }) => {
               <ExternalLink size={14} className={styles.arrow} />
             </a>
           </div>
-
-          <div className={styles.cardFooter}>
-            <p className="mono-accent">ENCRYPTED_HANDSHAKE_READY</p>
-          </div>
         </div>
       </div>
     </section>

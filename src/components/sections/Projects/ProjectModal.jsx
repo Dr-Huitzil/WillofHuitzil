@@ -86,10 +86,6 @@ const ProjectModal = ({ project, onClose }) => {
         {isExpanded ? 'LESS INFO' : 'MORE INFO'}
         {isExpanded ? <ChevronUp size={16} /> : <ChevronRight size={16} />}
       </button>
-
-      <div className={`${styles.modalFooterText} mono-accent`}>
-        CULTURAL_RECORD_V1.0 //<br />ACCESS_GRANTED
-      </div>
     </div>
   );
 
@@ -131,10 +127,6 @@ const ProjectModal = ({ project, onClose }) => {
                 </h3>
                 <div className={styles.longDescription}>
                   {renderMarkdown(project.longDescription)}
-                </div>
-                <div className={`${styles.modalFooter} mono-accent`}>
-                  RECORD_KEY: {String(project.id).padStart(4, '0')}<br />
-                  CLEARANCE: SCHOLAR
                 </div>
               </div>
             )}

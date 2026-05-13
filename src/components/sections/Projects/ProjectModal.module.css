@@ -64,13 +64,20 @@
 }
 
 @keyframes slideIn {
-  from { opacity: 0; transform: translateX(20px); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .modalLeft {
   width: 40%;
-  background: rgba(0,0,0,0.3);
+  background: rgba(0, 0, 0, 0.3);
   border-right: var(--border-glass);
   display: flex;
   flex-direction: column;
@@ -83,7 +90,7 @@
 
 .expanded .modalLeft {
   width: 35%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .modalImage {
@@ -111,8 +118,13 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .expanded .projectSummary {
@@ -238,14 +250,6 @@
   margin-top: 0;
 }
 
-.modalFooterText {
-  font-size: 0.6rem;
-  color: rgba(255, 255, 255, 0.3);
-  line-height: 1.5;
-  letter-spacing: 2px;
-  margin-top: 20px;
-}
-
 @media (max-width: 1024px) {
   .projectModal {
     width: 95%;
@@ -256,7 +260,8 @@
   .modalContentWrapper {
     flex-direction: column;
     overflow-y: auto;
-    display: block; /* Force block to ensure stacking and full width */
+    display: block;
+    /* Force block to ensure stacking and full width */
   }
 
   .modalLeft {

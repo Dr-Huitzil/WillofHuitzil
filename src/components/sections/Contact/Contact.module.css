@@ -37,9 +37,20 @@
 }
 
 @keyframes pulseGlow {
-  0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.5); opacity: 0.5; }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .cardHeader h3 {
@@ -75,8 +86,8 @@
 }
 
 .contactLink:hover {
-  background: rgba(160, 82, 45, 0.05);
-  border-color: var(--accent-rust);
+  background: rgba(82, 183, 136, 0.05);
+  border-color: var(--accent-teal-bright);
   transform: translateX(5px);
 }
 
@@ -123,31 +134,16 @@
   transform: translateX(5px);
 }
 
-.cardFooter {
-  margin-top: 40px;
-  padding-top: 20px;
-  text-align: center;
-  opacity: 0.3;
-}
-
-.cardFooter p {
-  font-size: 0.6rem;
-  letter-spacing: 3px;
-  color: var(--accent-orchid);
-  text-shadow: 0 0 10px rgba(114, 9, 183, 0.4);
-  opacity: 0.8;
-}
-
 @media (max-width: 768px) {
   .contactLink {
     padding: 20px;
     gap: 15px;
   }
-  
+
   .linkText {
     font-size: 1rem;
   }
-  
+
   .iconBox {
     width: 44px;
     height: 44px;

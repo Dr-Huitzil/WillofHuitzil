@@ -82,12 +82,6 @@ const ExperienceModal = ({ experience, onClose }) => {
                 </button>
               )}
             </div>
-
-            {/* Zero-padded display ID — no arithmetic on the id field */}
-            <div className={`${styles.modalFooter} mono-accent`}>
-              RECORD_KEY: {String(experience.id).padStart(4, '0')} <br/>
-              CLEARANCE: SCHOLAR
-            </div>
           </div>
 
           {/* RIGHT PANEL: Content */}
