@@ -10,12 +10,18 @@
   justify-content: center;
   align-items: center;
   z-index: 2000;
-  animation: fadeIn 0.3s ease;
+  animation: backdropIn 0.35s ease forwards;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+@keyframes backdropIn {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(10px);
+  }
 }
 
 .experienceModal {
@@ -31,33 +37,48 @@
   flex-direction: column;
   overflow: hidden;
   overflow-x: hidden;
-  transition: max-width 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s ease;
-  animation: scaleIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: max-width 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+  animation: modalIn 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.1) forwards;
 }
 
 .experienceModal.expanded {
   max-width: 1400px;
 }
 
-@keyframes scaleIn {
-  from { opacity: 0; transform: scale(0.9); }
-  to { opacity: 1; transform: scale(1); }
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 .closeBtn {
   position: absolute;
   top: 20px;
   right: 20px;
-  background: none;
-  border: none;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   color: var(--text-sans-slate);
   cursor: pointer;
-  transition: color 0.2s;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease;
   z-index: 10;
 }
 
 .closeBtn:hover {
+  background: rgba(64, 224, 208, 0.1);
   color: var(--accent-teal-bright);
+  border-color: var(--accent-teal-dim);
+  transform: rotate(90deg) scale(1.1);
 }
 
 .modalContentWrapper {

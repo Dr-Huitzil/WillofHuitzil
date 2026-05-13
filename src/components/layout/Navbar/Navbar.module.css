@@ -39,14 +39,32 @@
 }
 
 .navbarRight a {
-  transition: var(--transition-smooth);
+  transition: color 0.3s ease, text-shadow 0.3s ease;
   color: var(--text-sans-slate);
   letter-spacing: 2px;
+  position: relative;
+}
+
+/* Animated underline on desktop */
+.navbarRight a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent-teal-bright);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 6px var(--accent-teal-bright);
 }
 
 .navbarRight a:hover {
   color: var(--accent-teal-bright);
-  text-shadow: 0 0 10px rgba(64, 224, 208, 0.5);
+  text-shadow: 0 0 12px rgba(64, 224, 208, 0.6);
+}
+
+.navbarRight a:hover::after {
+  width: 100%;
 }
 
 .mobileMenuBtn {
@@ -56,6 +74,11 @@
   cursor: pointer;
   z-index: 200;
   padding: 8px;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.mobileMenuBtn:active {
+  transform: scale(0.85);
 }
 
 @media (max-width: 1024px) {
@@ -69,27 +92,55 @@
     align-items: center;
   }
 
+  /* Underline hidden on mobile — links are large enough */
+  .navbarRight a::after {
+    display: none;
+  }
+
   .navbarRight {
     position: fixed;
     top: 0;
     right: 0;
     transform: translateX(100%);
-    width: 250px;
+    width: 260px;
     height: 100vh;
-    background: var(--bg-card);
-    backdrop-filter: blur(16px);
+    background: rgba(14, 22, 15, 0.97);
+    backdrop-filter: blur(20px);
     border-left: 1px solid var(--accent-teal-dim);
-    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+    box-shadow: -20px 0 60px rgba(0, 0, 0, 0.6), -2px 0 0 rgba(64, 224, 208, 0.05);
     flex-direction: column;
     padding-top: 100px;
-    gap: 40px;
-    align-items: center;
-    transition: transform 0.3s ease-in-out;
+    gap: 0;
+    align-items: stretch;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     will-change: transform;
     z-index: 150;
   }
 
   .navbarRight.open {
     transform: translateX(0);
+  }
+
+  /* Staggered link entrance when drawer opens */
+  .navbarRight a {
+    padding: 18px 36px;
+    border-bottom: 1px solid rgba(64, 224, 208, 0.06);
+    font-size: 0.75rem;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: color 0.3s ease, text-shadow 0.3s ease,
+                background 0.3s ease,
+                opacity 0.35s ease, transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .navbarRight.open a:nth-child(1) { opacity: 1; transform: translateX(0); transition-delay: 0.08s; }
+  .navbarRight.open a:nth-child(2) { opacity: 1; transform: translateX(0); transition-delay: 0.14s; }
+  .navbarRight.open a:nth-child(3) { opacity: 1; transform: translateX(0); transition-delay: 0.20s; }
+  .navbarRight.open a:nth-child(4) { opacity: 1; transform: translateX(0); transition-delay: 0.26s; }
+
+  .navbarRight a:hover {
+    background: rgba(64, 224, 208, 0.05);
+    color: var(--accent-teal-bright);
+    text-shadow: 0 0 12px rgba(64, 224, 208, 0.4);
   }
 }
