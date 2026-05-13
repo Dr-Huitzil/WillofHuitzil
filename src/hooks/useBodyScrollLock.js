@@ -23,8 +23,13 @@ export function useBodyScrollLock() {
         top: '',
         width: '',
       });
-      // Restore exact scroll position — must happen after styles are cleared
-      window.scrollTo(0, scrollY);
+      // Using the options object with behavior: 'instant' explicitly overrides
+      // the smooth scroll behavior defined in index.css for this specific jump.
+      window.scrollTo({
+        top: scrollY,
+        left: 0,
+        behavior: 'instant'
+      });
     };
   }, []);
 }
