@@ -23,11 +23,15 @@
   box-shadow: var(--glow-organic);
   display: flex;
   flex-direction: column;
-  transition: var(--transition-premium);
+  transition: max-width 0.4s ease, var(--transition-premium);
   max-height: 90vh;
   overflow: hidden;
   z-index: var(--layer-modal-content);
   animation: ui-scale-lift 1s var(--transition-premium) forwards;
+}
+
+.expanded {
+  max-width: 1400px;
 }
 
 .closeBtn {
