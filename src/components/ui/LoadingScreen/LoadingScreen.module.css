@@ -28,7 +28,8 @@
   display: flex;
   align-items: center;
   position: relative;
-  transform: translateY(20dvh); /* Positioned in the bottom third */
+  transform: translateY(20dvh);
+  /* Positioned in the bottom third */
 }
 
 .progressBarContainer {
@@ -53,7 +54,7 @@
   position: absolute;
   right: -10px;
   top: 50%;
-  transform: translateY(-50%) rotate(80deg);
+  transform: translateY(-50%) rotate(0deg);
   color: var(--accent-citron);
   filter: drop-shadow(0 0 8px var(--accent-citron));
   transition: transform 0.3s ease;
@@ -67,10 +68,8 @@
   transform: translate(50%, -50%);
   width: 40px;
   height: 40px;
-  background: radial-gradient(
-    circle at center,
-    rgba(217, 237, 146, 0.2) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(circle at center,
+      rgba(217, 237, 146, 0.2) 0%,
+      transparent 70%);
   pointer-events: none;
 }

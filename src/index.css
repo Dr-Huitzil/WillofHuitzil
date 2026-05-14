@@ -4,12 +4,12 @@
   /* --- Core Palette (Solarpunk / Ruin) --- */
   --bg-deep: #080d08;
   --bg-deep-gradient: radial-gradient(circle at 50% 50%, #0e160f 0%, #080d08 100%);
-  --bg-card: rgba(22, 32, 25, 0.9); 
-  --text-serif-cream: #f9f1d7; 
-  --text-sans-slate: #8fa19a; 
-  --accent-teal-bright: #52b788; 
-  --accent-teal-dim: rgba(82, 183, 136, 0.15); 
-  --accent-gold: #d4a373; 
+  --bg-card: rgba(22, 32, 25, 0.9);
+  --text-serif-cream: #f9f1d7;
+  --text-sans-slate: #8fa19a;
+  --accent-teal-bright: #52b788;
+  --accent-teal-dim: rgba(82, 183, 136, 0.15);
+  --accent-gold: #d4a373;
   --accent-yellow: #f4d35e;
   --accent-clay: #bc6c25;
   --accent-rust: #a0522d;
@@ -23,7 +23,7 @@
   --glass-blur: blur(12px);
   --glass-border: 1px solid rgba(249, 241, 215, 0.1);
   --hud-radius: 30px;
-  
+
   /* --- Stacking Hierarchy --- */
   --layer-base: 1;
   --layer-nav: 1000;
@@ -34,49 +34,56 @@
   /* --- Advanced Effects & Transitions --- */
   --glow-organic: 0 10px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(82, 183, 136, 0.05);
   --glow-soft: 0 0 25px rgba(82, 183, 136, 0.2);
-  --glow-teal-soft: var(--glow-soft); /* Legacy Alias */
-  
+  --glow-teal-soft: var(--glow-soft);
+  /* Legacy Alias */
+
   /* The "Softer" Premium Transition */
   --transition-premium: all 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
-  --transition-smooth: var(--transition-premium); /* Legacy Alias */
+  --transition-smooth: var(--transition-premium);
+  /* Legacy Alias */
   --transition-fast: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  
-  --border-glass: var(--glass-border); /* Legacy Alias */
+
+  --border-glass: var(--glass-border);
+  /* Legacy Alias */
 
   /* --- Geometry (Softer/Irregular Stone) --- */
-  --clip-chamfer: polygon(
-    20px 0%, calc(100% - 20px) 0%, 
-    100% 20px, 100% calc(100% - 20px), 
-    calc(100% - 20px) 100%, 20px 100%, 
-    0% calc(100% - 20px), 0% 20px
-  );
-  --clip-chamfer-small: polygon(
-    8px 0%, calc(100% - 8px) 0%, 
-    100% 8px, 100% calc(100% - 8px), 
-    calc(100% - 8px) 100%, 8px 100%, 
-    0% calc(100% - 8px), 0% 8px
-  );
-  --clip-pill-hex: polygon(
-    15px 0%, calc(100% - 15px) 0%, 
-    100% 50%, calc(100% - 15px) 100%, 
-    15px 100%, 0% 50%
-  );
-  --clip-marker: polygon(
-    0% 25%, 25% 0%, 
-    100% 0%, 100% 75%, 
-    75% 100%, 0% 100%
-  );
+  --clip-chamfer: polygon(20px 0%, calc(100% - 20px) 0%,
+      100% 20px, 100% calc(100% - 20px),
+      calc(100% - 20px) 100%, 20px 100%,
+      0% calc(100% - 20px), 0% 20px);
+  --clip-chamfer-small: polygon(8px 0%, calc(100% - 8px) 0%,
+      100% 8px, 100% calc(100% - 8px),
+      calc(100% - 8px) 100%, 8px 100%,
+      0% calc(100% - 8px), 0% 8px);
+  --clip-pill-hex: polygon(15px 0%, calc(100% - 15px) 0%,
+      100% 50%, calc(100% - 15px) 100%,
+      15px 100%, 0% 50%);
+  --clip-marker: polygon(0% 25%, 25% 0%,
+      100% 0%, 100% 75%,
+      75% 100%, 0% 100%);
 }
 
 /* Global Entrance Animations */
 @keyframes ui-fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes ui-scale-lift {
-  from { opacity: 0; transform: scale(0.96) translateY(20px); }
-  to { opacity: 1; transform: scale(1) translateY(0); }
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 /* Base Styles */
@@ -89,13 +96,13 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--bg-deep);
-  background-image: 
+  background-image:
     var(--bg-deep-gradient),
-    radial-gradient(rgba(255,255,255,0.01) 1px, transparent 1px);
+    radial-gradient(rgba(255, 255, 255, 0.01) 1px, transparent 1px);
   background-size: 100% 100%, 20px 20px;
   background-position: 0 0, 0 0;
-  color: var(--text-serif-cream); 
-  font-family: 'Inter', system-ui, -apple-system, sans-serif; 
+  color: var(--text-serif-cream);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   min-height: 100vh;
   min-height: 100dvh;
   overflow-x: hidden;
@@ -107,7 +114,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   min-height: 100dvh;
-  padding-top: 140px; 
+  padding-top: 140px;
   padding-top: calc(140px + env(safe-area-inset-top));
   padding-bottom: env(safe-area-inset-bottom);
 }
@@ -118,11 +125,12 @@ body {
   color: var(--text-serif-cream);
   letter-spacing: -0.02em;
   font-weight: 700;
-  text-shadow: 0 0 15px rgba(249, 241, 215, 0.2); /* Added glow */
+  text-shadow: 0 0 15px rgba(249, 241, 215, 0.2);
+  /* Added glow */
 }
 
 .serif-glow {
-  text-shadow: 
+  text-shadow:
     0 0 15px rgba(114, 9, 183, 0.4),
     0 0 30px rgba(249, 241, 215, 0.2);
 }
@@ -148,8 +156,8 @@ body {
   backdrop-filter: var(--glass-blur);
   border: 1px solid var(--accent-teal-bright);
   border-radius: var(--hud-radius);
-  box-shadow: 
-    0 0 60px rgba(82, 183, 136, 0.2), 
+  box-shadow:
+    0 0 60px rgba(82, 183, 136, 0.2),
     inset 0 0 40px rgba(82, 183, 136, 0.05);
   transition: var(--transition-premium);
 }
@@ -172,7 +180,7 @@ body {
 
 .contact-hud-wrapper {
   margin: 0 2vw 40px 2vw;
-  padding: 60px 5vw;
+  padding: 60px 5vw 20px;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
@@ -197,6 +205,10 @@ main {
 
 section {
   margin-bottom: 120px;
+}
+
+#contact {
+  margin-bottom: 0;
 }
 
 @media (max-width: 1024px) {
@@ -237,6 +249,7 @@ a {
   text-decoration: none;
   transition: var(--transition-premium);
 }
+
 a:hover {
   color: var(--accent-teal-bright);
 }

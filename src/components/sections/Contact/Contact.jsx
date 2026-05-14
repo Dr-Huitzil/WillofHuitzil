@@ -9,9 +9,7 @@ const Contact = ({ links }) => {
     <section className={styles.contactSection} id="contact">
       <div className={styles.contactContainer}>
         <div className={styles.contactCard}>
-          <div className={styles.cardHeader}>
-            <h2 className="serif-header serif-glow section-title">Contact Me</h2>
-          </div>
+          <h2 className="serif-header serif-glow section-title">Contact Me</h2>
 
           <div className={styles.linksGrid}>
             <a href={`mailto:ialierreyes@gmail.com`} className={styles.contactLink}>

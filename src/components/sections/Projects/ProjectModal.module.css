@@ -243,26 +243,362 @@
   color: var(--accent-rust);
 }
 
+/* ── Deep Dive: long-form markdown content ── */
 .longDescription {
   color: var(--text-sans-slate);
   line-height: 1.8;
-  font-size: 1rem;
-  white-space: pre-wrap;
+  font-size: 0.95rem;
 }
 
-.longDescription h3 {
-  color: var(--accent-rust);
-  font-family: 'Fira Code', monospace;
-  font-size: 0.9rem;
-  margin: 30px 0 15px 0;
+/* Heading levels */
+.longDescription :global(.md-h1) {
+  font-size: 2rem;
+  color: var(--text-serif-cream);
+  margin: 0 0 20px 0;
+  line-height: 1.1;
+}
+
+.longDescription :global(.md-h2) {
+  font-size: 1.4rem;
+  color: var(--accent-gold);
+  margin: 36px 0 16px 0;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  border-bottom: 1px solid rgba(212, 163, 115, 0.2);
+  padding-bottom: 8px;
+}
+
+.longDescription :global(.md-h2:first-child) {
+  margin-top: 0;
+}
+
+.longDescription :global(.md-h3) {
+  font-size: 0.8rem;
+  color: var(--accent-teal-bright);
+  margin: 28px 0 10px 0;
   letter-spacing: 2px;
-  border-bottom: 1px solid rgba(160, 82, 45, 0.2);
-  padding-bottom: 5px;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(82, 183, 136, 0.15);
+  padding-bottom: 4px;
   width: fit-content;
 }
 
-.longDescription h3:first-child {
+.longDescription :global(.md-h3:first-child) {
   margin-top: 0;
+}
+
+.longDescription :global(.md-h4) {
+  font-size: 0.75rem;
+  color: var(--accent-yellow);
+  margin: 20px 0 8px 0;
+  letter-spacing: 1.5px;
+}
+
+/* Horizontal rule */
+.longDescription :global(.md-hr) {
+  border: none;
+  border-top: 1px solid rgba(249, 241, 215, 0.06);
+  margin: 28px 0;
+}
+
+/* Paragraphs */
+.longDescription :global(.md-p) {
+  margin: 0 0 14px 0;
+}
+
+.longDescription :global(.md-p:last-child) {
+  margin-bottom: 0;
+}
+
+/* Bold */
+.longDescription strong {
+  color: var(--text-serif-cream);
+  font-weight: 600;
+}
+
+/* Inline code chips */
+.longDescription :global(.md-code) {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.8em;
+  color: var(--accent-teal-bright);
+  background: rgba(82, 183, 136, 0.08);
+  border: 1px solid rgba(82, 183, 136, 0.18);
+  border-radius: 3px;
+  padding: 1px 6px;
+  white-space: nowrap;
+}
+
+/* Lists */
+.longDescription :global(.md-ul),
+.longDescription :global(.md-ol) {
+  margin: 0 0 16px 0;
+  padding-left: 1.4em;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.longDescription :global(.md-ul) li {
+  list-style: none;
+  position: relative;
+  padding-left: 1.1em;
+}
+
+.longDescription :global(.md-ul) li::before {
+  content: '›';
+  position: absolute;
+  left: 0;
+  color: var(--accent-teal-bright);
+  font-weight: 700;
+}
+
+.longDescription :global(.md-ol) li {
+  list-style: decimal;
+  padding-left: 0.3em;
+  color: var(--text-sans-slate);
+}
+
+.longDescription :global(.md-ol) li::marker {
+  color: var(--accent-rust);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.8em;
+}
+
+/* Table */
+.longDescription :global(.md-table-wrapper) {
+  overflow-x: auto;
+  margin: 20px 0 24px 0;
+  border: 1px solid rgba(82, 183, 136, 0.15);
+  clip-path: var(--clip-chamfer-small);
+}
+
+.longDescription :global(.md-table) {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.78rem;
+}
+
+.longDescription :global(.md-table) thead tr {
+  background: rgba(82, 183, 136, 0.08);
+}
+
+.longDescription :global(.md-table) th {
+  color: var(--accent-teal-bright);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 0.7rem;
+  padding: 10px 16px;
+  text-align: left;
+  border-bottom: 1px solid rgba(82, 183, 136, 0.2);
+}
+
+.longDescription :global(.md-table) td {
+  padding: 9px 16px;
+  color: var(--text-sans-slate);
+  border-bottom: 1px solid rgba(249, 241, 215, 0.04);
+  vertical-align: top;
+}
+
+.longDescription :global(.md-table) td:first-child {
+  color: var(--accent-gold);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.longDescription :global(.md-table) tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.longDescription :global(.md-table) tbody tr:hover td {
+  background: rgba(82, 183, 136, 0.04);
+  transition: background 0.2s ease;
+}
+
+/* ── Images & Figures ──────────────────────────────────────────────────── */
+.longDescription :global(.md-figure) {
+  margin: 20px 0 28px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.longDescription :global(.md-img) {
+  width: 100%;
+  border: 1px solid rgba(82, 183, 136, 0.2);
+  clip-path: var(--clip-chamfer-small);
+  display: block;
+  object-fit: cover;
+}
+
+/* Placeholder slot — shown when no real screenshot is available */
+.longDescription :global(.md-img-placeholder) {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px dashed rgba(82, 183, 136, 0.3);
+  clip-path: var(--clip-chamfer-small);
+  background: rgba(82, 183, 136, 0.03);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.longDescription :global(.md-img-placeholder:hover) {
+  border-color: rgba(82, 183, 136, 0.5);
+  background: rgba(82, 183, 136, 0.06);
+}
+
+.longDescription :global(.md-placeholder-inner) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: rgba(82, 183, 136, 0.4);
+}
+
+.longDescription :global(.md-placeholder-label) {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  color: rgba(82, 183, 136, 0.45);
+}
+
+.longDescription :global(.md-figcaption) {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.7rem;
+  color: var(--text-sans-slate);
+  letter-spacing: 0.05em;
+  opacity: 0.7;
+  padding-left: 4px;
+  border-left: 2px solid rgba(82, 183, 136, 0.25);
+}
+
+/* ── Color Palette Swatches ───────────────────────────────────────────── */
+.longDescription :global(.md-palette) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+  margin: 16px 0 24px 0;
+}
+
+.longDescription :global(.md-swatch) {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 14px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(249, 241, 215, 0.05);
+  clip-path: var(--clip-chamfer-small);
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.longDescription :global(.md-swatch:hover) {
+  border-color: rgba(249, 241, 215, 0.12);
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.longDescription :global(.md-swatch-color) {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.longDescription :global(.md-swatch-info) {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.longDescription :global(.md-swatch-name) {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.72rem;
+  color: var(--text-serif-cream);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.longDescription :global(.md-swatch-hex) {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.65rem;
+  color: var(--accent-teal-bright);
+  letter-spacing: 0.08em;
+  opacity: 0.7;
+}
+
+.longDescription :global(.md-swatch-usage) {
+  font-size: 0.65rem;
+  color: var(--text-sans-slate);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0.75;
+}
+
+/* ── Typography Rows ──────────────────────────────────────────────────── */
+.longDescription :global(.md-typography) {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 16px 0 24px 0;
+}
+
+.longDescription :global(.md-font-row) {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 14px 20px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(249, 241, 215, 0.05);
+  clip-path: var(--clip-chamfer-small);
+  transition: border-color 0.25s ease;
+}
+
+.longDescription :global(.md-font-row:hover) {
+  border-color: rgba(212, 163, 115, 0.2);
+}
+
+.longDescription :global(.md-font-sample) {
+  font-size: 2.2rem;
+  line-height: 1;
+  color: var(--accent-gold);
+  flex-shrink: 0;
+  width: 56px;
+  text-align: center;
+  opacity: 0.85;
+}
+
+.longDescription :global(.md-font-meta) {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.longDescription :global(.md-font-name) {
+  font-size: 0.85rem;
+  color: var(--text-serif-cream);
+  font-weight: 600;
+}
+
+.longDescription :global(.md-font-class) {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.65rem;
+  color: var(--accent-teal-bright);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.longDescription :global(.md-font-usage) {
+  font-size: 0.72rem;
+  color: var(--text-sans-slate);
+  opacity: 0.8;
 }
 
 @media (max-width: 1024px) {
