@@ -59,7 +59,7 @@ const LoadingScreen = ({ onComplete }) => {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <div className={styles.quetzalHead}>
-              <QuetzalIcon size={200} />
+              <QuetzalIcon size={70} />
             </div>
           </motion.div>
         </div>

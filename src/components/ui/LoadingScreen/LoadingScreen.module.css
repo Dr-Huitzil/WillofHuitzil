@@ -51,7 +51,7 @@
 
 .quetzalHead {
   position: absolute;
-  right: -100px; /* Adjusted for the larger 200px size */
+  right: -35px; /* Adjusted for the smaller 70px size (half) */
   top: 50%;
   transform: translateY(-50%);
   display: flex;
