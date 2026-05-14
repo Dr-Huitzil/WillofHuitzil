@@ -14,6 +14,9 @@ import resumePDF from './resume/IvanAlier-Reyes(Resume).pdf';
 import mindmeltHomePage from '../assets/images/mindMelt/mindMeltHomePage.png'
 import esteCosmosHomePage from '../assets/images/esteCosmos/esteCosmosHomePage.png'
 
+//certs
+import secPlus from './certs/Security+.png'
+
 
 export const portfolioData = {
   profile: {
@@ -112,33 +115,32 @@ export const portfolioData = {
   ],
   certifications: [
     {
+      //   id: 1,
+      //   title: "Cisco CCNA",
+      //   subtitle: "CISCO SYSTEMS",
+      //   icon: "Network",
+      //   image: "/path/to/ccna-cert.jpg"
+      // },
       id: 1,
-      title: "Cisco CCNA",
-      subtitle: "CISCO SYSTEMS",
-      icon: "Network",
-      image: "/path/to/ccna-cert.jpg"
-    },
-    {
-      id: 2,
       title: "CompTIA Security+",
       subtitle: "COMPTIA",
       icon: "ShieldCheck",
-      image: "/path/to/secplus-cert.jpg"
-    },
-    {
-      id: 3,
-      title: "CompTIA CySA+",
-      subtitle: "COMPTIA",
-      icon: "ShieldAlert",
-      image: "/path/to/cysa-cert.jpg"
-    },
-    {
-      id: 4,
-      title: "CompTIA Network+",
-      subtitle: "COMPTIA",
-      icon: "Globe",
-      image: "/path/to/netplus-cert.jpg"
+      image: secPlus
     }
+    // {
+    //   id: 3,
+    //   title: "CompTIA CySA+",
+    //   subtitle: "COMPTIA",
+    //   icon: "ShieldAlert",
+    //   image: "/path/to/cysa-cert.jpg"
+    // },
+    // {
+    //   id: 4,
+    //   title: "CompTIA Network+",
+    //   subtitle: "COMPTIA",
+    //   icon: "Globe",
+    //   image: "/path/to/netplus-cert.jpg"
+    // }
   ],
   proficiencies: [
     "PowerShell Automation",
