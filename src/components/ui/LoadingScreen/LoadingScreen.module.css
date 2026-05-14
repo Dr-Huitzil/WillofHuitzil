@@ -46,19 +46,20 @@
   height: 100%;
   background: var(--accent-citron);
   width: 0%;
-  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 0 15px var(--accent-citron);
 }
 
-.leafHead {
+.quetzalHead {
   position: absolute;
-  right: -10px;
+  right: -100px; /* Adjusted for the larger 200px size */
   top: 50%;
-  transform: translateY(-50%) rotate(0deg);
-  color: var(--accent-citron);
-  filter: drop-shadow(0 0 8px var(--accent-citron));
-  transition: transform 0.3s ease;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
 }
+
 
 .progressBar::after {
   content: '';
@@ -66,10 +67,10 @@
   right: 0;
   top: 50%;
   transform: translate(50%, -50%);
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   background: radial-gradient(circle at center,
-      rgba(217, 237, 146, 0.2) 0%,
+      rgba(217, 237, 146, 0.3) 0%,
       transparent 70%);
   pointer-events: none;
-}
+}
