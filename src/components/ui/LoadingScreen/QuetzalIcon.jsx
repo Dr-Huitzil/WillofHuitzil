@@ -10,8 +10,10 @@ const QuetzalIcon = ({ size = 70, className }) => {
       style={{
         width: `${size}px`,
         height: 'auto',
-        filter: 'brightness(0) drop-shadow(1px 1px 0 var(--accent-citron)) drop-shadow(-1px -1px 0 var(--accent-citron)) drop-shadow(1px -1px 0 var(--accent-citron)) drop-shadow(-1px 1px 0 var(--accent-citron)) drop-shadow(0 0 15px var(--accent-citron))',
-        transformOrigin: 'center center'
+        filter: 'drop-shadow(1px 1px 0 var(--accent-citron)) drop-shadow(-1px -1px 0 var(--accent-citron)) drop-shadow(1px -1px 0 var(--accent-citron)) drop-shadow(-1px 1px 0 var(--accent-citron)) drop-shadow(0 0 15px var(--accent-citron))',
+        transformOrigin: 'center center',
+        willChange: 'filter, transform',
+        WebkitTransform: 'translate3d(0, 0, 0)'
       }}
       className={className}
     />

@@ -71,6 +71,6 @@
   height: 60px;
   background: radial-gradient(circle at center,
       rgba(217, 237, 146, 0.3) 0%,
-      transparent 70%);
+      rgba(217, 237, 146, 0) 70%);
   pointer-events: none;
 }
