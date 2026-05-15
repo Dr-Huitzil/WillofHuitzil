@@ -2,30 +2,51 @@
 
 .modalBackdrop {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(14, 22, 15, 0.9);
-  backdrop-filter: blur(12px);
+  inset: 0;
+  background: rgba(8, 13, 8, 0.85);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2000;
+  z-index: var(--layer-modal-backdrop);
+  animation: ui-fade-in 0.5s ease;
 }
 
 .modalContent {
-  background: var(--bg-card);
-  border: var(--border-glass);
+  background: var(--glass-bg-deep);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
   clip-path: var(--clip-chamfer);
-  padding: 40px;
-  max-width: 800px;
-  width: 90%;
+  padding: 50px;
+  max-width: 900px;
+  width: 95%;
   position: relative;
-  box-shadow: var(--glow-teal-soft);
+  box-shadow: 
+    var(--glass-glow-teal),
+    0 40px 80px rgba(0, 0, 0, 0.7);
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 30px;
+  animation: ui-scale-lift 0.6s var(--transition-premium) forwards;
+  overflow: hidden;
+}
+
+.modalContent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.4) 20%, 
+    rgba(255, 255, 255, 0.4) 80%, 
+    transparent 100%
+  );
+  z-index: 10;
 }
 
 .closeBtn {
@@ -53,34 +74,88 @@
 
 .imageWrapper {
   width: 100%;
-  aspect-ratio: 16 / 11;
-  background: rgba(0, 0, 0, 0.3);
-  border: 1px solid var(--accent-teal-dim);
+  position: relative;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Subtle scanning line effect */
+.imageWrapper::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(82, 183, 136, 0.05) 50%,
+    transparent 100%
+  );
+  animation: scan 4s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes scan {
+  from { top: -100%; }
+  to { top: 100%; }
 }
 
 .modalImg {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  max-width: 100%;
+  height: auto;
   display: block;
+  filter: brightness(0.95) contrast(1.05);
+  transition: var(--transition-premium);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.modalContent:hover .modalImg {
+  filter: brightness(1) contrast(1.1);
+  border-color: rgba(82, 183, 136, 0.3);
+  box-shadow: 0 15px 50px rgba(82, 183, 136, 0.15);
 }
 
 .modalFooter {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 25px;
 }
 
 .modalFooter h3 {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+  letter-spacing: -1px;
 }
 
 .modalFooter p {
   margin: 0;
   font-size: 0.7rem;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
+  color: var(--accent-teal-bright);
+  text-shadow: 0 0 10px rgba(82, 183, 136, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.modalFooter p::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: var(--accent-teal-bright);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--accent-teal-bright);
+}
+
+@keyframes pulse {
+  0% { opacity: 0.4; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+  100% { opacity: 0.4; transform: scale(0.8); }
 }
