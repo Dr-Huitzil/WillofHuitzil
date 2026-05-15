@@ -1,20 +1,40 @@
 /* src/components/sections/Projects/ProjectCard.module.css */
 
 .projectCard {
-  background: var(--bg-card);
-  border: var(--border-glass);
+  background: var(--glass-bg-soft);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
   clip-path: var(--clip-chamfer);
   cursor: pointer;
   transition: var(--transition-premium);
   display: flex;
   flex-direction: column;
   height: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 .projectCard:hover {
-  box-shadow: var(--glow-soft);
-  border-color: var(--accent-teal-bright);
-  transform: translateY(-8px);
+  box-shadow: var(--glass-glow-teal);
+  border-color: rgba(82, 183, 136, 0.6);
+  transform: translateY(-8px) scale(1.02);
+}
+
+.projectCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  opacity: 0;
+  transition: var(--transition-premium);
+}
+
+.projectCard:hover::before {
+  opacity: 1;
 }
 
 .projectImageContainer {

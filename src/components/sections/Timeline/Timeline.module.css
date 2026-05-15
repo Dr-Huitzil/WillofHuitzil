@@ -119,16 +119,37 @@
 }
 
 .glassCard {
-  background: var(--bg-card);
-  border: var(--border-glass);
+  background: var(--glass-bg-soft);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
   clip-path: var(--clip-chamfer);
   padding: 40px;
   transition: var(--transition-premium);
+  position: relative;
+  overflow: hidden;
 }
 
 .glassCard:hover {
-  border-color: var(--accent-teal-bright);
-  box-shadow: var(--glow-soft);
+  border-color: rgba(82, 183, 136, 0.6);
+  box-shadow: var(--glass-glow-teal);
+  transform: translateY(-5px);
+}
+
+.glassCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  opacity: 0;
+  transition: var(--transition-premium);
+}
+
+.glassCard:hover::before {
+  opacity: 1;
 }
 
 .cardTitle {
@@ -184,8 +205,8 @@
 
 .profPill {
   padding: 8px 16px;
-  background: rgba(114, 9, 183, 0.05);
-  border: 1px solid rgba(114, 9, 183, 0.2);
+  background: rgba(157, 78, 221, 0.05);
+  border: 1px solid rgba(157, 78, 221, 0.2);
   font-size: 0.7rem;
   color: var(--accent-orchid);
   clip-path: var(--clip-chamfer-small);
@@ -193,7 +214,7 @@
 }
 
 .profPill:hover {
-  background: rgba(114, 9, 183, 0.1);
+  background: rgba(157, 78, 221, 0.1);
   border-color: var(--accent-orchid);
   transform: translateY(-2px);
 }

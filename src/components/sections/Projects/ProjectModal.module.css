@@ -13,14 +13,18 @@
 }
 
 .projectModal {
-  background: var(--bg-card);
+  background: var(--glass-bg-deep);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border: var(--glass-border);
   clip-path: var(--clip-chamfer);
   padding: 0;
   max-width: 900px;
   width: 90%;
   position: relative;
-  box-shadow: var(--glow-organic);
+  box-shadow: 
+    var(--glass-glow-teal),
+    0 30px 60px rgba(0, 0, 0, 0.6);
   display: flex;
   flex-direction: column;
   transition: max-width 0.4s ease, var(--transition-premium);
@@ -28,6 +32,22 @@
   overflow: hidden;
   z-index: var(--layer-modal-content);
   animation: ui-scale-lift 1s var(--transition-premium) forwards;
+}
+
+.projectModal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.4) 20%, 
+    rgba(255, 255, 255, 0.4) 80%, 
+    transparent 100%
+  );
+  z-index: 10;
 }
 
 .expanded {
