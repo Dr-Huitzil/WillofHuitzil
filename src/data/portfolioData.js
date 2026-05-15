@@ -4,7 +4,9 @@ import { mindMeltDetails } from './projectDetails/mindMelt';
 import { clinicaDeSaludDetails } from './experienceDetails/clinicaDeSalud';
 import { clinicaDeSaludLong } from './experienceDetails/clinicaDeSaludLong';
 import { proActDetails } from './experienceDetails/proActDetails';
+import { proActLong } from './experienceDetails/proActLong';
 import { mannsFreshDetails } from './experienceDetails/mannsFreshDetails';
+import { mannsFreshLong } from './experienceDetails/mannsFreshLong';
 import { starphyreDetails } from './experienceDetails/starphyreDetails';
 import { starphyreLong } from './experienceDetails/starphyreLong';
 import resumePDF from './resume/IvanAlier-Reyes(Resume).pdf';
@@ -71,7 +73,7 @@ export const portfolioData = {
       period: "Jan 2025 - May 2025",
       description: "Administered AD user lifecycles and O365 tenant services while mitigating database disruptions and optimizing inventory tracking for enterprise supply chain operations.",
       details: proActDetails,
-      longDescription: null, // Add later
+      longDescription: proActLong,
       image: "/path/to/proact-hq.jpg"
     },
     {
@@ -81,7 +83,7 @@ export const portfolioData = {
       period: "Aug 2024 - Nov 2024",
       description: "Deployed workstations, managed Active Directory/GPOs, and secured mobile devices via MDM while driving rapid incident resolution within organizational SLAs.",
       details: mannsFreshDetails,
-      longDescription: null, // Add later
+      longDescription: mannsFreshLong,
       image: "/path/to/mann-hq.jpg"
     },
     {
