@@ -118,7 +118,7 @@
   transition: all 0.2s ease;
 }
 
-.checkboxInput:checked ~ .checkboxCustom {
+.checkboxInput:checked~.checkboxCustom {
   background-color: var(--accent-teal-bright);
   border-color: var(--accent-teal-bright);
 }
@@ -136,7 +136,7 @@
   transform: rotate(45deg);
 }
 
-.checkboxInput:checked ~ .checkboxCustom::after {
+.checkboxInput:checked~.checkboxCustom::after {
   display: block;
 }
 
@@ -156,7 +156,8 @@
 }
 
 .tableWrapper {
-  max-height: 290px; /* Exact height for ~5 rows at 58px each */
+  max-height: 290px;
+  /* Exact height for ~5 rows at 58px each */
   overflow-y: auto;
 }
 
@@ -261,7 +262,8 @@
 }
 
 /* Specific styling for completed/closed tickets */
-.statusPill.closed, .statusPill.completed {
+.statusPill.closed,
+.statusPill.completed {
   background: rgba(157, 78, 221, 0.15);
   border-color: rgba(157, 78, 221, 0.3);
   color: var(--accent-orchid);
@@ -300,7 +302,7 @@
   .mobileList {
     display: flex;
     flex-direction: column;
-    max-height: 320px;
+    max-height: 600px;
     overflow-y: auto;
     padding: 10px;
     gap: 12px;
@@ -365,13 +367,19 @@
 }
 
 /* Dynamic ID colors based on ticket status */
-.idCell.planning, .mobileId.planning {
+.idCell.planning,
+.mobileId.planning {
   color: var(--accent-gold);
 }
-.idCell.working-on, .mobileId.working-on {
+
+.idCell.working-on,
+.mobileId.working-on {
   color: var(--accent-yellow);
 }
-.idCell.completed, .idCell.closed, .mobileId.completed, .mobileId.closed {
+
+.idCell.completed,
+.idCell.closed,
+.mobileId.completed,
+.mobileId.closed {
   color: var(--accent-orchid);
 }
-
