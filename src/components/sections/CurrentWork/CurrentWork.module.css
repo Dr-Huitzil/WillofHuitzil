@@ -21,7 +21,7 @@
 
 .filterWrapper {
   position: relative;
-  z-index: 10;
+  z-index: 50;
 }
 
 .filterBtn {
@@ -187,8 +187,11 @@
 }
 
 .table th {
+  position: sticky;
+  top: 0;
+  z-index: 10;
   padding: 15px 25px;
-  background: rgba(82, 183, 136, 0.05);
+  background: #0b120c;
   border-bottom: 1px solid rgba(82, 183, 136, 0.2);
   font-size: 0.75rem;
   letter-spacing: 0.1em;
@@ -259,9 +262,21 @@
 
 /* Specific styling for completed/closed tickets */
 .statusPill.closed, .statusPill.completed {
-  background: rgba(157, 78, 221, 0.1);
+  background: rgba(157, 78, 221, 0.15);
   border-color: rgba(157, 78, 221, 0.3);
   color: var(--accent-orchid);
+}
+
+.statusPill.planning {
+  background: rgba(212, 163, 115, 0.15);
+  border-color: rgba(212, 163, 115, 0.3);
+  color: var(--accent-gold);
+}
+
+.statusPill.working-on {
+  background: rgba(244, 211, 94, 0.15);
+  border-color: rgba(244, 211, 94, 0.3);
+  color: var(--accent-yellow);
 }
 
 .emptyCell {
@@ -348,3 +363,15 @@
     text-overflow: ellipsis;
   }
 }
+
+/* Dynamic ID colors based on ticket status */
+.idCell.planning, .mobileId.planning {
+  color: var(--accent-gold);
+}
+.idCell.working-on, .mobileId.working-on {
+  color: var(--accent-yellow);
+}
+.idCell.completed, .idCell.closed, .mobileId.completed, .mobileId.closed {
+  color: var(--accent-orchid);
+}
+

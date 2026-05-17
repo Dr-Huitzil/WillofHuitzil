@@ -56,7 +56,7 @@ const CurrentWork = ({ tickets = [] }) => {
           <div className="pill section-pill">
             CONSOLE
           </div>
-          <h2 className="serif-header serif-glow section-title">Work In Progress</h2>
+          <h2 className="serif-header serif-glow section-title">Current Projects</h2>
         </div>
 
         {/* Filter Dropdown Menu */}
@@ -117,7 +117,7 @@ const CurrentWork = ({ tickets = [] }) => {
                     className={styles.row}
                     onClick={() => setSelectedTicket(ticket)}
                   >
-                    <td className={styles.idCell}>{ticket.id}</td>
+                    <td className={`${styles.idCell} ${styles[ticket.status.toLowerCase().replace(/\s+/g, '-').replace(/\.+/g, '')] || ''}`}>{ticket.id}</td>
                     <td className={styles.titleCell} title={ticket.title}>
                       <span className={styles.truncatedTitle}>{ticket.title}</span>
                     </td>
@@ -150,7 +150,7 @@ const CurrentWork = ({ tickets = [] }) => {
                 onClick={() => setSelectedTicket(ticket)}
               >
                 <div className={styles.mobileCardHeader}>
-                  <span className={styles.mobileId}>{ticket.id}</span>
+                  <span className={`${styles.mobileId} ${styles[ticket.status.toLowerCase().replace(/\s+/g, '-').replace(/\.+/g, '')] || ''}`}>{ticket.id}</span>
                   <span className={styles.mobileStatus}>
                     {getStatusIcon(ticket.status)}
                     {ticket.status}

@@ -39,8 +39,8 @@ const TicketModal = ({ ticket, onClose }) => {
         
         <div className={styles.header}>
           <div className={styles.metaRow}>
-            <span className={styles.id}>{ticket.id}</span>
-            <span className={`${styles.status} mono-accent`}>
+            <span className={`${styles.id} ${styles[ticket.status.toLowerCase().replace(/\s+/g, '-').replace(/\.+/g, '')] || ''}`}>{ticket.id}</span>
+            <span className={`${styles.status} ${styles[ticket.status.toLowerCase().replace(/\s+/g, '-').replace(/\.+/g, '')] || ''} mono-accent`}>
               {getStatusIcon(ticket.status)}
               {ticket.status.toUpperCase()}
             </span>
