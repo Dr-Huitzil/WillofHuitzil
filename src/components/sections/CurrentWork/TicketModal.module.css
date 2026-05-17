@@ -206,6 +206,74 @@
   text-decoration: none !important;
 }
 
+.taskContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.subtaskList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-left: 26px;
+  padding-left: 14px;
+  border-left: 1px dashed rgba(82, 183, 136, 0.25);
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.subtaskItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-sans-slate);
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+.subtaskCustomBox {
+  height: 12px;
+  width: 12px;
+  background-color: transparent;
+  border: 1px solid rgba(82, 183, 136, 0.4);
+  border-radius: 3px;
+  position: relative;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.subtaskCustomBox.checked {
+  background-color: var(--accent-teal-bright);
+  border-color: var(--accent-teal-bright);
+}
+
+.subtaskCustomBox::after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 3px;
+  top: 1px;
+  width: 3px;
+  height: 6px;
+  border: solid var(--bg-deep);
+  border-width: 0 1.5px 1.5px 0;
+  transform: rotate(45deg);
+}
+
+.subtaskCustomBox.checked::after {
+  display: block;
+}
+
+.subtaskText {
+  transition: color 0.2s ease;
+}
+
+.completedSubtaskText {
+  text-decoration: line-through;
+  color: rgba(82, 183, 136, 0.4);
+}
+
 .longDetails {
   color: var(--text-sans-slate);
   font-size: 0.95rem;

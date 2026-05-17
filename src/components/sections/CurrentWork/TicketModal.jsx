@@ -60,16 +60,30 @@ const TicketModal = ({ ticket, onClose }) => {
               <h4 className="mono-accent">TASKS & GOALS</h4>
               <div className={styles.taskList}>
                 {ticket.tasks.map(task => (
-                  <div key={task.id} className={styles.taskItem}>
-                    <span className={`${styles.taskCustomBox} ${task.completed ? styles.checked : ''}`} />
-                    <span className={`${styles.taskText} ${task.completed ? styles.completedTaskText : ''}`}>
-                      {task.text}
-                      {task.completed && task.completedAt && (
-                        <span className={styles.completedAt}>
-                          (Completed on {task.completedAt})
-                        </span>
-                      )}
-                    </span>
+                  <div key={task.id} className={styles.taskContainer}>
+                    <div className={styles.taskItem}>
+                      <span className={`${styles.taskCustomBox} ${task.completed ? styles.checked : ''}`} />
+                      <span className={`${styles.taskText} ${task.completed ? styles.completedTaskText : ''}`}>
+                        {task.text}
+                        {task.completed && task.completedAt && (
+                          <span className={styles.completedAt}>
+                            (Completed on {task.completedAt})
+                          </span>
+                        )}
+                      </span>
+                    </div>
+                    {task.subtasks && task.subtasks.length > 0 && (
+                      <div className={styles.subtaskList}>
+                        {task.subtasks.map((subtask, idx) => (
+                          <div key={idx} className={styles.subtaskItem}>
+                            <span className={`${styles.subtaskCustomBox} ${subtask.completed ? styles.checked : ''}`} />
+                            <span className={`${styles.subtaskText} ${subtask.completed ? styles.completedSubtaskText : ''}`}>
+                              {subtask.text}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
