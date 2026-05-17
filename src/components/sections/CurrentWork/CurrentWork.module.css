@@ -156,7 +156,7 @@
 }
 
 .tableWrapper {
-  max-height: 290px;
+  max-height: 480px;
   /* Exact height for ~5 rows at 58px each */
   overflow-y: auto;
 }
