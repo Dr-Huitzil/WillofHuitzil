@@ -4,11 +4,13 @@ import { useState } from 'react';
 import Navbar from './components/layout/Navbar/Navbar';
 import Hero from './components/sections/Hero/Hero';
 import Projects from './components/sections/Projects/Projects';
+import CurrentWork from './components/sections/CurrentWork/CurrentWork';
 import Timeline from './components/sections/Timeline/Timeline';
 import Contact from './components/sections/Contact/Contact';
 import Footer from './components/layout/Footer/Footer';
 
 import { portfolioData } from './data/portfolioData';
+import { ticketsData } from './data/tickets';
 import LoadingScreen from './components/ui/LoadingScreen/LoadingScreen';
 
 function App() {
@@ -22,8 +24,8 @@ function App() {
       <div className="hud-container hud-surface">
         <main>
           <Hero profile={portfolioData.profile} />
-          {/* Pass data and trigger function down as props */}
           <Projects projects={portfolioData.projects} />
+          <CurrentWork tickets={ticketsData} />
           <Timeline 
             experience={portfolioData.experience} 
             certifications={portfolioData.certifications}

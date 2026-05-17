@@ -1,0 +1,350 @@
+.currentWorkSection {
+  position: relative;
+  width: 100%;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .sectionHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+}
+
+.filterWrapper {
+  position: relative;
+  z-index: 10;
+}
+
+.filterBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--glass-bg-soft);
+  border: 1px solid rgba(82, 183, 136, 0.3);
+  clip-path: var(--clip-chamfer-small);
+  color: var(--accent-teal-bright);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.filterBtn:hover {
+  border-color: rgba(82, 183, 136, 0.7);
+  box-shadow: var(--glow-teal-soft);
+  background: rgba(82, 183, 136, 0.1);
+}
+
+.chevron {
+  transition: transform 0.3s ease;
+}
+
+.chevron.open {
+  transform: rotate(180deg);
+}
+
+.filterDropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: var(--bg-card);
+  border: 1px solid rgba(82, 183, 136, 0.4);
+  box-shadow: var(--glass-glow-teal), 0 10px 30px rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  padding: 15px;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: ui-fade-in 0.2s ease;
+  backdrop-filter: var(--glass-blur);
+}
+
+@media (max-width: 768px) {
+  .filterDropdown {
+    left: 0;
+    right: auto;
+  }
+}
+
+.dropdownHeader {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.75rem;
+  color: var(--text-sans-slate);
+  border-bottom: 1px solid rgba(82, 183, 136, 0.15);
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-serif-cream);
+  font-size: 0.85rem;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s ease;
+}
+
+.checkboxLabel:hover {
+  color: var(--accent-teal-bright);
+}
+
+.checkboxInput {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkboxCustom {
+  height: 14px;
+  width: 14px;
+  background-color: transparent;
+  border: 1px solid rgba(82, 183, 136, 0.5);
+  border-radius: 3px;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.checkboxInput:checked ~ .checkboxCustom {
+  background-color: var(--accent-teal-bright);
+  border-color: var(--accent-teal-bright);
+}
+
+.checkboxCustom::after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 4px;
+  top: 1px;
+  width: 3px;
+  height: 7px;
+  border: solid var(--bg-deep);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checkboxInput:checked ~ .checkboxCustom::after {
+  display: block;
+}
+
+.statusLabelName {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.consoleContainer {
+  border: 1px solid rgba(82, 183, 136, 0.25);
+  border-radius: 16px;
+  background: var(--glass-bg-soft);
+  box-shadow: inset 0 0 20px rgba(82, 183, 136, 0.05);
+  overflow: hidden;
+  position: relative;
+}
+
+.tableWrapper {
+  max-height: 290px; /* Exact height for ~5 rows at 58px each */
+  overflow-y: auto;
+}
+
+.tableWrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.tableWrapper::-webkit-scrollbar-track {
+  background: transparent;
+  border-left: 1px solid rgba(82, 183, 136, 0.1);
+}
+
+.tableWrapper::-webkit-scrollbar-thumb {
+  background: rgba(82, 183, 136, 0.25);
+  border-radius: 3px;
+  box-shadow: inset 0 0 6px rgba(82, 183, 136, 0.1);
+}
+
+.tableWrapper::-webkit-scrollbar-thumb:hover {
+  background: rgba(82, 183, 136, 0.5);
+  box-shadow: 0 0 8px rgba(82, 183, 136, 0.4);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table th {
+  padding: 15px 25px;
+  background: rgba(82, 183, 136, 0.05);
+  border-bottom: 1px solid rgba(82, 183, 136, 0.2);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+.row {
+  border-bottom: 1px solid rgba(82, 183, 136, 0.1);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.row:hover {
+  background: rgba(82, 183, 136, 0.08);
+  box-shadow: inset 3px 0 0 var(--accent-teal-bright);
+}
+
+.row td {
+  padding: 18px 25px;
+  font-size: 0.95rem;
+}
+
+.idCell {
+  font-family: 'Fira Code', monospace;
+  color: var(--accent-teal-bright);
+  font-weight: 500;
+  width: 15%;
+  min-width: 110px;
+}
+
+.titleCell {
+  width: 60%;
+}
+
+.truncatedTitle {
+  display: block;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--text-serif-cream);
+  font-family: 'Inter', sans-serif;
+}
+
+.statusCell {
+  width: 25%;
+  min-width: 180px;
+  white-space: nowrap;
+}
+
+.statusPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-family: 'Fira Code', monospace;
+  text-transform: uppercase;
+  background: rgba(82, 183, 136, 0.15);
+  border: 1px solid rgba(82, 183, 136, 0.3);
+  color: var(--accent-teal-bright);
+  white-space: nowrap;
+}
+
+/* Specific styling for completed/closed tickets */
+.statusPill.closed, .statusPill.completed {
+  background: rgba(157, 78, 221, 0.1);
+  border-color: rgba(157, 78, 221, 0.3);
+  color: var(--accent-orchid);
+}
+
+.emptyCell {
+  text-align: center;
+  padding: 40px;
+  color: var(--text-sans-slate);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
+}
+
+/* Mobile responsive views */
+.mobileList {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .tableWrapper {
+    display: none;
+  }
+
+  .mobileList {
+    display: flex;
+    flex-direction: column;
+    max-height: 320px;
+    overflow-y: auto;
+    padding: 10px;
+    gap: 12px;
+  }
+
+  .mobileList::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .mobileList::-webkit-scrollbar-thumb {
+    background: rgba(82, 183, 136, 0.2);
+    border-radius: 2px;
+  }
+
+  .mobileCard {
+    background: rgba(22, 32, 25, 0.6);
+    border: 1px solid rgba(82, 183, 136, 0.2);
+    border-radius: 12px;
+    padding: 15px;
+    cursor: pointer;
+    transition: var(--transition-fast);
+  }
+
+  .mobileCard:hover {
+    border-color: rgba(82, 183, 136, 0.5);
+    background: rgba(82, 183, 136, 0.05);
+  }
+
+  .mobileCardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .mobileId {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+    color: var(--accent-teal-bright);
+  }
+
+  .mobileStatus {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.7rem;
+    font-family: 'Fira Code', monospace;
+    color: var(--text-sans-slate);
+    text-transform: uppercase;
+  }
+
+  .mobileTitle {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-serif-cream);
+    font-weight: 500;
+    line-height: 1.4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
