@@ -27,17 +27,17 @@ const Hero = ({ profile = {} }) => {
         <div className={styles.heroDescend}>
           <div className={styles.descendLinks}>
             {links.github && (
-              <a href={links.github} target="_blank" rel="noreferrer" aria-label="GitHub Profile">
+              <a href={links.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
                 <GitBranch size={20} />
               </a>
             )}
             {links.linkedin && (
-              <a href={links.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn Profile">
+              <a href={links.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
                 <Briefcase size={20} />
               </a>
             )}
             {links.resume && (
-              <a href={links.resume} target="_blank" rel="noreferrer" aria-label="Resume">
+              <a href={links.resume} target="_blank" rel="noopener noreferrer" aria-label="Resume">
                 <FileText size={20} />
               </a>
             )}
