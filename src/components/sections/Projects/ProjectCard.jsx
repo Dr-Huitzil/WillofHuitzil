@@ -29,12 +29,12 @@ const ProjectCard = ({ project, onClick }) => {
         
         <div className={`${styles.projectLinks} mono-accent`}>
           {project.github && (
-            <a href={project.github} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
+            <a href={project.github} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
               <GitBranch size={14} /> SOURCE
             </a>
           )}
           {project.demo && (
-            <a href={project.demo} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
+            <a href={project.demo} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
               <ExternalLink size={14} /> EXPLORE
             </a>
           )}
