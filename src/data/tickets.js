@@ -2,6 +2,53 @@
 
 export const ticketsData = [
   {
+    id: "SR-00009",
+    title: "FULLY Automate Computer Imaging and Deployment",
+    status: "Planning",
+    category: "Automation",
+    priority: "High",
+    updated: "05/19/2026",
+    description: "Designing a fully automated computer imaging and deployment system using NinjaOne for seamless workstation provisioning.",
+    tasks: [
+      {
+        id: "1",
+        text: "Update current workflow to be fully automated and hands free",
+        completed: false,
+        completedAt: null,
+        subtasks: [
+          { id: "1", text: "Create FAT USB with autounattend in the root, Source / wim, and NinjaDeployment subdirectories", completed: false },
+          { id: "2", text: "Rename file directoy for deployment files to /$OEM$/$1/NinjaDeployment", completed: false },
+          { id: "3", text: "Update autounattend with ADK by modifying the FirstLogonCommands", completed: false },
+          { id: "4", text: "Driver injection with automated Setup.ps1 script that reads model name, finds matching folder, and injects drivers", completed: false },
+          { id: "5", text: "Test with multiple models and make sure it works", completed: false }
+        ]
+      }
+    ],
+    details: `
+### Project Summary
+The goal of this project is to create a fully automated computer imaging and deployment system using NinjaOne. This will allow for seamless workstation provisioning without the need for manual intervention, streamlining the deployment process and improving efficiency.
+I suppose the other goal is to learn how to make this 100% automated and hands free since the recent iteration of my workflow has me click around a GUI repeatedly.
+    `
+  },
+  {
+    id: "SR-00008",
+    title: "Enhanced Personal Finance Tracker",
+    status: "Working on it...",
+    category: "Finance",
+    priority: "Medium",
+    updated: "05/18/2026",
+    description: "Building a custom personal finance dashboard with advanced budgeting and investment tracking features.",
+    tasks: [
+      { id: "1", text: "Design dashboard layout and UI components", completed: true, completedAt: "05/10/2026" },
+      { id: "2", text: "Test out with my information and make sure it works", completed: false, completedAt: null },
+      { id: "3", text: "Implement advanced budgeting and forecasting features", completed: false, completedAt: null }
+    ],
+    details: `
+### Project Summary
+The goal of this project is to build a custom personal finance dashboard that provides advanced budgeting and investment tracking features. This will allow for better financial management and decision-making by providing insights into spending habits, budget adherence, and investment performance.
+    `
+  },
+  {
     id: "SR-00007",
     title: "Automatic Plant Irrigation and Monitoring",
     status: "Planning",
