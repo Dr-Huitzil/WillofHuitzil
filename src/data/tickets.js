@@ -33,7 +33,7 @@ I suppose the other goal is to learn how to make this 100% automated and hands f
   {
     id: "SR-00008",
     title: "Enhanced Personal Finance Tracker",
-    status: "Working on it...",
+    status: "Working on...",
     category: "Finance",
     priority: "Medium",
     updated: "05/18/2026",
