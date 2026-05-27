@@ -20,9 +20,9 @@ export const ticketsData = [
           { id: "2", text: "Rename file directoy for deployment files to /$OEM$/$1/NinjaDeployment", completed: false },
           { id: "3", text: "Update autounattend with ADK by modifying the FirstLogonCommands", completed: false },
           { id: "4", text: "Driver injection with automated Setup.ps1 script that reads model name, finds matching folder, and injects drivers", completed: false },
-          { id: "5", text: "Test with multiple models and make sure it works", completed: false }
         ]
-      }
+      },
+      { id: "2", text: "Test with multiple models and make sure it works", completed: false, completedAt: null }
     ],
     details: `
 ### Project Summary
