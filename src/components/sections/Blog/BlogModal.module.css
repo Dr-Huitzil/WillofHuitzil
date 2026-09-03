@@ -128,7 +128,7 @@
 }
 
 .blogTitle {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   margin: 0;
   line-height: 1.1;
   color: var(--text-serif-cream);
@@ -364,3 +364,16 @@
     box-sizing: border-box;
   }
 }
+
+.modalTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 5px;
+}
+.tag {
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  color: var(--accent-yellow);
+}
+

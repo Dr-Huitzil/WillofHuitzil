@@ -115,20 +115,31 @@
 
 .metaInfo {
   display: flex;
-  gap: 20px;
+  flex-direction: column;
+  gap: 8px;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   padding-top: 20px;
+  margin-top: auto;
+  font-family: 'Fira Code', monospace;
 }
 
-.metaInfo a {
+.metaAuthor {
+  font-size: 0.8rem;
+  color: var(--text-serif-cream);
+}
+
+.metaSecondary {
   display: flex;
-  align-items: center;
-  gap: 8px;
+  justify-content: space-between;
   font-size: 0.75rem;
-  color: var(--accent-orchid);
+  color: var(--text-sans-slate);
+  opacity: 0.8;
 }
 
-.metaInfo a:hover {
-  color: var(--accent-orchid);
-  text-shadow: 0 0 10px rgba(114, 9, 183, 0.4);
+@media (max-width: 768px) {
+  .metaSecondary {
+    flex-direction: column;
+    gap: 8px;
+  }
 }
+

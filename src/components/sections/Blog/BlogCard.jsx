@@ -8,18 +8,7 @@ const BlogCard = ({ post, onClick }) => {
 
 
       <div className={styles.contentContainer}>
-        <div className={styles.tags}>
-          {post.tags?.slice(0, 3).map((tag, i) => (
-            <span key={i} className={`mono-accent ${styles.tag}`}>
-              [{tag.toUpperCase()}]
-            </span>
-          ))}
-          {post.tags?.length > 3 && (
-            <span className={`mono-accent ${styles.tag}`}>
-              [+{post.tags.length - 3}]
-            </span>
-          )}
-        </div>
+
 
         <h3 className={`serif-header ${styles.title}`}>{post.title}</h3>
 

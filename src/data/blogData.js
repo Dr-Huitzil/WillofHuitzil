@@ -1,45 +1,59 @@
-import { zeroTrustHomelab } from './blogPosts/zeroTrustHomelab';
-import { powershellSecurityAutomation } from './blogPosts/powershellSecurityAutomation';
-import { siemSplunkDetection } from './blogPosts/siemSplunkDetection';
+import { introPost } from './blogPosts/introPost';
+import { obsidianPost } from './blogPosts/obsidianPost';
+import { apReplacementPost } from './blogPosts/apReplacementPost';
+import { schoolResumePost } from './blogPosts/schoolResumePost';
 
 export const blogPosts = [
   {
     id: 1,
-    slug: 'powershell-security-automation',
-    title: 'Automating Active Directory Health & Threat Audits with PowerShell',
-    summary: 'A deep dive into building modular PowerShell scripts for automating daily AD health checks and detecting privilege escalation attempts.',
-    date: 'August 28, 2026',
+    slug: 'welcome-to-my-portfolio',
+    title: 'Welcome to My Portfolio',
+    summary: 'A brief introduction to my newly redesigned portfolio and what to expect from this digital space.',
+    date: 'September 2, 2026',
     author: 'Ivan Alier-Reyes',
-    views: 1250,
-    readTime: '6 min read',
-    tags: ['PowerShell', 'Active Directory', 'Automation', 'Security'],
-    imagePlaceholder: 'PLACEHOLDER_POWERSHELL_TERMINAL',
-    content: powershellSecurityAutomation
+    views: 310,
+    readTime: '2 min read',
+    tags: ['Personal', 'Portfolio', 'Introduction'],
+    imagePlaceholder: 'PLACEHOLDER_PORTFOLIO_HOME',
+    content: introPost
   },
   {
     id: 2,
-    slug: 'zero-trust-homelab',
-    title: 'Building a Zero-Trust Architecture in a Hybrid Homelab Environment',
-    summary: 'Moving beyond perimeter security: implementing micro-segmentation, identity-aware proxies, and secure remote access in a personal lab.',
-    date: 'July 15, 2026',
+    slug: 'down-the-obsidian-rabbit-hole',
+    title: 'Down the Obsidian Rabbit Hole',
+    summary: 'Discovering Obsidian for knowledge management, bidirectional linking, and building a second brain.',
+    date: 'August 15, 2026',
     author: 'Ivan Alier-Reyes',
-    views: 980,
-    readTime: '8 min read',
-    tags: ['Zero Trust', 'Network Security', 'Homelab', 'Keycloak'],
-    imagePlaceholder: 'PLACEHOLDER_NETWORK_TOPOLOGY',
-    content: zeroTrustHomelab
+    views: 890,
+    readTime: '4 min read',
+    tags: ['Personal', 'Obsidian', 'Knowledge Management'],
+    imagePlaceholder: 'PLACEHOLDER_OBSIDIAN_GRAPH',
+    content: obsidianPost
   },
   {
     id: 3,
-    slug: 'custom-splunk-rules',
-    title: 'Custom Splunk Rule Engineering for Real-Time Incident Response',
-    summary: 'Enhancing threat detection capabilities by writing and tuning custom SIEM correlation rules to catch lateral movement.',
-    date: 'May 10, 2026',
+    slug: 'ap-replacement-project',
+    title: 'Scaling Heights: The AP Replacement Project',
+    summary: 'Lessons learned from a major Access Point deployment, customizing the Meraki dashboard, and overcoming a fear of heights.',
+    date: 'July 20, 2026',
     author: 'Ivan Alier-Reyes',
-    views: 1532,
+    views: 1245,
     readTime: '5 min read',
-    tags: ['SIEM', 'Splunk', 'Threat Detection', 'Incident Response'],
-    imagePlaceholder: 'PLACEHOLDER_SIEM_DASHBOARD',
-    content: siemSplunkDetection
+    tags: ['Work', 'Networking', 'Meraki', 'Infrastructure'],
+    imagePlaceholder: 'PLACEHOLDER_MERAKI_DASHBOARD',
+    content: apReplacementPost
+  },
+  {
+    id: 4,
+    slug: 'resuming-bachelors-cs',
+    title: 'The "1 Year Break" That Took 3 Years',
+    summary: 'Excited to announce my return to my Computer Science degree after gaining 3 years of real-world IT experience.',
+    date: 'June 10, 2026',
+    author: 'Ivan Alier-Reyes',
+    views: 2100,
+    readTime: '3 min read',
+    tags: ['School', 'Computer Science', 'Education', 'Career Growth'],
+    imagePlaceholder: 'PLACEHOLDER_CS_CODE_SNIPPET',
+    content: schoolResumePost
   }
 ];

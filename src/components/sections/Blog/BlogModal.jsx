@@ -52,6 +52,13 @@ const BlogModal = ({ post, onClose }) => {
               </div>
 
               <div className={styles.mainMeta}>
+                <div className={styles.modalTags}>
+                  {post.tags?.map((tag) => (
+                    <span key={tag} className={`mono-accent ${styles.tag}`}>
+                      [{tag.toUpperCase()}]
+                    </span>
+                  ))}
+                </div>
                 <h2 className={`serif-header ${styles.blogTitle}`}>{post.title}</h2>
                 <div className={`mono-accent ${styles.author}`}>{post.author}</div>
               </div>
