@@ -49,10 +49,26 @@ const Navbar = () => {
     navigate('/blog');
   };
 
+  const handleLogoClick = () => {
+    setIsOpen(false);
+    if (location.pathname !== '/') {
+      navigate('/');
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   return (
     <nav className={styles.navbar}>
       <div className={styles.navbarLeft}>
-        <div className={styles.logoIcon}>
+        <div 
+          className={styles.logoIcon}
+          onClick={handleLogoClick}
+          role="button"
+          tabIndex={0}
+          style={{ cursor: 'pointer' }}
+          aria-label="Home"
+        >
           <Leaf size={24} color="var(--accent-teal-bright)" strokeWidth={1.5} />
         </div>
       </div>
