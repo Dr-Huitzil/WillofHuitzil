@@ -1,0 +1,128 @@
+.blogCard {
+  background: var(--glass-bg-soft);
+  border: var(--glass-border);
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: var(--transition-premium);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.blogCard:hover {
+  transform: translateY(-5px);
+  background: var(--glass-bg-deep);
+  box-shadow: var(--glow-teal-soft);
+  border-color: rgba(82, 183, 136, 0.4);
+}
+
+.imageContainer {
+  height: 180px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  border-bottom: var(--glass-border);
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-premium);
+}
+
+.blogCard:hover .cardImage {
+  transform: scale(1.05);
+}
+
+.placeholderImg {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(8, 13, 8, 0.8), rgba(22, 32, 25, 0.9));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-teal-dim);
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid rgba(82, 183, 136, 0.1);
+}
+
+.placeholderImg .mono-accent {
+  color: var(--accent-teal-dim); /* Overriding for subtle look */
+}
+
+.blogCard:hover .placeholderImg .mono-accent {
+  color: var(--accent-teal-bright);
+}
+
+.contentContainer {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.metaInfo {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 12px;
+  color: var(--text-sans-slate);
+  font-size: 0.8rem;
+  font-family: 'Fira Code', monospace;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.title {
+  font-size: 1.4rem;
+  margin: 0 0 12px 0;
+  line-height: 1.2;
+}
+
+.summary {
+  color: var(--text-sans-slate);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0 0 20px 0;
+  flex: 1;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.tag {
+  font-size: 0.7rem;
+  color: var(--text-sans-slate);
+  background: rgba(255,255,255,0.05);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.readMore {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent-teal-bright);
+  font-size: 0.85rem;
+  margin-top: auto;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.blogCard:hover .arrow {
+  transform: translateX(5px);
+}

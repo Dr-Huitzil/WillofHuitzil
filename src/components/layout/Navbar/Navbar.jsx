@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Leaf, Menu, X } from 'lucide-react';
 import styles from './Navbar.module.css';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     if (isOpen) {
@@ -18,6 +21,18 @@ const Navbar = () => {
   const handleNavClick = (e, targetId) => {
     e.preventDefault();
     setIsOpen(false);
+    
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        scrollToTarget(targetId);
+      }, 100); // small delay to let DOM render
+    } else {
+      scrollToTarget(targetId);
+    }
+  };
+  
+  const scrollToTarget = (targetId) => {
     if (targetId === 'main') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
@@ -26,6 +41,12 @@ const Navbar = () => {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     }
+  };
+
+  const handleBlogClick = (e) => {
+    e.preventDefault();
+    setIsOpen(false);
+    navigate('/blog');
   };
 
   return (
@@ -39,6 +60,7 @@ const Navbar = () => {
       <div className={`${styles.navbarRight} ${isOpen ? styles.open : ''} mono-accent`}>
         <a href="#main" onClick={(e) => handleNavClick(e, 'main')}>MAIN</a>
         <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')}>PROJECTS</a>
+        <a href="/blog" onClick={handleBlogClick} className={location.pathname === '/blog' ? styles.activeNav : ''}>BLOG</a>
         <a href="#timeline" onClick={(e) => handleNavClick(e, 'timeline')}>TIMELINE</a>
         <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')}>CONTACT</a>
       </div>
