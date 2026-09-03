@@ -1,37 +1,13 @@
 import React from 'react';
-import { ArrowRight, Clock, Calendar } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import styles from './BlogCard.module.css';
 
 const BlogCard = ({ post, onClick }) => {
   return (
     <div className={styles.blogCard} onClick={onClick} role="button" tabIndex={0}>
-      <div className={styles.imageContainer}>
-        {post.imagePlaceholder ? (
-          <div className={styles.placeholderImg}>
-            <div className="mono-accent">
-              [{post.imagePlaceholder.replace('PLACEHOLDER_', '').replace(/_/g, ' ')}]
-            </div>
-          </div>
-        ) : (
-          <img src={post.image} alt={post.title} className={styles.cardImage} />
-        )}
-      </div>
+
 
       <div className={styles.contentContainer}>
-        <div className={styles.metaInfo}>
-          <span className={styles.metaItem}>
-            <Calendar size={12} />
-            {post.date}
-          </span>
-          <span className={styles.metaItem}>
-            <Clock size={12} />
-            {post.readTime}
-          </span>
-        </div>
-
-        <h3 className={`serif-header ${styles.title}`}>{post.title}</h3>
-        <p className={styles.summary}>{post.summary}</p>
-
         <div className={styles.tags}>
           {post.tags?.slice(0, 3).map((tag, i) => (
             <span key={i} className={`mono-accent ${styles.tag}`}>
@@ -45,8 +21,20 @@ const BlogCard = ({ post, onClick }) => {
           )}
         </div>
 
-        <div className={styles.readMore}>
-          <span className="mono-accent">READ_LOG</span>
+        <h3 className={`serif-header ${styles.title}`}>{post.title}</h3>
+
+        <div className={styles.metaInfo}>
+          <div className={styles.metaAuthor}>
+            {post.author}
+          </div>
+          <div className={styles.metaSecondary}>
+            <span>{post.date}</span>
+            <span>{post.readTime}</span>
+          </div>
+        </div>
+
+        <div className={`${styles.readMore} mono-accent`}>
+          <span>READ_LOG</span>
           <ArrowRight size={16} className={styles.arrow} />
         </div>
       </div>

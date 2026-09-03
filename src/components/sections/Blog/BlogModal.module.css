@@ -1,212 +1,366 @@
 .modalBackdrop {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(8, 13, 8, 0.85);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  z-index: var(--layer-modal-backdrop);
+  inset: 0;
+  background: var(--glass-bg-deep);
+  backdrop-filter: var(--glass-blur);
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 40px 20px;
-  animation: ui-fade-in 0.3s ease-out;
+  align-items: center;
+  z-index: var(--layer-modal-backdrop);
+  animation: ui-fade-in 0.8s ease forwards;
 }
 
 .blogModal {
-  position: relative;
-  width: 100%;
-  max-width: 900px;
-  max-height: 100%;
-  background: var(--bg-card);
+  background: var(--glass-bg-deep);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border: var(--glass-border);
-  border-radius: var(--hud-radius);
-  box-shadow: var(--glass-glow-teal), 0 20px 50px rgba(0, 0, 0, 0.5);
+  clip-path: var(--clip-chamfer);
+  width: 90%;
+  max-width: 900px;
+  max-height: 90vh;
+  position: relative;
+  box-shadow: 
+    var(--glass-glow-teal),
+    0 30px 60px rgba(0, 0, 0, 0.6);
   display: flex;
   flex-direction: column;
-  animation: ui-scale-lift 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
   overflow: hidden;
+  overflow-x: hidden;
+  transition: var(--transition-premium);
+  z-index: var(--layer-modal-content);
+  animation: ui-scale-lift 1s var(--transition-premium) forwards;
+}
+
+.blogModal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.4) 20%, 
+    rgba(255, 255, 255, 0.4) 80%, 
+    transparent 100%
+  );
+  z-index: 10;
+}
+
+.blogModal.expanded {
+  max-width: 1400px;
 }
 
 .closeBtn {
   position: absolute;
   top: 20px;
   right: 20px;
-  background: rgba(14, 22, 15, 0.6);
-  border: 1px solid rgba(82, 183, 136, 0.3);
-  color: var(--accent-teal-bright);
-  width: 40px;
-  height: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-sans-slate);
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  cursor: pointer;
+  align-items: center;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease;
   z-index: 10;
-  transition: var(--transition-premium);
-  backdrop-filter: blur(5px);
 }
 
 .closeBtn:hover {
-  background: rgba(82, 183, 136, 0.2);
-  transform: rotate(90deg);
+  background: rgba(160, 82, 45, 0.1);
+  color: var(--accent-rust);
+  border-color: rgba(160, 82, 45, 0.3);
+  transform: rotate(90deg) scale(1.1);
 }
 
-.modalContent {
-  overflow-y: auto;
-  overflow-x: hidden;
+.modalContentWrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
   height: 100%;
+  min-height: 500px;
+}
+
+.modalLeft {
+  width: 300px;
+  background: rgba(0, 0, 0, 0.4);
+  border-right: var(--border-glass);
   display: flex;
   flex-direction: column;
-}
-
-.modalHeader {
-  position: relative;
-  width: 100%;
-}
-
-.modalImageContainer {
-  width: 100%;
-  height: 300px;
-  position: relative;
+  justify-content: space-between;
+  padding: 50px 30px;
+  flex-shrink: 0;
+  min-width: 0;
   overflow: hidden;
-  border-bottom: 1px solid rgba(82, 183, 136, 0.2);
 }
 
-.modalImageContainer::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 150px;
-  background: linear-gradient(to top, var(--bg-card), transparent);
+.expanded .modalLeft {
+  width: 320px;
+  background: rgba(0, 0, 0, 0.6);
 }
 
-.placeholderImg {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #0e160f, #162019);
+.sidebarMeta {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.iconBox {
+  width: 54px;
+  height: 54px;
+  background: rgba(160, 82, 45, 0.05);
+  border: 1px solid rgba(160, 82, 45, 0.2);
+  display: flex;
   justify-content: center;
-  color: var(--accent-teal-dim);
-  font-size: 1.5rem;
-  letter-spacing: 0.1em;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--accent-rust);
 }
 
-.placeholderImg .mono-accent {
-  color: var(--accent-teal-bright);
-  opacity: 0.5;
-}
-
-.modalImg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.headerInfo {
-  padding: 0 40px;
-  margin-top: -60px;
-  position: relative;
-  z-index: 2;
-}
-
-.tags {
+.mainMeta {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 10px;
-  margin-bottom: 15px;
 }
 
-.tag {
-  font-size: 0.75rem;
-  background: rgba(14, 22, 15, 0.8);
-  padding: 4px 10px;
-  border: 1px solid rgba(82, 183, 136, 0.3);
-  border-radius: 4px;
-  backdrop-filter: blur(4px);
-}
-
-.modalTitle {
-  font-size: 2.5rem;
+.blogTitle {
+  font-size: 1.8rem;
+  margin: 0;
   line-height: 1.1;
-  margin: 0 0 20px 0;
   color: var(--text-serif-cream);
-  text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
 }
 
-.metaContainer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  color: var(--text-sans-slate);
-  font-family: 'Fira Code', monospace;
+.author {
+  color: var(--accent-teal-bright);
   font-size: 0.85rem;
-  padding-bottom: 30px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  letter-spacing: 2px;
+  line-height: 1.4;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  max-width: 100%;
+}
+
+.subMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 25px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .metaItem {
   display: flex;
   align-items: center;
-  gap: 8px;
-  color: var(--accent-teal-bright);
+  gap: 10px;
+  font-size: 0.7rem;
+  color: var(--text-sans-slate);
+  opacity: 0.8;
+  letter-spacing: 1px;
 }
 
-.metaItem span {
-  color: var(--text-sans-slate);
+.modalRight {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 60px 50px;
+  background: rgba(0, 0, 0, 0.2);
+  min-width: 0;
+  overscroll-behavior: contain;
 }
 
-.articleBody {
-  padding: 40px;
+.contentSection {
+  margin-bottom: 40px;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contentTitle {
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  color: var(--accent-rust);
+  margin-bottom: 25px;
+  border-left: 2px solid var(--accent-rust);
+  padding-left: 15px;
+  opacity: 0.8;
+}
+
+.detailsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.detailItem {
   color: var(--text-sans-slate);
-  font-size: 1.05rem;
+  line-height: 1.7;
+  font-size: 1rem;
+  display: flex;
+  gap: 15px;
+}
+
+.bullet {
+  color: var(--accent-rust);
+  font-weight: bold;
+  font-family: 'Fira Code', monospace;
+}
+
+.expandBtn {
+  background: rgba(160, 82, 45, 0.1);
+  border: 1px solid rgba(160, 82, 45, 0.2);
+  color: var(--accent-rust);
+  padding: 10px 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  transition: var(--transition-smooth);
+  width: fit-content;
+  margin-top: 10px;
+}
+
+.expandBtn:hover {
+  background: rgba(160, 82, 45, 0.2);
+  border-color: var(--accent-rust);
+  transform: translateY(-2px);
+}
+
+.expandedInfoSection {
+  margin-top: 20px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  animation: slideIn 0.5s ease forwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.longDescription {
+  color: var(--text-sans-slate);
   line-height: 1.8;
+  font-size: 1rem;
+  white-space: pre-wrap;
 }
 
-/* Scrollbar customization for the modal content */
-.modalContent::-webkit-scrollbar {
-  width: 8px;
-}
-.modalContent::-webkit-scrollbar-track {
-  background: rgba(0,0,0,0.2);
-}
-.modalContent::-webkit-scrollbar-thumb {
-  background: rgba(82, 183, 136, 0.3);
-  border-radius: 4px;
-}
-.modalContent::-webkit-scrollbar-thumb:hover {
-  background: rgba(82, 183, 136, 0.6);
+.longDescription h3 {
+  color: var(--accent-rust);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
+  margin: 35px 0 15px 0;
+  letter-spacing: 2px;
+  border-bottom: 1px solid rgba(160, 82, 45, 0.2);
+  padding-bottom: 5px;
+  width: fit-content;
 }
 
-@media (max-width: 768px) {
-  .modalBackdrop {
-    padding: 10px;
-  }
-  
+.longDescription h3:first-child {
+  margin-top: 0;
+}
+
+@media (max-width: 1024px) {
   .blogModal {
-    border-radius: 16px;
+    width: 95%;
+    max-height: 95vh;
+    border-radius: 20px;
   }
-  
-  .modalImageContainer {
-    height: 200px;
+
+  .modalContentWrapper {
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: block;
+    max-width: 100%;
+    overscroll-behavior: contain;
   }
-  
-  .headerInfo {
-    padding: 0 20px;
-    margin-top: -40px;
+
+  .modalLeft {
+    width: 100% !important;
+    height: auto;
+    border-right: none !important;
+    border-bottom: none !important;
+    padding: 40px 25px 20px 25px;
+    background: rgba(0, 0, 0, 0.6);
+    box-sizing: border-box;
+    overflow: hidden;
   }
-  
-  .modalTitle {
-    font-size: 1.8rem;
+
+  /* When expanded on mobile, hide the icon and mission objectives to prioritize analysis */
+  .expanded .iconBox {
+    display: none;
   }
-  
-  .articleBody {
-    padding: 20px;
-    font-size: 1rem;
+
+  .expanded .mobileHideContent {
+    display: none;
+  }
+
+  .sidebarMeta {
+    gap: 20px;
+    width: 100%;
+  }
+
+  .modalRight {
+    width: 100% !important;
+    padding: 0;
+    background: transparent;
+    border-left: none !important;
+    overflow: visible;
+  }
+
+  .contentSection {
+    padding: 20px 25px 40px 25px;
+    margin-bottom: 0;
+  }
+
+  .blogTitle {
+    font-size: 2rem;
+    width: 100%;
+  }
+
+  .expanded .blogTitle {
+    font-size: 1.6rem;
+  }
+
+  .expandBtn {
+    padding: 10px 20px;
+    font-size: 0.7rem;
+    width: fit-content;
+  }
+
+  .expandedInfoSection {
+    padding: 20px 25px 50px 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    width: 100%;
+    box-sizing: border-box;
   }
 }
