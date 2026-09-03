@@ -162,6 +162,49 @@
   letter-spacing: 1px;
 }
 
+.likeBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(82, 183, 136, 0.2);
+  border-radius: 4px;
+  color: var(--text-sans-slate);
+  font-size: 0.7rem;
+  padding: 6px 12px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: var(--transition-premium);
+  margin-top: 4px;
+  width: fit-content;
+}
+
+.likeBtn:hover {
+  background: rgba(239, 68, 68, 0.08);
+  border-color: rgba(239, 68, 68, 0.5);
+  color: #fca5a5;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.25);
+  transform: translateY(-1px);
+}
+
+.likeBtn.liked {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: #ef4444;
+  color: #ef4444;
+  box-shadow: 0 0 14px rgba(239, 68, 68, 0.35);
+}
+
+.heartIcon {
+  color: inherit;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.likeBtn:hover .heartIcon,
+.likeBtn.liked .heartIcon {
+  transform: scale(1.15);
+}
+
+
 .modalRight {
   flex: 1;
   display: flex;
