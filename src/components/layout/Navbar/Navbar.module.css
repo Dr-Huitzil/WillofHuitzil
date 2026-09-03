@@ -111,92 +111,67 @@
   width: 100%;
 }
 
-/* --- Yellow Push Button for Blog (Matches Image 3) --- */
+/* --- Blog Nav Item: Yellow hover on main page, retained when active on blog page --- */
 .blogButton {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 6px 18px;
-  background: radial-gradient(ellipse at 50% 50%, #0d0a02 0%, #030200 100%);
-  border: 1.5px solid #d4af37;
-  border-radius: 2px;
-  color: #ffffff;
-  font-family: 'Inter', sans-serif;
-  font-weight: 800;
-  font-size: 0.82rem;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  color: var(--text-serif-cream);
+  font-family: inherit;
+  font-size: 0.85rem;
   letter-spacing: 2px;
   cursor: pointer;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
-  box-shadow: 
-    0 0 10px rgba(212, 175, 55, 0.45),
-    inset 0 0 8px rgba(212, 175, 55, 0.55),
-    inset 0 1px 0 rgba(254, 240, 138, 0.7);
-  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  text-shadow: none;
+  transition: var(--transition-premium);
   user-select: none;
   outline: none;
-  text-decoration: none;
 }
 
-/* Gold specular highlight inside top edge */
-.blogButton::before {
+/* Animated yellow underline */
+.blogButton::after {
   content: '';
   position: absolute;
-  top: 1px;
-  left: 2px;
-  right: 2px;
+  bottom: -4px;
+  left: 0;
+  width: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent 5%, rgba(254, 240, 138, 0.9) 50%, transparent 95%);
-  pointer-events: none;
+  background: var(--accent-yellow);
+  transition: var(--transition-premium);
+  box-shadow: 0 0 6px var(--accent-yellow);
 }
 
-/* Hover on main page (preview illumination) */
+/* Hover on main page: turns yellow with yellow underline */
 .blogButton:hover {
-  border-color: #facc15;
-  color: #ffffff;
-  background: radial-gradient(ellipse at 50% 50%, #291d04 0%, #080601 100%);
-  box-shadow: 
-    0 0 16px rgba(250, 204, 21, 0.7),
-    0 0 32px rgba(212, 163, 115, 0.4),
-    inset 0 0 12px rgba(250, 204, 21, 0.65),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
-  transform: translateY(-1px);
+  color: var(--accent-yellow);
+  text-shadow: 0 0 15px rgba(244, 211, 94, 0.5);
 }
 
-.blogButton:active {
-  transform: translateY(0);
+.blogButton:hover::after {
+  width: 100%;
 }
 
-/* --- LIT UP STATE (When in Blog Page - Solid, no blinking) --- */
+/* --- Retain effect when actively in Blog Page --- */
 .blogButtonActive {
-  background: radial-gradient(ellipse at 50% 50%, #ca8a04 0%, #a16207 40%, #713f12 75%, #451a03 100%);
-  border-color: #fef08a;
-  color: #ffffff;
-  text-shadow: 
-    0 0 8px #ffffff,
-    0 0 16px rgba(254, 240, 138, 0.95),
-    0 0 28px rgba(250, 204, 21, 0.85);
-  box-shadow: 
-    0 0 18px rgba(250, 204, 21, 0.95),
-    0 0 38px rgba(234, 179, 8, 0.65),
-    0 0 60px rgba(202, 138, 4, 0.35),
-    inset 0 0 12px rgba(254, 240, 138, 0.95),
-    inset 0 0 22px rgba(245, 158, 11, 0.7);
+  color: var(--accent-yellow);
+  text-shadow: 0 0 15px rgba(244, 211, 94, 0.5);
 }
 
-.blogButtonActive::before {
-  background: linear-gradient(90deg, transparent 5%, #ffffff 50%, transparent 95%);
-  opacity: 1;
+.blogButtonActive::after {
+  width: 100%;
 }
 
 .blogButtonActive:hover {
-  background: radial-gradient(ellipse at 50% 50%, #d97706 0%, #b45309 40%, #78350f 75%, #451a03 100%);
-  box-shadow: 
-    0 0 22px rgba(250, 204, 21, 1),
-    0 0 45px rgba(234, 179, 8, 0.8),
-    0 0 70px rgba(202, 138, 4, 0.45),
-    inset 0 0 14px rgba(254, 240, 138, 1),
-    inset 0 0 26px rgba(245, 158, 11, 0.8);
+  color: #fff385;
+  text-shadow: 0 0 20px rgba(244, 211, 94, 0.8);
+}
+
+.blogButtonActive:hover::after {
+  box-shadow: 0 0 10px var(--accent-yellow);
 }
 
 .mobileMenuBtn {
@@ -279,8 +254,10 @@
     transition: var(--transition-premium);
   }
 
-  .blogButton::before {
-    display: none;
+  /* Completely remove inherited line animation on mobile */
+  .blogButton::before,
+  .blogButton::after {
+    display: none !important;
   }
 
   /* Slide in with the rest of the items */
@@ -316,42 +293,37 @@
     padding-left: 50px;
   }
 
-  /* Responsive Hover: Turns green and hovers to the right with faint yellow glow */
+  /* Responsive Hover on Blog: turns yellow, hovers right, yellow line on the left */
   .blogButton:hover {
-    color: var(--accent-teal-bright);
+    color: var(--accent-yellow);
     padding-left: 50px;
-    background: rgba(82, 183, 136, 0.05);
-    text-shadow: 
-      0 0 10px rgba(82, 183, 136, 0.6),
-      0 0 18px rgba(250, 204, 21, 0.4);
+    background: rgba(244, 211, 94, 0.05);
+    text-shadow: 0 0 15px rgba(244, 211, 94, 0.4);
     box-shadow: 
-      inset 4px 0 0 rgba(250, 204, 21, 0.75),
-      inset 14px 0 18px -8px rgba(250, 204, 21, 0.15);
+      inset 4px 0 0 var(--accent-yellow),
+      inset 14px 0 18px -8px rgba(244, 211, 94, 0.25);
     transform: none;
   }
 
-  /* Responsive Lit-Up State when on /blog */
+  /* Responsive Retained State when actively on /blog: yellow line on the left */
   .blogButtonActive {
-    color: var(--accent-teal-bright);
+    color: var(--accent-yellow);
     padding-left: 50px;
-    background: rgba(82, 183, 136, 0.08);
+    background: rgba(244, 211, 94, 0.08);
     border-bottom: 1px solid rgba(82, 183, 136, 0.15);
-    text-shadow: 
-      0 0 8px rgba(82, 183, 136, 0.8),
-      0 0 20px rgba(250, 204, 21, 0.55);
+    text-shadow: 0 0 15px rgba(244, 211, 94, 0.5);
     box-shadow: 
-      inset 4px 0 0 #facc15,
-      inset 20px 0 24px -10px rgba(250, 204, 21, 0.22);
+      inset 4px 0 0 var(--accent-yellow),
+      inset 18px 0 22px -8px rgba(244, 211, 94, 0.3);
   }
 
   .blogButtonActive:hover {
+    color: #fff385;
     padding-left: 54px;
-    background: rgba(82, 183, 136, 0.12);
-    text-shadow: 
-      0 0 10px rgba(82, 183, 136, 0.9),
-      0 0 24px rgba(250, 204, 21, 0.7);
+    background: rgba(244, 211, 94, 0.12);
+    text-shadow: 0 0 20px rgba(244, 211, 94, 0.7);
     box-shadow: 
-      inset 5px 0 0 #facc15,
-      inset 25px 0 28px -10px rgba(250, 204, 21, 0.3);
+      inset 5px 0 0 var(--accent-yellow),
+      inset 22px 0 26px -8px rgba(244, 211, 94, 0.35);
   }
 }
