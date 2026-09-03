@@ -21,7 +21,7 @@ const Navbar = () => {
   const handleNavClick = (e, targetId) => {
     e.preventDefault();
     setIsOpen(false);
-    
+
     if (location.pathname !== '/') {
       navigate('/');
       setTimeout(() => {
@@ -31,7 +31,7 @@ const Navbar = () => {
       scrollToTarget(targetId);
     }
   };
-  
+
   const scrollToTarget = (targetId) => {
     if (targetId === 'main') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -61,7 +61,7 @@ const Navbar = () => {
   return (
     <nav className={styles.navbar}>
       <div className={styles.navbarLeft}>
-        <div 
+        <div
           className={styles.logoIcon}
           onClick={handleLogoClick}
           role="button"
@@ -76,7 +76,16 @@ const Navbar = () => {
       <div className={`${styles.navbarRight} ${isOpen ? styles.open : ''} mono-accent`}>
         <a href="#main" onClick={(e) => handleNavClick(e, 'main')}>MAIN</a>
         <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')}>PROJECTS</a>
-        <a href="/blog" onClick={handleBlogClick} className={location.pathname === '/blog' ? styles.activeNav : ''}>BLOG</a>
+        <button
+          type="button"
+          onClick={handleBlogClick}
+          className={`${styles.blogButton} ${location.pathname === '/blog' ? styles.blogButtonActive : ''}`}
+          title={location.pathname === '/blog' ? "Currently on Blog page" : "Go to Blog page"}
+          aria-label="Blog page"
+          aria-current={location.pathname === '/blog' ? "page" : undefined}
+        >
+          BLOG
+        </button>
         <a href="#timeline" onClick={(e) => handleNavClick(e, 'timeline')}>TIMELINE</a>
         <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')}>CONTACT</a>
       </div>

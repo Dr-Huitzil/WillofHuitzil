@@ -1,14 +1,14 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { 
-  ArrowLeft, 
-  Search, 
-  Filter, 
-  ArrowUpDown, 
-  ChevronDown, 
-  Check, 
-  X, 
-  RotateCcw 
+import {
+  ArrowLeft,
+  Search,
+  Filter,
+  ArrowUpDown,
+  ChevronDown,
+  Check,
+  X,
+  RotateCcw
 } from 'lucide-react';
 import BlogCard from '../components/sections/Blog/BlogCard';
 import BlogModal from '../components/sections/Blog/BlogModal';
@@ -80,7 +80,7 @@ const BlogPage = () => {
 
     const filtered = blogPosts.filter(post => {
       // 1. Search Query filter (matches title, summary, or tags)
-      const matchesSearch = !query || 
+      const matchesSearch = !query ||
         post.title.toLowerCase().includes(query) ||
         post.summary.toLowerCase().includes(query) ||
         post.tags?.some(tag => tag.toLowerCase().includes(query));
@@ -131,16 +131,16 @@ const BlogPage = () => {
     <div className="portfolio-app-root">
       <div className={`hud-container hud-surface ${styles.blogPageContainer}`}>
         <main className={styles.blogMain}>
-          
+
           <div className={styles.pageHeader}>
-            <button 
+            <button
               className={`mono-accent ${styles.backBtn}`}
               onClick={() => navigate('/')}
             >
               <ArrowLeft size={16} />
               RETURN_TO_SYSTEM
             </button>
-            
+
             <div className={styles.titleContainer}>
               <div className="pill section-pill">
                 KNOWLEDGE_BASE
@@ -154,16 +154,16 @@ const BlogPage = () => {
               {/* Search Bar */}
               <div className={styles.searchBar}>
                 <Search size={18} className={styles.searchIcon} />
-                <input 
-                  type="text" 
-                  placeholder="Search logs by title, content, or tag..." 
+                <input
+                  type="text"
+                  placeholder="Search logs by title, content, or tag..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className={styles.searchInput}
                   aria-label="Search articles"
                 />
                 {searchQuery && (
-                  <button 
+                  <button
                     type="button"
                     onClick={() => setSearchQuery('')}
                     className={styles.clearSearchBtn}
@@ -286,9 +286,9 @@ const BlogPage = () => {
                   {selectedFilter !== 'all' && (
                     <span className={styles.chip}>
                       TAG: {currentFilterLabel.toUpperCase()}
-                      <button 
+                      <button
                         type="button"
-                        onClick={() => setSelectedFilter('all')} 
+                        onClick={() => setSelectedFilter('all')}
                         className={styles.chipRemoveBtn}
                         aria-label="Remove tag filter"
                       >
@@ -299,9 +299,9 @@ const BlogPage = () => {
                   {searchQuery && (
                     <span className={styles.chip}>
                       "{searchQuery}"
-                      <button 
+                      <button
                         type="button"
-                        onClick={() => setSearchQuery('')} 
+                        onClick={() => setSearchQuery('')}
                         className={styles.chipRemoveBtn}
                         aria-label="Clear search"
                       >
@@ -312,9 +312,9 @@ const BlogPage = () => {
                   {selectedSort !== 'most-recent' && (
                     <span className={styles.chip}>
                       SORT: {currentSortLabel.toUpperCase()}
-                      <button 
+                      <button
                         type="button"
-                        onClick={() => setSelectedSort('most-recent')} 
+                        onClick={() => setSelectedSort('most-recent')}
                         className={styles.chipRemoveBtn}
                         aria-label="Reset sort"
                       >

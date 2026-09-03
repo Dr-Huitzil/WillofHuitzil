@@ -12,12 +12,12 @@
   top: 0;
   left: 0;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, transparent 100%),
-              var(--glass-bg-deep);
+    var(--glass-bg-deep);
   z-index: var(--layer-nav);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border-bottom: 1px solid rgba(82, 183, 136, 0.4);
-  box-shadow: 
+  box-shadow:
     0 4px 30px rgba(0, 0, 0, 0.4),
     0 10px 30px rgba(82, 183, 136, 0.1);
 }
@@ -29,12 +29,11 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    rgba(255, 255, 255, 0.3) 20%, 
-    rgba(255, 255, 255, 0.3) 80%, 
-    transparent 100%
-  );
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.3) 20%,
+      rgba(255, 255, 255, 0.3) 80%,
+      transparent 100%);
   z-index: 1;
 }
 
@@ -112,6 +111,94 @@
   width: 100%;
 }
 
+/* --- Yellow Push Button for Blog (Matches Image 3) --- */
+.blogButton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 18px;
+  background: radial-gradient(ellipse at 50% 50%, #0d0a02 0%, #030200 100%);
+  border: 1.5px solid #d4af37;
+  border-radius: 2px;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: 0.82rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+  box-shadow: 
+    0 0 10px rgba(212, 175, 55, 0.45),
+    inset 0 0 8px rgba(212, 175, 55, 0.55),
+    inset 0 1px 0 rgba(254, 240, 138, 0.7);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  user-select: none;
+  outline: none;
+  text-decoration: none;
+}
+
+/* Gold specular highlight inside top edge */
+.blogButton::before {
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 2px;
+  right: 2px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 5%, rgba(254, 240, 138, 0.9) 50%, transparent 95%);
+  pointer-events: none;
+}
+
+/* Hover on main page (preview illumination) */
+.blogButton:hover {
+  border-color: #facc15;
+  color: #ffffff;
+  background: radial-gradient(ellipse at 50% 50%, #291d04 0%, #080601 100%);
+  box-shadow: 
+    0 0 16px rgba(250, 204, 21, 0.7),
+    0 0 32px rgba(212, 163, 115, 0.4),
+    inset 0 0 12px rgba(250, 204, 21, 0.65),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transform: translateY(-1px);
+}
+
+.blogButton:active {
+  transform: translateY(0);
+}
+
+/* --- LIT UP STATE (When in Blog Page - Solid, no blinking) --- */
+.blogButtonActive {
+  background: radial-gradient(ellipse at 50% 50%, #ca8a04 0%, #a16207 40%, #713f12 75%, #451a03 100%);
+  border-color: #fef08a;
+  color: #ffffff;
+  text-shadow: 
+    0 0 8px #ffffff,
+    0 0 16px rgba(254, 240, 138, 0.95),
+    0 0 28px rgba(250, 204, 21, 0.85);
+  box-shadow: 
+    0 0 18px rgba(250, 204, 21, 0.95),
+    0 0 38px rgba(234, 179, 8, 0.65),
+    0 0 60px rgba(202, 138, 4, 0.35),
+    inset 0 0 12px rgba(254, 240, 138, 0.95),
+    inset 0 0 22px rgba(245, 158, 11, 0.7);
+}
+
+.blogButtonActive::before {
+  background: linear-gradient(90deg, transparent 5%, #ffffff 50%, transparent 95%);
+  opacity: 1;
+}
+
+.blogButtonActive:hover {
+  background: radial-gradient(ellipse at 50% 50%, #d97706 0%, #b45309 40%, #78350f 75%, #451a03 100%);
+  box-shadow: 
+    0 0 22px rgba(250, 204, 21, 1),
+    0 0 45px rgba(234, 179, 8, 0.8),
+    0 0 70px rgba(202, 138, 4, 0.45),
+    inset 0 0 14px rgba(254, 240, 138, 1),
+    inset 0 0 26px rgba(245, 158, 11, 0.8);
+}
+
 .mobileMenuBtn {
   display: none;
   background: none;
@@ -126,7 +213,7 @@
   .navbar {
     padding: 15px 5vw;
   }
-  
+
   .mobileMenuBtn {
     display: flex;
     justify-content: center;
@@ -170,18 +257,101 @@
     transition: var(--transition-premium);
   }
 
+  /* Responsive Blog Button: Matches left-alignment of other items */
+  .blogButton {
+    width: 100%;
+    margin: 0;
+    padding: 20px 40px;
+    background: none;
+    border: none;
+    border-bottom: 1px solid rgba(82, 183, 136, 0.06);
+    border-radius: 0;
+    display: block;
+    text-align: left;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    color: var(--text-serif-cream);
+    box-shadow: none;
+    text-shadow: none;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: var(--transition-premium);
+  }
+
+  .blogButton::before {
+    display: none;
+  }
+
+  /* Slide in with the rest of the items */
   .navbarRight.open a {
     opacity: 1;
     transform: translateX(0);
   }
 
-  .navbarRight.open a:nth-child(1) { transition-delay: 0.1s; }
-  .navbarRight.open a:nth-child(2) { transition-delay: 0.2s; }
-  .navbarRight.open a:nth-child(3) { transition-delay: 0.3s; }
-  .navbarRight.open a:nth-child(4) { transition-delay: 0.4s; }
+  .navbarRight.open .blogButton {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0.25s;
+  }
+
+  .navbarRight.open a:nth-child(1) {
+    transition-delay: 0.1s;
+  }
+
+  .navbarRight.open a:nth-child(2) {
+    transition-delay: 0.2s;
+  }
+
+  .navbarRight.open a:nth-child(4) {
+    transition-delay: 0.35s;
+  }
+
+  .navbarRight.open a:nth-child(5) {
+    transition-delay: 0.45s;
+  }
 
   .navbarRight a:hover {
     background: rgba(82, 183, 136, 0.05);
     padding-left: 50px;
   }
-}
+
+  /* Responsive Hover: Turns green and hovers to the right with faint yellow glow */
+  .blogButton:hover {
+    color: var(--accent-teal-bright);
+    padding-left: 50px;
+    background: rgba(82, 183, 136, 0.05);
+    text-shadow: 
+      0 0 10px rgba(82, 183, 136, 0.6),
+      0 0 18px rgba(250, 204, 21, 0.4);
+    box-shadow: 
+      inset 4px 0 0 rgba(250, 204, 21, 0.75),
+      inset 14px 0 18px -8px rgba(250, 204, 21, 0.15);
+    transform: none;
+  }
+
+  /* Responsive Lit-Up State when on /blog */
+  .blogButtonActive {
+    color: var(--accent-teal-bright);
+    padding-left: 50px;
+    background: rgba(82, 183, 136, 0.08);
+    border-bottom: 1px solid rgba(82, 183, 136, 0.15);
+    text-shadow: 
+      0 0 8px rgba(82, 183, 136, 0.8),
+      0 0 20px rgba(250, 204, 21, 0.55);
+    box-shadow: 
+      inset 4px 0 0 #facc15,
+      inset 20px 0 24px -10px rgba(250, 204, 21, 0.22);
+  }
+
+  .blogButtonActive:hover {
+    padding-left: 54px;
+    background: rgba(82, 183, 136, 0.12);
+    text-shadow: 
+      0 0 10px rgba(82, 183, 136, 0.9),
+      0 0 24px rgba(250, 204, 21, 0.7);
+    box-shadow: 
+      inset 5px 0 0 #facc15,
+      inset 25px 0 28px -10px rgba(250, 204, 21, 0.3);
+  }
+}
