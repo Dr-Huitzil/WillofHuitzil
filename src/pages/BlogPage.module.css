@@ -1,0 +1,162 @@
+.blogPageContainer {
+  margin-top: 40px;
+  min-height: calc(100vh - 120px);
+}
+
+.blogMain {
+  padding: 60px 5vw;
+}
+
+.pageHeader {
+  margin-bottom: 50px;
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  color: var(--text-sans-slate);
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 40px;
+  transition: var(--transition-premium);
+}
+
+.backBtn:hover {
+  color: var(--accent-teal-bright);
+  transform: translateX(-5px);
+}
+
+.titleContainer {
+  margin-top: 20px;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.searchBar {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-sans-slate);
+}
+
+.searchInput {
+  width: 100%;
+  background: rgba(14, 22, 15, 0.4);
+  border: 1px solid rgba(82, 183, 136, 0.3);
+  border-radius: 30px;
+  padding: 14px 20px 14px 45px;
+  color: var(--text-serif-cream);
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  transition: var(--transition-premium);
+  outline: none;
+}
+
+.searchInput:focus {
+  background: rgba(14, 22, 15, 0.8);
+  border-color: var(--accent-teal-bright);
+  box-shadow: var(--glow-teal-soft);
+}
+
+.tagFilters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.filterTag {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: var(--text-sans-slate);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: var(--transition-premium);
+}
+
+.filterTag:hover {
+  background: rgba(82, 183, 136, 0.1);
+  border-color: rgba(82, 183, 136, 0.3);
+  color: var(--text-serif-cream);
+}
+
+.filterTag.active {
+  background: rgba(82, 183, 136, 0.2);
+  border-color: var(--accent-teal-bright);
+  color: var(--accent-teal-bright);
+  box-shadow: 0 0 15px rgba(82, 183, 136, 0.15);
+}
+
+.postsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.emptyState {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  text-align: center;
+  background: rgba(14, 22, 15, 0.3);
+  border: 1px dashed rgba(82, 183, 136, 0.3);
+  border-radius: 16px;
+  color: var(--text-sans-slate);
+}
+
+.emptyState .mono-accent {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.clearBtn {
+  margin-top: 20px;
+  background: none;
+  border: 1px solid var(--accent-teal-dim);
+  color: var(--accent-teal-bright);
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Fira Code', monospace;
+  transition: var(--transition-premium);
+}
+
+.clearBtn:hover {
+  background: rgba(82, 183, 136, 0.1);
+}
+
+@media (max-width: 1024px) {
+  .postsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .postsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .blogMain {
+    padding: 40px 20px;
+  }
+}
