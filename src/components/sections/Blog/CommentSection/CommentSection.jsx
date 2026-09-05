@@ -1,18 +1,24 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { MessageSquare, Send, User, AlertCircle, CheckCircle2 } from 'lucide-react';
+import { MessageSquare, Send, User, AlertCircle, CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react';
 import { fetchComments, addComment, formatCommentDate } from '../../../../services/blogInteractions';
 import styles from './CommentSection.module.css';
 
 const MAX_COMMENT_LENGTH = 1000;
 
 const CommentSection = ({ postId }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [author, setAuthor] = useState('');
   const [content, setContent] = useState('');
+  const [isAuthorFocused, setIsAuthorFocused] = useState(false);
+  const [isContentFocused, setIsContentFocused] = useState(false);
   const [honeypot, setHoneypot] = useState(''); // Anti-spam trap
   const [statusMessage, setStatusMessage] = useState(null);
+
+  const isAuthorFloating = isAuthorFocused || Boolean(author.trim());
+  const isContentFloating = isContentFocused || Boolean(content.trim());
 
   // Load comments
   const loadComments = useCallback(async () => {
@@ -69,18 +75,50 @@ const CommentSection = ({ postId }) => {
 
   return (
     <div className={styles.commentSectionWrapper}>
-      {/* Header */}
-      <div className={styles.header}>
-        <div className={styles.titleRow}>
-          <MessageSquare size={18} className={styles.titleIcon} />
-          <h3 className={`mono-accent ${styles.title}`}>
-            PEER_COMMENTS <span className={styles.commentCount}>[{comments.length}]</span>
-          </h3>
+      {/* Expandable Comments Trigger Button */}
+      <button
+        type="button"
+        className={`${styles.toggleButton} ${isExpanded ? styles.toggleActive : ''}`}
+        onClick={() => setIsExpanded((prev) => !prev)}
+        aria-expanded={isExpanded}
+        aria-controls={`comment-stream-${postId}`}
+      >
+        <div className={styles.toggleLeft}>
+          <div className={styles.iconCircle}>
+            <MessageSquare size={16} className={styles.toggleIcon} />
+          </div>
+          <div className={styles.toggleMeta}>
+            <div className={`mono-accent ${styles.toggleTitle}`}>
+              COMMENTS <span className={styles.commentCount}>[{loading ? '...' : comments.length}]</span>
+            </div>
+            <div className={`mono-accent ${styles.toggleSubtitle}`}>
+              {isExpanded
+                ? 'Click to collapse'
+                : comments.length === 0
+                ? 'Leave feedback or peer review'
+                : `Read ${comments.length} comment${comments.length === 1 ? '' : 's'} & discussion`}
+            </div>
+          </div>
         </div>
-        <div className={`mono-accent ${styles.subtitle}`}>
-          No sign-in required. Feedback and peer review are appreciated.
+
+        <div className={styles.toggleRight}>
+          <span className={`mono-accent ${styles.actionLabel}`}>
+            {isExpanded ? 'CLOSE_COMMENTS' : 'OPEN_COMMENTS'}
+          </span>
+          {isExpanded ? (
+            <ChevronUp size={16} className={styles.chevron} />
+          ) : (
+            <ChevronDown size={16} className={styles.chevron} />
+          )}
         </div>
-      </div>
+      </button>
+
+      {/* Expanded Container */}
+      {isExpanded && (
+        <div id={`comment-stream-${postId}`} className={styles.expandedContent}>
+          <div className={`mono-accent ${styles.streamNotice}`}>
+            FEEDBACK_STREAM // PUBLIC // NO SIGN-IN REQUIRED
+          </div>
 
       {/* Comment Form */}
       <form onSubmit={handleSubmit} className={styles.commentForm}>
@@ -99,24 +137,50 @@ const CommentSection = ({ postId }) => {
 
         <div className={styles.inputRow}>
           <div className={styles.authorInputWrapper}>
-            <User size={14} className={styles.inputIcon} />
+            <User
+              size={14}
+              className={`${styles.inputIcon} ${
+                isAuthorFocused ? styles.inputIconFocused : ''
+              }`}
+            />
+            <label
+              htmlFor={`comment-author-${postId}`}
+              className={`mono-accent ${styles.floatingLabel} ${styles.authorFloatingLabel} ${
+                isAuthorFloating ? styles.floatingLabelActive : ''
+              }`}
+            >
+              Display name
+            </label>
             <input
+              id={`comment-author-${postId}`}
               type="text"
-              placeholder="Name / Title (Optional — e.g. Prof. Davis or Anonymous)"
               value={author}
               onChange={(e) => setAuthor(e.target.value)}
+              onFocus={() => setIsAuthorFocused(true)}
+              onBlur={() => setIsAuthorFocused(false)}
               className={styles.authorInput}
               maxLength={60}
               disabled={submitting}
+              autoComplete="nickname"
             />
           </div>
         </div>
 
         <div className={styles.textareaWrapper}>
+          <label
+            htmlFor={`comment-content-${postId}`}
+            className={`mono-accent ${styles.floatingLabel} ${styles.textareaFloatingLabel} ${
+              isContentFloating ? styles.floatingLabelActive : ''
+            }`}
+          >
+            {isContentFloating ? 'Comment' : 'Write a comment, note, or peer review...'}
+          </label>
           <textarea
-            placeholder="Write a comment, note, or peer review..."
+            id={`comment-content-${postId}`}
             value={content}
             onChange={(e) => setContent(e.target.value.slice(0, MAX_COMMENT_LENGTH))}
+            onFocus={() => setIsContentFocused(true)}
+            onBlur={() => setIsContentFocused(false)}
             className={styles.commentTextarea}
             rows={3}
             required
@@ -194,7 +258,9 @@ const CommentSection = ({ postId }) => {
             </div>
           ))
         )}
-      </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

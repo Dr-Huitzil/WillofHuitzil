@@ -7,7 +7,8 @@ const firebaseConfig = {
   projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
   storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 // Check if valid credentials have been provided
@@ -24,11 +25,12 @@ if (isFirebaseConfigured) {
   try {
     app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
     db = getFirestore(app);
+    console.info(`[Firebase] Connected to project: ${firebaseConfig.projectId}`);
   } catch (error) {
     console.error('[Firebase] Initialization error:', error);
   }
 } else {
-  console.info('[Firebase] Config keys not detected in .env. Running in local fallback mode.');
+  console.warn('[Firebase] Config keys not detected. Running in local localStorage fallback mode.');
 }
 
 export { app, db };

@@ -118,6 +118,7 @@ export const addComment = async (postId, { author, content, honeypot = '' }) => 
   }
 
   // Fallback to localStorage
+  console.warn(`[Firebase] Firebase is not active. Saving comment for post "${postId}" to localStorage.`);
   const localList = await fetchComments(postId);
   const newComment = {
     id: `local_${Date.now()}`,
