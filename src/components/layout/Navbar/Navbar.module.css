@@ -11,15 +11,18 @@
   position: fixed;
   top: 0;
   left: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, transparent 100%),
-              var(--glass-bg-deep);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.01) 40%, transparent 100%),
+    rgba(10, 18, 13, 0.78);
   z-index: var(--layer-nav);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border-bottom: 1px solid rgba(82, 183, 136, 0.4);
-  box-shadow: 
-    0 4px 30px rgba(0, 0, 0, 0.4),
-    0 10px 30px rgba(82, 183, 136, 0.1);
+  backdrop-filter: blur(35px) saturate(190%) brightness(1.06);
+  -webkit-backdrop-filter: blur(35px) saturate(190%) brightness(1.06);
+  border-bottom: 1px solid rgba(82, 183, 136, 0.35);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -1px 0 rgba(82, 183, 136, 0.2),
+    0 8px 32px rgba(0, 0, 0, 0.45),
+    0 1px 0 rgba(82, 183, 136, 0.15);
 }
 
 .navbar::before {
@@ -29,12 +32,11 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    rgba(255, 255, 255, 0.3) 20%, 
-    rgba(255, 255, 255, 0.3) 80%, 
-    transparent 100%
-  );
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.3) 20%,
+      rgba(255, 255, 255, 0.3) 80%,
+      transparent 100%);
   z-index: 1;
 }
 
@@ -112,6 +114,69 @@
   width: 100%;
 }
 
+/* --- Blog Nav Item: Yellow hover on main page, retained when active on blog page --- */
+.blogButton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  color: var(--text-serif-cream);
+  font-family: inherit;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  text-shadow: none;
+  transition: var(--transition-premium);
+  user-select: none;
+  outline: none;
+}
+
+/* Animated yellow underline */
+.blogButton::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent-yellow);
+  transition: var(--transition-premium);
+  box-shadow: 0 0 6px var(--accent-yellow);
+}
+
+/* Hover on main page: turns yellow with yellow underline */
+.blogButton:hover {
+  color: var(--accent-yellow);
+  text-shadow: 0 0 15px rgba(244, 211, 94, 0.5);
+}
+
+.blogButton:hover::after {
+  width: 100%;
+}
+
+/* --- Retain effect when actively in Blog Page --- */
+.blogButtonActive {
+  color: var(--accent-yellow);
+  text-shadow: 0 0 15px rgba(244, 211, 94, 0.5);
+}
+
+.blogButtonActive::after {
+  width: 100%;
+}
+
+.blogButtonActive:hover {
+  color: #fff385;
+  text-shadow: 0 0 20px rgba(244, 211, 94, 0.8);
+}
+
+.blogButtonActive:hover::after {
+  box-shadow: 0 0 10px var(--accent-yellow);
+}
+
 .mobileMenuBtn {
   display: none;
   background: none;
@@ -122,11 +187,33 @@
   transition: var(--transition-premium);
 }
 
+.mobileBackdrop {
+  display: none;
+}
+
 @media (max-width: 1024px) {
+  .mobileBackdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(3, 8, 5, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    z-index: calc(var(--layer-nav) - 1);
+  }
+
+  .backdropVisible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
   .navbar {
     padding: 15px 5vw;
   }
-  
+
   .mobileMenuBtn {
     display: flex;
     justify-content: center;
@@ -142,18 +229,25 @@
     top: 0;
     right: 0;
     transform: translateX(100%);
-    width: 280px;
+    width: 290px;
     height: 100vh;
-    background: var(--glass-bg-deep);
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
-    border-left: 1px solid var(--accent-teal-dim);
-    box-shadow: -20px 0 60px rgba(0, 0, 0, 0.6);
+    height: 100dvh;
+    background:
+      linear-gradient(225deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 50%, transparent 100%),
+      rgba(8, 15, 11, 0.88);
+    backdrop-filter: blur(40px) saturate(200%) brightness(1.08);
+    -webkit-backdrop-filter: blur(40px) saturate(200%) brightness(1.08);
+    border-left: 1px solid rgba(82, 183, 136, 0.35);
+    box-shadow:
+      inset 1px 0 0 rgba(255, 255, 255, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15),
+      -20px 0 60px rgba(0, 0, 0, 0.75),
+      -6px 0 25px rgba(82, 183, 136, 0.15);
     flex-direction: column;
     padding-top: 100px;
     gap: 0;
     align-items: stretch;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     z-index: var(--layer-nav);
   }
 
@@ -170,18 +264,98 @@
     transition: var(--transition-premium);
   }
 
+  /* Responsive Blog Button: Matches left-alignment of other items */
+  .blogButton {
+    width: 100%;
+    margin: 0;
+    padding: 20px 40px;
+    background: none;
+    border: none;
+    border-bottom: 1px solid rgba(82, 183, 136, 0.06);
+    border-radius: 0;
+    display: block;
+    text-align: left;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    color: var(--text-serif-cream);
+    box-shadow: none;
+    text-shadow: none;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: var(--transition-premium);
+  }
+
+  /* Completely remove inherited line animation on mobile */
+  .blogButton::before,
+  .blogButton::after {
+    display: none !important;
+  }
+
+  /* Slide in with the rest of the items */
   .navbarRight.open a {
     opacity: 1;
     transform: translateX(0);
   }
 
-  .navbarRight.open a:nth-child(1) { transition-delay: 0.1s; }
-  .navbarRight.open a:nth-child(2) { transition-delay: 0.2s; }
-  .navbarRight.open a:nth-child(3) { transition-delay: 0.3s; }
-  .navbarRight.open a:nth-child(4) { transition-delay: 0.4s; }
+  .navbarRight.open .blogButton {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0.25s;
+  }
+
+  .navbarRight.open a:nth-child(1) {
+    transition-delay: 0.1s;
+  }
+
+  .navbarRight.open a:nth-child(2) {
+    transition-delay: 0.2s;
+  }
+
+  .navbarRight.open a:nth-child(4) {
+    transition-delay: 0.35s;
+  }
+
+  .navbarRight.open a:nth-child(5) {
+    transition-delay: 0.45s;
+  }
 
   .navbarRight a:hover {
     background: rgba(82, 183, 136, 0.05);
     padding-left: 50px;
   }
-}
+
+  /* Responsive Hover on Blog: turns yellow, hovers right, yellow line on the left */
+  .blogButton:hover {
+    color: var(--accent-yellow);
+    padding-left: 50px;
+    background: rgba(244, 211, 94, 0.05);
+    text-shadow: 0 0 15px rgba(244, 211, 94, 0.4);
+    box-shadow: 
+      inset 4px 0 0 var(--accent-yellow),
+      inset 14px 0 18px -8px rgba(244, 211, 94, 0.25);
+    transform: none;
+  }
+
+  /* Responsive Retained State when actively on /blog: yellow line on the left */
+  .blogButtonActive {
+    color: var(--accent-yellow);
+    padding-left: 50px;
+    background: rgba(244, 211, 94, 0.08);
+    border-bottom: 1px solid rgba(82, 183, 136, 0.15);
+    text-shadow: 0 0 15px rgba(244, 211, 94, 0.5);
+    box-shadow: 
+      inset 4px 0 0 var(--accent-yellow),
+      inset 18px 0 22px -8px rgba(244, 211, 94, 0.3);
+  }
+
+  .blogButtonActive:hover {
+    color: #fff385;
+    padding-left: 54px;
+    background: rgba(244, 211, 94, 0.12);
+    text-shadow: 0 0 20px rgba(244, 211, 94, 0.7);
+    box-shadow: 
+      inset 5px 0 0 var(--accent-yellow),
+      inset 22px 0 26px -8px rgba(244, 211, 94, 0.35);
+  }
+}
