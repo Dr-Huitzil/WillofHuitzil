@@ -21,7 +21,7 @@ const Navbar = () => {
   const handleNavClick = (e, targetId) => {
     e.preventDefault();
     setIsOpen(false);
-    
+
     if (location.pathname !== '/') {
       navigate('/');
       setTimeout(() => {
@@ -31,7 +31,7 @@ const Navbar = () => {
       scrollToTarget(targetId);
     }
   };
-  
+
   const scrollToTarget = (targetId) => {
     if (targetId === 'main') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -49,10 +49,34 @@ const Navbar = () => {
     navigate('/blog');
   };
 
+  const handleLogoClick = () => {
+    setIsOpen(false);
+    if (location.pathname !== '/') {
+      navigate('/');
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   return (
-    <nav className={styles.navbar}>
+    <>
+      {/* Mobile menu backdrop blur overlay */}
+      <div
+        className={`${styles.mobileBackdrop} ${isOpen ? styles.backdropVisible : ''}`}
+        onClick={() => setIsOpen(false)}
+        aria-hidden="true"
+      />
+
+      <nav className={styles.navbar}>
       <div className={styles.navbarLeft}>
-        <div className={styles.logoIcon}>
+        <div
+          className={styles.logoIcon}
+          onClick={handleLogoClick}
+          role="button"
+          tabIndex={0}
+          style={{ cursor: 'pointer' }}
+          aria-label="Home"
+        >
           <Leaf size={24} color="var(--accent-teal-bright)" strokeWidth={1.5} />
         </div>
       </div>
@@ -60,7 +84,16 @@ const Navbar = () => {
       <div className={`${styles.navbarRight} ${isOpen ? styles.open : ''} mono-accent`}>
         <a href="#main" onClick={(e) => handleNavClick(e, 'main')}>MAIN</a>
         <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')}>PROJECTS</a>
-        <a href="/blog" onClick={handleBlogClick} className={location.pathname === '/blog' ? styles.activeNav : ''}>BLOG</a>
+        <button
+          type="button"
+          onClick={handleBlogClick}
+          className={`${styles.blogButton} ${location.pathname === '/blog' ? styles.blogButtonActive : ''}`}
+          title={location.pathname === '/blog' ? "Currently on Blog page" : "Go to Blog page"}
+          aria-label="Blog page"
+          aria-current={location.pathname === '/blog' ? "page" : undefined}
+        >
+          BLOG
+        </button>
         <a href="#timeline" onClick={(e) => handleNavClick(e, 'timeline')}>TIMELINE</a>
         <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')}>CONTACT</a>
       </div>
@@ -69,6 +102,7 @@ const Navbar = () => {
         {isOpen ? <X color="var(--accent-teal-bright)" /> : <Menu color="var(--accent-teal-bright)" />}
       </button>
     </nav>
+    </>
   );
 };
 
