@@ -1,14 +1,24 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { X, FileText, Calendar, Clock, Eye, ChevronRight, ChevronDown } from 'lucide-react';
+import { X, FileText, Calendar, Clock, Eye, ChevronRight, ChevronDown, Heart } from 'lucide-react';
 import { useBodyScrollLock } from '../../../hooks/useBodyScrollLock';
 import { renderMarkdown } from '../../../utils/renderMarkdown';
+import CommentSection from './CommentSection/CommentSection';
+import {
+  getPostStats,
+  incrementViews,
+  toggleLike,
+  checkIsLiked
+} from '../../../services/blogInteractions';
 import styles from './BlogModal.module.css';
 
 const BlogModal = ({ post, onClose }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [viewsCount, setViewsCount] = useState(post?.views || 0);
+  const [likesCount, setLikesCount] = useState(0);
+  const [isLiked, setIsLiked] = useState(false);
 
-  // iOS-safe scroll lock — centralized, no duplication
+  // iOS-safe scroll lock
   useBodyScrollLock();
 
   // Close on Escape key
@@ -19,6 +29,42 @@ const BlogModal = ({ post, onClose }) => {
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [onClose]);
+
+  // Fetch initial stats and record view
+  useEffect(() => {
+    if (!post?.id) return;
+
+    let isMounted = true;
+
+    // Check if user already liked
+    setIsLiked(checkIsLiked(post.id));
+
+    // Increment view counter and load live stats
+    const initStats = async () => {
+      await incrementViews(post.id);
+      const stats = await getPostStats(post.id);
+      if (isMounted) {
+        // Fall back to static post.views if live views is 0
+        const parsedStatic = parseInt(String(post.views).replace(/\D/g, ''), 10) || 0;
+        setViewsCount(Math.max(stats.views || 0, parsedStatic));
+        setLikesCount(stats.likes || 0);
+      }
+    };
+
+    initStats();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [post?.id, post?.views]);
+
+  // Handle like toggle
+  const handleToggleLike = async () => {
+    if (!post?.id) return;
+    const result = await toggleLike(post.id);
+    setIsLiked(result.isLiked);
+    setLikesCount(result.newLikesCount);
+  };
 
   if (!post) return null;
 
@@ -71,8 +117,22 @@ const BlogModal = ({ post, onClose }) => {
                   <Clock size={14} /> {post.readTime}
                 </div>
                 <div className={`mono-accent ${styles.metaItem}`}>
-                  <Eye size={14} /> {post.views} Views
+                  <Eye size={14} /> {viewsCount} Views
                 </div>
+                <button
+                  type="button"
+                  className={`${styles.likeBtn} ${isLiked ? styles.liked : ''} mono-accent`}
+                  onClick={handleToggleLike}
+                  title={isLiked ? "Unlike post" : "Like post"}
+                  aria-label="Like post"
+                >
+                  <Heart
+                    size={14}
+                    className={styles.heartIcon}
+                    fill={isLiked ? "currentColor" : "none"}
+                  />
+                  <span>{likesCount} {likesCount === 1 ? 'Like' : 'Likes'}</span>
+                </button>
               </div>
 
               <button
@@ -114,6 +174,9 @@ const BlogModal = ({ post, onClose }) => {
                 </div>
               </div>
             )}
+
+            {/* PEER COMMENTS */}
+            <CommentSection postId={post.id} />
           </div>
         </div>
       </div>

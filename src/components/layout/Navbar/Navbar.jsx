@@ -59,7 +59,15 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={styles.navbar}>
+    <>
+      {/* Mobile menu backdrop blur overlay */}
+      <div
+        className={`${styles.mobileBackdrop} ${isOpen ? styles.backdropVisible : ''}`}
+        onClick={() => setIsOpen(false)}
+        aria-hidden="true"
+      />
+
+      <nav className={styles.navbar}>
       <div className={styles.navbarLeft}>
         <div
           className={styles.logoIcon}
@@ -94,6 +102,7 @@ const Navbar = () => {
         {isOpen ? <X color="var(--accent-teal-bright)" /> : <Menu color="var(--accent-teal-bright)" />}
       </button>
     </nav>
+    </>
   );
 };
 
