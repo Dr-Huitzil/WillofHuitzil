@@ -5,10 +5,11 @@
   border: 1px solid var(--teal-dim-40);
   box-shadow: var(--modal-box-shadow);
   border-radius: var(--hud-radius);
-  width: 100%;
+  width: 90%;
   max-width: 650px;
   max-height: 85vh;
   position: relative;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -346,6 +347,7 @@
 
 @media (max-width: 768px) {
   .modal {
+    width: 95%;
     max-height: 90vh;
   }
   .header {

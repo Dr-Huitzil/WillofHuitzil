@@ -10,6 +10,7 @@
   max-width: 900px;
   max-height: 90vh;
   position: relative;
+  margin: 0 auto;
   box-shadow: var(--modal-box-shadow);
   display: flex;
   flex-direction: column;

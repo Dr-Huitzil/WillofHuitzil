@@ -22,18 +22,28 @@ const ModalShell = ({ onClose, ariaLabel, children }) => {
   useBodyScrollLock();
   useEscapeKey(onClose);
 
+  const handleBackdropClick = (e) => {
+    if (e.target === e.currentTarget) {
+      onClose?.();
+    }
+  };
+
   return createPortal(
     <div
       className={styles.backdrop}
-      onClick={onClose}
+      onClick={handleBackdropClick}
       role="dialog"
       aria-modal="true"
       aria-label={ariaLabel}
     >
-      {/* Stop clicks inside the modal from bubbling to the backdrop */}
-      <div onClick={(e) => e.stopPropagation()}>
-        {children}
-      </div>
+      {React.isValidElement(children)
+        ? React.cloneElement(children, {
+            onClick: (e) => {
+              e.stopPropagation();
+              children.props.onClick?.(e);
+            },
+          })
+        : children}
     </div>,
     document.body
   );
