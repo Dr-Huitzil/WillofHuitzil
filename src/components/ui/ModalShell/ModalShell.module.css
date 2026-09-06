@@ -17,12 +17,6 @@
   animation: ui-fade-in 0.8s ease forwards;
 }
 
-/* Transparently passes click-stop to children without adding layout */
-.innerWrapper {
-  position: relative;
-  display: contents;
-}
-
 /* ── Close Button ─────────────────────────────────────────────────────── */
 .closeBtn {
   position: absolute;

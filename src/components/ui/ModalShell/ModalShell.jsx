@@ -1,7 +1,7 @@
 // src/components/ui/ModalShell/ModalShell.jsx
-// Shared portal wrapper that provides backdrop, close button, scroll-lock,
-// and Escape-key handling for every modal in the app.
-// Each modal supplies its own inner container via `children`.
+// Shared portal wrapper — provides backdrop, scroll-lock, and Escape handling.
+// Render <ModalCloseButton onClose={onClose} /> inside your modal container
+// (which must be position: relative) to get the correctly-anchored close button.
 
 import React from 'react';
 import { createPortal } from 'react-dom';
@@ -11,10 +11,12 @@ import { useEscapeKey } from '@/hooks/useEscapeKey';
 import styles from './ModalShell.module.css';
 
 /**
- * @param {object}   props
+ * Backdrop + behaviour wrapper. Does NOT render a close button itself —
+ * use <ModalCloseButton> inside your modal container instead.
+ *
  * @param {() => void} props.onClose   - Callback to close the modal.
  * @param {string}   [props.ariaLabel] - Accessible label for the dialog.
- * @param {React.ReactNode} props.children - The modal inner container element.
+ * @param {React.ReactNode} props.children - The modal container element.
  */
 const ModalShell = ({ onClose, ariaLabel, children }) => {
   useBodyScrollLock();
@@ -28,20 +30,29 @@ const ModalShell = ({ onClose, ariaLabel, children }) => {
       aria-modal="true"
       aria-label={ariaLabel}
     >
-      {/* Stop clicks inside children from bubbling to the backdrop */}
-      <div onClick={(e) => e.stopPropagation()} className={styles.innerWrapper}>
-        <button
-          className={styles.closeBtn}
-          onClick={onClose}
-          aria-label="Close modal"
-        >
-          <X size={24} />
-        </button>
+      {/* Stop clicks inside the modal from bubbling to the backdrop */}
+      <div onClick={(e) => e.stopPropagation()}>
         {children}
       </div>
     </div>,
     document.body
   );
 };
+
+/**
+ * Shared close button — render this inside your modal's position:relative
+ * container so position:absolute anchors correctly to the modal corners.
+ *
+ * @param {() => void} props.onClose - Callback to close the modal.
+ */
+export const ModalCloseButton = ({ onClose }) => (
+  <button
+    className={styles.closeBtn}
+    onClick={onClose}
+    aria-label="Close modal"
+  >
+    <X size={24} />
+  </button>
+);
 
 export default ModalShell;

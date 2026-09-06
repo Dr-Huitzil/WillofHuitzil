@@ -1,9 +1,9 @@
 // src/components/sections/CurrentWork/TicketModal.jsx
 
 import React from 'react';
-import ModalShell from '@/components/ui/ModalShell/ModalShell';
+import ModalShell, { ModalCloseButton } from '@/components/ui/ModalShell/ModalShell';
 import { renderMarkdown } from '@/utils/renderMarkdown';
-import { getStatusIcon, getStatusSlug } from '@/utils/getStatusStyle';
+import { getStatusIcon, getStatusSlug } from '@/utils/getStatusStyle.jsx';
 import styles from './TicketModal.module.css';
 
 const TicketModal = ({ ticket, onClose }) => {
@@ -12,6 +12,7 @@ const TicketModal = ({ ticket, onClose }) => {
   return (
     <ModalShell onClose={onClose} ariaLabel={ticket.title}>
       <div className={styles.modal}>
+        <ModalCloseButton onClose={onClose} />
         <div className={styles.header}>
           <div className={styles.metaRow}>
             <span className={`${styles.id} ${styles[getStatusSlug(ticket.status)] || ''}`}>

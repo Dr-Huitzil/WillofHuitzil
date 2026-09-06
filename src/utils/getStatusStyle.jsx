@@ -1,4 +1,4 @@
-// src/utils/getStatusStyle.js
+// src/utils/getStatusStyle.jsx
 // Shared ticket-status utilities used by CurrentWork and TicketModal.
 // Eliminates the duplicated getStatusIcon() function and repeated slug logic.
 

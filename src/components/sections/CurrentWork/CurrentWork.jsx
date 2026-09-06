@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import styles from './CurrentWork.module.css';
 import TicketModal from './TicketModal';
 import SectionHeader from '@/components/ui/SectionHeader/SectionHeader';
-import { getStatusIcon, getStatusSlug } from '@/utils/getStatusStyle';
+import { getStatusIcon, getStatusSlug } from '@/utils/getStatusStyle.jsx';
 import { Filter, ChevronDown } from 'lucide-react';
 
 const CurrentWork = ({ tickets = [] }) => {

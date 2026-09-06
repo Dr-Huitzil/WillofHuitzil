@@ -96,15 +96,15 @@ const CommentSection = ({ postId }) => {
               {isExpanded
                 ? 'Click to collapse'
                 : comments.length === 0
-                ? 'Leave feedback or peer review'
-                : `Read ${comments.length} comment${comments.length === 1 ? '' : 's'} & discussion`}
+                  ? 'Leave feedback or peer review'
+                  : `Read ${comments.length} comment${comments.length === 1 ? '' : 's'}`}
             </div>
           </div>
         </div>
 
         <div className={styles.toggleRight}>
           <span className={`mono-accent ${styles.actionLabel}`}>
-            {isExpanded ? 'CLOSE_COMMENTS' : 'OPEN_COMMENTS'}
+            {isExpanded ? 'CLOSE' : 'OPEN'}
           </span>
           {isExpanded ? (
             <ChevronUp size={16} className={styles.chevron} />
@@ -121,144 +121,140 @@ const CommentSection = ({ postId }) => {
             FEEDBACK_STREAM // PUBLIC // NO SIGN-IN REQUIRED
           </div>
 
-      {/* Comment Form */}
-      <form onSubmit={handleSubmit} className={styles.commentForm}>
-        {/* Invisible Honeypot field for bot detection */}
-        <div style={{ display: 'none' }} aria-hidden="true">
-          <label htmlFor={`website-${postId}`}>Leave this field empty</label>
-          <input
-            id={`website-${postId}`}
-            type="text"
-            value={honeypot}
-            onChange={(e) => setHoneypot(e.target.value)}
-            tabIndex="-1"
-            autoComplete="off"
-          />
-        </div>
+          {/* Comment Form */}
+          <form onSubmit={handleSubmit} className={styles.commentForm}>
+            {/* Invisible Honeypot field for bot detection */}
+            <div style={{ display: 'none' }} aria-hidden="true">
+              <label htmlFor={`website-${postId}`}>Leave this field empty</label>
+              <input
+                id={`website-${postId}`}
+                type="text"
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+                tabIndex="-1"
+                autoComplete="off"
+              />
+            </div>
 
-        <div className={styles.inputRow}>
-          <div className={styles.authorInputWrapper}>
-            <User
-              size={14}
-              className={`${styles.inputIcon} ${
-                isAuthorFocused ? styles.inputIconFocused : ''
-              }`}
-            />
-            <label
-              htmlFor={`comment-author-${postId}`}
-              className={`mono-accent ${styles.floatingLabel} ${styles.authorFloatingLabel} ${
-                isAuthorFloating ? styles.floatingLabelActive : ''
-              }`}
-            >
-              Display name
-            </label>
-            <input
-              id={`comment-author-${postId}`}
-              type="text"
-              value={author}
-              onChange={(e) => setAuthor(e.target.value)}
-              onFocus={() => setIsAuthorFocused(true)}
-              onBlur={() => setIsAuthorFocused(false)}
-              className={styles.authorInput}
-              maxLength={60}
-              disabled={submitting}
-              autoComplete="nickname"
-            />
-          </div>
-        </div>
-
-        <div className={styles.textareaWrapper}>
-          <label
-            htmlFor={`comment-content-${postId}`}
-            className={`mono-accent ${styles.floatingLabel} ${styles.textareaFloatingLabel} ${
-              isContentFloating ? styles.floatingLabelActive : ''
-            }`}
-          >
-            {isContentFloating ? 'Comment' : 'Write a comment, note, or peer review...'}
-          </label>
-          <textarea
-            id={`comment-content-${postId}`}
-            value={content}
-            onChange={(e) => setContent(e.target.value.slice(0, MAX_COMMENT_LENGTH))}
-            onFocus={() => setIsContentFocused(true)}
-            onBlur={() => setIsContentFocused(false)}
-            className={styles.commentTextarea}
-            rows={3}
-            required
-            disabled={submitting}
-          />
-          <div className={`mono-accent ${styles.charCounter}`}>
-            {content.length}/{MAX_COMMENT_LENGTH}
-          </div>
-        </div>
-
-        {statusMessage && (
-          <div
-            className={`${styles.statusAlert} ${
-              statusMessage.type === 'success' ? styles.statusSuccess : styles.statusError
-            } mono-accent`}
-          >
-            {statusMessage.type === 'success' ? (
-              <CheckCircle2 size={14} />
-            ) : (
-              <AlertCircle size={14} />
-            )}
-            <span>{statusMessage.text}</span>
-          </div>
-        )}
-
-        <div className={styles.formFooter}>
-          <button
-            type="submit"
-            disabled={submitting || !content.trim()}
-            className={`${styles.submitBtn} mono-accent`}
-          >
-            {submitting ? (
-              <span>PUBLISHING...</span>
-            ) : (
-              <>
-                <span>POST_COMMENT</span>
-                <Send size={13} />
-              </>
-            )}
-          </button>
-        </div>
-      </form>
-
-      {/* Comments List */}
-      <div className={styles.commentsList}>
-        {loading ? (
-          <div className={`mono-accent ${styles.loadingState}`}>
-            INITIALIZING_COMMENT_STREAM...
-          </div>
-        ) : comments.length === 0 ? (
-          <div className={styles.emptyState}>
-            <p className={`mono-accent ${styles.emptyText}`}>
-              No comments yet. Be the first to leave feedback or a question!
-            </p>
-          </div>
-        ) : (
-          comments.map((comment) => (
-            <div key={comment.id} className={styles.commentCard}>
-              <div className={styles.commentHeader}>
-                <div className={styles.authorBadge}>
-                  <div className={styles.avatar}>
-                    {(comment.author || 'A').charAt(0).toUpperCase()}
-                  </div>
-                  <span className={`mono-accent ${styles.authorName}`}>
-                    {comment.author || 'Anonymous Guest'}
-                  </span>
-                </div>
-                <span className={`mono-accent ${styles.commentDate}`}>
-                  {formatCommentDate(comment.createdAt)}
-                </span>
-              </div>
-              <div className={styles.commentBody}>
-                <p>{comment.content}</p>
+            <div className={styles.inputRow}>
+              <div className={styles.authorInputWrapper}>
+                <User
+                  size={14}
+                  className={`${styles.inputIcon} ${isAuthorFocused ? styles.inputIconFocused : ''
+                    }`}
+                />
+                <label
+                  htmlFor={`comment-author-${postId}`}
+                  className={`mono-accent ${styles.floatingLabel} ${styles.authorFloatingLabel} ${isAuthorFloating ? styles.floatingLabelActive : ''
+                    }`}
+                >
+                  Display name
+                </label>
+                <input
+                  id={`comment-author-${postId}`}
+                  type="text"
+                  value={author}
+                  onChange={(e) => setAuthor(e.target.value)}
+                  onFocus={() => setIsAuthorFocused(true)}
+                  onBlur={() => setIsAuthorFocused(false)}
+                  className={styles.authorInput}
+                  maxLength={60}
+                  disabled={submitting}
+                  autoComplete="nickname"
+                />
               </div>
             </div>
-          ))
-        )}
+
+            <div className={styles.textareaWrapper}>
+              <label
+                htmlFor={`comment-content-${postId}`}
+                className={`mono-accent ${styles.floatingLabel} ${styles.textareaFloatingLabel} ${isContentFloating ? styles.floatingLabelActive : ''
+                  }`}
+              >
+                {isContentFloating ? 'Comment' : 'Write a comment, note, or peer review...'}
+              </label>
+              <textarea
+                id={`comment-content-${postId}`}
+                value={content}
+                onChange={(e) => setContent(e.target.value.slice(0, MAX_COMMENT_LENGTH))}
+                onFocus={() => setIsContentFocused(true)}
+                onBlur={() => setIsContentFocused(false)}
+                className={styles.commentTextarea}
+                rows={3}
+                required
+                disabled={submitting}
+              />
+              <div className={`mono-accent ${styles.charCounter}`}>
+                {content.length}/{MAX_COMMENT_LENGTH}
+              </div>
+            </div>
+
+            {statusMessage && (
+              <div
+                className={`${styles.statusAlert} ${statusMessage.type === 'success' ? styles.statusSuccess : styles.statusError
+                  } mono-accent`}
+              >
+                {statusMessage.type === 'success' ? (
+                  <CheckCircle2 size={14} />
+                ) : (
+                  <AlertCircle size={14} />
+                )}
+                <span>{statusMessage.text}</span>
+              </div>
+            )}
+
+            <div className={styles.formFooter}>
+              <button
+                type="submit"
+                disabled={submitting || !content.trim()}
+                className={`${styles.submitBtn} mono-accent`}
+              >
+                {submitting ? (
+                  <span>PUBLISHING...</span>
+                ) : (
+                  <>
+                    <span>POST_COMMENT</span>
+                    <Send size={13} />
+                  </>
+                )}
+              </button>
+            </div>
+          </form>
+
+          {/* Comments List */}
+          <div className={styles.commentsList}>
+            {loading ? (
+              <div className={`mono-accent ${styles.loadingState}`}>
+                INITIALIZING_COMMENT_STREAM...
+              </div>
+            ) : comments.length === 0 ? (
+              <div className={styles.emptyState}>
+                <p className={`mono-accent ${styles.emptyText}`}>
+                  No comments yet. Be the first to leave feedback or a question!
+                </p>
+              </div>
+            ) : (
+              comments.map((comment) => (
+                <div key={comment.id} className={styles.commentCard}>
+                  <div className={styles.commentHeader}>
+                    <div className={styles.authorBadge}>
+                      <div className={styles.avatar}>
+                        {(comment.author || 'A').charAt(0).toUpperCase()}
+                      </div>
+                      <span className={`mono-accent ${styles.authorName}`}>
+                        {comment.author || 'Anonymous Guest'}
+                      </span>
+                    </div>
+                    <span className={`mono-accent ${styles.commentDate}`}>
+                      {formatCommentDate(comment.createdAt)}
+                    </span>
+                  </div>
+                  <div className={styles.commentBody}>
+                    <p>{comment.content}</p>
+                  </div>
+                </div>
+              ))
+            )}
           </div>
         </div>
       )}

@@ -2,7 +2,7 @@
 
 import React, { useCallback, useState, useEffect } from 'react';
 import { FileText, Calendar, Clock, Eye, ChevronRight, ChevronDown, Heart } from 'lucide-react';
-import ModalShell from '@/components/ui/ModalShell/ModalShell';
+import ModalShell, { ModalCloseButton } from '@/components/ui/ModalShell/ModalShell';
 import { renderMarkdown } from '@/utils/renderMarkdown';
 import CommentSection from './CommentSection/CommentSection';
 import {
@@ -68,14 +68,11 @@ const BlogModal = ({ post, onClose }) => {
       ariaLabel={`${post.title} by ${post.author}`}
     >
       <div className={`${styles.blogModal} ${isExpanded ? styles.expanded : ''}`}>
+        <ModalCloseButton onClose={onClose} />
         <div className={styles.modalContentWrapper}>
           {/* LEFT SIDEBAR: Metadata */}
           <div className={styles.modalLeft}>
             <div className={styles.sidebarMeta}>
-              <div className={styles.iconBox}>
-                <FileText size={28} color="var(--accent-teal-bright)" />
-              </div>
-
               <div className={styles.mainMeta}>
                 <div className={styles.modalTags}>
                   {post.tags?.map((tag) => (

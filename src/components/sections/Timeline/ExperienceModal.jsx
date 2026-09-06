@@ -2,7 +2,7 @@
 
 import React, { useCallback, useState } from 'react';
 import { Briefcase, Calendar, MapPin, ChevronRight, ChevronDown } from 'lucide-react';
-import ModalShell from '@/components/ui/ModalShell/ModalShell';
+import ModalShell, { ModalCloseButton } from '@/components/ui/ModalShell/ModalShell';
 import { renderMarkdown } from '@/utils/renderMarkdown';
 import styles from './ExperienceModal.module.css';
 
@@ -27,14 +27,11 @@ const ExperienceModal = ({ experience, onClose }) => {
       <div
         className={`${styles.experienceModal} ${isExpanded ? styles.expanded : ''}`}
       >
+        <ModalCloseButton onClose={onClose} />
         <div className={styles.modalContentWrapper}>
           {/* LEFT SIDEBAR: Metadata */}
           <div className={styles.modalLeft}>
             <div className={styles.sidebarMeta}>
-              <div className={styles.iconBox}>
-                <Briefcase size={28} color="var(--accent-teal-bright)" />
-              </div>
-
               <div className={styles.mainMeta}>
                 <h2 className={`serif-header ${styles.role}`}>{experience.role}</h2>
                 <div className={`mono-accent ${styles.company}`}>{experience.company}</div>

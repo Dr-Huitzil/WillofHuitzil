@@ -2,7 +2,7 @@
 
 import React, { useCallback, useState } from 'react';
 import { ChevronRight, ChevronUp, Monitor } from 'lucide-react';
-import ModalShell from '@/components/ui/ModalShell/ModalShell';
+import ModalShell, { ModalCloseButton } from '@/components/ui/ModalShell/ModalShell';
 import { renderMarkdown } from '@/utils/renderMarkdown';
 import styles from './ProjectModal.module.css';
 
@@ -83,6 +83,7 @@ const ProjectModal = ({ project, onClose }) => {
       <div
         className={`${styles.projectModal} ${isExpanded ? styles.expanded : ''}`}
       >
+        <ModalCloseButton onClose={onClose} />
         <div className={styles.modalContentWrapper}>
           <div className={styles.modalLeft}>
             <div className={styles.modalImage}>
