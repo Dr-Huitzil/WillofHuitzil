@@ -62,6 +62,12 @@
   --clip-marker: polygon(0% 25%, 25% 0%,
       100% 0%, 100% 75%,
       75% 100%, 0% 100%);
+
+  /* --- Ambient Texture Tokens --- */
+  --bg-texture-url: url('/textures/feathers-and-scales.png');
+  --bg-texture-size: 550px auto;
+  --bg-texture-opacity: 0.08;
+  --bg-texture-blend-mode: normal;
 }
 
 /* Global Entrance Animations */
@@ -94,6 +100,7 @@ html {
 }
 
 body {
+  position: relative;
   margin: 0;
   padding: 0;
   background-color: var(--bg-deep);
@@ -108,6 +115,32 @@ body {
   min-height: 100dvh;
   overflow-x: hidden;
   line-height: 1.6;
+}
+
+/* Ambient Background Texture: sits on top of the colored background, beneath all content */
+body::before {
+  content: '';
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-image: var(--bg-texture-url);
+  background-repeat: repeat;
+  background-size: var(--bg-texture-size);
+  opacity: var(--bg-texture-opacity);
+  mix-blend-mode: var(--bg-texture-blend-mode);
+  pointer-events: none;
+  z-index: 0;
+}
+
+#root {
+  position: relative;
+  z-index: var(--layer-base);
 }
 
 .portfolio-app-root {
@@ -155,7 +188,7 @@ body {
 .hud-surface {
   position: relative;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
-              var(--glass-bg-soft);
+    var(--glass-bg-soft);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid rgba(82, 183, 136, 0.3);
@@ -164,7 +197,8 @@ body {
     var(--glass-glow-teal),
     0 20px 50px rgba(0, 0, 0, 0.4);
   transition: var(--transition-premium);
-  overflow: hidden; /* For reflections */
+  overflow: hidden;
+  /* For reflections */
 }
 
 .hud-surface::before {
@@ -174,12 +208,11 @@ body {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    rgba(255, 255, 255, 0.4) 20%, 
-    rgba(255, 255, 255, 0.4) 80%, 
-    transparent 100%
-  );
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.4) 20%,
+      rgba(255, 255, 255, 0.4) 80%,
+      transparent 100%);
   z-index: 1;
 }
 
