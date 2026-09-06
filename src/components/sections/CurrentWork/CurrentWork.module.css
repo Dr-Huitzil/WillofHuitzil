@@ -55,7 +55,7 @@
   position: absolute;
   top: calc(100% + 8px);
   right: 0;
-  background: var(--bg-card);
+  background: rgba(12, 20, 15, 0.96);
   border: 1px solid rgba(82, 183, 136, 0.4);
   box-shadow: var(--glass-glow-teal), 0 10px 30px rgba(0, 0, 0, 0.5);
   border-radius: 12px;
@@ -65,7 +65,9 @@
   flex-direction: column;
   gap: 10px;
   animation: ui-fade-in 0.2s ease;
-  backdrop-filter: var(--glass-blur);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 50;
 }
 
 @media (max-width: 768px) {

@@ -52,6 +52,8 @@
   position: relative;
   flex: 1 1 320px;
   max-width: 540px;
+  display: flex;
+  align-items: center;
 }
 
 .searchIcon {
@@ -252,6 +254,7 @@
 
   .searchBar {
     max-width: 100%;
+    flex: 0 0 auto;
   }
 
   .filterSortGroup {
