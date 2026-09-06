@@ -2,6 +2,7 @@ import { introPost } from './blogPosts/introPost';
 import { obsidianPost } from './blogPosts/obsidianPost';
 import { apReplacementPost } from './blogPosts/apReplacementPost';
 import { schoolResumePost } from './blogPosts/schoolResumePost';
+import { firstWeekCSO } from './blogPosts/firstWeekCSO';
 
 export const blogPosts = [
   {
@@ -11,10 +12,10 @@ export const blogPosts = [
     summary: 'A brief introduction to my newly redesigned portfolio and what to expect from this digital space.',
     date: 'September 2, 2026',
     author: 'Ivan Alier-Reyes',
-    views: 310,
+    views: 50,
     readTime: '2 min read',
     tags: ['Personal', 'Portfolio', 'Introduction'],
-    imagePlaceholder: 'PLACEHOLDER_PORTFOLIO_HOME',
+    //imagePlaceholder: 'PLACEHOLDER_PORTFOLIO_HOME',
     content: introPost
   },
   {
@@ -24,10 +25,10 @@ export const blogPosts = [
     summary: 'Discovering Obsidian for knowledge management, bidirectional linking, and building a second brain.',
     date: 'August 15, 2026',
     author: 'Ivan Alier-Reyes',
-    views: 890,
+    views: 20,
     readTime: '4 min read',
     tags: ['Personal', 'Obsidian', 'Knowledge Management'],
-    imagePlaceholder: 'PLACEHOLDER_OBSIDIAN_GRAPH',
+    //imagePlaceholder: 'PLACEHOLDER_OBSIDIAN_GRAPH',
     content: obsidianPost
   },
   {
@@ -37,10 +38,10 @@ export const blogPosts = [
     summary: 'Lessons learned from a major Access Point deployment, customizing the Meraki dashboard, and overcoming a fear of heights.',
     date: 'July 20, 2026',
     author: 'Ivan Alier-Reyes',
-    views: 1245,
+    views: 32,
     readTime: '5 min read',
     tags: ['Work', 'Networking', 'Meraki', 'Infrastructure'],
-    imagePlaceholder: 'PLACEHOLDER_MERAKI_DASHBOARD',
+    //imagePlaceholder: 'PLACEHOLDER_MERAKI_DASHBOARD',
     content: apReplacementPost
   },
   {
@@ -50,10 +51,23 @@ export const blogPosts = [
     summary: 'Excited to announce my return to my Computer Science degree after gaining 3 years of real-world IT experience.',
     date: 'June 10, 2026',
     author: 'Ivan Alier-Reyes',
-    views: 2100,
+    views: 21,
     readTime: '3 min read',
     tags: ['School', 'Computer Science', 'Education', 'Career Growth'],
-    imagePlaceholder: 'PLACEHOLDER_CS_CODE_SNIPPET',
+    //imagePlaceholder: 'PLACEHOLDER_CS_CODE_SNIPPET',
     content: schoolResumePost
+  },
+  {
+    id: 5,
+    slug: 'first-week-cso',
+    title: 'First Week in the Computer Science Online Program',
+    summary: 'Reflections on my first week in the Computer Science Online program, including initial impressions, assignments, and excitement for the journey ahead.',
+    date: 'September 5, 2026',
+    author: 'Ivan Alier-Reyes',
+    views: 15,
+    readTime: '4 min read',
+    tags: ['School', 'Computer Science', 'Online Learning', 'Reflections'],
+    //imagePlaceholder: 'PLACEHOLDER_CSO_PROGRAM',
+    content: firstWeekCSO
   }
 ];
