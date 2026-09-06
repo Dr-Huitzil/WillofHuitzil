@@ -1,7 +1,10 @@
+// src/components/sections/Blog/BlogSection.jsx
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import BlogCard from './BlogCard';
 import BlogModal from './BlogModal';
+import SectionHeader from '@/components/ui/SectionHeader/SectionHeader';
 import styles from './BlogSection.module.css';
 
 const BlogSection = ({ posts = [] }) => {
@@ -16,10 +19,7 @@ const BlogSection = ({ posts = [] }) => {
   return (
     <section className={styles.blogSection} id="blog">
       <div className={styles.sectionHeader}>
-        <div className="pill section-pill">
-          LOGS // ARTICLES
-        </div>
-        <h2 className="serif-header serif-glow section-title">Recent Insights</h2>
+        <SectionHeader tag="LOGS // ARTICLES" title="Recent Insights" />
       </div>
 
       <div className={styles.blogGrid}>
@@ -33,7 +33,7 @@ const BlogSection = ({ posts = [] }) => {
       </div>
 
       <div className={styles.ctaContainer}>
-        <button 
+        <button
           className={`mono-accent ${styles.viewAllBtn}`}
           onClick={() => navigate('/blog')}
         >

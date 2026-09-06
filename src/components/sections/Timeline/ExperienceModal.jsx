@@ -1,24 +1,13 @@
-import React, { useEffect, useCallback, useState } from 'react';
-import { createPortal } from 'react-dom';
-import { X, Briefcase, Calendar, MapPin, ChevronRight, ChevronDown } from 'lucide-react';
-import { useBodyScrollLock } from '../../../hooks/useBodyScrollLock';
-import { renderMarkdown } from '../../../utils/renderMarkdown';
+// src/components/sections/Timeline/ExperienceModal.jsx
+
+import React, { useCallback, useState } from 'react';
+import { Briefcase, Calendar, MapPin, ChevronRight, ChevronDown } from 'lucide-react';
+import ModalShell from '@/components/ui/ModalShell/ModalShell';
+import { renderMarkdown } from '@/utils/renderMarkdown';
 import styles from './ExperienceModal.module.css';
 
 const ExperienceModal = ({ experience, onClose }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-
-  // iOS-safe scroll lock — centralized, no duplication
-  useBodyScrollLock();
-
-  // Close on Escape key
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === 'Escape') onClose();
-    };
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [onClose]);
 
   if (!experience) return null;
 
@@ -30,22 +19,14 @@ const ExperienceModal = ({ experience, onClose }) => {
   // Boolean() explicitly handles null, undefined, and empty string ""
   const hasLongDescription = Boolean(experience.longDescription);
 
-  return createPortal(
-    <div
-      className={styles.modalBackdrop}
-      onClick={onClose}
-      role="dialog"
-      aria-modal="true"
-      aria-label={`${experience.role} at ${experience.company}`}
+  return (
+    <ModalShell
+      onClose={onClose}
+      ariaLabel={`${experience.role} at ${experience.company}`}
     >
       <div
         className={`${styles.experienceModal} ${isExpanded ? styles.expanded : ''}`}
-        onClick={(e) => e.stopPropagation()}
       >
-        <button className={styles.closeBtn} onClick={onClose} aria-label="Close modal">
-          <X size={24} />
-        </button>
-
         <div className={styles.modalContentWrapper}>
           {/* LEFT SIDEBAR: Metadata */}
           <div className={styles.modalLeft}>
@@ -116,8 +97,7 @@ const ExperienceModal = ({ experience, onClose }) => {
           </div>
         </div>
       </div>
-    </div>,
-    document.body
+    </ModalShell>
   );
 };
 

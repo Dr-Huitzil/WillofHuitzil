@@ -1,9 +1,12 @@
+// src/components/sections/Timeline/Timeline.jsx
+
 import React, { useState } from 'react';
 import TimelineItem from './TimelineItem';
 import QualificationItem from './QualificationItem';
-import ProficiencyPill from '../../ui/ProficiencyPill/ProficiencyPill';
-import ImageModal from '../../ui/ImageModal/ImageModal';
+import ProficiencyPill from '@/components/ui/ProficiencyPill/ProficiencyPill';
+import ImageModal from '@/components/ui/ImageModal/ImageModal';
 import ExperienceModal from './ExperienceModal';
+import SectionHeader from '@/components/ui/SectionHeader/SectionHeader';
 import styles from './Timeline.module.css';
 
 const Timeline = ({ experience = [], certifications = [], education = [], proficiencies = [], publications = [] }) => {
@@ -19,10 +22,7 @@ const Timeline = ({ experience = [], certifications = [], education = [], profic
 
   return (
     <section className={styles.timelineSection} id="timeline">
-      <div className={`pill ${styles.sectionPill}`}>
-        TIMELINE
-      </div>
-      <h2 className="serif-header serif-glow section-title">Professional Path</h2>
+      <SectionHeader tag="TIMELINE" title="Professional Path" />
 
       <div className={styles.timelineGrid}>
         {/* Left Side: Timeline */}

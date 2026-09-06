@@ -1,15 +1,16 @@
-import React, { useEffect, useCallback, useState } from 'react';
-import { createPortal } from 'react-dom';
-import { X, FileText, Calendar, Clock, Eye, ChevronRight, ChevronDown, Heart } from 'lucide-react';
-import { useBodyScrollLock } from '../../../hooks/useBodyScrollLock';
-import { renderMarkdown } from '../../../utils/renderMarkdown';
+// src/components/sections/Blog/BlogModal.jsx
+
+import React, { useCallback, useState, useEffect } from 'react';
+import { FileText, Calendar, Clock, Eye, ChevronRight, ChevronDown, Heart } from 'lucide-react';
+import ModalShell from '@/components/ui/ModalShell/ModalShell';
+import { renderMarkdown } from '@/utils/renderMarkdown';
 import CommentSection from './CommentSection/CommentSection';
 import {
   getPostStats,
   incrementViews,
   toggleLike,
   checkIsLiked
-} from '../../../services/blogInteractions';
+} from '@/services/blogInteractions';
 import styles from './BlogModal.module.css';
 
 const BlogModal = ({ post, onClose }) => {
@@ -17,18 +18,6 @@ const BlogModal = ({ post, onClose }) => {
   const [viewsCount, setViewsCount] = useState(post?.views || 0);
   const [likesCount, setLikesCount] = useState(0);
   const [isLiked, setIsLiked] = useState(false);
-
-  // iOS-safe scroll lock
-  useBodyScrollLock();
-
-  // Close on Escape key
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === 'Escape') onClose();
-    };
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [onClose]);
 
   // Fetch initial stats and record view
   useEffect(() => {
@@ -73,22 +62,12 @@ const BlogModal = ({ post, onClose }) => {
     []
   );
 
-  return createPortal(
-    <div
-      className={styles.modalBackdrop}
-      onClick={onClose}
-      role="dialog"
-      aria-modal="true"
-      aria-label={`${post.title} by ${post.author}`}
+  return (
+    <ModalShell
+      onClose={onClose}
+      ariaLabel={`${post.title} by ${post.author}`}
     >
-      <div
-        className={`${styles.blogModal} ${isExpanded ? styles.expanded : ''}`}
-        onClick={(e) => e.stopPropagation()}
-      >
-        <button className={styles.closeBtn} onClick={onClose} aria-label="Close modal">
-          <X size={24} />
-        </button>
-
+      <div className={`${styles.blogModal} ${isExpanded ? styles.expanded : ''}`}>
         <div className={styles.modalContentWrapper}>
           {/* LEFT SIDEBAR: Metadata */}
           <div className={styles.modalLeft}>
@@ -180,8 +159,7 @@ const BlogModal = ({ post, onClose }) => {
           </div>
         </div>
       </div>
-    </div>,
-    document.body
+    </ModalShell>
   );
 };
 

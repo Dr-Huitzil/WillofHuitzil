@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { MessageSquare, Send, User, AlertCircle, CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react';
-import { fetchComments, addComment, formatCommentDate } from '../../../../services/blogInteractions';
+import { fetchComments, addComment, formatCommentDate } from '@/services/blogInteractions';
+
 import styles from './CommentSection.module.css';
 
 const MAX_COMMENT_LENGTH = 1000;

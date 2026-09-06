@@ -1,6 +1,9 @@
+// src/components/sections/Projects/Projects.jsx
+
 import React, { useState } from 'react';
 import ProjectCard from './ProjectCard';
 import ProjectModal from './ProjectModal';
+import SectionHeader from '@/components/ui/SectionHeader/SectionHeader';
 import styles from './Projects.module.css';
 
 const Projects = ({ projects }) => {
@@ -8,10 +11,7 @@ const Projects = ({ projects }) => {
 
   return (
     <section className={styles.projectsSection} id="projects">
-      <div className="pill section-pill">
-        PROJECTS
-      </div>
-      <h2 className="serif-header serif-glow section-title">Selected Works</h2>
+      <SectionHeader tag="PROJECTS" title="Selected Works" />
 
       <div className={styles.projectsGrid}>
         {projects.map(project => (

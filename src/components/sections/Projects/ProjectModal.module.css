@@ -1,16 +1,5 @@
 /* src/components/sections/Projects/ProjectModal.module.css */
-
-.modalBackdrop {
-  position: fixed;
-  inset: 0;
-  background: var(--glass-bg-deep);
-  backdrop-filter: var(--glass-blur);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: var(--layer-modal-backdrop);
-  animation: ui-fade-in 0.8s ease forwards;
-}
+/* Backdrop + closeBtn are now handled by ModalShell */
 
 .projectModal {
   background: var(--glass-bg-deep);
@@ -22,9 +11,7 @@
   max-width: 900px;
   width: 90%;
   position: relative;
-  box-shadow: 
-    var(--glass-glow-teal),
-    0 30px 60px rgba(0, 0, 0, 0.6);
+  box-shadow: var(--modal-box-shadow);
   display: flex;
   flex-direction: column;
   transition: max-width 0.4s ease, var(--transition-premium);
@@ -41,42 +28,12 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    rgba(255, 255, 255, 0.4) 20%, 
-    rgba(255, 255, 255, 0.4) 80%, 
-    transparent 100%
-  );
+  background: var(--modal-shimmer);
   z-index: 10;
 }
 
 .expanded {
   max-width: 1400px;
-}
-
-.closeBtn {
-  position: absolute;
-  top: 30px;
-  right: 30px;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: var(--text-sans-slate);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  z-index: 10;
-  transition: background 0.3s ease, color 0.3s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease;
-}
-
-.closeBtn:hover {
-  background: rgba(64, 224, 208, 0.1);
-  color: var(--accent-teal-bright);
-  border-color: var(--accent-teal-dim);
-  transform: rotate(90deg) scale(1.1);
 }
 
 .modalContentWrapper {

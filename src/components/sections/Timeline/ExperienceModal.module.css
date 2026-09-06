@@ -1,14 +1,4 @@
-.modalBackdrop {
-  position: fixed;
-  inset: 0;
-  background: var(--glass-bg-deep);
-  backdrop-filter: var(--glass-blur);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: var(--layer-modal-backdrop);
-  animation: ui-fade-in 0.8s ease forwards;
-}
+/* Backdrop + closeBtn are now handled by ModalShell */
 
 .experienceModal {
   background: var(--glass-bg-deep);
@@ -20,9 +10,7 @@
   max-width: 900px;
   max-height: 90vh;
   position: relative;
-  box-shadow: 
-    var(--glass-glow-teal),
-    0 30px 60px rgba(0, 0, 0, 0.6);
+  box-shadow: var(--modal-box-shadow);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -39,42 +27,12 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    rgba(255, 255, 255, 0.4) 20%, 
-    rgba(255, 255, 255, 0.4) 80%, 
-    transparent 100%
-  );
+  background: var(--modal-shimmer);
   z-index: 10;
 }
 
 .experienceModal.expanded {
   max-width: 1400px;
-}
-
-.closeBtn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: var(--text-sans-slate);
-  cursor: pointer;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: background 0.3s ease, color 0.3s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease;
-  z-index: 10;
-}
-
-.closeBtn:hover {
-  background: rgba(160, 82, 45, 0.1);
-  color: var(--accent-rust);
-  border-color: rgba(160, 82, 45, 0.3);
-  transform: rotate(90deg) scale(1.1);
 }
 
 .modalContentWrapper {
