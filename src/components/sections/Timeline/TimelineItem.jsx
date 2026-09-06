@@ -1,3 +1,5 @@
+// src/components/sections/Timeline/TimelineItem.jsx
+
 import React from 'react';
 import styles from './Timeline.module.css';
 

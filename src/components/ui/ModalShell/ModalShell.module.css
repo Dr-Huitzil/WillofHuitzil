@@ -1,0 +1,44 @@
+/* src/components/ui/ModalShell/ModalShell.module.css
+ * Canonical backdrop and close-button styles — shared by ALL modals.
+ * Previously duplicated verbatim in ProjectModal, BlogModal,
+ * ExperienceModal, and TicketModal CSS modules.
+ */
+
+/* ── Backdrop ─────────────────────────────────────────────────────────── */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: var(--glass-bg-deep);
+  backdrop-filter: var(--glass-blur);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: var(--layer-modal-backdrop);
+  animation: ui-fade-in 0.8s ease forwards;
+}
+
+/* ── Close Button ─────────────────────────────────────────────────────── */
+.closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--white-dim-05);
+  border: 1px solid var(--white-dim-10);
+  color: var(--text-sans-slate);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: var(--modal-close-transition);
+}
+
+.closeBtn:hover {
+  background: var(--rust-dim-10);
+  color: var(--accent-rust);
+  border-color: var(--rust-dim-30);
+  transform: rotate(90deg) scale(1.1);
+}

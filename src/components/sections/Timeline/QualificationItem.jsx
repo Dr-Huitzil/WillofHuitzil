@@ -1,3 +1,5 @@
+// src/components/sections/Timeline/QualificationItem.jsx
+
 import React from 'react';
 import * as LucideIcons from 'lucide-react';
 import styles from './Timeline.module.css';
@@ -6,9 +8,9 @@ const QualificationItem = ({ title, subtitle, iconName, onClick, variant = 'row'
   const Icon = LucideIcons[iconName] || LucideIcons.HelpCircle;
 
   return (
-    <div 
-      className={`${styles.qualItem} ${variant === 'square' ? styles.squareItem : ''}`} 
-      onClick={onClick} 
+    <div
+      className={`${styles.qualItem} ${variant === 'square' ? styles.squareItem : ''}`}
+      onClick={onClick}
       style={{ cursor: onClick ? 'pointer' : 'default' }}
     >
       <div className={styles.qualIcon}>

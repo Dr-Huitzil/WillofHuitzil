@@ -1,18 +1,13 @@
+// src/pages/BlogPage.jsx
+
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-  ArrowLeft,
-  Search,
-  Filter,
-  ArrowUpDown,
-  ChevronDown,
-  Check,
-  X,
-  RotateCcw
-} from 'lucide-react';
-import BlogCard from '../components/sections/Blog/BlogCard';
-import BlogModal from '../components/sections/Blog/BlogModal';
-import { blogPosts } from '../data/blogData';
+import { ArrowLeft, Search, Filter, ArrowUpDown, X, RotateCcw } from 'lucide-react';
+import BlogCard from '@/components/sections/Blog/BlogCard';
+import BlogModal from '@/components/sections/Blog/BlogModal';
+import DropdownSelect from '@/components/ui/DropdownSelect/DropdownSelect';
+import SectionHeader from '@/components/ui/SectionHeader/SectionHeader';
+import { blogPosts } from '@/data/blogData';
 import styles from './BlogPage.module.css';
 
 const FILTER_OPTIONS = [
@@ -142,10 +137,7 @@ const BlogPage = () => {
             </button>
 
             <div className={styles.titleContainer}>
-              <div className="pill section-pill">
-                KNOWLEDGE_BASE
-              </div>
-              <h1 className="serif-header serif-glow section-title">Logs & Articles</h1>
+              <SectionHeader tag="KNOWLEDGE_BASE" title="Logs & Articles" as="h1" />
             </div>
           </div>
 
@@ -176,89 +168,33 @@ const BlogPage = () => {
 
               {/* Filter and Sort Group */}
               <div className={styles.filterSortGroup}>
-                {/* Filter Dropdown */}
-                <div className={styles.dropdownWrapper} ref={filterDropdownRef}>
-                  <button
-                    type="button"
-                    className={`${styles.dropdownBtn} ${selectedFilter !== 'all' ? styles.dropdownBtnActive : ''} mono-accent`}
-                    onClick={() => {
-                      setIsFilterOpen(prev => !prev);
-                      setIsSortOpen(false);
-                    }}
-                    aria-expanded={isFilterOpen}
-                    aria-haspopup="listbox"
-                  >
-                    <Filter size={14} className={styles.btnIcon} />
-                    <span>
-                      FILTER: <strong className={styles.activeValueText}>{currentFilterLabel}</strong>
-                    </span>
-                    <ChevronDown size={14} className={`${styles.chevron} ${isFilterOpen ? styles.chevronOpen : ''}`} />
-                  </button>
+                <DropdownSelect
+                  ref={filterDropdownRef}
+                  icon={<Filter size={14} />}
+                  label="FILTER"
+                  activeLabel={currentFilterLabel}
+                  isActive={selectedFilter !== 'all'}
+                  isOpen={isFilterOpen}
+                  onToggle={() => { setIsFilterOpen(prev => !prev); setIsSortOpen(false); }}
+                  dropdownHeader="FILTER BY TAG"
+                  options={FILTER_OPTIONS}
+                  selectedId={selectedFilter}
+                  onSelect={(id) => { setSelectedFilter(id); setIsFilterOpen(false); }}
+                />
 
-                  {isFilterOpen && (
-                    <div className={styles.dropdownMenu} role="listbox">
-                      <div className={styles.dropdownHeader}>FILTER BY TAG</div>
-                      {FILTER_OPTIONS.map(option => (
-                        <button
-                          key={option.id}
-                          type="button"
-                          role="option"
-                          aria-selected={selectedFilter === option.id}
-                          className={`${styles.dropdownItem} ${selectedFilter === option.id ? styles.dropdownItemActive : ''}`}
-                          onClick={() => {
-                            setSelectedFilter(option.id);
-                            setIsFilterOpen(false);
-                          }}
-                        >
-                          <span>{option.label}</span>
-                          {selectedFilter === option.id && <Check size={14} className={styles.checkIcon} />}
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                </div>
-
-                {/* Sort Dropdown */}
-                <div className={styles.dropdownWrapper} ref={sortDropdownRef}>
-                  <button
-                    type="button"
-                    className={`${styles.dropdownBtn} ${selectedSort !== 'most-recent' ? styles.dropdownBtnActive : ''} mono-accent`}
-                    onClick={() => {
-                      setIsSortOpen(prev => !prev);
-                      setIsFilterOpen(false);
-                    }}
-                    aria-expanded={isSortOpen}
-                    aria-haspopup="listbox"
-                  >
-                    <ArrowUpDown size={14} className={styles.btnIcon} />
-                    <span>
-                      SORT: <strong className={styles.activeValueText}>{currentSortLabel}</strong>
-                    </span>
-                    <ChevronDown size={14} className={`${styles.chevron} ${isSortOpen ? styles.chevronOpen : ''}`} />
-                  </button>
-
-                  {isSortOpen && (
-                    <div className={styles.dropdownMenu} role="listbox">
-                      <div className={styles.dropdownHeader}>SORT ARTICLES</div>
-                      {SORT_OPTIONS.map(option => (
-                        <button
-                          key={option.id}
-                          type="button"
-                          role="option"
-                          aria-selected={selectedSort === option.id}
-                          className={`${styles.dropdownItem} ${selectedSort === option.id ? styles.dropdownItemActive : ''}`}
-                          onClick={() => {
-                            setSelectedSort(option.id);
-                            setIsSortOpen(false);
-                          }}
-                        >
-                          <span>{option.label}</span>
-                          {selectedSort === option.id && <Check size={14} className={styles.checkIcon} />}
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                </div>
+                <DropdownSelect
+                  ref={sortDropdownRef}
+                  icon={<ArrowUpDown size={14} />}
+                  label="SORT"
+                  activeLabel={currentSortLabel}
+                  isActive={selectedSort !== 'most-recent'}
+                  isOpen={isSortOpen}
+                  onToggle={() => { setIsSortOpen(prev => !prev); setIsFilterOpen(false); }}
+                  dropdownHeader="SORT ARTICLES"
+                  options={SORT_OPTIONS}
+                  selectedId={selectedSort}
+                  onSelect={(id) => { setSelectedSort(id); setIsSortOpen(false); }}
+                />
 
                 {/* Reset button when non-default filter/sort/search is active */}
                 {isFilteredOrSorted && (
@@ -361,4 +297,3 @@ const BlogPage = () => {
 };
 
 export default BlogPage;
-

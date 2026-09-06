@@ -1,28 +1,15 @@
-.modalBackdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(8, 13, 8, 0.85);
-  backdrop-filter: blur(10px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: var(--layer-modal-backdrop);
-  padding: 20px;
-  animation: ui-fade-in 0.3s ease;
-}
+/* Backdrop + closeBtn are now handled by ModalShell */
 
 .modal {
   background: var(--bg-card);
-  border: 1px solid rgba(82, 183, 136, 0.4);
-  box-shadow: var(--glass-glow-teal), 0 30px 60px rgba(0, 0, 0, 0.8);
+  border: 1px solid var(--teal-dim-40);
+  box-shadow: var(--modal-box-shadow);
   border-radius: var(--hud-radius);
-  width: 100%;
+  width: 90%;
   max-width: 650px;
   max-height: 85vh;
   position: relative;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -36,26 +23,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 50% -20%, rgba(82, 183, 136, 0.15) 0%, transparent 60%);
+  background: radial-gradient(circle at 50% -20%, var(--teal-dim-15) 0%, transparent 60%);
   pointer-events: none;
-}
-
-.closeBtn {
-  position: absolute;
-  top: 25px;
-  right: 25px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: var(--text-sans-slate);
-  cursor: pointer;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: background 0.3s ease, color 0.3s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease;
-  z-index: 10;
 }
 
 .closeBtn:hover {
@@ -378,6 +347,7 @@
 
 @media (max-width: 768px) {
   .modal {
+    width: 95%;
     max-height: 90vh;
   }
   .header {

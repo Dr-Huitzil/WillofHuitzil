@@ -1,24 +1,13 @@
-import React, { useEffect, useCallback, useState } from 'react';
-import { createPortal } from 'react-dom';
-import { X, ChevronRight, ChevronUp, Monitor } from 'lucide-react';
-import { useBodyScrollLock } from '../../../hooks/useBodyScrollLock';
-import { renderMarkdown } from '../../../utils/renderMarkdown';
+// src/components/sections/Projects/ProjectModal.jsx
+
+import React, { useCallback, useState } from 'react';
+import { ChevronRight, ChevronUp, Monitor } from 'lucide-react';
+import ModalShell, { ModalCloseButton } from '@/components/ui/ModalShell/ModalShell';
+import { renderMarkdown } from '@/utils/renderMarkdown';
 import styles from './ProjectModal.module.css';
 
 const ProjectModal = ({ project, onClose }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-
-  // iOS-safe scroll lock — centralized, no duplication
-  useBodyScrollLock();
-
-  // Close on Escape key
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === 'Escape') onClose();
-    };
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [onClose]);
 
   // Guard: render nothing if data is missing
   if (!project) return null;
@@ -89,32 +78,19 @@ const ProjectModal = ({ project, onClose }) => {
     </div>
   );
 
-  return createPortal(
-    <div
-      className={styles.modalBackdrop}
-      onClick={onClose}
-      role="dialog"
-      aria-modal="true"
-    >
+  return (
+    <ModalShell onClose={onClose} ariaLabel={project.title}>
       <div
         className={`${styles.projectModal} ${isExpanded ? styles.expanded : ''}`}
-        onClick={(e) => e.stopPropagation()}
       >
-        <button
-          className={styles.closeBtn}
-          onClick={onClose}
-          aria-label="Close modal"
-        >
-          <X size={24} />
-        </button>
-
+        <ModalCloseButton onClose={onClose} />
         <div className={styles.modalContentWrapper}>
           <div className={styles.modalLeft}>
             <div className={styles.modalImage}>
               {project.imagePlaceholder && (
-                <img 
-                  src={project.imagePlaceholder} 
-                  alt={project.title} 
+                <img
+                  src={project.imagePlaceholder}
+                  alt={project.title}
                   className={styles.modalImg}
                 />
               )}
@@ -141,8 +117,7 @@ const ProjectModal = ({ project, onClose }) => {
           </div>
         </div>
       </div>
-    </div>,
-    document.body
+    </ModalShell>
   );
 };
 

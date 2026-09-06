@@ -1,7 +1,11 @@
+// src/components/sections/CurrentWork/CurrentWork.jsx
+
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './CurrentWork.module.css';
 import TicketModal from './TicketModal';
-import { Filter, Clock, CheckCircle2, CircleDashed, TerminalSquare, AlertCircle, ChevronDown } from 'lucide-react';
+import SectionHeader from '@/components/ui/SectionHeader/SectionHeader';
+import { getStatusIcon, getStatusSlug } from '@/utils/getStatusStyle.jsx';
+import { Filter, ChevronDown } from 'lucide-react';
 
 const CurrentWork = ({ tickets = [] }) => {
   const [selectedTicket, setSelectedTicket] = useState(null);
@@ -29,16 +33,6 @@ const CurrentWork = ({ tickets = [] }) => {
 
   if (!tickets || tickets.length === 0) return null;
 
-  const getStatusIcon = (status) => {
-    switch (status.toLowerCase()) {
-      case 'working on...': return <Clock size={12} />;
-      case 'completed': return <CheckCircle2 size={12} />;
-      case 'closed': return <AlertCircle size={12} />;
-      case 'planning': return <CircleDashed size={12} />;
-      default: return <TerminalSquare size={12} />;
-    }
-  };
-
   const toggleStatus = (status) => {
     setSelectedStatuses(prev =>
       prev.includes(status)
@@ -53,10 +47,7 @@ const CurrentWork = ({ tickets = [] }) => {
     <section className={styles.currentWorkSection} id="current-work">
       <div className={styles.sectionHeader}>
         <div>
-          <div className="pill section-pill">
-            CONSOLE
-          </div>
-          <h2 className="serif-header serif-glow section-title">Current Projects</h2>
+          <SectionHeader tag="CONSOLE" title="Current Projects" />
         </div>
 
         {/* Filter Dropdown Menu */}
@@ -117,12 +108,12 @@ const CurrentWork = ({ tickets = [] }) => {
                     className={styles.row}
                     onClick={() => setSelectedTicket(ticket)}
                   >
-                    <td className={`${styles.idCell} ${styles[ticket.status.toLowerCase().replace(/\s+/g, '-').replace(/\.+/g, '')] || ''}`}>{ticket.id}</td>
+                    <td className={`${styles.idCell} ${styles[getStatusSlug(ticket.status)] || ''}`}>{ticket.id}</td>
                     <td className={styles.titleCell} title={ticket.title}>
                       <span className={styles.truncatedTitle}>{ticket.title}</span>
                     </td>
                     <td className={styles.statusCell}>
-                      <span className={`${styles.statusPill} ${styles[ticket.status.toLowerCase().replace(/\s+/g, '-').replace(/\.+/g, '')] || ''}`}>
+                      <span className={`${styles.statusPill} ${styles[getStatusSlug(ticket.status)] || ''}`}>
                         {getStatusIcon(ticket.status)}
                         {ticket.status}
                       </span>
@@ -150,7 +141,7 @@ const CurrentWork = ({ tickets = [] }) => {
                 onClick={() => setSelectedTicket(ticket)}
               >
                 <div className={styles.mobileCardHeader}>
-                  <span className={`${styles.mobileId} ${styles[ticket.status.toLowerCase().replace(/\s+/g, '-').replace(/\.+/g, '')] || ''}`}>{ticket.id}</span>
+                  <span className={`${styles.mobileId} ${styles[getStatusSlug(ticket.status)] || ''}`}>{ticket.id}</span>
                   <span className={styles.mobileStatus}>
                     {getStatusIcon(ticket.status)}
                     {ticket.status}

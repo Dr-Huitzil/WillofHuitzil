@@ -112,130 +112,7 @@
   flex-wrap: wrap;
 }
 
-.dropdownWrapper {
-  position: relative;
-}
-
-.dropdownBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 11px 16px;
-  background: var(--glass-bg-soft);
-  border: 1px solid rgba(82, 183, 136, 0.3);
-  clip-path: var(--clip-chamfer-small);
-  color: var(--text-serif-cream);
-  font-family: 'Fira Code', monospace;
-  font-size: 0.78rem;
-  letter-spacing: 0.04em;
-  cursor: pointer;
-  transition: var(--transition-fast);
-  white-space: nowrap;
-}
-
-.dropdownBtn:hover {
-  border-color: rgba(82, 183, 136, 0.7);
-  box-shadow: var(--glow-teal-soft);
-  background: rgba(82, 183, 136, 0.1);
-  color: var(--accent-teal-bright);
-}
-
-.dropdownBtnActive {
-  border-color: var(--accent-teal-bright);
-  background: rgba(82, 183, 136, 0.18);
-  color: var(--accent-teal-bright);
-  box-shadow: 0 0 16px rgba(82, 183, 136, 0.15);
-}
-
-.btnIcon {
-  color: var(--accent-teal-bright);
-  flex-shrink: 0;
-}
-
-.activeValueText {
-  color: var(--accent-teal-bright);
-}
-
-.chevron {
-  transition: transform 0.3s ease;
-  color: var(--text-sans-slate);
-  flex-shrink: 0;
-}
-
-.chevronOpen {
-  transform: rotate(180deg);
-  color: var(--accent-teal-bright);
-}
-
-.dropdownMenu {
-  position: absolute;
-  top: calc(100% + 8px);
-  right: 0;
-  background: var(--bg-card);
-  border: 1px solid rgba(82, 183, 136, 0.4);
-  box-shadow: var(--glass-glow-teal), 0 14px 34px rgba(0, 0, 0, 0.65);
-  border-radius: 10px;
-  padding: 8px;
-  min-width: 220px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  animation: ui-fade-in 0.2s ease;
-  backdrop-filter: var(--glass-blur);
-  z-index: 50;
-}
-
-@media (max-width: 768px) {
-  .dropdownMenu {
-    right: auto;
-    left: 0;
-  }
-}
-
-.dropdownHeader {
-  font-family: 'Fira Code', monospace;
-  font-size: 0.7rem;
-  color: var(--text-sans-slate);
-  border-bottom: 1px solid rgba(82, 183, 136, 0.15);
-  padding: 6px 10px 8px;
-  margin-bottom: 4px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.dropdownItem {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  width: 100%;
-  padding: 8px 12px;
-  background: none;
-  border: none;
-  border-radius: 6px;
-  color: var(--text-sans-slate);
-  font-family: 'Inter', sans-serif;
-  font-size: 0.88rem;
-  text-align: left;
-  cursor: pointer;
-  transition: var(--transition-fast);
-}
-
-.dropdownItem:hover {
-  background: rgba(82, 183, 136, 0.12);
-  color: var(--text-serif-cream);
-}
-
-.dropdownItemActive {
-  background: rgba(82, 183, 136, 0.2);
-  color: var(--accent-teal-bright);
-  font-weight: 500;
-}
-
-.checkIcon {
-  color: var(--accent-teal-bright);
-  flex-shrink: 0;
-}
+/* Dropdown styles are in DropdownSelect.module.css */
 
 .resetBtn {
   display: inline-flex;
@@ -382,10 +259,7 @@
     justify-content: flex-start;
   }
 
-  .dropdownBtn {
-    flex: 1 1 auto;
-    justify-content: space-between;
-  }
+
 
   .postsGrid {
     grid-template-columns: 1fr;

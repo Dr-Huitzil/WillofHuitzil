@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import quetzalSvg from '../../../assets/vectorFiles/Quetzal3-cropped.svg';
+import quetzalSvg from '@/assets/vectorFiles/Quetzal3-cropped.svg';
 
 const QuetzalIcon = ({ size = 70, className }) => {
   return (

@@ -1,3 +1,5 @@
+// src/components/sections/Projects/ProjectCard.jsx
+
 import React from 'react';
 import { GitBranch, ExternalLink } from 'lucide-react';
 import styles from './ProjectCard.module.css';
@@ -7,17 +9,17 @@ const ProjectCard = ({ project, onClick }) => {
     <div className={styles.projectCard} onClick={onClick}>
       <div className={styles.projectImageContainer}>
         {project.imagePlaceholder ? (
-          <img 
-            src={project.imagePlaceholder} 
-            alt={`${project.title} screenshot`} 
-            className={styles.projectImg} 
-            loading="lazy" 
+          <img
+            src={project.imagePlaceholder}
+            alt={`${project.title} screenshot`}
+            className={styles.projectImg}
+            loading="lazy"
           />
         ) : (
           <div className={styles.projectImagePlaceholder}></div>
         )}
       </div>
-      
+
       <div className={styles.projectContent}>
         <div className={styles.projectTags}>
           {project.tags?.map((tag) => (
@@ -26,7 +28,7 @@ const ProjectCard = ({ project, onClick }) => {
         </div>
         <h3 className={`serif-header ${styles.cardTitle}`}>{project.title}</h3>
         <p className={styles.projectDesc}>{project.description}</p>
-        
+
         <div className={`${styles.projectLinks} mono-accent`}>
           {project.github && (
             <a href={project.github} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
