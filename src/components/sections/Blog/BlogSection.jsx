@@ -1,6 +1,6 @@
 // src/components/sections/Blog/BlogSection.jsx
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import BlogCard from './BlogCard';
 import BlogModal from './BlogModal';
@@ -11,10 +11,18 @@ const BlogSection = ({ posts = [] }) => {
   const [selectedPost, setSelectedPost] = useState(null);
   const navigate = useNavigate();
 
-  if (!posts || posts.length === 0) return null;
+  // Get the 3 most recent posts sorted by date descending
+  const recentPosts = useMemo(() => {
+    return [...posts]
+      .sort((a, b) => {
+        const timeA = new Date(a.date).getTime() || 0;
+        const timeB = new Date(b.date).getTime() || 0;
+        return timeB - timeA || (b.id - a.id);
+      })
+      .slice(0, 3);
+  }, [posts]);
 
-  // Get only the 3 most recent posts
-  const recentPosts = posts.slice(0, 3);
+  if (!posts || posts.length === 0) return null;
 
   return (
     <section className={styles.blogSection} id="blog">

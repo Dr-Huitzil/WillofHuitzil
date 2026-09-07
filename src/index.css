@@ -18,9 +18,10 @@
   --accent-cream-dim: rgba(249, 241, 215, 0.15);
 
   /* --- Design Tokens: Glass & Surfaces --- */
-  --glass-bg-soft: rgba(14, 22, 15, 0.25);
+  --glass-bg-soft: rgba(14, 22, 15, 0.10);
   --glass-bg-deep: rgba(14, 22, 15, 0.75);
-  --glass-blur: blur(25px);
+  --glass-blur: blur(2px);
+  --modal-blur: blur(20px);
   --glass-border: 1px solid rgba(255, 255, 255, 0.15);
   --glass-glow-teal: 0 0 40px rgba(82, 183, 136, 0.25), inset 0 0 20px rgba(82, 183, 136, 0.1);
   --hud-radius: 30px;
@@ -187,7 +188,7 @@ body::before {
 /* HUD Surface Utility */
 .hud-surface {
   position: relative;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
     var(--glass-bg-soft);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
@@ -278,7 +279,6 @@ section {
 
 @media (max-width: 1024px) {
   .hud-container {
-    backdrop-filter: blur(8px);
     margin: 15px 5vw;
   }
 
