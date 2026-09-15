@@ -87,10 +87,10 @@ const Navbar = () => {
         <button
           type="button"
           onClick={handleBlogClick}
-          className={`${styles.blogButton} ${location.pathname === '/blog' ? styles.blogButtonActive : ''}`}
-          title={location.pathname === '/blog' ? "Currently on Blog page" : "Go to Blog page"}
+          className={`${styles.blogButton} ${location.pathname.startsWith('/blog') ? styles.blogButtonActive : ''}`}
+          title={location.pathname.startsWith('/blog') ? "Currently on Blog page" : "Go to Blog page"}
           aria-label="Blog page"
-          aria-current={location.pathname === '/blog' ? "page" : undefined}
+          aria-current={location.pathname.startsWith('/blog') ? "page" : undefined}
         >
           BLOG
         </button>

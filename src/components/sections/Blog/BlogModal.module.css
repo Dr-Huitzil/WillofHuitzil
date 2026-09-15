@@ -121,6 +121,14 @@
   letter-spacing: 1px;
 }
 
+.actionRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
 .likeBtn {
   display: inline-flex;
   align-items: center;
@@ -134,7 +142,6 @@
   cursor: pointer;
   letter-spacing: 1px;
   transition: var(--transition-premium);
-  margin-top: 4px;
   width: fit-content;
 }
 
@@ -160,6 +167,52 @@
 
 .likeBtn:hover .heartIcon,
 .likeBtn.liked .heartIcon {
+  transform: scale(1.15);
+}
+
+.copyBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(82, 183, 136, 0.25);
+  border-radius: 4px;
+  color: var(--text-sans-slate);
+  font-size: 0.7rem;
+  padding: 6px 12px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: var(--transition-premium);
+  width: fit-content;
+  text-transform: lowercase !important;
+}
+
+.copyBtn span {
+  text-transform: lowercase !important;
+}
+
+.copyBtn:hover {
+  background: rgba(82, 183, 136, 0.1);
+  border-color: var(--accent-teal-bright);
+  color: var(--accent-teal-bright);
+  box-shadow: 0 0 12px rgba(82, 183, 136, 0.25);
+  transform: translateY(-1px);
+}
+
+.copyBtn.copied {
+  background: rgba(82, 183, 136, 0.18);
+  border-color: var(--accent-teal-bright);
+  color: #6ee7b7;
+  box-shadow: 0 0 16px rgba(82, 183, 136, 0.45);
+}
+
+.copyIcon {
+  color: inherit;
+  flex-shrink: 0;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.copyBtn:hover .copyIcon {
   transform: scale(1.15);
 }
 

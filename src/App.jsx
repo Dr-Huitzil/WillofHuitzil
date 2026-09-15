@@ -60,6 +60,13 @@ function App() {
             <Footer />
           </>
         } />
+
+        <Route path="/blog/:slug" element={
+          <>
+            <BlogPage />
+            <Footer />
+          </>
+        } />
       </Routes>
     </>
   );
