@@ -35,6 +35,7 @@ const LoadingScreen = ({ onComplete }) => {
     const exitTimer = setTimeout(() => {
       setProgress(100);
       setIsExiting(true);
+      document.body.classList.remove('is-loading');
       
       setTimeout(() => {
         document.body.style.overflow = '';
@@ -44,6 +45,7 @@ const LoadingScreen = ({ onComplete }) => {
 
     return () => {
       document.body.style.overflow = '';
+      document.body.classList.remove('is-loading');
       clearInterval(progressInterval);
       clearTimeout(exitTimer);
     };
