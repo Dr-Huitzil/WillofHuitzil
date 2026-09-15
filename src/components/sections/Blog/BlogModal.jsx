@@ -14,12 +14,17 @@ import {
 import styles from './BlogModal.module.css';
 
 const BlogModal = ({ post, onClose }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(true);
   const [viewsCount, setViewsCount] = useState(post?.views || 0);
   const [likesCount, setLikesCount] = useState(0);
   const [isLiked, setIsLiked] = useState(false);
   const [copied, setCopied] = useState(false);
   const copyTimeoutRef = useRef(null);
+
+  // Always open reader mode by default whenever a post is opened
+  useEffect(() => {
+    setIsExpanded(true);
+  }, [post?.id]);
 
   useEffect(() => {
     return () => {
