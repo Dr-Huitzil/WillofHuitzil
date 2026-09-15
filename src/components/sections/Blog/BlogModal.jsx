@@ -1,7 +1,7 @@
 // src/components/sections/Blog/BlogModal.jsx
 
-import React, { useCallback, useState, useEffect } from 'react';
-import { FileText, Calendar, Clock, Eye, ChevronRight, ChevronDown, Heart } from 'lucide-react';
+import React, { useCallback, useState, useEffect, useRef } from 'react';
+import { FileText, Calendar, Clock, Eye, ChevronRight, ChevronDown, Heart, Link2, Check } from 'lucide-react';
 import ModalShell, { ModalCloseButton } from '@/components/ui/ModalShell/ModalShell';
 import { renderMarkdown } from '@/utils/renderMarkdown';
 import CommentSection from './CommentSection/CommentSection';
@@ -18,6 +18,16 @@ const BlogModal = ({ post, onClose }) => {
   const [viewsCount, setViewsCount] = useState(post?.views || 0);
   const [likesCount, setLikesCount] = useState(0);
   const [isLiked, setIsLiked] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const copyTimeoutRef = useRef(null);
+
+  useEffect(() => {
+    return () => {
+      if (copyTimeoutRef.current) {
+        clearTimeout(copyTimeoutRef.current);
+      }
+    };
+  }, []);
 
   // Fetch initial stats and record view
   useEffect(() => {
@@ -53,6 +63,34 @@ const BlogModal = ({ post, onClose }) => {
     const result = await toggleLike(post.id);
     setIsLiked(result.isLiked);
     setLikesCount(result.newLikesCount);
+  };
+
+  // Handle copy direct post link to clipboard
+  const handleCopyLink = async () => {
+    if (!post?.slug) return;
+    const url = `${window.location.origin}/blog/${post.slug}`;
+    try {
+      if (navigator?.clipboard?.writeText) {
+        await navigator.clipboard.writeText(url);
+      } else {
+        const textArea = document.createElement('textarea');
+        textArea.value = url;
+        textArea.style.position = 'fixed';
+        textArea.style.opacity = '0';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+      }
+      setCopied(true);
+      if (copyTimeoutRef.current) clearTimeout(copyTimeoutRef.current);
+      copyTimeoutRef.current = setTimeout(() => {
+        setCopied(false);
+      }, 2500);
+    } catch (err) {
+      console.error('Failed to copy link:', err);
+    }
   };
 
   if (!post) return null;
@@ -95,20 +133,38 @@ const BlogModal = ({ post, onClose }) => {
                 <div className={`mono-accent ${styles.metaItem}`}>
                   <Eye size={14} /> {viewsCount} Views
                 </div>
-                <button
-                  type="button"
-                  className={`${styles.likeBtn} ${isLiked ? styles.liked : ''} mono-accent`}
-                  onClick={handleToggleLike}
-                  title={isLiked ? "Unlike post" : "Like post"}
-                  aria-label="Like post"
-                >
-                  <Heart
-                    size={14}
-                    className={styles.heartIcon}
-                    fill={isLiked ? "currentColor" : "none"}
-                  />
-                  <span>{likesCount} {likesCount === 1 ? 'Like' : 'Likes'}</span>
-                </button>
+
+                <div className={styles.actionRow}>
+                  <button
+                    type="button"
+                    className={`${styles.likeBtn} ${isLiked ? styles.liked : ''} mono-accent`}
+                    onClick={handleToggleLike}
+                    title={isLiked ? "Unlike post" : "Like post"}
+                    aria-label="Like post"
+                  >
+                    <Heart
+                      size={14}
+                      className={styles.heartIcon}
+                      fill={isLiked ? "currentColor" : "none"}
+                    />
+                    <span>{likesCount} {likesCount === 1 ? 'Like' : 'Likes'}</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    className={`${styles.copyBtn} ${copied ? styles.copied : ''} mono-accent`}
+                    onClick={handleCopyLink}
+                    title={copied ? "Link copied to clipboard!" : "Copy direct link to post"}
+                    aria-label="Copy direct link to post"
+                  >
+                    {copied ? (
+                      <Check size={14} className={styles.copyIcon} />
+                    ) : (
+                      <Link2 size={14} className={styles.copyIcon} />
+                    )}
+                    <span>{copied ? 'copied_to_clipboard' : 'copy_link'}</span>
+                  </button>
+                </div>
               </div>
 
               <button

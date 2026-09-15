@@ -1,7 +1,7 @@
 // src/pages/BlogPage.jsx
 
 import React, { useState, useMemo, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { ArrowLeft, Search, Filter, ArrowUpDown, X, RotateCcw } from 'lucide-react';
 import BlogCard from '@/components/sections/Blog/BlogCard';
 import BlogModal from '@/components/sections/Blog/BlogModal';
@@ -38,6 +38,7 @@ const parseDate = (dateString) => {
 };
 
 const BlogPage = () => {
+  const { slug } = useParams();
   const [selectedPost, setSelectedPost] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedFilter, setSelectedFilter] = useState('all');
@@ -49,6 +50,20 @@ const BlogPage = () => {
   const filterDropdownRef = useRef(null);
   const sortDropdownRef = useRef(null);
   const navigate = useNavigate();
+
+  // Synchronize modal state with URL slug
+  useEffect(() => {
+    if (slug) {
+      const matched = blogPosts.find(p => p.slug === slug);
+      if (matched) {
+        setSelectedPost(matched);
+      } else {
+        navigate('/blog', { replace: true });
+      }
+    } else {
+      setSelectedPost(null);
+    }
+  }, [slug, navigate]);
 
   // Scroll to top on mount
   useEffect(() => {
@@ -269,7 +284,10 @@ const BlogPage = () => {
                 <BlogCard
                   key={post.id}
                   post={post}
-                  onClick={() => setSelectedPost(post)}
+                  onClick={() => {
+                    setSelectedPost(post);
+                    navigate(`/blog/${post.slug}`);
+                  }}
                 />
               ))
             ) : (
@@ -289,7 +307,10 @@ const BlogPage = () => {
       {selectedPost && (
         <BlogModal
           post={selectedPost}
-          onClose={() => setSelectedPost(null)}
+          onClose={() => {
+            setSelectedPost(null);
+            navigate('/blog');
+          }}
         />
       )}
     </div>
