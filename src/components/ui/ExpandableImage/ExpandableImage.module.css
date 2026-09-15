@@ -1,0 +1,219 @@
+/* src/components/ui/ExpandableImage/ExpandableImage.module.css */
+
+.figureWrapper {
+  margin: 28px 0 32px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.imageCard {
+  position: relative;
+  width: 100%;
+  background: rgba(14, 22, 15, 0.6);
+  border: 1px solid rgba(82, 183, 136, 0.22);
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  user-select: none;
+}
+
+.imageCard:hover {
+  border-color: rgba(82, 183, 136, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(82, 183, 136, 0.12);
+}
+
+.imageCard:focus-visible {
+  outline: 2px solid var(--accent-teal-bright);
+  outline-offset: 2px;
+}
+
+.imageViewport {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ── Collapsed State ────────────────────────────────────────────────────── */
+.collapsed .imageViewport {
+  max-height: 240px;
+  height: 240px;
+}
+
+.collapsed .image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.collapsed:hover .image {
+  transform: scale(1.015);
+}
+
+/* Half-fading overlapping caption / overlay at the bottom of the collapsed preview */
+.fadeOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 130px;
+  background: linear-gradient(
+    to bottom,
+    rgba(8, 13, 8, 0) 0%,
+    rgba(8, 13, 8, 0.65) 45%,
+    rgba(8, 13, 8, 0.95) 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 16px;
+  pointer-events: none;
+  transition: background 0.3s ease;
+}
+
+.imageCard:hover .fadeOverlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(8, 13, 8, 0) 0%,
+    rgba(8, 13, 8, 0.55) 40%,
+    rgba(8, 13, 8, 0.92) 100%
+  );
+}
+
+.expandPrompt {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(14, 22, 15, 0.85);
+  border: 1px solid rgba(82, 183, 136, 0.4);
+  border-radius: 4px;
+  padding: 6px 14px;
+  color: var(--accent-teal-bright);
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 12px rgba(82, 183, 136, 0.15);
+  transition: all 0.25s ease;
+  pointer-events: auto;
+}
+
+.imageCard:hover .expandPrompt {
+  background: rgba(82, 183, 136, 0.15);
+  border-color: var(--accent-teal-bright);
+  color: #a7f3d0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 16px rgba(82, 183, 136, 0.3);
+  transform: translateY(-2px);
+}
+
+.promptIcon {
+  flex-shrink: 0;
+  color: inherit;
+  transition: transform 0.25s ease;
+}
+
+.imageCard:hover .promptIcon {
+  transform: scale(1.15);
+}
+
+/* ── Expanded State ─────────────────────────────────────────────────────── */
+.expanded .imageViewport {
+  max-height: none;
+  height: auto;
+}
+
+.expanded .image {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.85;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.expandedControls {
+  display: flex;
+  justify-content: center;
+  padding: 12px 16px;
+  background: rgba(10, 15, 10, 0.95);
+  border-top: 1px solid rgba(160, 82, 45, 0.25);
+}
+
+.minimizeBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(22, 32, 25, 0.9);
+  border: 1px solid rgba(160, 82, 45, 0.4);
+  border-radius: 4px;
+  padding: 7px 16px;
+  color: var(--accent-gold);
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.minimizeBtn:hover {
+  background: rgba(160, 82, 45, 0.2);
+  border-color: var(--accent-rust);
+  color: var(--text-serif-cream);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 12px rgba(160, 82, 45, 0.3);
+  transform: translateY(-1px);
+}
+
+.minimizeBtn:focus-visible {
+  outline: 2px solid var(--accent-rust);
+  outline-offset: 2px;
+}
+
+/* ── Caption ────────────────────────────────────────────────────────────── */
+.figcaption {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.72rem;
+  color: var(--text-sans-slate);
+  letter-spacing: 0.06em;
+  opacity: 0.8;
+  padding-left: 4px;
+}
+
+/* ── Mobile Responsive ─────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .collapsed .imageViewport {
+    max-height: 190px;
+    height: 190px;
+  }
+
+  .fadeOverlay {
+    height: 100px;
+    padding-bottom: 12px;
+  }
+
+  .expandPrompt {
+    font-size: 0.65rem;
+    padding: 5px 10px;
+    letter-spacing: 1px;
+  }
+
+  .minimizeBtn {
+    font-size: 0.65rem;
+    padding: 6px 12px;
+    letter-spacing: 1px;
+  }
+}

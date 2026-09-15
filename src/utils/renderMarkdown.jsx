@@ -25,6 +25,43 @@
  * @param {string|null} text
  * @returns {JSX.Element[]|null}
  */
+import React from 'react';
+import ExpandableImage from '@/components/ui/ExpandableImage/ExpandableImage';
+
+// Glob all blog and asset images so markdown paths like "weeklySchedule.png" resolve cleanly
+const blogImagesGlob = import.meta.glob('@/data/blogPosts/blogImages/*.{png,jpg,jpeg,webp,svg}', {
+  eager: true,
+  import: 'default'
+});
+
+function resolveImageSrc(src) {
+  if (!src) return src;
+  // If already a resolved URL, data URI, or absolute path
+  if (
+    src.startsWith('http://') ||
+    src.startsWith('https://') ||
+    src.startsWith('data:') ||
+    src.startsWith('/src/') ||
+    src.startsWith('@/')
+  ) {
+    return src;
+  }
+
+  // Try matching against globbed blog images
+  const cleanName = src.replace(/^.*[\\/]/, '').toLowerCase();
+  for (const [path, moduleUrl] of Object.entries(blogImagesGlob)) {
+    const globFileName = path.replace(/^.*[\\/]/, '').toLowerCase();
+    if (
+      globFileName === cleanName ||
+      globFileName.replace(/\.[^.]+$/, '') === cleanName.replace(/\.[^.]+$/, '')
+    ) {
+      return moduleUrl;
+    }
+  }
+
+  return src;
+}
+
 export function renderMarkdown(text) {
   if (!text) return null;
 
@@ -190,9 +227,9 @@ export function renderMarkdown(text) {
         ? src.replace('PLACEHOLDER_', '').replace(/_/g, ' ')
         : null;
 
-      elements.push(
-        <figure key={i} className="md-figure">
-          {isPlaceholder ? (
+      if (isPlaceholder) {
+        elements.push(
+          <figure key={i} className="md-figure">
             <div className="md-img-placeholder">
               <div className="md-placeholder-inner">
                 <svg
@@ -214,19 +251,21 @@ export function renderMarkdown(text) {
                 </span>
               </div>
             </div>
-          ) : (
-            <img
-              src={src}
-              alt={caption}
-              className="md-img"
-              loading="lazy"
-            />
-          )}
-          {caption && (
-            <figcaption className="md-figcaption">{caption}</figcaption>
-          )}
-        </figure>
-      );
+            {caption && (
+              <figcaption className="md-figcaption">{caption}</figcaption>
+            )}
+          </figure>
+        );
+      } else {
+        elements.push(
+          <ExpandableImage
+            key={i}
+            src={resolveImageSrc(src)}
+            alt={caption}
+            caption={caption}
+          />
+        );
+      }
       i++; continue;
     }
 

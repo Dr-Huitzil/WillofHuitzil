@@ -3,6 +3,7 @@ import { obsidianPost } from './blogPosts/obsidianPost';
 import { apReplacementPost } from './blogPosts/apReplacementPost';
 import { schoolResumePost } from './blogPosts/schoolResumePost';
 import { firstWeekCSO } from './blogPosts/firstWeekCSO';
+import { strategiesOfGrowth } from './blogPosts/strategiesOfGrowth';
 
 export const blogPosts = [
   {
@@ -69,5 +70,18 @@ export const blogPosts = [
     tags: ['School', 'Computer Science', 'Online Learning', 'Reflections'],
     //imagePlaceholder: 'PLACEHOLDER_CSO_PROGRAM',
     content: firstWeekCSO
+  },
+  {
+    id: 6,
+    slug: 'strategies-of-growth',
+    title: 'Strategies of Growth',
+    summary: 'Reflections on the learning strategies with AI document provided by Dr. Tao , the importance of developing strong time and project management skills, capstone project reviews, and my thoughts on the second week in the Computer Science Online program.',
+    date: 'September 12, 2026',
+    author: 'Ivan Alier-Reyes',
+    views: 10,
+    readTime: '6 min read',
+    tags: ['School', 'Computer Science', 'Online Learning', 'Reflections'],
+    //imagePlaceholder: 'PLACEHOLDER_CSO_PROGRAM',
+    content: strategiesOfGrowth
   }
 ];
