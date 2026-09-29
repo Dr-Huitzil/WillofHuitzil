@@ -88,7 +88,6 @@ export const blogPosts = [
   {
     id: 7,
     slug: 'Bringing the future at the speed of light',
-    aliases: ['educational-and-career-goals', 'week-4-educational-and-career-goals', 'cst370-week-4', 'cst300-week-4'],
     title: 'Week 4: Educational & Career Goals',
     summary: 'Setting vivid goals in precision agriculture, navigating the leap from IT helpdesk to cybersecurity and pentesting, and reflections on intentional growth.',
     date: 'September 28, 2026',
