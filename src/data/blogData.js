@@ -4,6 +4,7 @@ import { apReplacementPost } from './blogPosts/apReplacementPost';
 import { schoolResumePost } from './blogPosts/schoolResumePost';
 import { firstWeekCSO } from './blogPosts/firstWeekCSO';
 import { strategiesOfGrowth } from './blogPosts/strategiesOfGrowth';
+import { week4LearningJournal } from './blogPosts/week4LearningJournal';
 
 export const blogPosts = [
   {
@@ -83,5 +84,18 @@ export const blogPosts = [
     tags: ['School', 'Computer Science', 'Online Learning', 'Reflections'],
     //imagePlaceholder: 'PLACEHOLDER_CSO_PROGRAM',
     content: strategiesOfGrowth
+  },
+  {
+    id: 7,
+    slug: 'Bringing the future at the speed of light',
+    aliases: ['educational-and-career-goals', 'week-4-educational-and-career-goals', 'cst370-week-4', 'cst300-week-4'],
+    title: 'Week 4: Educational & Career Goals',
+    summary: 'Setting vivid goals in precision agriculture, navigating the leap from IT helpdesk to cybersecurity and pentesting, and reflections on intentional growth.',
+    date: 'September 28, 2026',
+    author: 'Ivan Alier-Reyes',
+    views: 12,
+    readTime: '4 min read',
+    tags: ['School', 'Computer Science', 'Career Goals', 'Reflections'],
+    content: week4LearningJournal
   }
 ];

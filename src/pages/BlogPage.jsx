@@ -54,7 +54,7 @@ const BlogPage = () => {
   // Synchronize modal state with URL slug
   useEffect(() => {
     if (slug) {
-      const matched = blogPosts.find(p => p.slug === slug);
+      const matched = blogPosts.find(p => p.slug === slug || p.aliases?.includes(slug));
       if (matched) {
         setSelectedPost(matched);
       } else {
