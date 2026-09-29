@@ -87,8 +87,8 @@ export const blogPosts = [
   },
   {
     id: 7,
-    slug: 'Bringing the future at the speed of light',
-    title: 'Week 4: Educational & Career Goals',
+    slug: 'educational-and-professional-goals',
+    title: 'Bringing the future at the speed of light',
     summary: 'Setting vivid goals in precision agriculture, navigating the leap from IT helpdesk to cybersecurity and pentesting, and reflections on intentional growth.',
     date: 'September 28, 2026',
     author: 'Ivan Alier-Reyes',
