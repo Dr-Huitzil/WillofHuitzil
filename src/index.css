@@ -65,7 +65,7 @@
       75% 100%, 0% 100%);
 
   /* --- Ambient Texture Tokens --- */
-  --bg-texture-url: url('/textures/feathers-and-scales.png');
+  --bg-texture-url: url('/textures/feathers-and-scales.webp');
   --bg-texture-size: 550px auto;
   --bg-texture-opacity: 0.08;
   --bg-texture-blend-mode: normal;

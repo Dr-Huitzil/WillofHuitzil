@@ -13,8 +13,8 @@ import resumePDF from './resume/IvanAlier-Reyes(Resume).pdf';
 
 //images
 //projects
-import mindmeltHomePage from '../assets/images/mindMelt/mindMeltHomePage.png'
-import esteCosmosHomePage from '../assets/images/esteCosmos/esteCosmosHomePage.png'
+import mindmeltHomePage from '../assets/images/mindMelt/mindMeltHomePage.webp'
+import esteCosmosHomePage from '../assets/images/esteCosmos/esteCosmosHomePage.webp'
 
 //certs
 import secPlus from './certs/Security+.png'
