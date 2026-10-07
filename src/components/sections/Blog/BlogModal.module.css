@@ -389,6 +389,20 @@
   font-weight: 600;
 }
 
+/* Links */
+.longDescription :global(.md-link) {
+  color: var(--accent-teal-bright);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  word-break: break-all;
+  transition: var(--transition-fast);
+}
+
+.longDescription :global(.md-link:hover) {
+  color: var(--text-serif-cream);
+  text-shadow: 0 0 10px rgba(82, 183, 136, 0.5);
+}
+
 /* Inline code chips */
 .longDescription :global(.md-code) {
   font-family: 'Fira Code', monospace;

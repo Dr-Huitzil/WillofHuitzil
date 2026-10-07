@@ -5,6 +5,7 @@ import { schoolResumePost } from './blogPosts/schoolResumePost';
 import { firstWeekCSO } from './blogPosts/firstWeekCSO';
 import { strategiesOfGrowth } from './blogPosts/strategiesOfGrowth';
 import { week4LearningJournal } from './blogPosts/week4LearningJournal';
+import { week5LearningJournal } from './blogPosts/week5LearningJournal';
 
 export const blogPosts = [
   {
@@ -88,7 +89,7 @@ export const blogPosts = [
   {
     id: 7,
     slug: 'educational-and-professional-goals',
-    title: 'Bringing the future at the speed of light',
+    title: 'Bringing The Future At The Speed Of Light',
     summary: 'Setting vivid goals in precision agriculture, navigating the leap from IT helpdesk to cybersecurity and pentesting, and reflections on intentional growth.',
     date: 'September 28, 2026',
     author: 'Ivan Alier-Reyes',
@@ -96,5 +97,17 @@ export const blogPosts = [
     readTime: '4 min read',
     tags: ['School', 'Computer Science', 'Career Goals', 'Reflections'],
     content: week4LearningJournal
+  },
+  {
+    id: 8,
+    slug: 'la-magia-concedida',
+    title: 'La Magia Concedida',
+    summary: 'Supporting team member goals in video game development and cloud engineering, analyzing three capstone project blueprints, and reflecting on career growth and graduate studies.',
+    date: 'October 6, 2026',
+    author: 'Ivan Alier-Reyes',
+    views: 18,
+    readTime: '5 min read',
+    tags: ['School', 'Computer Science', 'Capstone', 'Reflections', 'Career Growth'],
+    content: week5LearningJournal
   }
 ];

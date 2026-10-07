@@ -69,15 +69,30 @@ export function renderMarkdown(text) {
   const elements = [];
   let i = 0;
 
-  // ── Inline: parse **bold** and `code` spans ────────────────────────────
+  // ── Inline: parse **bold**, `code`, and [link](url) spans ─────────────
   function parseBold(str) {
-    // Split on **bold** and `code` tokens in one pass
-    const parts = str.split(/(\*\*[^*]+\*\*|`[^`]+`)/g);
+    // Split on **bold**, `code`, and [text](url) tokens in one pass
+    const parts = str.split(/(\*\*[^*]+\*\*|`[^`]+`|\[[^\]]+\]\([^)]+\))/g);
     return parts.map((part, idx) => {
       if (/^\*\*[^*]+\*\*$/.test(part))
-        return <strong key={idx}>{part.slice(2, -2)}</strong>;
+        return <strong key={idx}>{parseBold(part.slice(2, -2))}</strong>;
       if (/^`[^`]+`$/.test(part))
         return <code key={idx} className="md-code">{part.slice(1, -1)}</code>;
+      const linkMatch = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+      if (linkMatch) {
+        const [, linkText, href] = linkMatch;
+        return (
+          <a
+            key={idx}
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="md-link"
+          >
+            {linkText}
+          </a>
+        );
+      }
       return part;
     });
   }
