@@ -39,7 +39,7 @@ I'd say that this week was a bit lackluster on my end in terms of new technical 
 Outside of school, I was proven time and time again that as a first-generation Hispanic in the tech industry, I must work five times as hard to even stand out. It is disappointing and heartbreaking to be rejected from jobs due to being "overqualified", especially when seeing people with a fraction of the education in those given positions simply because they knew someone. It is especially frustrating when one must clean up after their mess. But there is a positive to this: there is experience to be gained. Situations like these solidify my self-esteem and help me grow both in my job and as a person.
 
 ### Academic Ambitions & Career Choices
-Although it sits at the back of my mind, I would like to pursue a doctorate degree in either computer science or biology—or perhaps a niche combination of both, given the way technology is advancing. The possibilities are limitless when you realize and embrace the fact that there is only a finite amount of time to be alive. 
+Although it sits at the back of my mind, I would like to pursue a doctorate degree in either computer science or biology, or perhaps a niche combination of both, given the way technology is advancing. The possibilities are limitless when you realize and embrace the fact that there is only a finite amount of time to be alive. 
 
 At the same time, I struggle with a real career dilemma. I have thought of abandoning my job to chase after internships, but the fear of the unknown keeps me shackled to a company that provides me with what I want and more. It is so comfortable to have absolute freedom in a job that offers limited growth.
 
