@@ -1,15 +1,15 @@
 export const week5LearningJournal = `
 # Part One: Supporting my Teammates' Goals
 
-**Teammate 1: Christopher Martinez**
-* **Blog Post Link:** [Christopher's Week 4 Journal Entry](https://chriscsstudent.blogspot.com/2026/09/week-4.html)
-* **Educational & Career Goal:** My career goal is to use the skills I develop across my educational and professional work to develop a beloved video game.
-* **Feedback** There seems to be a lack of love being placed into video games that I believe you can provide. I think your goals can guide you through this path. I cannot wait to follow your journey and see how you can contribute something unique to the video game industry!
+**Teammate 1: Leana Zhazulin**
+* **Blog Post Link:** [Leana's Week 4 Journal Entry](https://lzweeklyjournal.blogspot.com/2026/09/week-4-learning-reflection-journal.html)
+* **Educational & Career Goal:** Become a cloud-focused Software Development Engineer in Test 
+* **Feedback** Your goal is very precise and falls in line with your professional experience. This degree will definitely open up more doors and opportunities for you to learn and to grow. You are close to achieving your goals but yours are unique in the way that these fields are in constant evolution, meaning you will have to adapt to that constant change and create new goals.
 
-**Teammate 2: Pedro Navarro Santos**
-* **Blog Post Link:** [Pedro's Week 4 Journal Entry](https://pedrocsumb.blogspot.com/2026/09/past-week-went-smoothly-for-me-because.html?sc=1791341542422#c8074466024399970836)
-* **Educational & Career Goal:** Transition into a cloud/systems engineer role.
-* **Feedback** Having read your interview, I now understand why you would like to transition into a cloud/systems engineer role. I think it is perfect that it is a clear and achievable middle to long term goal. I'd say you're on the best path possible to make it happen and really all that is left is to gain experience in those unexpected edge cases that would only happen at the end of a Friday shift.
+**Teammate 2: Hejun Zhang**
+* **Blog Post Link:** [Hejun's Week 4 Journal Entry](https://zhj7020.blogspot.com/2026/09/week-4-learning-journal.html)
+* **Educational & Career Goal:** Become a Limited Duty Officer (LDO) in the Navy 
+* **Feedback** Your career goals are very clear and concise middle to long term goals that can be achieved with determination and patience. You are doing great and I cant wait to follow your journey of growth.
 
 ---
 
