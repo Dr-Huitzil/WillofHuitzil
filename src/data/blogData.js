@@ -102,7 +102,7 @@ export const blogPosts = [
     id: 8,
     slug: 'la-magia-concedida',
     title: 'La Magia Concedida',
-    summary: 'Supporting team member goals in video game development and cloud engineering, analyzing three capstone project blueprints, and reflecting on career growth and graduate studies.',
+    summary: 'Supporting team member goals in the Navy and cloud engineering, analyzing three capstone project blueprints, and reflecting on career growth and graduate studies.',
     date: 'October 6, 2026',
     author: 'Ivan Alier-Reyes',
     views: 18,
