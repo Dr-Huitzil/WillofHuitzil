@@ -23,7 +23,9 @@ import secPlus from './certs/Security+.png'
 export const portfolioData = {
   profile: {
     name: "Ivan Alier-Reyes",
-    title: "IT SPECIALIST // CYBERSECURITY SPECIALIST",
+    title: "SYSTEMS AND SECURITY SPECIALIST // APPLIED COMPUTING",
+    tagline: "Bridging Enterprise Systems, Offensive Security & Applied Computing",
+    bio: "Computer Science undergraduate at CSUMB with a multidisciplinary foundation across science and engineering. Experienced in orchestrating automated clinical workstations deployment, administering AD/O365 environments, and deploying SIEM defenses. Transitioning applied infrastructure expertise into penetration testing and reverse engineering.",
     links: {
       github: "https://github.com/Dr-Huitzil",
       linkedin: "https://www.linkedin.com/in/ivan-alier-reyes",

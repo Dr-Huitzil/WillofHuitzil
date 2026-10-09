@@ -69,16 +69,13 @@ const Navbar = () => {
 
       <nav className={styles.navbar}>
       <div className={styles.navbarLeft}>
-        <div
+        <button
           className={styles.logoIcon}
           onClick={handleLogoClick}
-          role="button"
-          tabIndex={0}
-          style={{ cursor: 'pointer' }}
-          aria-label="Home"
+          aria-label="Navigate to top of home page"
         >
           <Leaf size={24} color="var(--accent-teal-bright)" strokeWidth={1.5} />
-        </div>
+        </button>
       </div>
 
       <div className={`${styles.navbarRight} ${isOpen ? styles.open : ''} mono-accent`}>

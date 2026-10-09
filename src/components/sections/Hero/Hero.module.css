@@ -1,56 +1,114 @@
 /* src/components/sections/Hero/Hero.module.css */
-
+ 
 .hero {
-  min-height: 80vh;
+  min-height: 85vh;
   display: flex;
   align-items: center;
   position: relative;
-  padding-top: 60px;
+  padding-top: 40px;
 }
 
 .heroContent {
-  max-width: 800px;
+  max-width: 900px;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--glass-bg-deep);
+  border: 1px solid var(--accent-teal-dim);
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 0 15px rgba(82, 183, 136, 0.1);
+}
+
+.badgeIcon {
+  color: var(--accent-teal-bright);
 }
 
 .heroTitle {
-  font-size: 7rem;
-  line-height: 0.9;
-  margin: 0 0 20px 0;
+  font-size: 6.5rem;
+  line-height: 0.92;
+  margin: 0 0 16px 0;
 }
 
 .heroSubtitle {
-  font-size: 1rem;
-  letter-spacing: 0.3em;
-  margin-bottom: 60px;
+  font-size: 0.95rem;
+  letter-spacing: 0.25em;
+  margin-bottom: 24px;
+  color: var(--accent-teal-bright);
 }
 
-.heroDescend {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
+.heroTagline {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.65rem;
+  font-weight: 500;
+  color: var(--text-serif-cream);
+  line-height: 1.35;
+  margin: 0 0 18px 0;
+  opacity: 0.95;
 }
 
-.descendLinks {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
-
-.descendLinks a {
+.heroBio {
+  font-size: 1.05rem;
+  line-height: 1.7;
   color: var(--text-sans-slate);
-  background: var(--bg-card);
-  border: 1px solid var(--accent-teal-dim);
-  padding: 12px;
-  border-radius: 4px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-bottom: 40px;
+  max-width: 820px;
 }
 
-.descendLinks a:hover {
+.heroActions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.ctaPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--accent-teal-bright);
+  color: #061109;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 12px 24px;
+  border-radius: 6px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+  box-shadow: 0 0 20px rgba(82, 183, 136, 0.35);
+}
+
+.ctaPrimary:hover {
+  background: #62d69e;
+  color: #040d07;
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(82, 183, 136, 0.6);
+}
+
+.ctaSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-card);
+  color: var(--text-serif-cream);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  padding: 12px 20px;
+  border-radius: 6px;
+  border: 1px solid var(--accent-teal-dim);
+  transition: color 0.25s ease, border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ctaSecondary:hover {
   color: var(--accent-teal-bright);
   border-color: var(--accent-teal-bright);
-  box-shadow: var(--glow-teal-soft);
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(82, 183, 136, 0.25);
 }
 
 @media (max-width: 1024px) {
@@ -59,15 +117,27 @@
     min-height: auto;
   }
   .heroTitle {
-    font-size: 3.5rem;
+    font-size: 3.8rem;
   }
   .heroSubtitle {
     font-size: 0.8rem;
     letter-spacing: 0.15em;
+    margin-bottom: 20px;
+  }
+  .heroTagline {
+    font-size: 1.35rem;
+  }
+  .heroBio {
+    font-size: 0.95rem;
     margin-bottom: 30px;
   }
-  .descendLinks {
-    flex-wrap: wrap;
+  .heroActions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .ctaPrimary,
+  .ctaSecondary {
     justify-content: center;
   }
 }
