@@ -14,6 +14,7 @@ const Timeline = ({ experience = [], certifications = [], education = [], profic
   const [selectedExperience, setSelectedExperience] = useState(null);
 
   const openImageModal = (item) => {
+    if (!item?.image) return;
     setSelectedImage({
       url: item.image,
       title: item.title || item.degree
@@ -51,7 +52,7 @@ const Timeline = ({ experience = [], certifications = [], education = [], profic
                   title={edu.degree}
                   subtitle={edu.school}
                   iconName={edu.icon}
-                  onClick={() => openImageModal(edu)}
+                  onClick={edu.image ? () => openImageModal(edu) : undefined}
                 />
               ))}
             </div>

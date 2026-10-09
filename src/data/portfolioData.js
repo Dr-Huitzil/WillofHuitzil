@@ -64,7 +64,7 @@ export const portfolioData = {
       description: "Orchestrated large-scale computer deployments via SmartDeploy and NinjaOne, automated provisioning with PowerShell, and provided critical on-site support across distributed clinical environments.",
       details: clinicaDeSaludDetails,
       longDescription: clinicaDeSaludLong,
-      image: "/path/to/csvs-hq.jpg"
+      image: null
     },
     {
       id: 2,
@@ -74,7 +74,7 @@ export const portfolioData = {
       description: "Administered AD user lifecycles and O365 tenant services while mitigating database disruptions and optimizing inventory tracking for enterprise supply chain operations.",
       details: proActDetails,
       longDescription: proActLong,
-      image: "/path/to/proact-hq.jpg"
+      image: null
     },
     {
       id: 3,
@@ -84,7 +84,7 @@ export const portfolioData = {
       description: "Deployed workstations, managed Active Directory/GPOs, and secured mobile devices via MDM while driving rapid incident resolution within organizational SLAs.",
       details: mannsFreshDetails,
       longDescription: mannsFreshLong,
-      image: "/path/to/mann-hq.jpg"
+      image: null
     },
     {
       id: 4,
@@ -94,7 +94,7 @@ export const portfolioData = {
       description: "Engineered robust network defenses, managed SIEM tools (Splunk), executed penetration testing, and authored disaster recovery initiatives to minimize organizational risk.",
       details: starphyreDetails,
       longDescription: starphyreLong,
-      image: "/path/to/starphyre-sec.jpg"
+      image: null
     }
   ],
   education: [
@@ -103,7 +103,7 @@ export const portfolioData = {
       degree: "B.S. Computer Science",
       school: "California State University, Monterey Bay",
       period: "Aug 2022 - Dec 2025",
-      image: "/path/to/csumb-logo.jpg",
+      image: "/csumb-logo.svg",
       icon: "Code"
     },
     {
@@ -111,7 +111,7 @@ export const portfolioData = {
       degree: "A.S. Computer Science | A.S. Biology | A.S. Physics",
       school: "Hartnell College",
       period: "2019 - 2025",
-      image: "/path/to/hartnell-logo.jpg",
+      image: null,
       icon: "BookOpen"
     }
   ],
