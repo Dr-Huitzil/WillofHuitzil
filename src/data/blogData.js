@@ -6,6 +6,7 @@ import { firstWeekCSO } from './blogPosts/firstWeekCSO';
 import { strategiesOfGrowth } from './blogPosts/strategiesOfGrowth';
 import { week4LearningJournal } from './blogPosts/week4LearningJournal';
 import { week5LearningJournal } from './blogPosts/week5LearningJournal';
+import { week6LearningJournal } from './blogPosts/week6LearningJournal';
 
 export const blogPosts = [
   {
@@ -109,5 +110,17 @@ export const blogPosts = [
     readTime: '5 min read',
     tags: ['School', 'Computer Science', 'Capstone', 'Reflections', 'Career Growth'],
     content: week5LearningJournal
+  },
+  {
+    id: 9,
+    slug: 'the-love-below',
+    title: 'The Love Below',
+    summary: 'My Week 6 learning journal covering our team’s capstone brainstorm session, in-depth reviews and personal thoughts on all 12 project proposals, weekly workplace learning, career guide takeaways, and our initial steps toward the final presentation.',
+    date: 'October 13, 2026',
+    author: 'Ivan Alier-Reyes',
+    views: 13,
+    readTime: '7 min read',
+    tags: ['School', 'Computer Science', 'Capstone', 'Reflections', 'Learning Journal'],
+    content: week6LearningJournal
   }
 ];
