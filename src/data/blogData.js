@@ -128,12 +128,12 @@ export const blogPosts = [
     id: 10,
     slug: 'humble-mumble',
     title: 'Humble Mumble',
-    summary: 'Week 7 learning journal covering our capstone video presentation division of labor, reflections on career identity, AI and the calculator paradigm, and writing Python scripts to stitch asset CSVs into an XLSX dashboard linked to Google Tasks.',
+    summary: 'Week 7 learning journal covering our capstone video presentation division of labor, reflections on career identity, AI and the calculator paradigm, reviews of Module 7 TED talks (cybersecurity and open-source agriculture), and writing Python scripts to stitch asset CSVs into an XLSX dashboard linked to Google Tasks.',
     date: 'October 20, 2026',
     author: 'Ivan Alier-Reyes',
     views: 1,
-    readTime: '4 min read',
-    tags: ['School', 'Computer Science', 'Work', 'Capstone', 'Reflections', 'AI', 'Python'],
+    readTime: '6 min read',
+    tags: ['School', 'Computer Science', 'Work', 'Capstone', 'Reflections', 'AI', 'Python', 'TED Talks'],
     content: week7LearningJournal
   }
 ];
