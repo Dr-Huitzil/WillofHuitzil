@@ -141,7 +141,7 @@ export const blogPosts = [
     id: 11,
     slug: 'a-thousand-unclimbed-trees',
     title: 'A Thousand Unclimbed Trees',
-    summary: 'Executive interview with IT veteran Vicente Magana exploring career progression over titles, the stark cybersecurity disparities between banking and healthcare, navigating AI adoption with foundational technical judgment, and cultivating long-term engineering authority.',
+    summary: 'Executive interview with IT veteran Vicente Magaña exploring career progression over titles, the stark cybersecurity disparities between banking and healthcare, navigating AI adoption with foundational technical judgment, and cultivating long-term engineering authority.',
     date: 'October 20, 2026',
     author: 'Ivan Alier-Reyes',
     views: 1,

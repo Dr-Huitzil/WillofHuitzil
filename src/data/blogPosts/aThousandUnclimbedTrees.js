@@ -1,7 +1,7 @@
 export const aThousandUnclimbedTrees = `
 # Part One: Introduction
 
-For this assignment, I conducted an in-depth interview with Vicente Magana, an IT executive. Prior to his current executive role in banking, he served as the IT Manager at Clinica de Salud del Valle de Salinas, where he built and supervised our information technology infrastructure and team.
+For this assignment, I conducted an in-depth interview with Vicente Magaña, an IT executive. Prior to his current executive role in banking, he served as the IT Manager at Clinica de Salud del Valle de Salinas, where he built and supervised our information technology infrastructure and team.
 
 I specifically selected him because of his unique cross-industry career path spanning agricultural software development, healthcare IT management, and community banking cybersecurity. As a CSUMB student pursuing a bachelor’s degree in software engineering while currently working as an IT technician in healthcare, I wanted to learn from someone who has successfully bridged the gap between hands-on systems troubleshooting and executive technology leadership. His direct experience navigating strict federal regulatory environments made him the ideal subject for exploring industry trends, cybersecurity realities, and long-term career growth.
 
