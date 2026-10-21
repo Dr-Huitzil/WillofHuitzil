@@ -8,6 +8,7 @@ import { week4LearningJournal } from './blogPosts/week4LearningJournal';
 import { week5LearningJournal } from './blogPosts/week5LearningJournal';
 import { week6LearningJournal } from './blogPosts/week6LearningJournal';
 import { week7LearningJournal } from './blogPosts/week7LearningJournal';
+import { aThousandUnclimbedTrees } from './blogPosts/aThousandUnclimbedTrees';
 
 export const blogPosts = [
   {
@@ -135,6 +136,18 @@ export const blogPosts = [
     readTime: '6 min read',
     tags: ['School', 'Computer Science', 'Work', 'Capstone', 'Reflections', 'AI', 'Python', 'TED Talks'],
     content: week7LearningJournal
+  },
+  {
+    id: 11,
+    slug: 'a-thousand-unclimbed-trees',
+    title: 'A Thousand Unclimbed Trees',
+    summary: 'Executive interview with IT veteran Vicente Magana exploring career progression over titles, the stark cybersecurity disparities between banking and healthcare, navigating AI adoption with foundational technical judgment, and cultivating long-term engineering authority.',
+    date: 'October 20, 2026',
+    author: 'Ivan Alier-Reyes',
+    views: 1,
+    readTime: '5 min read',
+    tags: ['School', 'Computer Science', 'Work', 'Interview', 'Cybersecurity', 'Reflections', 'Career Growth'],
+    content: aThousandUnclimbedTrees
   }
 ];
 
