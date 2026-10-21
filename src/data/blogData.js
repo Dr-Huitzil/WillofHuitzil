@@ -7,6 +7,7 @@ import { strategiesOfGrowth } from './blogPosts/strategiesOfGrowth';
 import { week4LearningJournal } from './blogPosts/week4LearningJournal';
 import { week5LearningJournal } from './blogPosts/week5LearningJournal';
 import { week6LearningJournal } from './blogPosts/week6LearningJournal';
+import { week7LearningJournal } from './blogPosts/week7LearningJournal';
 
 export const blogPosts = [
   {
@@ -122,5 +123,18 @@ export const blogPosts = [
     readTime: '7 min read',
     tags: ['School', 'Computer Science', 'Capstone', 'Reflections', 'Learning Journal'],
     content: week6LearningJournal
+  },
+  {
+    id: 10,
+    slug: 'humble-mumble',
+    title: 'Humble Mumble',
+    summary: 'Week 7 learning journal covering our capstone video presentation division of labor, reflections on career identity, AI and the calculator paradigm, and writing Python scripts to stitch asset CSVs into an XLSX dashboard linked to Google Tasks.',
+    date: 'October 20, 2026',
+    author: 'Ivan Alier-Reyes',
+    views: 1,
+    readTime: '4 min read',
+    tags: ['School', 'Computer Science', 'Work', 'Capstone', 'Reflections', 'AI', 'Python'],
+    content: week7LearningJournal
   }
 ];
+
