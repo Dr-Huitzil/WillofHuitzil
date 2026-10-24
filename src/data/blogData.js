@@ -9,6 +9,7 @@ import { week5LearningJournal } from './blogPosts/week5LearningJournal';
 import { week6LearningJournal } from './blogPosts/week6LearningJournal';
 import { week7LearningJournal } from './blogPosts/week7LearningJournal';
 import { aThousandUnclimbedTrees } from './blogPosts/aThousandUnclimbedTrees';
+import { week8LearningJournal } from './blogPosts/week8LearningJournal';
 
 export const blogPosts = [
   {
@@ -148,6 +149,17 @@ export const blogPosts = [
     readTime: '5 min read',
     tags: ['School', 'Computer Science', 'Work', 'Interview', 'Cybersecurity', 'Reflections', 'Career Growth'],
     content: aThousandUnclimbedTrees
+  },
+  {
+    id: 12,
+    slug: 'nature-v-nurture',
+    title: 'Nature v Nurture',
+    summary: 'Week 8 final learning journal reviewing Elevate Solutions Group video presentation on digital natives and troubleshooting, embedding our Smart Glasses capstone project, and reflections on team collaboration and course takeaways.',
+    date: 'October 24, 2026',
+    author: 'Ivan Alier-Reyes',
+    views: 1,
+    readTime: '6 min read',
+    tags: ['School', 'Computer Science', 'Capstone', 'Reflections', 'Teamwork', 'Peer Review', 'Presentation', 'Smart Glasses'],
+    content: week8LearningJournal
   }
 ];
-
