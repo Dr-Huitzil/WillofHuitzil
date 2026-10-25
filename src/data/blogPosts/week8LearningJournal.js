@@ -1,7 +1,7 @@
 export const week8LearningJournal = `
 # Part One: Review Other Teams' Final Video Projects
 
-## Review 1: Elevate Solutions Group
+## Elevate Solutions Group
 * Video Link: [Are Digital Natives Actually Better at Troubleshooting?](https://youtu.be/EbauPAhfgRQ)
 * Presenting Team: Elevate Solutions Group
 * Video Title: Are Digital Natives Actually Better at Troubleshooting?
@@ -26,62 +26,6 @@ Teamwork was clear throughout the presentation. Multiple members presented diffe
 
 ### 7. Is the video appropriate to the audience?
 The video fits both a general audience and a technical audience. The everyday explanations and definitions make the core ideas accessible to anyone interested in technology, while the CLI troubleshooting steps and research citations give it the depth expected by computer science students and IT professionals.
-
----
-
-## Review 2: Additional Team Review
-* Video Link: [Peer Video Link]
-* Presenting Team: [Team Name]
-* Video Title: [Video Title]
-
-### 1. Is the topic well covered?
-The presentation covers the technical problem statement, the system architecture, and real-world applications within their chosen focus area.
-
-### 2. Is the presentation clear?
-The delivery follows a coherent outline with clear transitions between problem definition, technical details, and conclusions.
-
-### 3. How is the quality of the research?
-The research includes reputable sources, technical references, and an honest look at practical trade-offs.
-
-### 4. How is the quality of the video production?
-The slides are legible, the audio narration is clear, and the pacing aligns well with the visual material.
-
-### 5. Is the video engaging and interesting?
-The team presents their subject with relatable examples and highlights why the problem matters today.
-
-### 6. Is the team work evident?
-Speaking roles are shared among group members, and the presentation feels unified across all segments.
-
-### 7. Is the video appropriate to the audience?
-The material is well suited for computer science peers and technology students.
-
----
-
-## Review 3: Additional Team Review
-* Video Link: [Peer Video Link]
-* Presenting Team: [Team Name]
-* Video Title: [Video Title]
-
-### 1. Is the topic well covered?
-The team provides a complete overview of their topic, addressing technical architecture, operational challenges, and potential future developments.
-
-### 2. Is the presentation clear?
-The structure is easy to follow, with clean slides and a steady spoken explanation.
-
-### 3. How is the quality of the research?
-The team backs their analysis with industry case studies, documentation, and relevant data points.
-
-### 4. How is the quality of the video production?
-Visual aids are focused, slide layouts are uncluttered, and audio volume remains consistent throughout.
-
-### 5. Is the video engaging and interesting?
-The project addresses a relevant technical challenge and keeps the audience focused on practical solutions.
-
-### 6. Is the team work evident?
-Division of labor is apparent through balanced narration and a cohesive structure.
-
-### 7. Is the video appropriate to the audience?
-The content hits the right balance for an audience of computing students and technical professionals.
 
 ---
 
