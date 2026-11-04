@@ -10,6 +10,7 @@ import { week6LearningJournal } from './blogPosts/week6LearningJournal';
 import { week7LearningJournal } from './blogPosts/week7LearningJournal';
 import { aThousandUnclimbedTrees } from './blogPosts/aThousandUnclimbedTrees';
 import { week8LearningJournal } from './blogPosts/week8LearningJournal';
+import { aConstellationInAssembly } from './blogPosts/aConstellationInAssembly';
 
 export const blogPosts = [
   {
@@ -161,5 +162,18 @@ export const blogPosts = [
     readTime: '6 min read',
     tags: ['School', 'Computer Science', 'Capstone', 'Reflections', 'Teamwork', 'Peer Review', 'Presentation', 'Smart Glasses'],
     content: week8LearningJournal
+  },
+  {
+    id: 13,
+    slug: 'a-constellation-in-assembly',
+    title: 'A Constellation in Assembly',
+    summary: 'My first week of CST 334 covering operating system foundations, OSTEP chapter two, computer architecture review, the Linux shell, programming in C, memory addressing, and reflections on virtualization.',
+    date: 'November 3, 2026',
+    author: 'Ivan Alier-Reyes',
+    views: 1,
+    readTime: '3 min read',
+    tags: ['School', 'Computer Science', 'CST 334', 'Operating Systems', 'Linux', 'C', 'Reflections', 'Learning Journal'],
+    aliases: ['journal-entry-week-1', 'journal-entry-week-1-30-minutes'],
+    content: aConstellationInAssembly
   }
 ];
