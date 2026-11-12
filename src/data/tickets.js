@@ -2,32 +2,49 @@
 
 export const ticketsData = [
   {
-    id: "SR-00009",
-    title: "FULLY Automate Computer Imaging and Deployment",
-    status: "Planning",
+    id: "SR-00010",
+    title: "Publish Sanitized Endpoint Automation Toolkit & Portfolio Sync",
+    status: "Working on...",
     category: "Automation",
     priority: "High",
-    updated: "05/19/2026",
-    description: "Designing a fully automated computer imaging and deployment system using NinjaOne for seamless workstation provisioning.",
+    updated: "11/11/2026",
+    description: "Packaging sanitized PowerShell provisioning scripts, AutoUnattend templates, and operational runbooks into a public GitHub portfolio alongside synchronized ATS/presentation resumes.",
     tasks: [
-      {
-        id: "1",
-        text: "Update current workflow to be fully automated and hands free",
-        completed: false,
-        completedAt: null,
-        subtasks: [
-          { id: "1", text: "Create FAT USB with autounattend in the root, Source / wim, and NinjaDeployment subdirectories", completed: false },
-          { id: "2", text: "Rename file directoy for deployment files to /$OEM$/$1/NinjaDeployment", completed: false },
-          { id: "3", text: "Update autounattend with ADK by modifying the FirstLogonCommands", completed: false },
-          { id: "4", text: "Driver injection with automated Setup.ps1 script that reads model name, finds matching folder, and injects drivers", completed: false },
-        ]
-      },
-      { id: "2", text: "Test with multiple models and make sure it works", completed: false, completedAt: null }
+      { id: "1", text: "Organize 170+ document Obsidian operations knowledge base", completed: true, completedAt: "11/10/2026" },
+      { id: "2", text: "Build sanitized windows-endpoint-automation-toolkit repo with PowerShell AST & leak verification", completed: true, completedAt: "11/11/2026" },
+      { id: "3", text: "Synchronize resumes, LinkedIn, GitHub profile README, and WillofHuitzil portfolio", completed: true, completedAt: "11/11/2026" },
+      { id: "4", text: "Push sanitized toolkit repository to GitHub", completed: false, completedAt: null }
     ],
     details: `
 ### Project Summary
-The goal of this project is to create a fully automated computer imaging and deployment system using NinjaOne. This will allow for seamless workstation provisioning without the need for manual intervention, streamlining the deployment process and improving efficiency.
-I suppose the other goal is to learn how to make this 100% automated and hands free since the recent iteration of my workflow has me click around a GUI repeatedly.
+Turning real-world multi-site systems administration and endpoint automation patterns into clean, sanitized, publicly inspectable engineering documentation and code.
+    `
+  },
+  {
+    id: "SR-00009",
+    title: "FULLY Automate Computer Imaging and Deployment",
+    status: "Completed",
+    category: "Automation",
+    priority: "High",
+    updated: "11/10/2026",
+    description: "Designed an unattended Windows 11 imaging and deployment workflow using NinjaOne RMM, AutoUnattend.xml, and modular PowerShell scripts across 18 facilities.",
+    tasks: [
+      {
+        id: "1",
+        text: "Update workflow to automated unattended provisioning",
+        completed: true,
+        completedAt: "11/10/2026",
+        subtasks: [
+          { id: "1", text: "Deploy AutoUnattend.xml 2-cycle auto-logon & AD domain join", completed: true },
+          { id: "2", text: "Configure NinjaOne object-oriented chassis policy inheritance", completed: true },
+          { id: "3", text: "Inject automated AppX debloat, BitLocker escrow, and location static IP scripts", completed: true }
+        ]
+      },
+      { id: "2", text: "Validate across Desktop, Laptop, and Operatory workstation fleets", completed: true, completedAt: "11/10/2026" }
+    ],
+    details: `
+### Project Summary
+Transitioned workstation provisioning to an unattended NinjaOne RMM pipeline backed by AutoUnattend.xml and 40+ PowerShell automation scripts, scaling across 500+ endpoints at 100% compliance.
     `
   },
   {
@@ -114,7 +131,7 @@ Since plants are also living, why not use AI in order to improve their livelyhoo
     status: "Working on...",
     category: "Security & Networking",
     priority: "High",
-    updated: "05/16/2026",
+    updated: "11/11/2026",
     description: "Deep diving into Cisco Networking systems, routing protocols, and enterprise infrastructure design for the Cisco CCNA exam.",
     tasks: [
       {

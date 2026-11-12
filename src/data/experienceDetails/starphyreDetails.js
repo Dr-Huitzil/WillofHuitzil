@@ -1,3 +1,4 @@
 export const starphyreDetails = [
-    "Engineered robust network defenses, managed SIEM tools (Splunk), executed penetration testing, and authored disaster recovery initiatives to minimize organizational risk."
-]
+  "Provided on-call physical hardware retrieval, equipment transport, and ad-hoc on-site client support.",
+  "Maintained flexible availability for field logistics alongside full-time undergraduate STEM and Computer Science studies."
+];

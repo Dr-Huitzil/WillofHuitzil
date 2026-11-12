@@ -1,8 +1,8 @@
 export const clinicaDeSaludDetails = [
-  "Architecting and maintaining secure network infrastructure for 10+ clinical locations.",
-  "Managing enterprise-level hardware deployments and medical software configurations.",
-  "Providing high-level technical support for mission-critical healthcare systems.",
-  "Optimizing cloud-based data synchronization for remote patient records.",
-  "Ensuring compliance with healthcare data security standards (HIPAA).",
-  "Automating routine system diagnostics to minimize clinical downtime."
+  "Supported the Windows 11 deployment and refresh of 500+ endpoints across 18 clinical and administrative facilities at 100% compliance.",
+  "Helped transition imaging pipelines from SmartDeploy to NinjaOne RMM via an object-oriented chassis policy inheritance model.",
+  "Authored 40+ PowerShell scripts automating AutoUnattend.xml debloat, BitLocker TPM+PIN escrow, Dell BIOS/NIC Wake-on-LAN, static IPs, and DISM RollupFix rollbacks.",
+  "Executed on-site switch upgrades across 18 locations, deployed 60 enterprise APs and IP phones, and connected Auvik SNMP alerts to scheduled NinjaOne cleanup.",
+  "Carried out HIPAA decommissioning (SSD extraction, Huntress EDR, AD offboarding) and Microsoft 365 license reconciliation audits.",
+  "Built and maintained a 170+ document Johnny.Decimal IT knowledge base in Obsidian covering SOPs, incident RCAs, and hardware baselines."
 ];

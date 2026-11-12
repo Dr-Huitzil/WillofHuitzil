@@ -1,67 +1,42 @@
 export const clinicaDeSaludLong = `
 # IT Technician — Clinica de Salud (CSVS) Case Study
 
-## The Mission
+## The Operational Scope
 
-The primary objective was a comprehensive modernization of the organization's hardware lifecycle and infrastructure. By engineering high-velocity deployment pipelines, I transitioned daily IT operations into an automated, high-availability system designed to support critical clinical workflows and patient care.
-
----
-
-## The Problem
-
-The legacy environment was characterized by high-friction, manual imaging workflows and significant licensing overhead. Physical networks suffered from disorganized "spaghetti" cabling at the patch panels, and aging hardware was rapidly approaching the end of its mandatory three-year compliance cycle, risking both operational stability and regulatory standing.
+Supporting enterprise IT operations across **18 clinical and administrative facilities** requires repeatable automation, strict HIPAA compliance, and clean documentation so both field deployments and remote administration scale reliably.
 
 ---
 
-## Strategic Initiatives
+## Key Infrastructure & Automation Initiatives
 
-### 1. RMM Architecture & Zero-Touch Deployment
-I spearheaded the migration of endpoint management to **NinjaOneRMM**, effectively sunsetting legacy deployment platforms. By engineering custom **Answer Files** and injecting debloating logic directly into **WIM files**, I established a hardware-agnostic imaging process that made expensive third-party licensing completely obsolete.
+### 1. RMM Migration & Object-Oriented Provisioning
+Helped transition workstation deployment pipelines from SmartDeploy to **NinjaOne RMM** using an **object-oriented chassis policy inheritance model** (staging devices under a universal base policy before routing Desktops, Laptops, Dental Operatory All-in-Ones, and Medical Carts into role-specific policies).
+- Engineered custom **\`AutoUnattend.xml\`** configurations with unattended domain join, local baseline accounts, and a 2-cycle auto-logon window so post-boot AppX debloating and OEM updates finalize unattended.
+- Cataloged **120+ Windows UWP/AppX packages** for controlled removal and component cleanup.
 
-### 2. 2025 Fleet Modernization Matrix
-I executed a massive organization-wide endpoint refresh, imaging and deploying **224 workstations** across distributed clinical sites. The project achieved a **100% validation rate**, ensuring the entire fleet met strict compliance standards for the current three-year longevity cycle.
+### 2. Fleet Modernization (500+ Endpoints)
+Supported the deployment and refresh of **500+ Windows 11 workstations** across all 18 clinical and administrative sites at a **100% compliance rate**, establishing a standardized 3-year hardware lifecycle and location-based naming convention.
 
-### 3. High-Availability Infrastructure & Telephony
-I managed the replacement of critical edge and core network switches across 10 locations, completing **71% of the total infrastructure scope**. This included a total overhaul of physical patch panel cabling and the deployment of updated IP telephony systems to ensure seamless clinical communication.
+### 3. Multi-Site Network, Wireless & Monitoring Operations
+- Executed physical switch upgrades across 18 clinic locations and deployed **60 enterprise wireless access points** and IP telephony hardware within a strict 30-day compliance deadline.
+- Connected **Auvik SNMP** 80%+ disk alerts to automated weekly NinjaOne cleanup routines, queried the **Cisco Meraki REST API**, isolated \`VLAN 200\` switchport mismatches via MDF toning, and documented dual-WAN carrier failover root-cause analyses.
 
----
-
-## Visual Evidence: Field Operations
-
-### Infrastructure Overhaul (Before & After)
-![Before and after of the patch panel reorganization and switch replacement](PLACEHOLDER_network_overhaul)
-
-### On-Site Troubleshooting & Deployment
-![On-site workstation deployment and system diagnostics in a clinical environment](PLACEHOLDER_field_ops)
+### 4. Security, Identity & Clinical Systems
+- Enforced HIPAA endpoint decommissioning (SSD extraction, **Huntress EDR** removal, Active Directory offboarding, and multi-seat Microsoft 365 license release).
+- Led periodic **Microsoft 365 license reconciliation audits** to prevent 10-seat shared activation evictions.
+- Supported a 15-host RDS farm, Omnissa Horizon VDI, NextGen EHR/EDR access, PCI payment terminal COM-port redirection, dental X-ray imaging, RingCentral/Algo SIP paging, and CDC VFC cold-chain Wi-Fi vaccine sensors on segmented IoT SSIDs.
 
 ---
 
-## Scripting & Automation Deep Dive
+## Sanitized PowerShell Automation Highlights
 
-To maintain a "Zero-Touch" environment, I developed a library of programmable payloads for NinjaOneRMM. These scripts handle everything from security hardening to silent application delivery.
+- **\`Enable-BitLockerWithEscrow.ps1\`**: Verifies network key escrow path, generates TPM 2.0 + PIN protectors, and timestamp-archives previous keys by BIOS serial number.
+- **\`Set-DellWakeOnLan.ps1\`**: Synchronizes 802.3 Ethernet NIC wake properties with Dell UEFI/BIOS ACPI power settings via \`DellBIOSProvider\`.
+- **\`Set-LocationStaticIP.ps1\`**: Dynamically maps site subnet, gateway, and DNS from RMM/JSON configs while aborting on active Wi-Fi to prevent dual-homing.
+- **\`Uninstall-WindowsCumulativeUpdate.ps1\`**: Isolates safe CBS \`RollupFix\` packages by KB number for targeted DISM update rollbacks.
+- **\`New-RestrictedScanSmbShare.ps1\`**: Strips NTFS inheritance, sets restricted ACLs, and removes \`Everyone\` access for secure network MFP scanning.
 
-**Featured Payload: \`debloat.ps1\`**
-\`\`\`powershell
-# Custom logic to strip telemetry and bloat from clinical WIM images
-Get-AppxPackage -AllUsers | Where-Object {$_.Name -match "Microsoft.Xbox|Zune|Bing"} | Remove-AppxPackage
-# Configure local telemetry keys to '0' for HIPAA compliance
-Set-ItemProperty -Path "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection" -Name "AllowTelemetry" -Value 0
-\`\`\`
-
-**Other Active Payloads:**
-- **\`ipChange.ps1\`**: Automated VLAN reassignment post-imaging.
-- **\`xrayFiles.ps1\`**: Diagnostic utility for verifying Dental X-ray sensor connectivity.
-- **\`localUser.ps1\`**: Secure local account provisioning for clinical kiosks.
-
----
-
-## Engineering Highlights
-
-- **Scale**: Provisioned and deployed **224 enterprise workstations** with a 100% validation rate.
-- **Efficiency**: Completely eliminated **SmartDeploy** licensing overhead by building a native WIM workflow.
-- **Reliability**: Upgraded core infrastructure across **10 out of 14 facilities**, significantly reducing network latency.
-- **Security**: Hardened physical site security by upgrading access card readers and internal sensor arrays.
-- **Innovation**: Decoupled user accounts from hardware using **Domain Admin service accounts** for secure SMB print/scan routing on Konica Minolta and HP devices.
+*(Sanitized reference implementations are published in [windows-endpoint-automation-toolkit](https://github.com/Dr-Huitzil/windows-endpoint-automation-toolkit).)*
 
 ---
 
@@ -69,9 +44,9 @@ Set-ItemProperty -Path "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataColle
 
 | Layer | Technology |
 |---|---|
-| **Automation** | PowerShell, WIM Customization, Answer Files |
-| **Management** | NinjaOneRMM, Active Directory, Group Policy (GPO) |
-| **Clinical Ecosystem** | NextGen EHR, Dental X-ray Sensors (DEXIS) |
-| **Infrastructure** | Cisco/HP Switching, IP Telephony (VoIP), Konica Minolta |
-
+| **Automation & OS** | PowerShell 5.1, Windows 11 WIM, AutoUnattend.xml, DISM, DellBIOSProvider |
+| **Management & Security** | NinjaOne RMM, Active Directory, Group Policy (GPO), BitLocker, Huntress EDR |
+| **Networking & Monitoring** | Cisco Catalyst 9200L, Cisco Meraki (REST API), Auvik SNMP, SonicWall, VLANs |
+| **Clinical & Identity** | Microsoft 365, NextGen EHR/EDR, Omnissa Horizon VDI, RDS, RingCentral VoIP |
+| **Documentation** | 170+ Document Johnny.Decimal Obsidian Knowledge Base |
 `;

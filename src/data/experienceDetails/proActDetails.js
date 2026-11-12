@@ -1,8 +1,6 @@
 export const proActDetails = [
-  "Optimized supply chain software interfaces for real-time logistics tracking.",
-  "Managed multi-site network connectivity and hardware redundancy.",
-  "Collaborated with cross-functional teams to resolve complex system bottlenecks.",
-  "Implemented automated reporting tools for inventory management.",
-  "Streamlined technical onboarding processes for new supply chain partners.",
-  "Developed custom troubleshooting protocols for proprietary logistics software."
+  "Administered 200+ Active Directory (AD) user accounts and Group Policy (GPO) objects to enforce security baselines.",
+  "Configured tenant-wide Microsoft 365 Multi-Factor Authentication (MFA), Data Loss Prevention (DLP) policies, and mail flow rules.",
+  "Resolved a critical SQL-driven customer order disruption by maintaining the ProSQL database and stabilizing FTP synchronizations.",
+  "Diagnosed and repaired workstation hardware (battery and display replacements) while streamlining IT asset inventory workflows."
 ];

@@ -12,7 +12,7 @@ This portfolio highlights my hands-on work across multiple disciplines, from lar
 
 *   **Verdant Odo**: A comprehensive fuel and efficiency tracking application built using React and Firebase, integrating an anomaly detection model powered by Edge Impulse.
 *   **Autonomous Smart Planter Grid**: An offline, 3x3 smart planter concept utilizing TinyML and ESP32 microcontrollers to monitor and maintain plant health autonomously.
-*   **Enterprise Infrastructure & Networking**: Documentation of large-scale operations, including a 224-machine computer refresh project and the reorganization and replacement of Cisco 2960 series network switches across 10 different facilities.
+*   **Enterprise Infrastructure & Automation**: Documentation of multi-site operations across 18 facilities, including 500+ Windows 11 endpoints deployed/refreshed, NinjaOne RMM migration, 40+ PowerShell automation scripts, and Cisco Meraki/Catalyst network upgrades.
 
 ## Design System & Aesthetics
 
@@ -53,7 +53,7 @@ Built with performance and clean component hierarchy in mind, utilizing:
 *   **Styling**: CSS Modules paired with global design tokens to maintain strict control over the custom Solarpunk color palette.
 *   **Iconography**: Lucide React for crisp, scalable vector icons.
 
-Currently expanding my foundational infrastructure knowledge through coursework at Lake Tahoe Community College and active pursuit of CCNA, CompTIA Linux+, and AZ-800 certifications.
+Currently holds **CompTIA Security+**, actively preparing for **Cisco CCNA**, and completing a **B.S. in Computer Science** at California State University, Monterey Bay (Expected Dec 2027).
 
 ## Core Architecture
 

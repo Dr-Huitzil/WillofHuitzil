@@ -1,31 +1,30 @@
 // src/data/portfolioData.js
+import { endpointToolkitDetails } from './projectDetails/endpointToolkit';
 import { esteCosmosDetails } from './projectDetails/esteCosmos';
 import { mindMeltDetails } from './projectDetails/mindMelt';
 import { clinicaDeSaludDetails } from './experienceDetails/clinicaDeSalud';
 import { clinicaDeSaludLong } from './experienceDetails/clinicaDeSaludLong';
 import { proActDetails } from './experienceDetails/proActDetails';
 import { proActLong } from './experienceDetails/proActLong';
-import { mannsFreshDetails } from './experienceDetails/mannsFreshDetails';
-import { mannsFreshLong } from './experienceDetails/mannsFreshLong';
 import { starphyreDetails } from './experienceDetails/starphyreDetails';
 import { starphyreLong } from './experienceDetails/starphyreLong';
 import resumePDF from './resume/IvanAlier-Reyes(Resume).pdf';
 
 //images
 //projects
-import mindmeltHomePage from '../assets/images/mindMelt/mindMeltHomePage.webp'
-import esteCosmosHomePage from '../assets/images/esteCosmos/esteCosmosHomePage.webp'
+import endpointToolkitPreview from '../assets/images/endpointToolkit/endpointToolkitPreview.svg';
+import mindmeltHomePage from '../assets/images/mindMelt/mindMeltHomePage.webp';
+import esteCosmosHomePage from '../assets/images/esteCosmos/esteCosmosHomePage.webp';
 
 //certs
-import secPlus from './certs/Security+.png'
-
+import secPlus from './certs/Security+.png';
 
 export const portfolioData = {
   profile: {
     name: "Ivan Alier-Reyes",
-    title: "SYSTEMS AND SECURITY SPECIALIST // APPLIED COMPUTING",
-    tagline: "Bridging Enterprise Systems, Offensive Security & Applied Computing",
-    bio: "Computer Science undergraduate at CSUMB with a multidisciplinary foundation across science and engineering. Experienced in orchestrating automated clinical workstations deployment, administering AD/O365 environments, and deploying SIEM defenses. Transitioning applied infrastructure expertise into penetration testing and reverse engineering.",
+    title: "SYSTEMS & ENDPOINT AUTOMATION // INFRASTRUCTURE & CS",
+    tagline: "Bridging Enterprise Infrastructure, Endpoint Automation & Applied Computing",
+    bio: "Computer Science student at CSUMB with a multi-STEM Associate foundation across Computer Science, Physics, Engineering, Mathematics, and Biology. Focused on multi-site healthcare IT operations, zero-touch Windows 11 provisioning, PowerShell automation, and full-stack/Edge ML software engineering.",
     links: {
       github: "https://github.com/Dr-Huitzil",
       linkedin: "https://www.linkedin.com/in/ivan-alier-reyes",
@@ -36,20 +35,31 @@ export const portfolioData = {
   projects: [
     {
       id: 1,
+      title: "Endpoint Automation Toolkit",
+      tags: ["PowerShell", "Windows 11", "AutoUnattend", "RMM"],
+      description: "Sanitized PowerShell 5.1+ provisioning suite, AutoUnattend.xml templates, BitLocker escrow tooling, DellBIOSProvider Wake-on-LAN, and multi-site network runbooks.",
+      longDescription: endpointToolkitDetails,
+      date: "2025 - Present",
+      imagePlaceholder: endpointToolkitPreview,
+      github: "https://github.com/Dr-Huitzil/windows-endpoint-automation-toolkit",
+      demo: null
+    },
+    {
+      id: 2,
       title: "Este Cosmos (Web)",
       tags: ["React", "Vite", "Edge Impulse", "Machine Learning"],
-      description: "A financial and diagnostic application designed to automate vehicle telemetry tracking and calculate net fiscal position utilizing machine learning models.",
+      description: "A financial and diagnostic application designed to automate vehicle telemetry tracking and calculate net fiscal position utilizing offline TinyML models.",
       longDescription: esteCosmosDetails,
-      date: "April 2026 - May 2026",
+      date: "April 2026 - Present",
       imagePlaceholder: esteCosmosHomePage,
       github: "https://github.com/Dr-Huitzil/este-cosmos-sandbox",
       demo: "https://estecosmos.netlify.app"
     },
     {
-      id: 2,
+      id: 3,
       title: "Mind Melt",
       tags: ["React", "Vite", "Firebase", "GCP"],
-      description: "A comprehensive multimedia production platform engineered with a modern web stack for content delivery and management.",
+      description: "A multimedia production platform built with React, Google Cloud Storage, and Firebase supporting multi-channel YouTube, podcast, and AV broadcast workflows.",
       longDescription: mindMeltDetails,
       date: "August 2022 - Present",
       imagePlaceholder: mindmeltHomePage,
@@ -63,7 +73,7 @@ export const portfolioData = {
       role: "IT Technician",
       company: "Clinica De Salud del Valle de Salinas (CSVS)",
       period: "May 2025 - Present",
-      description: "Orchestrated large-scale computer deployments via SmartDeploy and NinjaOne, automated provisioning with PowerShell, and provided critical on-site support across distributed clinical environments.",
+      description: "Supported the deployment and refresh of 500+ Windows 11 endpoints across 18 facilities, authored 40+ PowerShell automation scripts, executed multi-site network rollouts, and maintained a 170+ document internal IT knowledge base.",
       details: clinicaDeSaludDetails,
       longDescription: clinicaDeSaludLong,
       image: null
@@ -72,28 +82,18 @@ export const portfolioData = {
       id: 2,
       role: "IT & Office Support Specialist",
       company: "PRO*ACT",
-      period: "Jan 2025 - May 2025",
-      description: "Administered AD user lifecycles and O365 tenant services while mitigating database disruptions and optimizing inventory tracking for enterprise supply chain operations.",
+      period: "Dec 2024 - May 2025",
+      description: "Administered 200+ Active Directory and Microsoft 365 accounts (MFA, DLP, mail flow), resolved critical ProSQL/FTP order disruptions, and supported endpoint hardware repairs and asset tracking.",
       details: proActDetails,
       longDescription: proActLong,
       image: null
     },
     {
       id: 3,
-      role: "IT Desktop Support",
-      company: "Mann's Fresh Vegetables (Mann Packing Co.)",
-      period: "Aug 2024 - Nov 2024",
-      description: "Deployed workstations, managed Active Directory/GPOs, and secured mobile devices via MDM while driving rapid incident resolution within organizational SLAs.",
-      details: mannsFreshDetails,
-      longDescription: mannsFreshLong,
-      image: null
-    },
-    {
-      id: 4,
-      role: "Cyber Security Specialist",
+      role: "IT & Field Logistics Support (On-Call)",
       company: "Starphyre Digital Security Services",
-      period: "Mar 2022 - Aug 2024",
-      description: "Engineered robust network defenses, managed SIEM tools (Splunk), executed penetration testing, and authored disaster recovery initiatives to minimize organizational risk.",
+      period: "Mar 2022 - Dec 2024",
+      description: "Provided on-call physical hardware retrieval, equipment transport, and ad-hoc on-site client support on a flexible schedule while completing undergraduate STEM and Computer Science studies.",
       details: starphyreDetails,
       longDescription: starphyreLong,
       image: null
@@ -102,60 +102,56 @@ export const portfolioData = {
   education: [
     {
       id: 1,
-      degree: "B.S. Computer Science",
+      degree: "B.S. Computer Science (Expected Dec 2027)",
       school: "California State University, Monterey Bay",
-      period: "Aug 2022 - Dec 2025",
+      period: "May 2024 - Expected Dec 2027",
       image: "/csumb-logo.svg",
       icon: "Code"
     },
     {
       id: 2,
-      degree: "A.S. Computer Science | A.S. Biology | A.S. Physics",
-      school: "Hartnell College",
-      period: "2019 - 2025",
+      degree: "A.S. Physics | Engineering | Mathematics",
+      school: "Hartnell College (May 2025)",
+      period: "Mar 2024 - May 2025",
+      image: null,
+      icon: "Cpu"
+    },
+    {
+      id: 3,
+      degree: "A.S. Computer Science | Zoology/Biology",
+      school: "Hartnell College (May 2022)",
+      period: "Jun 2019 - May 2022",
       image: null,
       icon: "BookOpen"
+    },
+    {
+      id: 4,
+      degree: "Intermediate Android Development",
+      school: "CodePath (2023)",
+      period: "Feb 2023 - May 2023",
+      image: null,
+      icon: "Terminal"
     }
   ],
   certifications: [
     {
-      //   id: 1,
-      //   title: "Cisco CCNA",
-      //   subtitle: "CISCO SYSTEMS",
-      //   icon: "Network",
-      //   image: "/path/to/ccna-cert.jpg"
-      // },
       id: 1,
       title: "CompTIA Security+",
-      subtitle: "COMPTIA",
+      subtitle: "COMPTIA (ACTIVE)",
       icon: "ShieldCheck",
       image: secPlus
     }
-    // {
-    //   id: 3,
-    //   title: "CompTIA CySA+",
-    //   subtitle: "COMPTIA",
-    //   icon: "ShieldAlert",
-    //   image: "/path/to/cysa-cert.jpg"
-    // },
-    // {
-    //   id: 4,
-    //   title: "CompTIA Network+",
-    //   subtitle: "COMPTIA",
-    //   icon: "Globe",
-    //   image: "/path/to/netplus-cert.jpg"
-    // }
   ],
   proficiencies: [
-    "PowerShell Automation",
-    "Bash Scripting",
+    "PowerShell 5.1 Automation",
+    "Windows 11 (WIM / AutoUnattend)",
+    "NinjaOne RMM",
     "Active Directory / GPO",
-    "OS Deployment (WIM/Answer Files)",
-    "Endpoint Management (MDM/RMM)",
-    "JavaScript / React / Vite",
-    "Java & Python",
-    "SQL Database Mgmt",
-    "Network Routing / Cisco Configuration"
+    "Microsoft 365 & Identity Security",
+    "Cisco Catalyst / Meraki & Auvik",
+    "BitLocker & Endpoint Hardening",
+    "Obsidian Knowledge Architecture",
+    "React / Vite / Firebase / Python"
   ],
   publications: [
     {
