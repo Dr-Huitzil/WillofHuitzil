@@ -6,8 +6,8 @@ import { clinicaDeSaludDetails } from './experienceDetails/clinicaDeSalud';
 import { clinicaDeSaludLong } from './experienceDetails/clinicaDeSaludLong';
 import { proActDetails } from './experienceDetails/proActDetails';
 import { proActLong } from './experienceDetails/proActLong';
-import { starphyreDetails } from './experienceDetails/starphyreDetails';
-import { starphyreLong } from './experienceDetails/starphyreLong';
+import { mannsFreshDetails } from './experienceDetails/mannsFreshDetails';
+import { mannsFreshLong } from './experienceDetails/mannsFreshLong';
 import resumePDF from './resume/IvanAlier-Reyes(Resume).pdf';
 
 //images
@@ -90,12 +90,12 @@ export const portfolioData = {
     },
     {
       id: 3,
-      role: "IT & Field Logistics Support (On-Call)",
-      company: "Starphyre Digital Security Services",
-      period: "Mar 2022 - Dec 2024",
-      description: "Provided on-call physical hardware retrieval, equipment transport, and ad-hoc on-site client support on a flexible schedule while completing undergraduate STEM and Computer Science studies.",
-      details: starphyreDetails,
-      longDescription: starphyreLong,
+      role: "IT Desktop Support Technician",
+      company: "Mann's Fresh Vegetables (Mann Packing Co.)",
+      period: "Aug 2024 - Nov 2024",
+      description: "Deployed workstations, managed Active Directory/GPOs, and secured mobile devices via MDM while driving rapid incident resolution within organizational SLAs.",
+      details: mannsFreshDetails,
+      longDescription: mannsFreshLong,
       image: null
     }
   ],
