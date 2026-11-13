@@ -86,10 +86,10 @@ export const portfolioData = {
     {
       id: 5,
       title: "FRC Team 7777 Robotics",
-      tags: ["Java", "WPILib", "Robotics", "PID Control", "Odometry"],
-      description: "Autonomous robotics platform and subsystem control suite for FIRST Robotics Team 7777, featuring closed-loop PID velocity control, gyro odometry, and pneumatic interlocks.",
+      tags: ["Java", "WPILib", "Robsue 1-4", "PID Control", "Odometry"],
+      description: "Autonomous robotics platform and subsystem control suite for FIRST Robotics Team 7777, tracking the 4-year evolution of the robot across Robsue 1 through Robsue Act IV.",
       longDescription: roboticsDetails,
-      date: "2017 - 2020",
+      date: "2018 - 2022",
       imagePlaceholder: roboticsPreview,
       github: "https://github.com/Dr-Huitzil/Robotics",
       demo: null

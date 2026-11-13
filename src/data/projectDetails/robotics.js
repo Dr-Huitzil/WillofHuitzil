@@ -3,51 +3,47 @@ export const roboticsDetails = `
 
 ## What is it?
 
-The full autonomous robotics codebase and embedded subsystem control suite for **FIRST Robotics Competition (FRC) Team 7777**, built on Java and the WPILib robotics framework. 
+The complete multi-season autonomous robotics codebase and embedded subsystem control suite for **FIRST Robotics Competition (FRC) Team 7777**, built on Java and the WPILib robotics framework. 
 
-This project represents the genesis of a **decade-long systems builder journey**: programming an industrial competition robot solo at age 16 and maintaining, refining, and tuning its autonomous and teleoperated subsystems across three full competition seasons.
+This project documents a **decade-long systems builder journey**: programming an industrial competition robot solo at age 16 and maintaining, evolving, and architecting its software and sensor subsystems across four distinct competition seasons (**Robsue 1 → Robsue Act II → Robsue Act III → Robsue Act IV**).
 
 ---
 
-## Technical Architecture
+## The 4-Year Evolution of Robsue (2018 – 2022)
 
 \`\`\`text
-Robotics Subsystem Control (FRC Team 7777)
-├── Core Robot Architecture (TimedRobot / Subsystem-Command Pattern)
-├── Autonomous Pathing & State Machines (Encoder Odometry + Gyro Angle Correction)
-├── Closed-Loop PID Velocity Control (CAN Talon SRX / Spark MAX Motor Controllers)
-├── Pneumatics Control Module (Double Solenoid Intake & Shifter Actuators)
-└── Real-Time Telemetry & Driver Station Teleoperated Mapping
+Robotics Codebase Progression (Team 7777)
+├── Robsue 1      (Act I   - 2018-19): Bare chassis genesis, differential drive, manual OI controls
+├── Robsue Act II (Act II  - 2019-20): Command-Based modularity, pneumatic PCM solenoids, safety lockouts
+├── Robsue Act III(Act III - 2020-21): Sensor odometry, NavX gyro heading correction, autonomous paths
+└── Robsue Act IV (Act IV  - 2021-22): CAN bus Talon SRX, closed-loop PID velocity tuning, team handoff
 \`\`\`
 
----
+### 1. Robsue 1 — Genesis & Foundational Drivetrain (2018 – 2019)
+- Started from scratch at age 16 with bare aluminum, motor controllers, and no existing team software foundation.
+- Engineered base differential drivetrain kinematic calculations, Operator Interface (OI) joystick mapping, manual intake rollers, and elevator limit-switch safety logic using the WPILib TimedRobot architecture.
 
-## Core Engineering Highlights
+### 2. Robsue Act II — Modularity & Pneumatics Integration (2019 – 2020)
+- Refactored the entire codebase into the **Command-Based Architecture**, cleanly decoupling drivetrain kinematics from actuator commands.
+- Integrated the Pneumatics Control Module (PCM) to drive high-pressure double-solenoid intake and transmission shifters, implementing software interlocks to prevent mechanical jams during rapid teleoperated cycles.
 
-### 1. Autonomous Pathing & Gyro Alignment
-- Developed deterministic autonomous navigation routines using wheel encoders and NavX micro-gyroscope feedback.
-- Implemented real-time heading correction algorithms to compensate for mechanical wheel slip and drift during rapid field sprints.
+### 3. Robsue Act III — Sensor Odometry & Autonomous Navigation (2020 – 2021)
+- Implemented real-time sensor feedback combining high-resolution optical wheel encoders with a NavX-MXP micro-gyroscope.
+- Developed deterministic autonomous navigation routines with continuous heading angle correction, compensating for wheel slip, carpet friction, and physical chassis drift during full-speed field runs.
 
-### 2. Closed-Loop PID Velocity & Position Control
-- Tuned proportional-integral-derivative (PID) feedback loops on high-speed brushless motors to achieve millisecond-level target RPM stabilization on high-torque shooter and elevator mechanisms.
-- Engineered motion profiling algorithms to prevent mechanical shock and current spikes during abrupt acceleration.
-
-### 3. Subsystem Command Pattern
-- Structured code utilizing the modular Command-Based framework: cleanly decoupling drivetrain kinematics, pneumatic actuators, intake arms, and sensor listeners into independent, testable subsystems.
-- Implemented software safety lockouts to prevent simultaneous actuation of conflicting pneumatic mechanisms.
-
-### 4. Hardware Diagnostics & Field Triage
-- Diagnosed CAN bus communication drops, encoder noise, and electrical brownouts under intense competition conditions.
-- Iterated hardware wiring layouts and sensor placements alongside software deadband calibration to optimize driver controllability.
+### 4. Robsue Act IV — Closed-Loop PID Velocity & System Maturity (2021 – 2022)
+- Upgraded the electrical communication spine to an integrated CAN bus architecture utilizing Talon SRX and REV Spark MAX motor controllers.
+- Tuned closed-loop Proportional-Integral-Derivative (PID) velocity loops to achieve millisecond-level target RPM stabilization on high-speed flywheels (±15 RPM error margin).
+- Structured documentation and clean class abstractions to ensure seamless knowledge transfer and onboarding for the next generation of student programmers.
 
 ---
 
-## Long-Term Impact
+## Long-Term Systems Engineering Principles
 
-Maintaining this platform independently taught the fundamental systems principles that now inform my approach to enterprise IT, Linux systems, and cybersecurity:
-- **Resilience under failure**: Mechanical parts break; software must fail gracefully with explicit safety defaults.
-- **Signal vs. Noise**: Analog and digital sensor inputs require filtering and calibration before triggering mission-critical decisions.
-- **Deep Hardware-Software Integration**: Code is only as reliable as the physical signals, power rails, and buses running beneath it.
+Maintaining and evolving Robsue across four competition seasons established the core engineering intuition that now informs my approach to enterprise IT, Linux systems, and cybersecurity:
+- **Resilience Under Real-World Stress**: Hardware degrades and components fail; software must detect anomalies and fail gracefully with explicit safety defaults.
+- **Signal vs. Noise in Closed Loops**: Raw sensor data requires filtering, deadband calibration, and debouncing before executing autonomous decisions.
+- **Deep Hardware-Software Integration**: High-level code is only as reliable as the physical power distribution, CAN bus integrity, and sensor wiring beneath it.
 
 ---
 
@@ -55,8 +51,9 @@ Maintaining this platform independently taught the fundamental systems principle
 
 | Domain | Technology |
 |---|---|
-| **Programming Language** | Java (JDK 11 / WPILib Suite) |
-| **Robotics Hardware** | NI roboRIO, CAN Talon SRX, Spark MAX, NavX-MXP IMU |
-| **Control Theory** | PID Feedback Loops, Motion Profiling, Deadband Calibration |
-| **Subsystems** | Pneumatic Control Module (PCM), Optical Encoders, Dual-Motor Gearboxes |
+| **Programming Language** | Java (JDK 11 / WPILib Framework) |
+| **Robotics Hardware** | NI roboRIO, CAN Talon SRX, REV Spark MAX, NavX-MXP IMU |
+| **Control Theory** | Closed-Loop PID Velocity Loops, Motion Profiling, Gyro Odometry |
+| **Pneumatics & Sensors** | Pneumatics Control Module (PCM), Optical Encoders, Limit Switches |
+| **Code Evolution** | 4 Sequential Build Seasons (Robsue 1 → Robsue Act IV) |
 `;
