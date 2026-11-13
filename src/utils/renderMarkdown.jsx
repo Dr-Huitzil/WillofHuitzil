@@ -106,6 +106,31 @@ export function renderMarkdown(text) {
     const raw  = lines[i];
     const trimmed = raw.trim();
 
+    // ── Fenced Code Blocks (```lang ... ```) ──────────────────────────────
+    const codeBlockMatch = trimmed.match(/^```(\w+)?$/);
+    if (codeBlockMatch) {
+      const lang = codeBlockMatch[1] || '';
+      i++;
+      const codeLines = [];
+      while (i < lines.length && !lines[i].trim().startsWith('```')) {
+        codeLines.push(lines[i]);
+        i++;
+      }
+      i++; // consume closing ```
+
+      elements.push(
+        <div key={`code-${i}`} className="md-code-block-wrapper">
+          {lang && <span className="md-code-lang mono-accent">{lang.toUpperCase()}</span>}
+          <pre className="md-pre">
+            <code className={`md-code-block ${lang ? `language-${lang}` : ''}`}>
+              {codeLines.join('\n')}
+            </code>
+          </pre>
+        </div>
+      );
+      continue;
+    }
+
     // ── Custom fenced blocks :::blocktype ... ::: ─────────────────────────
     const fenceMatch = trimmed.match(/^:::(\w+)$/);
     if (fenceMatch) {

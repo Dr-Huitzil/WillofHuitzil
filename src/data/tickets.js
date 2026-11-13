@@ -2,22 +2,62 @@
 
 export const ticketsData = [
   {
-    id: "SR-00010",
-    title: "Publish Sanitized Endpoint Automation Toolkit & Portfolio Sync",
+    id: "SR-00012",
+    title: "Humble-Mumble Fleet Hygiene & Automated Remediation",
     status: "Working on...",
     category: "Automation",
     priority: "High",
-    updated: "11/11/2026",
-    description: "Packaging sanitized PowerShell provisioning scripts, AutoUnattend templates, and operational runbooks into a public GitHub portfolio alongside synchronized ATS/presentation resumes.",
+    updated: "11/13/2026",
+    description: "Developing a multi-source asset discrepancy engine reconciling NinjaOne RMM, Huntress EDR, and Active Directory DS with automated Google Tasks dispatch.",
+    tasks: [
+      { id: "1", text: "Ingest CSV and REST exports from NinjaOne, Huntress, and AD DS", completed: true, completedAt: "10/20/2026" },
+      { id: "2", text: "Build normalization and fuzzy-matching logic for hostnames and serial numbers", completed: true, completedAt: "10/20/2026" },
+      { id: "3", text: "Generate multi-tab formatted Excel audit workbook (.xlsx)", completed: true, completedAt: "11/05/2026" },
+      { id: "4", text: "Integrate Google Tasks API for automated technician follow-up dispatch", completed: false, completedAt: null },
+      { id: "5", text: "Deploy scheduled weekly cron runner with email exception reporting", completed: false, completedAt: null }
+    ],
+    details: `
+### Project Summary
+Developing an automated fleet reconciliation pipeline that eliminates console sprawl across 500+ endpoints. By cross-referencing Active Directory domain members against NinjaOne RMM agents and Huntress EDR sensors, the engine catches unmanaged endpoints, flags dormant records for HIPAA decommissioning, and automatically dispatches actionable tickets to technicians via Google Tasks.
+    `
+  },
+  {
+    id: "SR-00011",
+    title: "DoD SMART Scholarship Application & Defense Pipeline",
+    status: "Working on...",
+    category: "Career & Research",
+    priority: "High",
+    updated: "11/13/2026",
+    description: "Preparing civilian defense fellowship application, undergraduate academic transcripts, faculty recommendations, and facility alignment ahead of the Dec 4 deadline.",
+    tasks: [
+      { id: "1", text: "Draft comprehensive Statement of Purpose framing decade-long systems builder narrative", completed: true, completedAt: "11/12/2026" },
+      { id: "2", text: "Audit academic transcripts from CSUMB and Hartnell College", completed: true, completedAt: "11/12/2026" },
+      { id: "3", text: "Select target sponsoring facilities across Monterey Bay, Silicon Valley, and Northern Colorado", completed: true, completedAt: "11/13/2026" },
+      { id: "4", text: "Secure recommendation letters from CS faculty and IT engineering leadership", completed: false, completedAt: null },
+      { id: "5", text: "Submit final application package via smartscholarship.org portal", completed: false, completedAt: null }
+    ],
+    details: `
+### Objective
+Targeting the Department of Defense Science, Mathematics, and Research for Transformation (SMART) Scholarship to fund remaining B.S. in Computer Science coursework at CSUMB and transition directly into civilian defense engineering, cybersecurity, or national laboratory research (Sandia / LLNL).
+    `
+  },
+  {
+    id: "SR-00010",
+    title: "Publish Sanitized Endpoint Automation Toolkit & Portfolio Sync",
+    status: "Completed",
+    category: "Automation",
+    priority: "High",
+    updated: "11/13/2026",
+    description: "Packaged 45+ sanitized PowerShell provisioning scripts, AutoUnattend templates, and operational runbooks across 8 domains into a public GitHub repository.",
     tasks: [
       { id: "1", text: "Organize 170+ document Obsidian operations knowledge base", completed: true, completedAt: "11/10/2026" },
       { id: "2", text: "Build sanitized windows-endpoint-automation-toolkit repo with PowerShell AST & leak verification", completed: true, completedAt: "11/11/2026" },
       { id: "3", text: "Synchronize resumes, LinkedIn, GitHub profile README, and WillofHuitzil portfolio", completed: true, completedAt: "11/11/2026" },
-      { id: "4", text: "Push sanitized toolkit repository to GitHub", completed: false, completedAt: null }
+      { id: "4", text: "Push sanitized toolkit repository to GitHub (45+ scripts across 8 operational domains)", completed: true, completedAt: "11/13/2026" }
     ],
     details: `
 ### Project Summary
-Turning real-world multi-site systems administration and endpoint automation patterns into clean, sanitized, publicly inspectable engineering documentation and code.
+Turned real-world multi-site systems administration, unattended imaging, and endpoint automation patterns into clean, sanitized, publicly inspectable engineering documentation and code on GitHub.
     `
   },
   {
@@ -48,91 +88,13 @@ Transitioned workstation provisioning to an unattended NinjaOne RMM pipeline bac
     `
   },
   {
-    id: "SR-00008",
-    title: "Enhanced Personal Finance Tracker",
-    status: "Working on...",
-    category: "Finance",
-    priority: "Medium",
-    updated: "05/18/2026",
-    description: "Building a custom personal finance dashboard with advanced budgeting and investment tracking features.",
-    tasks: [
-      { id: "1", text: "Design dashboard layout and UI components", completed: true, completedAt: "05/10/2026" },
-      { id: "2", text: "Test out with my information and make sure it works", completed: false, completedAt: null },
-      { id: "3", text: "Implement advanced budgeting and forecasting features", completed: false, completedAt: null }
-    ],
-    details: `
-### Project Summary
-The goal of this project is to build a custom personal finance dashboard that provides advanced budgeting and investment tracking features. This will allow for better financial management and decision-making by providing insights into spending habits, budget adherence, and investment performance.
-    `
-  },
-  {
-    id: "SR-00007",
-    title: "Automatic Plant Irrigation and Monitoring",
-    status: "Planning",
-    category: "Research",
-    priority: "High",
-    updated: "05/17/2026",
-    description: "Researching and experimenting with AI and robotics technologies to be able to take care of houseplant or garden automation.",
-    tasks: [
-      {
-        id: "1",
-        text: "Purchase the following electrical components:",
-        completed: false,
-        completedAt: null,
-        subtasks: [
-          { text: "1x Raspberry Pi 5", completed: false },
-          { text: "1x ESP32 Microcontroller", completed: false },
-          { text: "Soil Moisture Sensor", completed: false },
-          { text: "EC Probe", completed: false },
-          { text: "BME280 Temp/Humidity Sensor", completed: false },
-          { text: "Relay Module", completed: false },
-          { text: "Tubing", completed: false },
-          { text: "Small Pump", completed: false }
-        ]
-      },
-      {
-        id: "2",
-        text: "Design the following items:",
-        completed: false,
-        completedAt: null,
-        subtasks: [
-          { text: "Planter box", completed: false },
-          { text: "Wiring diagram", completed: false },
-          { text: "3D modeled windmill blades", completed: false }
-        ]
-      },
-      {
-        id: "3",
-        text: "Purchase the following equipment:",
-        completed: false,
-        completedAt: null,
-        subtasks: [
-          { text: "2x2 wood planks", completed: false },
-          { text: "Plant seeds", completed: false },
-          { text: "3D Modeled assets", completed: false },
-          { text: "Jumper wires", completed: false },
-          { text: "Silicone tubing", completed: false }
-        ]
-      },
-      { id: "4", text: "Research and test with TinyML", completed: false, completedAt: null }
-    ],
-    details: `
-### Research
-I would like to take advantage of the high availability of AI in order to improve systems within my own home while also experimenting with the advancement of AI.
-Using the sensors, I would like to obtain as much information as possible regarding moisture, soil composition, and atmospheric conditions in order to build an automatic offline smart planter systm.
-The goal is to increase plant health thus fruit/vegetable production. 
-
-Since plants are also living, why not use AI in order to improve their livelyhood and their development.
-    `
-  },
-  {
     id: "SR-00006",
-    title: "CCNA Certification Preparation",
+    title: "Cisco CCNA Certification Preparation & Lab",
     status: "Working on...",
     category: "Security & Networking",
     priority: "High",
-    updated: "11/11/2026",
-    description: "Deep diving into Cisco Networking systems, routing protocols, and enterprise infrastructure design for the Cisco CCNA exam.",
+    updated: "11/13/2026",
+    description: "Deep diving into Cisco Networking systems, routing protocols, VLAN trunking, and enterprise infrastructure design for the Cisco CCNA 200-301 exam.",
     tasks: [
       {
         id: "1",
@@ -140,7 +102,7 @@ Since plants are also living, why not use AI in order to improve their livelyhoo
         completed: true,
         completedAt: "05/01/2026",
         subtasks: [
-          { text: "IPv4/IPv6 subnetting", completed: true }
+          { text: "IPv4/IPv6 subnetting & CIDR", completed: true }
         ]
       },
       {
@@ -149,96 +111,82 @@ Since plants are also living, why not use AI in order to improve their livelyhoo
         completed: true,
         completedAt: "05/08/2026",
         subtasks: [
-          { text: "VLANs", completed: true },
-          { text: "Trunking", completed: true },
-          { text: "STP", completed: true }
+          { text: "VLANs & 802.1Q Trunking", completed: true },
+          { text: "Spanning Tree Protocol (STP / RSTP)", completed: true },
+          { text: "EtherChannel (LACP)", completed: true }
         ]
       },
       {
         id: "3",
-        text: "Study IP Connectivity:",
+        text: "Study IP Connectivity & Routing:",
         completed: false,
         completedAt: null,
         subtasks: [
-          { text: "OSPFv2", completed: false },
-          { text: "Static routing", completed: false }
+          { text: "Single-area OSPFv2 configuration & verification", completed: false },
+          { text: "Floating static routes & default gateway redundancy", completed: false }
         ]
       },
       {
         id: "4",
-        text: "Study IP Services:",
+        text: "Study IP Services & Network Security:",
         completed: false,
         completedAt: null,
         subtasks: [
-          { text: "NAT", completed: false },
-          { text: "DHCP", completed: false },
-          { text: "NTP", completed: false },
-          { text: "QoS", completed: false }
+          { text: "NAT / PAT pools", completed: false },
+          { text: "DHCP snooping & ARP inspection", completed: false },
+          { text: "Standard & Extended IPv4 ACLs", completed: false }
         ]
       },
       {
         id: "5",
-        text: "Master Security Fundamentals:",
+        text: "Master Network Automation & Programmability:",
         completed: false,
         completedAt: null,
         subtasks: [
-          { text: "ACLs", completed: false },
-          { text: "Port Security", completed: false }
-        ]
-      },
-      {
-        id: "6",
-        text: "Study Automation:",
-        completed: false,
-        completedAt: null,
-        subtasks: [
-          { text: "REST APIs", completed: false },
-          { text: "Ansible", completed: false },
-          { text: "JSON structures", completed: false }
+          { text: "Cisco DNA Center & Meraki REST APIs", completed: false },
+          { text: "JSON / YAML data structures", completed: false }
         ]
       }
     ],
     details: `
 ### Certification Goal
-Master IP routing, security architectures, network automation, and switching fundamentals to obtain the Cisco CCNA credential.
+Master enterprise IP routing, switching architectures, wireless infrastructure, and network programmability to obtain the Cisco CCNA credential, cementing the Layer 2 foundation of the 3-layer cybersecurity progression.
     `
   },
   {
     id: "SR-00005",
-    title: "Media Portfolio Addition",
-    status: "Planning",
+    title: "Mind Melt Multimedia Platform",
+    status: "Completed",
     category: "Frontend Dev",
     priority: "Medium",
-    updated: "05/15/2026",
-    description: "Designing and developing a dedicated Y2K visual showcase section for high-resolution media projects.",
+    updated: "09/15/2026",
+    description: "Built an interactive Windows XP desktop OS simulation in React for multimedia broadcast distribution and audio archiving.",
     tasks: [
-      { id: "1", text: "Purchase photography portfolio domain", completed: false, completedAt: null },
-      { id: "2", text: "Design interactive light-box grid layout", completed: false, completedAt: null },
-      { id: "3", text: "Optimize high-resolution asset compression pipeline", completed: false, completedAt: null },
-      { id: "4", text: "Implement blur-hash lazy loading placeholders", completed: false, completedAt: null }
+      { id: "1", text: "Design desktop window manager and taskbar", completed: true, completedAt: "05/10/2024" },
+      { id: "2", text: "Integrate Google Cloud Storage and Firebase v12 backend", completed: true, completedAt: "01/30/2026" },
+      { id: "3", text: "Build skinnable Winamp-style audio player with LCD marquee", completed: true, completedAt: "05/15/2026" }
     ],
     details: `
 ### Objective
-To build a stunning, performant media showcase sub-page which will include videos and photography projects as well as vector assets 
+Built a full Windows XP-style interactive web application supporting student art, radio broadcasts, and multitrack podcast archives.
     `
   },
   {
     id: "SR-00004",
-    title: "Este Cosmos Mobile State Refactor",
-    status: "Planning",
+    title: "Este Cosmos Vehicle Telemetry Web App",
+    status: "Completed",
     category: "Architecture",
     priority: "High",
     updated: "05/14/2026",
-    description: "Migrating the monolithic state management tree of the vehicle tracking system into modular React Contexts.",
+    description: "Deployed vehicle fuel telemetry and offline TinyML anomaly forecasting application with React and WebAssembly.",
     tasks: [
       { id: "1", text: "Create Web application prototype", completed: true, completedAt: "04/21/2026" },
-      { id: "2", text: "Create vector assets", completed: false, completedAt: null },
-      { id: "3", text: "Set up the Kotlin environment", completed: false, completedAt: null },
-      { id: "4", text: "Rebuild the react web app to a kotlin native app", completed: false, completedAt: null }
+      { id: "2", text: "Integrate Edge Impulse TinyML WebAssembly anomaly model", completed: true, completedAt: "05/01/2026" },
+      { id: "3", text: "Deploy production build to Netlify (estecosmos.netlify.app)", completed: true, completedAt: "05/14/2026" }
     ],
     details: `
 ### Architecture Outline
-Create a native Android application I can use offline on my own personal device
+Engineered a client-side telemetry analysis tool capable of calculating net fuel reimbursements and scoring efficiency anomalies in the browser without server dependency.
     `
   },
   {
@@ -293,40 +241,6 @@ To build a stunning, performant portfolio website that effectively displays my c
     details: `
 ### Project Summary
 Successfully automated system provisioning routines for deploying medical workstations hands-free.
-    `
-  },
-  {
-    id: "SR-00000",
-    title: "Mind Melt Website",
-    status: "Completed",
-    category: "Front End",
-    priority: "High",
-    updated: "01/30/2026",
-    description: "The website for the multimedia brand Mind Melt",
-    tasks: [
-      {
-        id: "1",
-        text: "Purchase the domain",
-        completed: true,
-        completedAt: "05/10/2024",
-      },
-      {
-        id: "2",
-        text: "Design retro Windows aesthetic",
-        completed: true,
-        completedAt: "05/10/2024",
-      },
-      {
-        id: "3",
-        text: "Add all of the information and mock applications to the website",
-        completed: true,
-        completedAt: "01/30/2026",
-      }
-    ],
-    details: `
-### Project Summary
-My friends and I run a brand called Mind Melt and we wanted to create a website that would allow us to showcase all of our projects all withtin one single place
-
     `
   }
 ];

@@ -1,6 +1,8 @@
 // src/data/portfolioData.js
 import { endpointToolkitDetails } from './projectDetails/endpointToolkit';
+import { humbleMumbleDetails } from './projectDetails/humbleMumble';
 import { esteCosmosDetails } from './projectDetails/esteCosmos';
+import { roboticsDetails } from './projectDetails/robotics';
 import { mindMeltDetails } from './projectDetails/mindMelt';
 import { clinicaDeSaludDetails } from './experienceDetails/clinicaDeSalud';
 import { clinicaDeSaludLong } from './experienceDetails/clinicaDeSaludLong';
@@ -12,9 +14,11 @@ import resumePDF from './resume/IvanAlier-Reyes(Resume).pdf';
 
 //images
 //projects
-import endpointToolkitPreview from '../assets/images/endpointToolkit/endpointToolkitPreview.svg';
 import mindmeltHomePage from '../assets/images/mindMelt/mindMeltHomePage.webp';
 import esteCosmosHomePage from '../assets/images/esteCosmos/esteCosmosHomePage.webp';
+import humbleMumblePreview from '../assets/images/humbleMumble/humbleMumblePreview.svg';
+import endpointToolkitPreview from '../assets/images/endpointToolkit/endpointToolkitPreview.svg';
+import roboticsPreview from '../assets/images/robotics/roboticsPreview.svg';
 
 //certs
 import secPlus from './certs/Security+.png';
@@ -23,8 +27,8 @@ export const portfolioData = {
   profile: {
     name: "Ivan Alier-Reyes",
     title: "SYSTEMS & ENDPOINT AUTOMATION // INFRASTRUCTURE & CS",
-    tagline: "Bridging Enterprise Infrastructure, Endpoint Automation & Applied Computing",
-    bio: "Computer Science student at CSUMB with a multi-STEM Associate foundation across Computer Science, Physics, Engineering, Mathematics, and Biology. Focused on multi-site healthcare IT operations, zero-touch Windows 11 provisioning, PowerShell automation, and full-stack/Edge ML software engineering.",
+    tagline: "Bridging Enterprise Infrastructure, Automation & Applied Computing",
+    bio: "Computer Science student at CSUMB with a multi-STEM foundation, building reliable systems from enterprise IT operations to edge software.",
     links: {
       github: "https://github.com/Dr-Huitzil",
       linkedin: "https://www.linkedin.com/in/ivan-alier-reyes",
@@ -35,14 +39,14 @@ export const portfolioData = {
   projects: [
     {
       id: 1,
-      title: "Endpoint Automation Toolkit",
-      tags: ["PowerShell", "Windows 11", "AutoUnattend", "RMM"],
-      description: "Sanitized PowerShell 5.1+ provisioning suite, AutoUnattend.xml templates, BitLocker escrow tooling, DellBIOSProvider Wake-on-LAN, and multi-site network runbooks.",
-      longDescription: endpointToolkitDetails,
-      date: "2025 - Present",
-      imagePlaceholder: endpointToolkitPreview,
-      github: "https://github.com/Dr-Huitzil/windows-endpoint-automation-toolkit",
-      demo: null
+      title: "Mind Melt",
+      tags: ["React", "Vite", "Firebase", "GCP"],
+      description: "A multimedia production platform built with React, Google Cloud Storage, and Firebase supporting multi-channel YouTube, podcast, and AV broadcast workflows.",
+      longDescription: mindMeltDetails,
+      date: "August 2022 - Present",
+      imagePlaceholder: mindmeltHomePage,
+      github: "https://github.com/Dr-Huitzil/mind_melt_me",
+      demo: "https://mindmelt.org"
     },
     {
       id: 2,
@@ -57,14 +61,36 @@ export const portfolioData = {
     },
     {
       id: 3,
-      title: "Mind Melt",
-      tags: ["React", "Vite", "Firebase", "GCP"],
-      description: "A multimedia production platform built with React, Google Cloud Storage, and Firebase supporting multi-channel YouTube, podcast, and AV broadcast workflows.",
-      longDescription: mindMeltDetails,
-      date: "August 2022 - Present",
-      imagePlaceholder: mindmeltHomePage,
-      github: "https://github.com/Dr-Huitzil/mind_melt_me",
-      demo: "https://mindmelt.org"
+      title: "Humble-Mumble",
+      tags: ["Python", "PowerShell", "NinjaOne RMM", "Huntress EDR", "Active Directory"],
+      description: "Enterprise fleet hygiene & reconciliation engine cross-referencing NinjaOne RMM, Huntress EDR, and Active Directory to catch orphaned assets and dispatch automated Google Tasks.",
+      longDescription: humbleMumbleDetails,
+      date: "2026 - Present",
+      imagePlaceholder: humbleMumblePreview,
+      github: "https://github.com/Dr-Huitzil/Humble-Mumble",
+      demo: null
+    },
+    {
+      id: 4,
+      title: "Endpoint Automation Toolkit",
+      tags: ["PowerShell", "Windows 11", "AutoUnattend", "RMM"],
+      description: "Sanitized suite of 45+ PowerShell 5.1+ scripts, AutoUnattend.xml OOBE templates, BitLocker TPM+PIN escrow, and multi-site IT runbooks across 8 operational domains.",
+      longDescription: endpointToolkitDetails,
+      date: "2025 - Present",
+      imagePlaceholder: endpointToolkitPreview,
+      github: "https://github.com/Dr-Huitzil/windows-endpoint-automation-toolkit",
+      demo: null
+    },
+    {
+      id: 5,
+      title: "FRC Team 7777 Robotics",
+      tags: ["Java", "WPILib", "Robotics", "PID Control", "Odometry"],
+      description: "Autonomous robotics platform and subsystem control suite for FIRST Robotics Team 7777, featuring closed-loop PID velocity control, gyro odometry, and pneumatic interlocks.",
+      longDescription: roboticsDetails,
+      date: "2017 - 2020",
+      imagePlaceholder: roboticsPreview,
+      github: "https://github.com/Dr-Huitzil/Robotics",
+      demo: null
     }
   ],
   experience: [
@@ -90,10 +116,10 @@ export const portfolioData = {
     },
     {
       id: 3,
-      role: "IT Desktop Support Technician",
+      role: "IT Desktop Support Technician (Contract)",
       company: "Mann's Fresh Vegetables (Mann Packing Co.)",
       period: "Aug 2024 - Nov 2024",
-      description: "Deployed workstations, managed Active Directory/GPOs, and secured mobile devices via MDM while driving rapid incident resolution within organizational SLAs.",
+      description: "Managed Active Directory accounts, Group Policy Objects, new-hire workstation imaging, and mobile device security via MDM while driving incident resolution within SLAs.",
       details: mannsFreshDetails,
       longDescription: mannsFreshLong,
       image: null
@@ -143,15 +169,17 @@ export const portfolioData = {
     }
   ],
   proficiencies: [
-    "PowerShell 5.1 Automation",
+    "PowerShell 5.1+ Automation",
     "Windows 11 (WIM / AutoUnattend)",
-    "NinjaOne RMM",
-    "Active Directory / GPO",
-    "Microsoft 365 & Identity Security",
+    "NinjaOne RMM & Policy Routing",
+    "Active Directory & Group Policy",
+    "Huntress EDR & Endpoint Security",
+    "Microsoft 365 & Identity Hardening",
     "Cisco Catalyst / Meraki & Auvik",
-    "BitLocker & Endpoint Hardening",
+    "BitLocker TPM 2.0 & Key Escrow",
+    "Python Fleet Hygiene (Humble-Mumble)",
     "Obsidian Knowledge Architecture",
-    "React / Vite / Firebase / Python"
+    "React / Vite / Firebase / GCP"
   ],
   publications: [
     {

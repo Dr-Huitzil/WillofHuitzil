@@ -1,8 +1,5 @@
 export const mannsFreshDetails = [
-  "Resolved 500+ technical support tickets with a 95% satisfaction rate.",
-  "Configured and deployed ruggedized mobile devices for field operations.",
-  "Maintained secure VPN tunnels for remote employees in low-bandwidth areas.",
-  "Assisted in large-scale system migrations and hardware upgrades.",
-  "Provided emergency on-site technical assistance during peak harvest cycles.",
-  "Optimized local server performance for faster data entry in field offices."
+  "Managed Active Directory (AD) user account lifecycles and Group Policy Objects (GPOs) to enforce operational and security baselines.",
+  "Engineered new-hire workstation imaging and configured mobile device security policies via Mobile Device Management (MDM).",
+  "Diagnosed and resolved desktop, laptop, printer, and network connectivity incidents across on-site operations within strict SLAs."
 ];

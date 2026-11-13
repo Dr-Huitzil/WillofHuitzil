@@ -8,7 +8,7 @@
 .backdrop {
   position: fixed;
   inset: 0;
-  background: var(--glass-bg-deep);
+  background: rgba(5, 9, 6, 0.88);
   backdrop-filter: var(--modal-blur, blur(20px));
   -webkit-backdrop-filter: var(--modal-blur, blur(20px));
   display: flex;
