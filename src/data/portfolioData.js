@@ -1,5 +1,6 @@
 // src/data/portfolioData.js
 import { endpointToolkitDetails } from './projectDetails/endpointToolkit';
+import { endpointScripts } from './projectDetails/endpointScripts';
 import { humbleMumbleDetails } from './projectDetails/humbleMumble';
 import { esteCosmosDetails } from './projectDetails/esteCosmos';
 import { roboticsDetails } from './projectDetails/robotics';
@@ -76,6 +77,7 @@ export const portfolioData = {
       tags: ["PowerShell", "Windows 11", "AutoUnattend", "RMM"],
       description: "Sanitized suite of 45+ PowerShell 5.1+ scripts, AutoUnattend.xml OOBE templates, BitLocker TPM+PIN escrow, and multi-site IT runbooks across 8 operational domains.",
       longDescription: endpointToolkitDetails,
+      scripts: endpointScripts,
       date: "2025 - Present",
       imagePlaceholder: endpointToolkitPreview,
       github: "https://github.com/Dr-Huitzil/windows-endpoint-automation-toolkit",

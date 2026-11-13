@@ -1,0 +1,338 @@
+/* src/components/sections/Projects/ScriptExplorer/ScriptExplorer.module.css */
+
+.explorerContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+/* ── Script Selector Bar ─────────────────────────────────────────────── */
+.selectorBar {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(82, 183, 136, 0.3) transparent;
+}
+
+.selectorBar::-webkit-scrollbar {
+  height: 4px;
+}
+
+.selectorBar::-webkit-scrollbar-thumb {
+  background: rgba(82, 183, 136, 0.3);
+  border-radius: 2px;
+}
+
+.scriptTab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: rgba(14, 22, 15, 0.7);
+  border: 1px solid rgba(82, 183, 136, 0.2);
+  border-radius: 6px;
+  color: var(--text-sans-slate);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.78rem;
+  flex-shrink: 0;
+}
+
+.scriptTab:hover {
+  background: rgba(82, 183, 136, 0.12);
+  border-color: rgba(82, 183, 136, 0.4);
+  color: var(--text-serif-cream);
+  transform: translateY(-1px);
+}
+
+.scriptTabActive {
+  background: rgba(82, 183, 136, 0.18) !important;
+  border-color: var(--accent-teal-bright) !important;
+  color: var(--accent-teal-bright) !important;
+  box-shadow: 0 0 15px rgba(82, 183, 136, 0.2);
+}
+
+.tabIcon {
+  color: inherit;
+  flex-shrink: 0;
+}
+
+.tabName {
+  font-weight: 500;
+}
+
+.tabCategory {
+  font-size: 0.65rem;
+  padding: 2px 6px;
+  border-radius: 3px;
+  background: rgba(244, 211, 94, 0.1);
+  color: var(--accent-yellow);
+  border: 1px solid rgba(244, 211, 94, 0.25);
+}
+
+/* ── Script Header & Details ─────────────────────────────────────────── */
+.scriptHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  background: rgba(12, 18, 13, 0.85);
+  border: 1px solid rgba(82, 183, 136, 0.25);
+  border-radius: 8px;
+  padding: 20px 24px;
+}
+
+@media (max-width: 860px) {
+  .scriptHeader {
+    flex-direction: column;
+  }
+}
+
+.scriptIdentity {
+  flex: 1;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+.scriptTitle {
+  font-family: 'Fira Code', monospace;
+  font-size: 1.2rem;
+  color: var(--text-serif-cream);
+  margin: 0;
+  font-weight: 600;
+}
+
+.langBadge {
+  font-size: 0.65rem;
+  padding: 2px 8px;
+  background: rgba(82, 183, 136, 0.15);
+  color: var(--accent-teal-bright);
+  border: 1px solid rgba(82, 183, 136, 0.3);
+  border-radius: 4px;
+  letter-spacing: 0.1em;
+}
+
+.scriptPath code {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.75rem;
+  color: var(--accent-rust);
+  opacity: 0.9;
+}
+
+.scriptDesc {
+  font-size: 0.9rem;
+  color: var(--text-sans-slate);
+  margin: 8px 0 0 0;
+  line-height: 1.5;
+}
+
+.scriptActions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.actionBtn,
+.actionBtnSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border-radius: 6px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.actionBtn {
+  background: var(--accent-teal-bright);
+  color: #061109;
+  border: none;
+}
+
+.actionBtn:hover {
+  background: #62d69e;
+  transform: translateY(-1px);
+  box-shadow: 0 0 15px rgba(82, 183, 136, 0.4);
+}
+
+.actionBtnCopied {
+  background: #2b7d4c !important;
+  color: #ffffff !important;
+}
+
+.actionBtnSecondary {
+  background: rgba(14, 22, 15, 0.8);
+  color: var(--text-serif-cream);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.actionBtnSecondary:hover {
+  border-color: var(--accent-teal-bright);
+  color: var(--accent-teal-bright);
+  background: rgba(82, 183, 136, 0.08);
+}
+
+/* ── Highlights Callout Box ──────────────────────────────────────────── */
+.highlightsBox {
+  background: rgba(10, 15, 11, 0.9);
+  border: 1px solid rgba(244, 211, 94, 0.25);
+  border-left: 3px solid var(--accent-yellow);
+  border-radius: 6px;
+  padding: 14px 18px;
+}
+
+.highlightsHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent-yellow);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+}
+
+.highlightsIcon {
+  color: var(--accent-yellow);
+}
+
+.highlightsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.highlightsList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.84rem;
+  color: #d0ded6;
+  line-height: 1.45;
+}
+
+.bulletIcon {
+  color: var(--accent-teal-bright);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+/* ── Terminal Code Viewer ────────────────────────────────────────────── */
+.terminalWindow {
+  background: #070c08;
+  border: 1px solid rgba(82, 183, 136, 0.3);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+}
+
+.terminalBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: rgba(14, 22, 16, 0.95);
+  border-bottom: 1px solid rgba(82, 183, 136, 0.2);
+}
+
+.terminalDots {
+  display: flex;
+  gap: 6px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dotRed {
+  background: #ea4040;
+}
+
+.dotYellow {
+  background: #f4d35e;
+}
+
+.dotGreen {
+  background: #52b788;
+}
+
+.terminalTitle {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.78rem;
+  color: var(--text-serif-cream);
+  letter-spacing: 0.05em;
+}
+
+.terminalCount {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.68rem;
+  color: var(--text-sans-slate);
+  letter-spacing: 0.1em;
+}
+
+.codeViewport {
+  display: flex;
+  max-height: 520px;
+  overflow-y: auto;
+  overflow-x: auto;
+  background: #060a07;
+  font-family: 'Fira Code', Consolas, monospace;
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.gutter {
+  user-select: none;
+  padding: 16px 14px 16px 14px;
+  text-align: right;
+  color: rgba(255, 255, 255, 0.2);
+  border-right: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.lineNumber {
+  display: block;
+}
+
+.codeArea {
+  margin: 0;
+  padding: 16px 20px;
+  color: #cde0d5;
+  white-space: pre;
+  tab-size: 4;
+  flex: 1;
+  min-width: 0;
+}
+
+.codeArea code {
+  font-family: inherit;
+  font-size: inherit;
+}

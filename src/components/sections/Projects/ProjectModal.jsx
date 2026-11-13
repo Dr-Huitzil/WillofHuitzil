@@ -1,13 +1,15 @@
 // src/components/sections/Projects/ProjectModal.jsx
 
 import React, { useCallback, useState } from 'react';
-import { ChevronRight, ChevronUp, Monitor } from 'lucide-react';
+import { ChevronRight, ChevronUp, Monitor, BookOpen, Code2 } from 'lucide-react';
 import ModalShell, { ModalCloseButton } from '@/components/ui/ModalShell/ModalShell';
 import { renderMarkdown } from '@/utils/renderMarkdown';
+import ScriptExplorer from './ScriptExplorer/ScriptExplorer';
 import styles from './ProjectModal.module.css';
 
 const ProjectModal = ({ project, onClose }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [activeTab, setActiveTab] = useState('docs'); // 'docs' | 'scripts'
 
   // Guard: render nothing if data is missing
   if (!project) return null;
@@ -16,6 +18,8 @@ const ProjectModal = ({ project, onClose }) => {
     () => setIsExpanded((prev) => !prev),
     []
   );
+
+  const hasScripts = Boolean(project.scripts && project.scripts.length > 0);
 
   const projectSummary = (
     <div className={styles.projectSummary}>
@@ -106,12 +110,40 @@ const ProjectModal = ({ project, onClose }) => {
                 id="project-deep-analysis"
                 className={styles.expandedInfoSection}
               >
-                <h3 className={`serif-header ${styles.expandedTitle}`}>
-                  Deep Dive
-                </h3>
-                <div className={styles.longDescription}>
-                  {renderMarkdown(project.longDescription)}
+                <div className={styles.expandedHeaderRow}>
+                  <h3 className={`serif-header ${styles.expandedTitle}`}>
+                    Deep Dive
+                  </h3>
+
+                  {hasScripts && (
+                    <div className={styles.tabToggleBar}>
+                      <button
+                        type="button"
+                        className={`${styles.tabToggleBtn} mono-accent ${activeTab === 'docs' ? styles.tabToggleActive : ''}`}
+                        onClick={() => setActiveTab('docs')}
+                      >
+                        <BookOpen size={13} />
+                        <span>OVERVIEW &amp; RUNBOOKS</span>
+                      </button>
+                      <button
+                        type="button"
+                        className={`${styles.tabToggleBtn} mono-accent ${activeTab === 'scripts' ? styles.tabToggleActive : ''}`}
+                        onClick={() => setActiveTab('scripts')}
+                      >
+                        <Code2 size={13} />
+                        <span>SCRIPT EXPLORER ({project.scripts.length})</span>
+                      </button>
+                    </div>
+                  )}
                 </div>
+
+                {(!hasScripts || activeTab === 'docs') ? (
+                  <div className={styles.longDescription}>
+                    {renderMarkdown(project.longDescription)}
+                  </div>
+                ) : (
+                  <ScriptExplorer scripts={project.scripts} />
+                )}
               </div>
             )}
           </div>

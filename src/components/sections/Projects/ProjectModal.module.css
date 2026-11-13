@@ -220,9 +220,54 @@
 
 .expandedTitle {
   font-size: 2.5rem;
-  margin-bottom: 30px;
+  margin-bottom: 0;
   line-height: 1;
   color: var(--accent-rust);
+}
+
+.expandedHeaderRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.tabToggleBar {
+  display: flex;
+  gap: 8px;
+  background: rgba(8, 12, 9, 0.9);
+  padding: 4px;
+  border: 1px solid rgba(82, 183, 136, 0.25);
+  border-radius: 6px;
+}
+
+.tabToggleBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-sans-slate);
+  padding: 6px 12px;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tabToggleBtn:hover {
+  color: var(--text-serif-cream);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.tabToggleActive {
+  background: rgba(82, 183, 136, 0.2) !important;
+  color: var(--accent-teal-bright) !important;
+  border-color: rgba(82, 183, 136, 0.45) !important;
+  box-shadow: 0 0 10px rgba(82, 183, 136, 0.2);
 }
 
 /* ── Deep Dive: long-form markdown content ── */
